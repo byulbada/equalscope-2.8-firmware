@@ -81,6 +81,18 @@
     a{color:var(--ink);text-decoration:none;}
     @page{size:A4;margin:16mm 14mm;}
   }
+  figure.fig{margin:16px 0;text-align:center;}
+  figure.fig img{max-width:480px;width:100%;border:1px solid var(--line);border-radius:8px;}
+  figure.fig.shot img{max-width:340px;background:#0a0f14;border:0;padding:8px;}
+  figure.fig figcaption{font-size:13px;color:var(--muted);margin-top:6px;}
+  .figrow{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:16px 0;}
+  .figrow figure{margin:0;text-align:center;}
+  .figrow.shots figure{flex:1 1 150px;max-width:200px;}
+  .figrow.shots img{width:100%;background:#0a0f14;border-radius:6px;}
+  .figrow.themes figure{flex:0 0 auto;width:84px;}
+  .figrow.themes img{width:100%;border:1px solid var(--line);border-radius:5px;}
+  .figrow figcaption{font-size:12px;color:var(--muted);margin-top:4px;}
+  @media print{ figure.fig,.figrow{page-break-inside:avoid;} figure.fig img,.figrow.shots img{max-width:300px;} }
 </style>
 </head>
 <body>
@@ -127,6 +139,7 @@
   </tbody>
 </table>
 <blockquote><strong>SD 카드는 별매(미포함)</strong> 입니다. USB 케이블은 동봉됩니다.</blockquote>
+<figure class="fig photo"><img src="assets/kit-orange.jpg" alt="Equalscope 구성품"><figcaption>구성품: 본체 · 이퀄벤트 · 튜브 · 압력조절 밸브 · USB 케이블</figcaption></figure>
 
 <h3 id="s1_2">1.2 충전과 전원</h3>
 <ul>
@@ -140,6 +153,7 @@
         <li><strong>메인 화면의 [전원] 버튼</strong> 누르기</li></ul></li>
   <li><strong>자동 종료</strong>: 설정 시간 동안 조작이 없으면 자동으로 꺼집니다 (<a href="#s8_4">8.4</a>).</li>
 </ul>
+<figure class="fig photo"><img src="assets/port-usb.jpg" alt="USB 포트"><figcaption>USB-C 충전 포트 — 충전 중에는 커넥터 왼쪽에 초록색 불이 켜집니다</figcaption></figure>
 
 <h3 id="s1_3">1.3 SD 카드</h3>
 <ul>
@@ -147,6 +161,7 @@
   <li>측정 파일 저장과 스크린샷에 사용됩니다.</li>
   <li>SD가 없어도 <strong>내부 메모리</strong>로 측정·저장이 가능합니다 (저장소 차이는 <a href="#s6_2">6.2</a> 참고).</li>
 </ul>
+<figure class="fig photo"><img src="assets/slot-sd.jpg" alt="SD 카드 슬롯"><figcaption>측면 SD 카드 슬롯 (전원이 켜진 상태에서도 삽입·제거 가능)</figcaption></figure>
 
 <!-- 2 -->
 <h2 id="sec2">2. 기본 측정</h2>
@@ -158,6 +173,7 @@
   <li>전원을 켜고 영점 보정이 끝나면 측정 준비 완료입니다.</li>
   <li><strong>이퀄 벤트는 측정할 때 코에 갖다 댑니다</strong> — 이퀄 벤트 <strong>앞쪽의 구멍을 콧구멍에 잘 맞춰</strong> 대면 됩니다. (측정 시작 후 — <a href="#s2_3">2.3</a> 참고)</li>
 </ol>
+<figure class="fig photo"><img src="assets/equalvent-nemo.jpg" alt="이퀄벤트 세트"><figcaption>이퀄벤트와 튜브 연결 (니모 버전)</figcaption></figure>
 
 <h3 id="s2_2">2.2 압력 조절 밸브 사용법</h3>
 <ul>
@@ -166,6 +182,7 @@
   <li>입안 공기가 줄어드는 상황을 <strong>간접적으로 시뮬레이션</strong>해, 깊은 수심의 핵심 기술(특히 <strong>마우스필</strong>)을 지상에서 반복 훈련할 수 있습니다.</li>
   <li>눈금이 있어 <strong>같은 조건을 반복 설정</strong>하기 쉽습니다.</li>
 </ul>
+<figure class="fig photo"><img src="assets/valve-orange.jpg" alt="압력 조절 밸브"><figcaption>압력 조절 밸브 — 눈금 다이얼을 당겨 돌리고, 눌러 고정</figcaption></figure>
 
 <h3 id="s2_3">2.3 측정 흐름</h3>
 <pre>[시작] 누름 → 이퀄라이징 측정(실시간 그래프) → [정지] → 자동 저장 → [분석]</pre>
@@ -185,6 +202,7 @@
   <li><strong>배터리 잔량</strong> — 우측 상단</li>
   <li><strong>실시간 그래프</strong> — 중앙 (자세한 읽는 법은 <a href="#sec4">4장</a>)</li>
 </ul>
+<figure class="fig shot"><img src="assets/tech-frenzel.png" alt="메인 화면"><figcaption>측정 중 메인 화면 — 상단 압력 3값·스톱워치·배터리 + 실시간 그래프 + 하단 5버튼</figcaption></figure>
 
 <!-- 3 -->
 <h2 id="sec3">3. 화면 조작</h2>
@@ -229,6 +247,7 @@
     <tr><td><strong>훈련 밴드</strong></td><td>음영 띠 + 점선 경계</td><td>설정한 압력 알람 범위(<a href="#s8_2">8.2</a>)</td></tr>
   </tbody>
 </table>
+<figure class="fig shot"><img src="assets/screen-measure.png" alt="그래프 구성 요소"><figcaption>측정선(파랑) + 참조선(겹쳐 비교) + 훈련 밴드(초록 경계)</figcaption></figure>
 
 <h3 id="s4_2">4.2 화면 상단 숫자</h3>
 <p>그래프 위쪽에 세 가지 압력이 실시간 숫자로 표시됩니다.</p>
@@ -258,6 +277,7 @@
 <p>측정을 정지하면 결과가 자동 저장되고, <strong>[시작] 버튼이 [분석]으로 바뀝니다.</strong>
 [분석]을 누르면 통계값과 패턴 판정, 그리고 조언 메시지가 표시됩니다.</p>
 <p>이 장이 Equalscope의 핵심입니다. 단순히 압력을 "보여주는" 데 그치지 않고, 측정 패턴을 <strong>자동으로 분류하고 정량적 지표로 풀어</strong> 줍니다.</p>
+<figure class="fig shot"><img src="assets/screen-analysis.png" alt="분석 화면"><figcaption>분석 화면 — 통계값 + 패턴 판정(신뢰도) + 조언 메시지</figcaption></figure>
 
 <h3 id="s5_1">5.1 통계값 읽기</h3>
 <p>분석 화면 오른쪽(또는 별도 박스)에 표시되는 숫자들의 의미입니다.
@@ -312,6 +332,13 @@
     <tr><td><strong>마우스필 프렌젤</strong></td><td>높은 저점 위에서 <strong>작은 진폭의 반복</strong></td><td>마우스필 공기를 프렌젤로 잘게 나눠 쓰는 고급 패턴</td></tr>
   </tbody>
 </table>
+<div class="figrow shots">
+  <figure><img src="assets/tech-valsalva.png" alt="발살바 그래프"><figcaption>발살바</figcaption></figure>
+  <figure><img src="assets/tech-valsalva-frenzel.png" alt="발살바+프렌젤 그래프"><figcaption>발살바+프렌젤</figcaption></figure>
+  <figure><img src="assets/tech-frenzel.png" alt="프렌젤 그래프"><figcaption>프렌젤</figcaption></figure>
+  <figure><img src="assets/tech-mouthfill.png" alt="마우스필 그래프"><figcaption>마우스필</figcaption></figure>
+  <figure><img src="assets/tech-mouthfill-frenzel.png" alt="마우스필 프렌젤 그래프"><figcaption>마우스필 프렌젤</figcaption></figure>
+</div>
 <p><strong>판정 보조 지표 정리</strong></p>
 <ul>
   <li>진동형 ↔ 유지형: <strong>상승 속도</strong>가 기준. 빠르면 진동형(발살바/프렌젤), 느리면 유지형(마우스필).</li>
@@ -384,6 +411,7 @@
   <li>페이지가 여러 장이면 <strong>좌우 스와이프</strong>로 페이지를 넘깁니다. (하단에 <code>1/2  32 files</code> 식 표시)</li>
   <li>파일 한 칸을 탭하면 선택됩니다.</li>
 </ul>
+<figure class="fig shot"><img src="assets/screen-files.png" alt="파일 화면"><figcaption>파일 화면 — 내부/SD/참조 3탭, 그리드 목록</figcaption></figure>
 
 <h3 id="s6_4">6.4 내부 메모리 / SD 탭 동작</h3>
 <p>일반(내부·SD) 탭에서 파일을 선택하면 아래 버튼을 쓸 수 있습니다. <code>[열기] [복사] [참조] [삭제] [닫기]</code></p>
@@ -402,6 +430,7 @@
 <p><strong>참조 그래프</strong>는 Equalscope의 핵심 훈련 기능입니다.
 모범 패턴을 <strong>배경에 깔아 두고, 내 실시간 그래프를 그 위에 겹쳐</strong> 따라하거나 비교합니다.</p>
 <blockquote><strong>활용 시나리오</strong>: 강사가 모범 이퀄라이징 패턴을 측정해 참조로 배포 → 교육생이 그 참조를 배경에 깔고 똑같이 따라가며 훈련.</blockquote>
+<figure class="fig shot"><img src="assets/screen-measure.png" alt="참조 비교"><figcaption>참조 그래프(배경)에 내 측정선을 겹쳐 비교하며 훈련</figcaption></figure>
 <p>참조 탭에서 파일을 선택하면 버튼이 달라집니다. <code>[열기] [해제] [이름 변경] [삭제] [닫기]</code></p>
 <table>
   <thead><tr><th>버튼</th><th>동작</th></tr></thead>
@@ -477,6 +506,11 @@
     <tr><td><strong>3</strong></td><td>Y축 최고 · Y축 최저 · 기본 줌 · 언어</td></tr>
   </tbody>
 </table>
+<div class="figrow shots">
+  <figure><img src="assets/screen-settings.png" alt="설정 1페이지"><figcaption>페이지 1</figcaption></figure>
+  <figure><img src="assets/screen-settings2.png" alt="설정 2페이지"><figcaption>페이지 2</figcaption></figure>
+  <figure><img src="assets/screen-settings3.png" alt="설정 3페이지"><figcaption>페이지 3</figcaption></figure>
+</div>
 <p>아래는 <strong>기능별</strong>로 묶어 설명합니다. (각 항목이 어느 페이지에 있는지 함께 표시)</p>
 
 <h3 id="s8_1">8.1 화면</h3>
@@ -488,6 +522,15 @@
     <tr><td><strong>언어</strong></td><td>3</td><td>한국어 / English</td><td>표시 언어</td></tr>
   </tbody>
 </table>
+<div class="figrow themes">
+  <figure><img src="assets/theme-daylight.png" alt="밝은 테마"><figcaption>밝은</figcaption></figure>
+  <figure><img src="assets/theme-coral.png" alt="연지 테마"><figcaption>연지</figcaption></figure>
+  <figure><img src="assets/theme-maple.png" alt="단풍 테마"><figcaption>단풍</figcaption></figure>
+  <figure><img src="assets/theme-lime.png" alt="라임 테마"><figcaption>라임</figcaption></figure>
+  <figure><img src="assets/theme-sky.png" alt="하늘 테마"><figcaption>하늘</figcaption></figure>
+  <figure><img src="assets/theme-neon.png" alt="네온 테마"><figcaption>네온</figcaption></figure>
+  <figure><img src="assets/theme-lavender.png" alt="라벤더 테마"><figcaption>라벤더</figcaption></figure>
+</div>
 
 <h3 id="s8_2">8.2 소리</h3>
 <table>

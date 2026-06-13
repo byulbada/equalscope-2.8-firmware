@@ -2,201 +2,153 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>Equalscope 퀵스타트 가이드</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Equalscope 빠른 시작 가이드</title>
 <!--
-  인쇄용 퀵스타트 1장 (양면).
-  사용법: 브라우저로 열기 → Ctrl+P → 용지 A5(권장) 또는 A4 → 배경 그래픽 켜기 → 인쇄/PDF 저장.
-  [사진: ___] / [QR] 자리는 이미지로 교체하세요.
-  색을 흰 배경 → 딥네이비 배경으로 바꾸려면 :root 의 --paper / --ink 변수를 조정.
+  빠른 시작 — 가방(내부 100×160mm)에 넣는 맞춤 카드 (95×148mm, 5쪽).
+  인쇄: 브라우저 Ctrl+P → 배경 그래픽 켜기 →
+        · "실제 크기(100%)"로 인쇄하면 A4 한 장에 카드 1개가 좌상단에 찍힘 → 잘라서 사용.
+        · 여러 장 모아 찍으려면 이 페이지를 PDF로 저장 후 PDF 도구로 A4에 2~4장 배치.
+  용지 크기 변경: 아래 :root 의 --pw / --ph 와 @page size 를 함께 수정.
+  이미지는 assets/ 공유 (index.html 와 동일).
 -->
 <style>
   :root{
-    --navy:#0d2137;
-    --navy2:#16314f;
-    --orange:#ff6b1a;
-    --paper:#ffffff;
-    --ink:#1a1a1a;
-    --muted:#5b6b7a;
-    --line:#d8dee5;
+    --pw:95mm; --ph:148mm;                  /* 가방 맞춤 */
+    --navy:#0d2137; --orange:#ff6b1a; --orange-d:#e85a0c;
+    --ink:#1c2a38; --muted:#5b6b7a; --line:#dde3e9; --soft:#f4f7fa;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
-  html,body{font-family:"Malgun Gothic","Noto Sans KR",sans-serif;color:var(--ink);background:#e9edf1;}
+  body{background:#e9edf1;color:var(--ink);
+       font-family:"Pretendard","Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;line-height:1.5;}
+  img{max-width:100%;display:block;}
+
   .page{
-    width:148mm;height:210mm;            /* A5 세로 */
-    background:var(--paper);
-    margin:8mm auto;padding:12mm 11mm;
-    position:relative;overflow:hidden;
-    box-shadow:0 1px 6px rgba(0,0,0,.15);
+    width:var(--pw); height:var(--ph);
+    background:#fff; margin:6mm auto; padding:6mm 6mm 8mm;
+    position:relative; overflow:hidden;
+    box-shadow:0 1px 7px rgba(0,0,0,.16);
+    display:flex; flex-direction:column;
   }
 
-  /* ── 헤더 ── */
-  .head{display:flex;align-items:baseline;gap:8px;border-bottom:3px solid var(--orange);padding-bottom:7px;margin-bottom:11px;}
-  .brand{font-size:26px;font-weight:800;color:var(--orange);letter-spacing:-.5px;}
-  .brand b{color:inherit;}
-  .tagline{font-size:11px;color:var(--muted);margin-left:auto;}
-  .doctype{font-size:13px;font-weight:700;color:var(--navy);letter-spacing:2px;}
+  .head{display:flex;align-items:baseline;gap:6px;border-bottom:2px solid var(--orange);
+        padding-bottom:4px;margin-bottom:7px;}
+  .brand{font-size:16px;font-weight:800;color:var(--orange);letter-spacing:-.3px;}
+  .doctype{font-size:8px;font-weight:700;letter-spacing:.13em;color:var(--muted);margin-left:auto;}
 
-  h2.sec{font-size:14px;color:var(--navy);margin:14px 0 8px;padding-left:8px;border-left:4px solid var(--orange);}
+  h2{font-size:13px;color:var(--navy);padding-left:6px;border-left:3.5px solid var(--orange);margin-bottom:6px;}
+  .step-no{color:var(--orange);font-weight:800;}
 
-  /* ── 5단계 ── */
-  .steps{display:flex;flex-direction:column;gap:9px;}
-  .step{display:flex;gap:11px;align-items:flex-start;}
-  .num{flex:0 0 30px;height:30px;border-radius:50%;background:var(--orange);color:#fff;
-       font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;}
-  .step .body{flex:1;}
-  .step .ttl{font-size:13.5px;font-weight:700;color:var(--navy);}
-  .step .desc{font-size:12px;color:#333;line-height:1.5;margin-top:2px;}
-  .step .desc em{color:var(--orange);font-style:normal;font-weight:700;}
-  .imgbox{flex:0 0 34mm;height:24mm;border:1px dashed #b9c2cc;border-radius:4px;
-          display:flex;align-items:center;justify-content:center;color:#9aa7b3;font-size:10px;text-align:center;}
+  .photo{flex:1;display:flex;align-items:center;justify-content:center;background:var(--soft);
+         border:1px solid var(--line);border-radius:7px;overflow:hidden;margin-bottom:6px;}
+  .photo.cover img{width:100%;height:100%;object-fit:cover;}
+  .device{flex:1;display:flex;align-items:center;justify-content:center;background:#0a0f14;
+          border-radius:7px;padding:7px;margin-bottom:6px;}
+  .device img{max-height:100%;max-width:100%;width:auto;border-radius:4px;}
 
-  .warn{margin-top:12px;background:#fff4ec;border:1px solid #ffd2b3;border-radius:6px;
-        padding:8px 11px;font-size:11px;color:#a8430a;line-height:1.5;}
+  .desc{font-size:10.5px;color:#33485e;line-height:1.5;}
+  .desc em{font-style:normal;font-weight:700;color:var(--orange-d);}
+  ul.parts{font-size:10.5px;color:var(--ink);list-style:none;}
+  ul.parts li{padding:2.5px 0;border-bottom:1px solid var(--line);}
+  ul.parts li b{color:var(--navy);}
 
-  /* ── 뒷면 표 ── */
-  .grid2{display:flex;gap:9mm;}
-  .col{flex:1;}
-  table{width:100%;border-collapse:collapse;font-size:11.5px;}
-  td{padding:5px 4px;border-bottom:1px solid var(--line);vertical-align:top;}
-  td.k{font-weight:700;color:var(--navy);white-space:nowrap;width:30%;}
-  .ico{display:inline-block;width:16px;color:var(--orange);font-weight:800;}
+  .warn{background:#fff4ec;border:1px solid #ffd2b3;border-radius:8px;padding:8px 11px;margin-bottom:8px;}
+  .warn h3{font-size:12px;color:var(--navy);margin-bottom:3px;}
+  .warn p{font-size:10px;color:#8a3c0c;line-height:1.5;}
+  .warn em{font-style:normal;font-weight:700;color:var(--orange-d);}
 
-  .qrwrap{margin-top:8px;text-align:center;}
-  .qrbox{width:32mm;height:32mm;border:1px dashed #b9c2cc;border-radius:4px;margin:0 auto;
-         display:flex;align-items:center;justify-content:center;color:#9aa7b3;font-size:10px;}
-  .qrcap{font-size:10.5px;color:var(--muted);margin-top:5px;}
+  .block h3{font-size:12px;color:var(--navy);margin-bottom:3px;}
 
-  .foot{position:absolute;left:11mm;right:11mm;bottom:9mm;border-top:1px solid var(--line);
-        padding-top:6px;font-size:9.5px;color:var(--muted);display:flex;justify-content:space-between;}
-  .safe{margin-top:11px;font-size:10.5px;color:#a8430a;background:#fff4ec;border-radius:6px;padding:7px 10px;line-height:1.5;}
+  table{width:100%;border-collapse:collapse;font-size:9.5px;}
+  td{padding:3.5px 3px;border-bottom:1px solid var(--line);vertical-align:top;}
+  td.k{font-weight:700;color:var(--navy);white-space:nowrap;width:34%;}
+  .safe{background:#fff4ec;border-left:3px solid var(--orange);border-radius:5px;
+        padding:6px 9px;font-size:9px;color:#9a3d08;line-height:1.45;margin:7px 0;}
+
+  .qrline{display:flex;align-items:center;gap:10px;border-top:1px solid var(--line);padding-top:7px;}
+  .qrline .qr{width:24mm;height:24mm;border:1px solid var(--line);border-radius:5px;padding:2mm;flex:none;background:#fff;}
+  .qrline .qr img{width:100%;height:100%;}
+  .qrline .t b{display:block;font-size:11px;color:var(--navy);}
+  .qrline .t span{font-size:9px;color:var(--muted);}
+  .qrline .t .u{color:var(--orange-d);font-weight:700;}
+
+  .foot{position:absolute;left:6mm;right:6mm;bottom:3.5mm;display:flex;justify-content:space-between;
+        font-size:7.5px;color:#9aa7b3;border-top:1px solid var(--line);padding-top:3.5px;}
 
   @media print{
-    html,body{background:#fff;}
+    body{background:#fff;}
     .page{margin:0;box-shadow:none;page-break-after:always;}
-    @page{size:A5;margin:0;}
+    @page{size:95mm 148mm;margin:0;}
   }
 </style>
 </head>
 <body>
 
-<!-- ════════ 앞면 ════════ -->
+<!-- 1 구성품 -->
 <section class="page">
-  <div class="head">
-    <div class="brand">Equal<b>scope</b></div>
-    <div class="tagline">이퀄라이징 훈련 측정 장비</div>
-  </div>
-  <div class="doctype">QUICK START · 빠른 시작</div>
-
-  <h2 class="sec">5단계로 첫 측정까지</h2>
-  <div class="steps">
-
-    <div class="step">
-      <div class="num">1</div>
-      <div class="body">
-        <div class="ttl">구성품 확인</div>
-        <div class="desc">본체 · 이퀄 벤트 · 4mm 튜브 · 압력 조절 밸브를 확인합니다.</div>
-      </div>
-      <div class="imgbox">[사진: 구성품]</div>
-    </div>
-
-    <div class="step">
-      <div class="num">2</div>
-      <div class="body">
-        <div class="ttl">연결하기</div>
-        <div class="desc">튜브를 본체와 이퀄 벤트에 원터치로 연결합니다.</div>
-      </div>
-      <div class="imgbox">[사진: 연결]</div>
-    </div>
-
-    <div class="step">
-      <div class="num">3</div>
-      <div class="body">
-        <div class="ttl">전원 켜기</div>
-        <div class="desc">전원 버튼을 <em>3초간</em> 누릅니다. 부팅 후 <em>약 5초간 영점 보정</em> —
-          이때는 압력을 가하지 말고 그대로 두세요.</div>
-      </div>
-      <div class="imgbox">[사진: 전원]</div>
-    </div>
-
-    <div class="step">
-      <div class="num">4</div>
-      <div class="body">
-        <div class="ttl">측정하기</div>
-        <div class="desc"><em>[시작]</em>을 누른 뒤, 이퀄 벤트를 <em>코에 갖다 대고</em> 이퀄라이징을 합니다.
-          실시간 그래프로 압력이 그려집니다. 마치면 <em>[정지]</em>.</div>
-      </div>
-      <div class="imgbox">[사진: 측정 화면]</div>
-    </div>
-
-    <div class="step">
-      <div class="num">5</div>
-      <div class="body">
-        <div class="ttl">결과 보기</div>
-        <div class="desc">정지하면 자동 저장됩니다. <em>[분석]</em>을 누르면 패턴 분류와 조언을 볼 수 있습니다.</div>
-      </div>
-      <div class="imgbox">[사진: 분석 화면]</div>
-    </div>
-
-  </div>
-
-  <div class="warn">⚠️ <b>영점 보정(켤 때 약 5초)</b> 동안에는 이퀄 벤트를 코에 대거나 튜브에 압력을 가하지 마세요.
-    이 기준점이 측정 정확도를 좌우합니다.</div>
-
-  <div class="foot"><span>Equalscope Quick Start</span></div>
+  <div class="head"><div class="brand">Equal<b>scope</b></div><div class="doctype">QUICK START</div></div>
+  <h2>구성품</h2>
+  <div class="photo cover"><img src="assets/kit-orange.jpg" alt="Equalscope 구성품"></div>
+  <ul class="parts">
+    <li><b>본체</b> · <b>이퀄벤트</b> · <b>4mm 튜브</b></li>
+    <li><b>압력 조절 밸브</b>(눈금) · <b>USB 케이블</b></li>
+  </ul>
+  <div class="foot"><span>빠른 시작</span><span>1 / 5</span></div>
 </section>
 
-<!-- ════════ 뒷면 ════════ -->
+<!-- 2 연결 -->
 <section class="page">
-  <div class="head">
-    <div class="brand">Equal<b>scope</b></div>
-    <div class="tagline">버튼 · 제스처 · 도움말</div>
+  <div class="head"><div class="brand">Equal<b>scope</b></div><div class="doctype">QUICK START</div></div>
+  <h2><span class="step-no">①</span> 연결하기</h2>
+  <div class="photo cover"><img src="assets/hero-orange.jpg" alt="튜브로 연결된 Equalscope"></div>
+  <div class="desc">튜브를 본체 커넥터에 <em>딸깍</em> 끼우고, 반대쪽에 이퀄벤트를 연결합니다. 분리할 땐 커넥터를 잡고 당깁니다.</div>
+  <div class="foot"><span>연결</span><span>2 / 5</span></div>
+</section>
+
+<!-- 3 전원·영점 + 측정 -->
+<section class="page">
+  <div class="head"><div class="brand">Equal<b>scope</b></div><div class="doctype">QUICK START</div></div>
+  <div class="warn">
+    <h3><span class="step-no">②</span> 전원 켜기 · 영점 보정</h3>
+    <p>전원 버튼 <em>3초</em> → 부팅 후 <em>약 5초 영점 보정</em>. 이때 이퀄벤트를 코에 대거나 압력을 가하지 마세요. 기준점이 정확도를 좌우합니다.</p>
   </div>
+  <h2><span class="step-no">③</span> 측정하기</h2>
+  <div class="device"><img src="assets/tech-frenzel.png" alt="측정 화면 — 실시간 압력 그래프"></div>
+  <div class="desc"><em>[시작]</em> → 이퀄벤트를 코에 대고 이퀄라이징. 실시간 그래프 표시. 핀치=줌, 스와이프=좌우. 마치면 <em>[정지]</em>.</div>
+  <div class="foot"><span>전원 · 측정</span><span>3 / 5</span></div>
+</section>
 
-  <div class="grid2">
-    <div class="col">
-      <h2 class="sec">화면 버튼</h2>
-      <table>
-        <tr><td class="k">시작</td><td>측정 시작 → 측정 중 <b>정지</b> → 정지 후 <b>분석</b></td></tr>
-        <tr><td class="k">파일</td><td>저장된 측정·참조 그래프 보기</td></tr>
-        <tr><td class="k">리셋</td><td>그래프 초기화, 시작 상태로</td></tr>
-        <tr><td class="k">설정</td><td>테마·밝기·알람·메트로놈 등</td></tr>
-        <tr><td class="k">전원</td><td>눌러서 끄기 (아이콘만 표시)</td></tr>
-      </table>
-
-      <h2 class="sec">제스처</h2>
-      <table>
-        <tr><td class="k">핀치</td><td>그래프 시간축 줌 인/아웃</td></tr>
-        <tr><td class="k">스와이프</td><td>그래프 좌우 스크롤</td></tr>
-        <tr><td class="k">3손가락 탭</td><td>화면 스크린샷 (SD 카드 필요)</td></tr>
-      </table>
-    </div>
-
-    <div class="col">
-      <h2 class="sec">전원 끄기</h2>
-      <table>
-        <tr><td><span class="ico">•</span>물리 전원 버튼 <b>3초</b> 길게</td></tr>
-        <tr><td><span class="ico">•</span>또는 화면의 <b>[전원]</b> 버튼</td></tr>
-      </table>
-
-      <h2 class="sec">참조 그래프</h2>
-      <table>
-        <tr><td>모범 그래프를 배경에 깔고 내 측정과 <b>겹쳐 비교</b>하며 훈련.
-          파일 → 참조 탭에서 <b>열기</b>로 불러옵니다.</td></tr>
-        <tr><td>해제하려면 참조 탭에서 <b>[해제]</b> 버튼을 누릅니다.</td></tr>
-      </table>
-
-      <h2 class="sec">상세 매뉴얼</h2>
-      <div class="qrwrap">
-        <div class="qrbox">[QR]</div>
-        <div class="qrcap">전체 사용법 · 분석 해석 보기</div>
-      </div>
-    </div>
+<!-- 4 분석 · 참조 -->
+<section class="page">
+  <div class="head"><div class="brand">Equal<b>scope</b></div><div class="doctype">QUICK START</div></div>
+  <h2><span class="step-no">④</span> 결과 분석</h2>
+  <div class="device"><img src="assets/screen-analysis.png" alt="분석 화면"></div>
+  <div class="desc" style="margin-bottom:8px;">정지하면 자동 저장(SD 우선, 없으면 내부 메모리). <em>[분석]</em>에서 반복 통계·기술 추정·조언 확인.</div>
+  <div class="block">
+    <h3><span class="step-no">⑤</span> 참조 비교</h3>
+    <div class="desc"><em>[파일]</em>에서 좋은 샘플을 <b>참조 그래프</b>로 등록 → 실시간 측정과 겹쳐 비교하며 훈련.</div>
   </div>
+  <div class="foot"><span>분석 · 참조</span><span>4 / 5</span></div>
+</section>
 
-  <div class="safe">의료기기가 아닙니다. 측정·분석은 <b>훈련 보조 및 참고용</b>입니다.
-    무리한 압력을 가하지 말고, 자격 있는 강사의 지도 아래 훈련하세요.</div>
-
-  <div class="foot"><span>© Equalscope</span></div>
+<!-- 5 버튼·제스처 + QR -->
+<section class="page">
+  <div class="head"><div class="brand">Equal<b>scope</b></div><div class="doctype">QUICK START</div></div>
+  <h2>버튼 · 제스처</h2>
+  <table>
+    <tr><td class="k">시작</td><td>측정 → <b>정지</b> → <b>분석</b></td></tr>
+    <tr><td class="k">파일 / 리셋</td><td>저장 보기 / 그래프 초기화</td></tr>
+    <tr><td class="k">설정 / 전원</td><td>테마·밝기·알람 / 끄기(또는 버튼 3초)</td></tr>
+    <tr><td class="k">핀치 · 스와이프</td><td>그래프 줌 · 좌우 스크롤</td></tr>
+    <tr><td class="k">3손가락 탭</td><td>화면 캡처(SD 필요)</td></tr>
+    <tr><td class="k">펌웨어</td><td>SD에 .bin 넣고 켜면 자동 업데이트</td></tr>
+  </table>
+  <div class="safe">⚠️ 의료기기가 아닌 <b>훈련 보조 장비</b>입니다. 무리한 압력을 피하고 강사 지도 아래 훈련하세요.</div>
+  <div class="qrline">
+    <div class="qr"><img src="assets/qr-manual.png" alt="상세 매뉴얼 QR"></div>
+    <div class="t"><b>상세 사용설명서</b><span>전체 사용법 · 그래프 읽기 · 분석 해석<br><span class="u">equalscope.kr/manual.html</span></span></div>
+  </div>
+  <div class="foot"><span>© 2026 별바다다이브</span><span>5 / 5</span></div>
 </section>
 
 </body>

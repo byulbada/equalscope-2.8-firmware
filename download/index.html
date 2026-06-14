@@ -26,6 +26,15 @@
   .links a:hover{background:rgba(255,255,255,.16);}
   .foot{margin-top:28px;font-size:13px;color:#7c91a6;}
   .foot a{color:var(--orange);text-decoration:none;}
+  .history{margin:32px 0 6px;text-align:left;}
+  .history h2{font-size:16px;color:#dfe7ef;font-weight:700;margin-bottom:12px;text-align:center;}
+  .history table{width:100%;border-collapse:collapse;font-size:13.5px;}
+  .history th,.history td{border-bottom:1px solid rgba(255,255,255,.14);padding:9px 8px;text-align:left;color:#c4d3e2;vertical-align:top;}
+  .history th{color:#8aa0b8;font-weight:700;font-size:12px;}
+  .history td:first-child{font-weight:800;color:#fff;white-space:nowrap;}
+  .history td:nth-child(2){white-space:nowrap;color:#9fb4c9;}
+  .history a{color:var(--orange);font-weight:700;text-decoration:none;white-space:nowrap;}
+  .history a:hover{text-decoration:underline;}
 </style>
 </head>
 <body>
@@ -38,6 +47,16 @@
       <small>GitHub Releases · 최신 버전</small>
     </a>
     <p class="note">SD 카드 맨 위(루트) 폴더에 복사한 뒤 전원을 켜면 <b>자동으로 업데이트</b>됩니다.<br>자세한 방법은 <a href="../manual.html#sec9">사용설명서 9장</a>을 참고하세요.</p>
+
+    <div class="history">
+      <h2>버전 기록</h2>
+      <table>
+        <thead><tr><th>버전</th><th>날짜</th><th>변경 내용</th><th>다운로드</th></tr></thead>
+        <tbody>
+          <tr><td>v1.1</td><td>2026-06-13</td><td>배터리 잔량(%) 표시 응답성 개선 — 충전 시 더 빠르고 안정적으로 반영</td><td><a href="https://github.com/byulbada/equalscope-firmware/releases/download/v1.1/equpdate_1.1.bin">.bin ↓</a></td></tr>
+        </tbody>
+      </table>
+    </div>
 
     <div class="links">
       <a href="../manual.html">상세 사용설명서</a>

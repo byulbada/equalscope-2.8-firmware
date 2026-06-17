@@ -1,0 +1,14 @@
+{
+  "name": "Equalscope",
+  "short_name": "Equalscope",
+  "description": "이퀄라이징을 눈으로 보는 프리다이빙 훈련 장비",
+  "lang": "ko",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0D2137",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

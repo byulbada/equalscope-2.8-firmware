@@ -26,7 +26,8 @@
 
   /* 헤더 배너 */
   header{background:var(--navy);color:#fff;padding:30px 38px 24px;}
-  header .brand{font-size:30px;font-weight:800;color:var(--orange);letter-spacing:-.5px;}
+  header .brand{display:flex;align-items:center;gap:10px;font-size:30px;font-weight:800;color:var(--orange);letter-spacing:-.5px;}
+  header .brand .mark{height:34px;width:auto;}
   header .brand b{color:inherit;}
   header h1{font-size:18px;font-weight:600;margin:6px 0 14px;color:#dfe7ef;}
   header .meta{font-size:12.5px;color:#9fb1c2;line-height:1.7;border-top:1px solid #27425f;padding-top:12px;}
@@ -102,7 +103,7 @@
 <div class="wrap">
 
 <header>
-  <div class="brand">Equalscope</div>
+  <div class="brand"><img class="mark" src="assets/brand/byulbada-dive_symbol.svg" alt="">Equalscope</div>
   <h1>사용자 매뉴얼 — 상세 사용설명서</h1>
   <div class="meta">
     프리다이빙 이퀄라이징 훈련 측정 장비<br>

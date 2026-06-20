@@ -112,9 +112,8 @@
   .figrow.patterns figure{flex:0 1 30%;max-width:31%;}
   .figrow.themes figure{flex:0 1 22%;max-width:23%;}
   .figrow.themes img{width:100%;border:1px solid var(--line);border-radius:5px;}
-  /* 8.설정 전용 축소 — PDF 변환 시 page-break-inside 회피로 생기는 빈 공간 방지 */
-  .figrow.pair.compact figure{flex-basis:200px;max-width:200px;}
-  .figrow.themes.compact figure{flex:0 1 18%;max-width:18.5%;}
+  /* 8.설정 페이지 3장 — 폭에 꽉차게 (큰 사진이 PDF 빈 공간도 메움) */
+  .figrow.pair.wide figure{flex:1 1 0;max-width:none;}
   .figrow figcaption{font-size:12px;color:var(--muted);margin-top:4px;}
   @media print{ figure.fig,.figrow{page-break-inside:avoid;} figure.fig img,.figrow.shots img{max-width:300px;} }
 </style>
@@ -538,7 +537,7 @@
 <p>메인 화면에서 <strong>[설정]</strong>을 누르면 열립니다. 설정은 <strong>3개 페이지</strong>로 구성되며, <strong>좌우 화살표</strong>로 페이지를 이동합니다.</p>
 
 <h3>설정 페이지 한눈에 보기</h3>
-<div class="figrow pair compact">
+<div class="figrow pair wide">
   <figure><img src="assets/screen-settings.png" alt="설정 1페이지"><figcaption>페이지 1</figcaption></figure>
   <figure><img src="assets/screen-settings2.png" alt="설정 2페이지"><figcaption>페이지 2</figcaption></figure>
   <figure><img src="assets/screen-settings3.png" alt="설정 3페이지"><figcaption>페이지 3</figcaption></figure>
@@ -554,7 +553,7 @@
 <p>아래는 <strong>기능별</strong>로 묶어 설명합니다. (각 항목이 어느 페이지에 있는지 함께 표시)</p>
 
 <h3 id="s8_1">8.1 화면</h3>
-<div class="figrow themes compact">
+<div class="figrow themes">
   <figure><img src="assets/theme-daylight.png" alt="밝은 테마"><figcaption>밝은</figcaption></figure>
   <figure><img src="assets/theme-coral.png" alt="연지 테마"><figcaption>연지</figcaption></figure>
   <figure><img src="assets/theme-maple.png" alt="단풍 테마"><figcaption>단풍</figcaption></figure>

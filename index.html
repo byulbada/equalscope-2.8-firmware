@@ -73,6 +73,9 @@
   .topbar .nav-cta{font-size:14px;font-weight:700;color:#fff;background:var(--orange);
                    padding:9px 18px;border-radius:999px;}
   .topbar .nav-cta:hover{background:var(--orange-d);}
+  .topbar .nav-links{display:flex;align-items:center;gap:20px;}
+  .topbar .nav-links a:not(.nav-cta){font-size:14px;font-weight:700;color:#cdd9e6;text-decoration:none;}
+  .topbar .nav-links a:not(.nav-cta):hover{color:#fff;}
 
   /* ===== 히어로 ===== */
   .hero{background:radial-gradient(120% 120% at 80% 0%,var(--navy3),var(--navy) 60%);color:#fff;
@@ -230,6 +233,9 @@
     .tech-grid{grid-template-columns:repeat(2,1fr);}
     .themes{grid-template-columns:repeat(4,1fr);}
     .topbar{padding:10px 16px;}
+    .topbar .nav-links{gap:13px;}
+    .topbar .nav-links a:not(.nav-cta){font-size:13px;}
+    .topbar .nav-cta{padding:8px 13px;font-size:13px;}
     .gift{flex-direction:column;} .gift img{width:100%;}
     .feat.valve{padding-right:92px;}
   }
@@ -241,7 +247,11 @@
   <!-- 상단 바 -->
   <div class="topbar">
     <a class="brand" href="/"><img class="mark" src="assets/brand/byulbada-dive_symbol.svg" alt="">Equalscope</a>
-    <a class="nav-cta" href="https://naver.me/IDkVTGW6" target="_blank" rel="noopener">사전 예약</a>
+    <nav class="nav-links">
+      <a href="quickstart.html">퀵스타트</a>
+      <a href="manual.html">매뉴얼</a>
+      <a class="nav-cta" href="download/">펌웨어 ↓</a>
+    </nav>
   </div>
 
   <!-- 히어로 -->

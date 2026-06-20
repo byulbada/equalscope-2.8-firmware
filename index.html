@@ -133,19 +133,19 @@
   .feat.valve .dialimg{position:absolute;top:16px;right:16px;width:66px;height:66px;object-fit:cover;border-radius:10px;border:1px solid var(--line);box-shadow:0 3px 8px rgba(0,0,0,.12);}
 
   /* 디바이스 화면 프레임 */
-  .screens{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;align-items:start;}
-  .device{background:#0a0f14;border-radius:14px;padding:12px;box-shadow:0 6px 18px rgba(0,0,0,.18);}
-  .device img{border-radius:6px;width:100%;image-rendering:auto;}
-  .device .cap{color:#cfd9e3;font-size:13.5px;text-align:center;padding:9px 4px 3px;line-height:1.5;}
-  .device .cap b{color:#fff;}
+  .screens{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;align-items:start;justify-items:center;}
+  .device{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;width:fit-content;max-width:100%;}
+  .device img{display:block;width:320px;max-width:100%;height:auto;background:#0a0f14;}
+  .device .cap{color:var(--muted);padding:12px 12px 14px;font-size:13.5px;text-align:center;line-height:1.55;}
+  .device .cap b{display:block;color:var(--navy);font-size:16px;margin-bottom:3px;line-height:1.35;}
 
   /* 5 기술 */
   .tech-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;}
   .tech{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;}
   .tech img{width:100%;background:#0a0f14;}
   .tech .t{padding:10px 10px 12px;}
-  .tech .t b{display:block;color:var(--navy);font-size:14px;margin-bottom:3px;}
-  .tech .t span{font-size:12.5px;color:var(--muted);line-height:1.45;}
+  .tech .t b{display:block;color:var(--navy);font-size:16px;margin-bottom:3px;}
+  .tech .t span{font-size:13.5px;color:var(--muted);line-height:1.5;}
 
   /* 구성품 / 컬러 */
   .kits{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
@@ -178,8 +178,8 @@
   table.spec th{background:var(--soft2);color:var(--navy);width:34%;font-weight:700;}
 
   /* 테마 스트립 */
-  .themes{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;max-width:760px;margin:0 auto;}
-  .themes figure{margin:0;text-align:center;}
+  .themes{display:flex;flex-wrap:wrap;justify-content:center;gap:18px 14px;max-width:1000px;margin:0 auto;}
+  .themes figure{margin:0;text-align:center;flex:0 1 calc(25% - 11px);}
   .themes img{border-radius:7px;border:1px solid var(--line);width:100%;}
   .themes figcaption{font-size:12px;color:var(--muted);margin-top:5px;}
 
@@ -228,7 +228,7 @@
     section{padding:42px 22px;}
     .cards3,.features,.screens,.kits,.steps,.who,.dl-grid{grid-template-columns:1fr;}
     .tech-grid{grid-template-columns:repeat(2,1fr);}
-    .themes{grid-template-columns:repeat(4,1fr);}
+    .themes figure{flex-basis:46%;}
     .topbar{padding:10px 16px;}
     .topbar .nav-links{gap:13px;}
     .topbar .nav-links a:not(.nav-cta){font-size:13px;}
@@ -288,10 +288,10 @@
     <h2 class="sec">화면 하나에 다 담았습니다</h2>
     <p class="sec-lead">2.8인치 터치 화면에서 실시간 그래프, 분석, 파일 관리까지. 손가락으로 줌·스와이프하며 그래프를 자유롭게 봅니다.</p>
     <div class="screens">
-      <div class="device"><img loading="lazy" src="assets/screen-measure.png" alt="실시간 측정 화면 — 압력 그래프와 참조 그래프 겹쳐 보기"><div class="cap"><b>실시간 측정 &amp; 참조 비교</b><br>좋은 샘플을 겹쳐 놓고 내 그래프와 비교</div></div>
-      <div class="device"><img loading="lazy" src="assets/screen-analysis.png" alt="분석 화면 — 통계 요약과 기술 추정, 자동 조언"><div class="cap"><b>훈련 후 분석 &amp; 조언</b><br>통계 요약 + 기술 추정 + 간단 조언</div></div>
-      <div class="device"><img loading="lazy" src="assets/screen-files.png" alt="파일 관리 화면 — 내부 메모리/SD 카드 파일 목록"><div class="cap"><b>파일 관리</b><br>내부 메모리·SD 간 복사, 참조 등록, 삭제</div></div>
-      <div class="device"><img loading="lazy" src="assets/screen-settings.png" alt="설정 화면 — 테마, 자동 종료, 밝기 등"><div class="cap"><b>설정</b><br>테마·밝기·알람·메트로놈·언어 등</div></div>
+      <div class="device"><img loading="lazy" src="assets/screen-measure.png" alt="실시간 측정 화면 — 압력 그래프와 참조 그래프 겹쳐 보기"><div class="cap"><b>실시간 측정 &amp; 참조 비교</b>좋은 샘플을 겹쳐 놓고 내 그래프와 비교</div></div>
+      <div class="device"><img loading="lazy" src="assets/screen-analysis.png" alt="분석 화면 — 통계 요약과 기술 추정, 자동 조언"><div class="cap"><b>훈련 후 분석 &amp; 조언</b>통계 요약 + 기술 추정 + 간단 조언</div></div>
+      <div class="device"><img loading="lazy" src="assets/screen-files.png" alt="파일 관리 화면 — 내부 메모리/SD 카드 파일 목록"><div class="cap"><b>파일 관리</b>내부 메모리·SD 간 복사, 참조 등록, 삭제</div></div>
+      <div class="device"><img loading="lazy" src="assets/screen-settings.png" alt="설정 화면 — 테마, 자동 종료, 밝기 등"><div class="cap"><b>설정</b>테마·밝기·알람·메트로놈·언어 등</div></div>
     </div>
   </section>
 

@@ -65,6 +65,11 @@
   tbody tr:nth-child(even){background:var(--soft);}
   table.faq{table-layout:fixed;}
   table.faq th:first-child,table.faq td:first-child{width:32%;white-space:normal;word-break:break-all;overflow-wrap:anywhere;}
+  /* 5.2 패턴 표: 1열 좁히고 내용 긴 2·3열 넓게 (고정 레이아웃) */
+  table.pat3{table-layout:fixed;}
+  table.pat3 th:first-child,table.pat3 td:first-child{width:25%;white-space:normal;}
+  /* 8.설정 표: '페이지' 헤더가 세로로 쪼개지지 않게 한 줄 유지 */
+  table.setbl th:nth-child(2){white-space:nowrap;}
 
   blockquote{margin:12px 0;padding:10px 14px;border-radius:6px;
              background:var(--soft);border-left:4px solid #9bb0c4;color:#33485e;font-size:14px;}
@@ -370,7 +375,7 @@
 </div>
 <p>Equalscope는 측정 곡선의 형태를 보고 다섯 가지 기술 패턴 중 하나로 분류합니다.
 1차로 <strong>상승 속도</strong>를 보고 진동형(반복 가압)인지 유지형(압력 유지)인지 나눈 뒤, 세부 형태로 기술을 판정합니다.</p>
-<table>
+<table class="pat3">
   <thead><tr><th>패턴</th><th>곡선 특징</th><th>기술적 의미</th></tr></thead>
   <tbody>
     <tr><td><strong>발살바</strong></td><td>느린 상승, <strong>넓은 피크</strong>(정점 유지 김)</td><td>배·흉부 압력 위주. 깊은 수심에선 한계. 프렌젤 전환 권장 대상</td></tr>
@@ -562,7 +567,7 @@
   <figure><img src="assets/theme-neon.png" alt="네온 테마"><figcaption>네온</figcaption></figure>
   <figure><img src="assets/theme-lavender.png" alt="라벤더 테마"><figcaption>라벤더</figcaption></figure>
 </div>
-<table>
+<table class="setbl">
   <thead><tr><th>항목</th><th>페이지</th><th>범위 / 선택</th><th>설명</th></tr></thead>
   <tbody>
     <tr><td><strong>테마</strong></td><td>1</td><td>밝은 · 연지 · 단풍 · 라임 · 하늘 · 네온 · 라벤더 (7종)</td><td>색상 테마 선택</td></tr>
@@ -572,7 +577,7 @@
 </table>
 
 <h3 id="s8_2">8.2 소리</h3>
-<table>
+<table class="setbl">
   <thead><tr><th>항목</th><th>페이지</th><th>범위</th><th>설명</th></tr></thead>
   <tbody>
     <tr><td><strong>볼륨</strong></td><td>1</td><td>0~100 %</td><td>메트로놈·알람음 크기 (슬라이더)</td></tr>
@@ -585,7 +590,7 @@
 </table>
 
 <h3 id="s8_3">8.3 그래프</h3>
-<table>
+<table class="setbl">
   <thead><tr><th>항목</th><th>페이지</th><th>범위</th><th>설명</th></tr></thead>
   <tbody>
     <tr><td><strong>Y축 최고</strong></td><td>3</td><td>10~200 hPa (5 단위)</td><td>그래프 세로축 위쪽 한계</td></tr>
@@ -595,7 +600,7 @@
 </table>
 
 <h3 id="s8_4">8.4 기타</h3>
-<table>
+<table class="setbl">
   <thead><tr><th>항목</th><th>페이지</th><th>범위</th><th>설명</th></tr></thead>
   <tbody>
     <tr><td><strong>자동 종료</strong></td><td>1</td><td>0~120 분</td><td>일정 시간 무동작 시 자동으로 전원 끔. <strong>0이면 자동 종료 안 함</strong></td></tr>

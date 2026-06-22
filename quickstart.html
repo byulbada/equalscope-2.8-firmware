@@ -10,20 +10,24 @@
 <!-- 브랜드 한글 폰트 Pretendard (동적 서브셋) -->
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css">
-<!-- 영문 워드마크 폰트 Montserrat SemiBold(600) -->
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap">
+<!-- 영문 워드마크 폰트 Montserrat SemiBold(600)/Bold(700) — 로컬 임베드(CDN 의존 제거, 인쇄 PDF 확실) -->
 <!--
-  빠른 시작 — 양면 카드 (70×100mm, 2쪽: 앞면=5단계 빠른 시작, 뒷면=사용 팁).
+  빠른 시작 — 양면 카드 (85×120mm, 2쪽: 앞면=5단계 빠른 시작, 뒷면=사용 팁).
   카드형 레이아웃. 사진 없이 텍스트·QR만.
   인쇄: 브라우저 Ctrl+P → 배경 그래픽 켜기 → 실제 크기(100%) →
         앞·뒷면 각각 한 면에 찍힘 → 잘라 등맞춤(양면)으로 사용.
-  용지 크기 변경: :root 의 --pw / --ph 와 @page size 를 함께 수정.
+  ※ 70×100 디자인을 1.2배 비례 확대한 판형(글자도 1.2배). 크기 변경 시
+     :root 의 --pw / --ph 와 @page size 를 함께 수정.
   QR/심볼은 assets/ 공유 (index.html 와 동일).
 -->
 <style>
+  /* 영문 워드마크 폰트 — 로컬 임베드 (CDN 의존 제거: 웹·인쇄 PDF 항상 Montserrat) */
+  @font-face{font-family:'Montserrat';font-style:normal;font-weight:600;font-display:swap;
+             src:url('assets/fonts/montserrat-latin-600.woff2') format('woff2');}
+  @font-face{font-family:'Montserrat';font-style:normal;font-weight:700;font-display:swap;
+             src:url('assets/fonts/montserrat-latin-700.woff2') format('woff2');}
   :root{
-    --pw:70mm; --ph:100mm;
+    --pw:85mm; --ph:120mm;
     --navy:#0d2137; --blue:#0099ff; --orange:#FF6600; --orange-d:#e65c00;
     --ink:#1c2a38; --muted:#6b7a89; --line:#e6ebf1; --soft:#f5f8fb;
   }
@@ -34,78 +38,78 @@
 
   .page{
     width:var(--pw); height:var(--ph);
-    background:#fff; margin:6mm auto; padding:4mm 4.6mm;
+    background:#fff; margin:6mm auto; padding:4.8mm 5.5mm;
     position:relative; overflow:hidden;
     box-shadow:0 1px 7px rgba(0,0,0,.16);
     display:flex; flex-direction:column;
   }
 
   /* ── 로고 락업 (심볼 + 워드마크) ── */
-  .brand{display:flex;align-items:center;gap:2mm;}
-  .brand .sym{height:7.6mm;width:auto;flex:none;}
+  .brand{display:flex;align-items:center;gap:2.4mm;}
+  .brand .sym{height:9.1mm;width:auto;flex:none;}
   .brand .wm{font-family:"Montserrat","Pretendard",sans-serif;font-weight:600;
-             color:var(--navy);font-size:15px;line-height:1;letter-spacing:-.3px;}
+             color:var(--navy);font-size:18px;line-height:1;letter-spacing:-.3px;}
   .brand .wm small{display:block;font-family:"Pretendard",sans-serif;font-weight:500;
-                   color:var(--muted);font-size:8.5px;letter-spacing:.04em;margin-top:1.5px;}
+                   color:var(--muted);font-size:10px;letter-spacing:.04em;margin-top:1.5px;}
   .brand .wm small.en{font-family:"Montserrat",sans-serif;letter-spacing:.12em;}
 
-  .rule{height:1px;background:var(--line);margin:2mm 0;}
+  .rule{height:1px;background:var(--line);margin:2.4mm 0;}
 
   /* ── 헤더(타이틀) ── */
-  .htitle{font-size:18px;font-weight:800;color:var(--navy);letter-spacing:-.5px;line-height:1;}
-  .hsub{font-size:9px;color:var(--muted);margin-top:1.3mm;line-height:1.35;}
+  .htitle{font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.5px;line-height:1;}
+  .hsub{font-size:11px;color:var(--muted);margin-top:1.6mm;line-height:1.35;}
 
   /* ── 단계 카드(앞면) ── */
-  .steps{display:flex;flex-direction:column;gap:1.4mm;margin-top:2.4mm;}
-  .step{display:flex;align-items:flex-start;gap:2.2mm;
-        background:#fff;border:1px solid var(--line);border-radius:2.6mm;
-        padding:1.7mm 2.4mm;box-shadow:0 1px 3px rgba(13,33,55,.05);}
-  .step .num{flex:none;width:5.4mm;height:5.4mm;border-radius:50%;background:var(--blue);
-             color:#fff;font-weight:700;font-size:10px;
+  .steps{display:flex;flex-direction:column;gap:1.7mm;margin-top:2.9mm;}
+  .step{display:flex;align-items:flex-start;gap:2.6mm;
+        background:#fff;border:1px solid var(--line);border-radius:3.1mm;
+        padding:2mm 2.9mm;box-shadow:0 1px 3px rgba(13,33,55,.05);}
+  .step .num{flex:none;width:6.5mm;height:6.5mm;border-radius:50%;background:var(--blue);
+             color:#fff;font-weight:700;font-size:12px;
              display:flex;align-items:center;justify-content:center;line-height:1;}
-  .step .tx h3{font-size:10px;font-weight:800;color:var(--navy);line-height:1.15;}
-  .step .tx p{font-size:8.3px;color:#52606e;line-height:1.3;margin-top:.4mm;}
+  .step .tx h3{font-size:12px;font-weight:800;color:var(--navy);line-height:1.15;}
+  .step .tx p{font-size:10px;color:#52606e;line-height:1.3;margin-top:.4mm;}
   .step .tx em{font-style:normal;font-weight:800;color:var(--orange-d);}
   /* 강조 단계(영점 보정) */
   .step.hl{border-color:#ffd2ad;background:#fff8f2;}
   .step.hl .num{background:var(--orange);}
 
   /* ── 팁 카드(뒷면) ── */
-  .tips{display:flex;flex-direction:column;gap:1.5mm;margin-top:2.2mm;}
-  .tip{background:#fff;border:1px solid var(--line);border-left:1mm solid var(--blue);
-       border-radius:2.2mm;padding:2mm 2.6mm;box-shadow:0 1px 3px rgba(13,33,55,.05);}
-  .tip h3{font-size:10px;font-weight:800;color:var(--navy);line-height:1.1;}
-  .tip p{font-size:8.5px;color:#52606e;line-height:1.35;margin-top:.7mm;}
+  .tips{display:flex;flex-direction:column;gap:1.8mm;margin-top:2.6mm;}
+  .tip{background:#fff;border:1px solid var(--line);border-left:1.2mm solid var(--blue);
+       border-radius:2.6mm;padding:2.4mm 3.1mm;box-shadow:0 1px 3px rgba(13,33,55,.05);}
+  .tip h3{font-size:12px;font-weight:800;color:var(--navy);line-height:1.1;}
+  .tip p{font-size:10px;color:#52606e;line-height:1.35;margin-top:.7mm;}
   .tip em{font-style:normal;font-weight:700;color:var(--navy);}
 
   /* ── 주의 박스 ── */
-  .notice{border:1px solid #ffcfa6;background:#fff8f2;border-radius:2.6mm;
-          padding:1.9mm 2.6mm;margin-top:1.6mm;}
-  .notice b{display:block;color:var(--orange-d);font-size:9.5px;font-weight:800;margin-bottom:.7mm;}
-  .notice p{font-size:8.5px;color:#9a5a2a;line-height:1.4;}
+  .notice{border:1px solid #ffcfa6;background:#fff8f2;border-radius:3.1mm;
+          padding:2.3mm 3.1mm;margin-top:1.9mm;}
+  .notice b{display:block;color:var(--orange-d);font-size:11px;font-weight:800;margin-bottom:.7mm;}
+  .notice p{font-size:10px;color:#9a5a2a;line-height:1.4;}
 
   /* ── QR 라인 ── */
-  .qrline{display:flex;align-items:center;gap:2.6mm;margin-top:auto;
-          border-top:1px solid var(--line);padding-top:2.4mm;}
-  .qrline .qr{width:15mm;height:15mm;flex:none;border:1px solid var(--line);
-              border-radius:2mm;padding:1mm;background:#fff;}
+  .qrline{display:flex;align-items:center;gap:3.1mm;margin-top:auto;
+          border-top:1px solid var(--line);padding-top:2.9mm;}
+  .qrline .qr{width:18mm;height:18mm;flex:none;border:1px solid var(--line);
+              border-radius:2.4mm;padding:1.2mm;background:#fff;}
   .qrline .qr img{width:100%;height:100%;}
-  .qrline .t b{display:block;font-size:10.5px;font-weight:800;color:var(--navy);}
-  .qrline .t span{display:block;font-size:8px;color:var(--muted);line-height:1.3;margin-top:.5mm;}
+  .qrline .t b{display:block;font-size:13px;font-weight:800;color:var(--navy);}
+  .qrline .t span{display:block;font-size:9.5px;color:var(--muted);line-height:1.3;margin-top:.5mm;}
   .qrline .t .u{font-family:"Montserrat","Pretendard",sans-serif;color:var(--blue);
-                font-weight:600;font-size:8.7px;margin-top:1.1mm;}
+                font-weight:600;font-size:10.5px;margin-top:1.1mm;}
 
   /* ── 푸터 (양면 © 통일) ── */
-  .foot{text-align:center;font-size:8.7px;color:var(--muted);}
-  .front .foot{margin-top:auto;padding-top:2.2mm;border-top:1px solid var(--line);}
-  .back  .foot{margin-top:1.8mm;padding-top:1.8mm;border-top:1px solid var(--line);}
+  .foot{text-align:center;font-size:10.5px;color:var(--muted);}
+  .front .foot{margin-top:auto;padding-top:2.6mm;border-top:1px solid var(--line);}
+  .back  .foot{margin-top:2.2mm;padding-top:2.2mm;border-top:1px solid var(--line);}
 
   @media print{
     /* 인쇄·PDF 시 배경색(번호 배지·강조·QR) 강제 출력 — 안 켜면 색이 빠짐 */
     body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
     .page{margin:0;box-shadow:none;page-break-after:always;}
     .step,.tip,.notice{box-shadow:none;}
-    @page{size:70mm 100mm;margin:0;}
+    @page{size:85mm 120mm;margin:0;}
   }
 </style>
 </head>
@@ -115,7 +119,7 @@
 <section class="page front">
   <div class="brand">
     <img class="sym" src="assets/brand/byulbada-dive_symbol.svg" alt="">
-    <div class="wm">EQUALSCOPE<small class="en">QUICK START</small></div>
+    <div class="wm">Equalscope<small class="en">QUICK START</small></div>
   </div>
   <div class="rule"></div>
 

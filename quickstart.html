@@ -4,138 +4,183 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Equalscope 빠른 시작 가이드</title>
-<meta name="description" content="Equalscope 빠른 시작 가이드 — 앞면 브랜드 소개, 뒷면 기본 조작. 가방에 넣는 양면 카드.">
+<meta name="description" content="Equalscope 빠른 시작 가이드 — 앞면 5단계 빠른 시작, 뒷면 사용 팁. 가방에 넣는 양면 카드.">
 <link rel="canonical" href="https://equalscope.kr/quickstart.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<!-- 브랜드 한글 폰트 Pretendard (동적 서브셋 — 필요한 글자만 로드) -->
+<!-- 브랜드 한글 폰트 Pretendard (동적 서브셋) -->
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css">
-<!-- 영문 워드마크 폰트 Montserrat SemiBold(600) — 제품 각인과 동일 -->
+<!-- 영문 워드마크 폰트 Montserrat SemiBold(600) -->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap">
 <!--
-  빠른 시작 — 양면 카드 (70×100mm, 2쪽: 앞면=브랜드, 뒷면=조작).
-  사진 없이 텍스트·QR만. 가방에 넣는 단순 카드.
+  빠른 시작 — 양면 카드 (70×100mm, 2쪽: 앞면=5단계 빠른 시작, 뒷면=사용 팁).
+  카드형 레이아웃. 사진 없이 텍스트·QR만.
   인쇄: 브라우저 Ctrl+P → 배경 그래픽 켜기 → 실제 크기(100%) →
         앞·뒷면 각각 한 면에 찍힘 → 잘라 등맞춤(양면)으로 사용.
-  용지 크기 변경: 아래 :root 의 --pw / --ph 와 @page size 를 함께 수정.
+  용지 크기 변경: :root 의 --pw / --ph 와 @page size 를 함께 수정.
   QR/심볼은 assets/ 공유 (index.html 와 동일).
 -->
 <style>
   :root{
-    --pw:70mm; --ph:100mm;                  /* 양면 카드 */
-    --navy:#0d2137; --orange:#FF6600; --orange-d:#e65c00;
-    --ink:#1c2a38; --muted:#5b6b7a; --line:#e2e8ee; --soft:#f4f7fa;
+    --pw:70mm; --ph:100mm;
+    --navy:#0d2137; --blue:#0099ff; --orange:#FF6600; --orange-d:#e65c00;
+    --ink:#1c2a38; --muted:#6b7a89; --line:#e6ebf1; --soft:#f5f8fb;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   body{background:#e9edf1;color:var(--ink);
-       font-family:"Pretendard","Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;line-height:1.5;}
+       font-family:"Pretendard","Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;line-height:1.45;}
   img{max-width:100%;display:block;}
 
   .page{
     width:var(--pw); height:var(--ph);
-    background:#fff; margin:6mm auto; padding:6mm;
+    background:#fff; margin:6mm auto; padding:4mm 4.6mm;
     position:relative; overflow:hidden;
     box-shadow:0 1px 7px rgba(0,0,0,.16);
     display:flex; flex-direction:column;
   }
 
-  /* ───────── 앞면 ───────── */
-  .front{align-items:center;text-align:center;justify-content:space-between;
-         background:linear-gradient(160deg,#fff 60%,#fff6f0);}
-  .front .mark{height:24mm;width:auto;margin-top:3mm;}
-  .front .title{font-family:"Montserrat","Pretendard",sans-serif;font-size:32px;font-weight:600;color:var(--orange);letter-spacing:-.5px;line-height:1;}
+  /* ── 로고 락업 (심볼 + 워드마크) ── */
+  .brand{display:flex;align-items:center;gap:2mm;}
+  .brand .sym{height:7.6mm;width:auto;flex:none;}
+  .brand .wm{font-family:"Montserrat","Pretendard",sans-serif;font-weight:600;
+             color:var(--navy);font-size:15px;line-height:1;letter-spacing:-.3px;}
+  .brand .wm small{display:block;font-family:"Pretendard",sans-serif;font-weight:500;
+                   color:var(--muted);font-size:8.5px;letter-spacing:.04em;margin-top:1.5px;}
+  .brand .wm small.en{font-family:"Montserrat",sans-serif;letter-spacing:.12em;}
 
-  .front .qs{display:flex;flex-direction:column;align-items:center;gap:7px;}
-  .front .doctype{font-size:11px;font-weight:700;letter-spacing:.34em;color:var(--muted);}
-  .flow{display:flex;align-items:center;justify-content:center;gap:5px;
-        font-size:12.5px;font-weight:700;color:var(--navy);}
-  .flow span{background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:4px 10px;}
-  .flow span small{font-weight:600;font-size:10.5px;color:var(--muted);margin-left:2px;}
-  .flow .arw{background:none;border:0;padding:0;color:var(--orange);font-weight:800;}
+  .rule{height:1px;background:var(--line);margin:2mm 0;}
 
-  .front .tag{font-size:11px;color:var(--muted);border-top:1px solid var(--line);
-              padding-top:5mm;width:100%;}
+  /* ── 헤더(타이틀) ── */
+  .htitle{font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.6px;line-height:1;}
+  .hsub{font-size:9px;color:var(--muted);margin-top:1.3mm;line-height:1.35;}
 
-  /* ───────── 뒷면 ───────── */
-  .back{padding:4mm 6mm 10mm;}
-  .back .head{display:flex;align-items:baseline;gap:6px;border-bottom:2px solid var(--orange);
-              padding-bottom:4px;margin-bottom:6px;}
-  .back .brand{display:inline-flex;align-items:center;gap:5px;font-family:"Montserrat","Pretendard",sans-serif;font-size:14px;font-weight:600;color:var(--orange);letter-spacing:-.3px;}
-  .back .brand .mk{height:15px;width:auto;margin:-3px 0;}
-  .back .doctype{font-size:7.5px;font-weight:700;letter-spacing:.13em;color:var(--muted);margin-left:auto;}
+  /* ── 단계 카드(앞면) ── */
+  .steps{display:flex;flex-direction:column;gap:1.4mm;margin-top:2.4mm;}
+  .step{display:flex;align-items:flex-start;gap:2.2mm;
+        background:#fff;border:1px solid var(--line);border-radius:2.6mm;
+        padding:1.7mm 2.4mm;box-shadow:0 1px 3px rgba(13,33,55,.05);}
+  .step .num{flex:none;width:5.4mm;height:5.4mm;border-radius:50%;background:var(--blue);
+             color:#fff;font-weight:700;font-size:10px;
+             display:flex;align-items:center;justify-content:center;line-height:1;}
+  .step .tx h3{font-size:10px;font-weight:800;color:var(--navy);line-height:1.15;}
+  .step .tx p{font-size:8.3px;color:#52606e;line-height:1.3;margin-top:.4mm;}
+  .step .tx em{font-style:normal;font-weight:800;color:var(--orange-d);}
+  /* 강조 단계(영점 보정) */
+  .step.hl{border-color:#ffd2ad;background:#fff8f2;}
+  .step.hl .num{background:var(--orange);}
 
-  .item{margin-bottom:5px;}
-  .item h3{font-size:11px;color:var(--navy);font-weight:800;margin-bottom:1px;}
-  .item p{font-size:9.5px;color:#33485e;line-height:1.4;}
-  .item em{font-style:normal;font-weight:800;color:var(--orange-d);}
+  /* ── 팁 카드(뒷면) ── */
+  .tips{display:flex;flex-direction:column;gap:1.5mm;margin-top:2.2mm;}
+  .tip{background:#fff;border:1px solid var(--line);border-left:1mm solid var(--blue);
+       border-radius:2.2mm;padding:2mm 2.6mm;box-shadow:0 1px 3px rgba(13,33,55,.05);}
+  .tip h3{font-size:10px;font-weight:800;color:var(--navy);line-height:1.1;}
+  .tip p{font-size:8.5px;color:#52606e;line-height:1.35;margin-top:.7mm;}
+  .tip em{font-style:normal;font-weight:700;color:var(--navy);}
 
-  .safe{background:#fff4ec;border-left:3px solid var(--orange);border-radius:5px;
-        padding:5px 8px;font-size:9.5px;color:#9a3d08;line-height:1.4;margin:3px 0 5px;}
+  /* ── 주의 박스 ── */
+  .notice{border:1px solid #ffcfa6;background:#fff8f2;border-radius:2.6mm;
+          padding:1.9mm 2.6mm;margin-top:1.6mm;}
+  .notice b{display:block;color:var(--orange-d);font-size:9.5px;font-weight:800;margin-bottom:.7mm;}
+  .notice p{font-size:8.5px;color:#9a5a2a;line-height:1.4;}
 
-  .qrline{display:flex;align-items:center;gap:8px;border-top:1px solid var(--line);
-          padding-top:5px;margin-top:auto;}
-  .qrline .qr{width:20mm;height:20mm;border:1px solid var(--line);border-radius:5px;padding:1.5mm;flex:none;background:#fff;}
+  /* ── QR 라인 ── */
+  .qrline{display:flex;align-items:center;gap:2.6mm;margin-top:auto;
+          border-top:1px solid var(--line);padding-top:2.4mm;}
+  .qrline .qr{width:15mm;height:15mm;flex:none;border:1px solid var(--line);
+              border-radius:2mm;padding:1mm;background:#fff;}
   .qrline .qr img{width:100%;height:100%;}
-  .qrline .t b{display:block;font-size:11px;color:var(--navy);}
-  .qrline .t span{font-size:9.5px;color:var(--muted);line-height:1.4;}
-  .qrline .t .u{color:var(--orange-d);font-weight:700;}
+  .qrline .t b{display:block;font-size:10.5px;font-weight:800;color:var(--navy);}
+  .qrline .t span{display:block;font-size:8px;color:var(--muted);line-height:1.3;margin-top:.5mm;}
+  .qrline .t .u{font-family:"Montserrat","Pretendard",sans-serif;color:var(--blue);
+                font-weight:600;font-size:8.7px;margin-top:1.1mm;}
 
-  .foot{font-size:10px;color:#9aa7b3;text-align:center;margin-top:5px;}
+  /* ── 푸터 (양면 © 통일) ── */
+  .foot{text-align:center;font-size:8.7px;color:var(--muted);}
+  .front .foot{margin-top:auto;padding-top:2.2mm;border-top:1px solid var(--line);}
+  .back  .foot{margin-top:1.8mm;padding-top:1.8mm;border-top:1px solid var(--line);}
 
   @media print{
     body{background:#fff;}
     .page{margin:0;box-shadow:none;page-break-after:always;}
+    .step,.tip,.notice{box-shadow:none;}
     @page{size:70mm 100mm;margin:0;}
   }
 </style>
 </head>
 <body>
 
-<!-- ───────── 앞면 ───────── -->
+<!-- ───────── 앞면 : 빠른 시작 5단계 ───────── -->
 <section class="page front">
-  <img class="mark" src="assets/brand/byulbada-dive_symbol.svg" alt="별바다다이브 심볼">
-  <div class="title">Equalscope</div>
-  <div class="qs">
-    <div class="doctype">QUICK START</div>
-    <div class="flow">
-      <span>연결</span><span class="arw">›</span>
-      <span>전원 <small>3초</small></span>
+  <div class="brand">
+    <img class="sym" src="assets/brand/byulbada-dive_symbol.svg" alt="">
+    <div class="wm">EQUALSCOPE<small class="en">QUICK START</small></div>
+  </div>
+  <div class="rule"></div>
+
+  <div class="htitle">빠른 시작</div>
+  <div class="hsub">처음 사용하는 데 필요한 단계만 정리했습니다.</div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="num">1</div>
+      <div class="tx"><h3>연결하기</h3><p>본체 – 튜브 – 이퀄벤트를 차례로 연결합니다.</p></div>
     </div>
-    <div class="flow">
-      <span>시작</span><span class="arw">›</span>
-      <span>정지</span><span class="arw">›</span>
-      <span>분석</span>
+    <div class="step">
+      <div class="num">2</div>
+      <div class="tx"><h3>전원 켜기</h3><p>전원 버튼을 <em>약 3초</em> 길게 눌러 켭니다.</p></div>
+    </div>
+    <div class="step hl">
+      <div class="num">3</div>
+      <div class="tx"><h3>영점 보정</h3><p>부팅 후 <em>약 5초간</em> 코에 대거나 압력을 가하지 마세요.</p></div>
+    </div>
+    <div class="step">
+      <div class="num">4</div>
+      <div class="tx"><h3>측정하기</h3><p><em>[시작]</em>을 누르고 이퀄벤트를 코에 대고 이퀄라이징. 끝나면 <em>[정지]</em>.</p></div>
+    </div>
+    <div class="step">
+      <div class="num">5</div>
+      <div class="tx"><h3>분석하기</h3><p><em>[분석]</em>에서 반복 통계·기술 추정·조언을 확인합니다.</p></div>
     </div>
   </div>
-  <div class="tag">프리다이빙 이퀄라이징 훈련 장비</div>
+
+  <div class="foot">© 2026 별바다다이브</div>
 </section>
 
-<!-- ───────── 뒷면 ───────── -->
+<!-- ───────── 뒷면 : 사용 팁 ───────── -->
 <section class="page back">
-  <div class="head"><div class="brand"><img class="mk" src="assets/brand/byulbada-dive_symbol.svg" alt="">Equalscope</div><div class="doctype">QUICK START</div></div>
+  <div class="htitle">사용 팁</div>
+  <div class="hsub">그래프 확인과 상세 가이드는 QR로 이어서 확인하세요.</div>
 
-  <div class="item">
-    <h3>① 연결 · 분리</h3>
-    <p>연결: 튜브를 본체에 <em>딸깍</em> 끼우고 반대쪽에 이퀄벤트 연결.<br>분리: 본체↔튜브: 커넥터를 잡아당김 / 튜브↔이퀄벤트: 피팅 끝 플라스틱을 누른 채 빼냄.</p>
+  <div class="tips">
+    <div class="tip">
+      <h3>그래프 조작</h3>
+      <p><em>핀치</em> = 확대 / 축소 &nbsp;·&nbsp; <em>스와이프</em> = 좌우 이동</p>
+    </div>
+    <div class="tip">
+      <h3>참조 비교</h3>
+      <p>좋은 샘플을 <em>참조 그래프</em>로 등록해 내 측정과 겹쳐 비교 훈련.</p>
+    </div>
+    <div class="tip">
+      <h3>분리 방법</h3>
+      <p>본체–튜브는 <em>커넥터</em>를 잡고 당겨 분리. 튜브–이퀄벤트는 <em>피팅 링을 누른 채</em> 빼기.</p>
+    </div>
   </div>
-  <div class="item">
-    <h3>② 전원 켜기 · 끄기</h3>
-    <p>전원 버튼을 <em>3초</em> 길게 눌러 켜고/끕니다. 켜면 부팅 후 <em>약 5초 영점 보정</em> — 이때 이퀄벤트에 압력 금지(기준점이 정확도를 좌우).</p>
-  </div>
-  <div class="item">
-    <h3>③ 시작 (측정)</h3>
-    <p><em>[시작]</em>을 누르고 이퀄벤트를 코에 대고 이퀄라이징. 압력이 실시간 그래프로 그려집니다.</p>
-  </div>
-  <div class="item">
-    <h3>④ 정지 · 분석</h3>
-    <p><em>[정지]</em> 시 자동 저장(SD 우선, 없으면 내부).<br><em>[분석]</em>에서 결과 확인.</p>
+
+  <div class="notice">
+    <b>주의</b>
+    <p>의료기기가 아닌 프리다이빙 훈련 보조 장비입니다. 무리한 압력을 피하고 강사 지도 아래 사용하세요.</p>
   </div>
 
   <div class="qrline">
     <div class="qr"><img src="assets/qr-manual.png" alt="상세 매뉴얼 QR"></div>
-    <div class="t"><b>상세 사용설명서</b><span class="u">equalscope.kr/manual.html</span></div>
+    <div class="t">
+      <b>상세 가이드</b>
+      <span>연결 방법, 버튼 설명, 업데이트 안내를 확인하세요.</span>
+      <span class="u">equalscope.kr/manual.html</span>
+    </div>
   </div>
+
   <div class="foot">© 2026 별바다다이브</div>
 </section>
 

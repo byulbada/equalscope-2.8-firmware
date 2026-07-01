@@ -231,6 +231,11 @@
   footer a{color:var(--orange);font-weight:600;}
   footer .small{font-size:12.5px;color:#7c91a6;margin-top:14px;line-height:1.7;}
 
+  /* ===== 스크롤 진입 애니메이션 ===== */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .55s ease,transform .55s ease;}
+  .reveal.visible{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
   /* 반응형 */
   @media(max-width:820px){
     .hero h1{font-size:30px;} .hero p.sub{font-size:16px;}
@@ -274,112 +279,112 @@
   </div>
 
   <!-- 문제 제기 -->
-  <section class="problem">
+  <section class="problem reveal">
     <h2>이퀄라이징은 눈에 보이지 않습니다.</h2>
     <p>강사는 자세·표정·말로만 상태를 <em>추정</em>하고, 교육생은 "잘 되고 있는지, 너무 세게 밀고 있는지, 리듬이 일정한지"를 <em>감각</em>에만 의존합니다. Equalscope는 이 <span class="accent">보이지 않는 압력</span>을 그래프로 보여줍니다.</p>
   </section>
 
   <!-- 3 차별점 -->
   <section>
-    <div class="sec-tag">WHY EQUALSCOPE</div>
-    <h2 class="sec">장비 하나로 끝나는 이퀄라이징 훈련</h2>
-    <p class="sec-lead">스마트폰·PC 없이, 켜자마자 바로. 측정부터 분석·기록·비교까지 장비 안에서 완결됩니다.</p>
+    <div class="sec-tag reveal">WHY EQUALSCOPE</div>
+    <h2 class="sec reveal" style="transition-delay:.07s">장비 하나로 끝나는 이퀄라이징 훈련</h2>
+    <p class="sec-lead reveal" style="transition-delay:.13s">스마트폰·PC 없이, 켜자마자 바로. 측정부터 분석·기록·비교까지 장비 안에서 완결됩니다.</p>
     <div class="cards3">
-      <div class="card"><div class="num">1</div><h3>스마트폰 없이 단독 동작</h3><p>앱 실행, 블루투스 연결, 화면 잠금, 알림 같은 변수 없이 수업 흐름이 끊기지 않습니다. 켜면 바로 측정.</p></div>
-      <div class="card"><div class="num">2</div><h3>초당 40회, 부드러운 실시간 그래프</h3><p>40Hz 고속 측정으로 끊김 없이 매끄럽게. 장비가 직접 측정·표시하므로 통신 지연 없이 부드럽게 이어집니다.</p></div>
-      <div class="card"><div class="num">3</div><h3>훈련 후 자동 분석·조언</h3><p>반복 횟수·주기·상승/하강 속도·정점 유지 시간을 요약하고, 압력 패턴으로 기술 유형을 추정합니다.</p></div>
+      <div class="card reveal" style="transition-delay:.1s"><div class="num">1</div><h3>스마트폰 없이 단독 동작</h3><p>앱 실행, 블루투스 연결, 화면 잠금, 알림 같은 변수 없이 수업 흐름이 끊기지 않습니다. 켜면 바로 측정.</p></div>
+      <div class="card reveal" style="transition-delay:.2s"><div class="num">2</div><h3>초당 40회, 부드러운 실시간 그래프</h3><p>40Hz 고속 측정으로 끊김 없이 매끄럽게. 장비가 직접 측정·표시하므로 통신 지연 없이 부드럽게 이어집니다.</p></div>
+      <div class="card reveal" style="transition-delay:.3s"><div class="num">3</div><h3>훈련 후 자동 분석·조언</h3><p>반복 횟수·주기·상승/하강 속도·정점 유지 시간을 요약하고, 압력 패턴으로 기술 유형을 추정합니다.</p></div>
     </div>
   </section>
 
   <!-- 화면으로 보기 -->
   <section class="alt" id="features">
-    <div class="sec-tag">ON SCREEN</div>
-    <h2 class="sec">화면 하나에 다 담았습니다</h2>
-    <p class="sec-lead">2.8인치 터치 화면에서 실시간 그래프, 분석, 파일 관리까지. 손가락으로 줌·스와이프하며 그래프를 자유롭게 봅니다.</p>
+    <div class="sec-tag reveal">ON SCREEN</div>
+    <h2 class="sec reveal" style="transition-delay:.07s">화면 하나에 다 담았습니다</h2>
+    <p class="sec-lead reveal" style="transition-delay:.13s">2.8인치 터치 화면에서 실시간 그래프, 분석, 파일 관리까지. 손가락으로 줌·스와이프하며 그래프를 자유롭게 봅니다.</p>
     <div class="screens">
-      <div class="device"><img loading="lazy" src="assets/screen-measure.png" alt="실시간 측정 화면 — 압력 그래프와 참조 그래프 겹쳐 보기"><div class="cap"><b>실시간 측정 &amp; 참조 비교</b>좋은 샘플을 겹쳐 놓고 내 그래프와 비교</div></div>
-      <div class="device"><img loading="lazy" src="assets/screen-analysis.png" alt="분석 화면 — 통계 요약과 기술 추정, 자동 조언"><div class="cap"><b>훈련 후 분석 &amp; 조언</b>통계 요약 + 기술 추정 + 간단 조언</div></div>
-      <div class="device"><img loading="lazy" src="assets/screen-files.png" alt="파일 관리 화면 — 내부 메모리/SD 카드 파일 목록"><div class="cap"><b>파일 관리</b>내부 메모리·SD 간 복사, 참조 등록, 삭제</div></div>
-      <div class="device"><img loading="lazy" src="assets/screen-settings.png" alt="설정 화면 — 테마, 자동 종료, 밝기 등"><div class="cap"><b>설정</b>테마·밝기·알람·메트로놈·언어 등</div></div>
+      <div class="device reveal" style="transition-delay:.1s"><img loading="lazy" src="assets/screen-measure.png" alt="실시간 측정 화면 — 압력 그래프와 참조 그래프 겹쳐 보기"><div class="cap"><b>실시간 측정 &amp; 참조 비교</b>좋은 샘플을 겹쳐 놓고 내 그래프와 비교</div></div>
+      <div class="device reveal" style="transition-delay:.2s"><img loading="lazy" src="assets/screen-analysis.png" alt="분석 화면 — 통계 요약과 기술 추정, 자동 조언"><div class="cap"><b>훈련 후 분석 &amp; 조언</b>통계 요약 + 기술 추정 + 간단 조언</div></div>
+      <div class="device reveal" style="transition-delay:.3s"><img loading="lazy" src="assets/screen-files.png" alt="파일 관리 화면 — 내부 메모리/SD 카드 파일 목록"><div class="cap"><b>파일 관리</b>내부 메모리·SD 간 복사, 참조 등록, 삭제</div></div>
+      <div class="device reveal" style="transition-delay:.4s"><img loading="lazy" src="assets/screen-settings.png" alt="설정 화면 — 테마, 자동 종료, 밝기 등"><div class="cap"><b>설정</b>테마·밝기·알람·메트로놈·언어 등</div></div>
     </div>
   </section>
 
   <!-- 기능 그리드 -->
   <section>
-    <div class="sec-tag">FEATURES</div>
-    <h2 class="sec">주요 기능</h2>
-    <p class="sec-lead">이퀄라이징 훈련을 더 편하고 정확하게 만들어 주는 기능들입니다.<br>단독 동작부터 메트로놈·스톱워치·눈금 밸브까지.</p>
+    <div class="sec-tag reveal">FEATURES</div>
+    <h2 class="sec reveal" style="transition-delay:.07s">주요 기능</h2>
+    <p class="sec-lead reveal" style="transition-delay:.13s">이퀄라이징 훈련을 더 편하고 정확하게 만들어 주는 기능들입니다.<br>단독 동작부터 메트로놈·스톱워치·눈금 밸브까지.</p>
     <div class="features">
-      <div class="feat"><h4>실시간 압력 그래프</h4><p>40Hz(초당 40회) 고속 측정으로 끊김 없는 부드러운 곡선. 통신 지연 없이 장비가 바로 그려, 빠른 이퀄 반복도 놓치지 않습니다.</p></div>
-      <div class="feat"><h4>최고/최저 압력 알람</h4><p>설정 범위를 벗어나면 소리로 알림 — 화면을 계속 보지 않아도 됩니다.</p></div>
-      <div class="feat"><h4>메트로놈 · 스톱워치</h4><p>일정한 리듬으로 반복 훈련. 긴 간격은 CO2 테이블 같은 호흡 훈련에도 활용.</p></div>
-      <div class="feat"><h4>3점 터치 스크린샷</h4><p>화면을 세 손가락으로 터치하면 캡처되어 SD에 저장 — 교육생 피드백 자료로.</p></div>
-      <div class="feat"><h4>측정 저장 · 참조 비교</h4><p>측정은 CSV로 자동 저장(SD 우선, 없으면 내부 메모리). 좋은 샘플은 참조 그래프로 겹쳐 비교.</p></div>
-      <div class="feat"><h4>자동 분석 · 조언</h4><p>반복 통계 요약 + 압력 패턴 기반 기술 추정. 감각이 아닌 숫자로 훈련을 돌아봅니다.</p></div>
-      <div class="feat valve"><img loading="lazy" class="dialimg" src="assets/valve-dial.jpg" alt="눈금 다이얼"><h4>압력 조절 밸브 (눈금)</h4><p><b>눈금이 있는 압력 조절 다이얼.</b> 자주 쓰는 설정값을 정확히 반복할 수 있습니다. 입 안 공기가 줄어드는 수심을 지상에서 시뮬레이션(특히 마우스필).</p></div>
-      <div class="feat"><h4>멀티 테마 · 한/영 · 펌웨어 업데이트</h4><p>여러 색상 테마와 한국어·영어 지원. <b>SD 카드에 파일만 넣으면 펌웨어 자동 업데이트</b> — PC·앱 없이도 기능이 계속 발전합니다.</p></div>
+      <div class="feat reveal" style="transition-delay:.05s"><h4>실시간 압력 그래프</h4><p>40Hz(초당 40회) 고속 측정으로 끊김 없는 부드러운 곡선. 통신 지연 없이 장비가 바로 그려, 빠른 이퀄 반복도 놓치지 않습니다.</p></div>
+      <div class="feat reveal" style="transition-delay:.13s"><h4>최고/최저 압력 알람</h4><p>설정 범위를 벗어나면 소리로 알림 — 화면을 계속 보지 않아도 됩니다.</p></div>
+      <div class="feat reveal" style="transition-delay:.21s"><h4>메트로놈 · 스톱워치</h4><p>일정한 리듬으로 반복 훈련. 긴 간격은 CO2 테이블 같은 호흡 훈련에도 활용.</p></div>
+      <div class="feat reveal" style="transition-delay:.29s"><h4>3점 터치 스크린샷</h4><p>화면을 세 손가락으로 터치하면 캡처되어 SD에 저장 — 교육생 피드백 자료로.</p></div>
+      <div class="feat reveal" style="transition-delay:.05s"><h4>측정 저장 · 참조 비교</h4><p>측정은 CSV로 자동 저장(SD 우선, 없으면 내부 메모리). 좋은 샘플은 참조 그래프로 겹쳐 비교.</p></div>
+      <div class="feat reveal" style="transition-delay:.13s"><h4>자동 분석 · 조언</h4><p>반복 통계 요약 + 압력 패턴 기반 기술 추정. 감각이 아닌 숫자로 훈련을 돌아봅니다.</p></div>
+      <div class="feat valve reveal" style="transition-delay:.21s"><img loading="lazy" class="dialimg" src="assets/valve-dial.jpg" alt="눈금 다이얼"><h4>압력 조절 밸브 (눈금)</h4><p><b>눈금이 있는 압력 조절 다이얼.</b> 자주 쓰는 설정값을 정확히 반복할 수 있습니다. 입 안 공기가 줄어드는 수심을 지상에서 시뮬레이션(특히 마우스필).</p></div>
+      <div class="feat reveal" style="transition-delay:.29s"><h4>멀티 테마 · 한/영 · 펌웨어 업데이트</h4><p>여러 색상 테마와 한국어·영어 지원. <b>SD 카드에 파일만 넣으면 펌웨어 자동 업데이트</b> — PC·앱 없이도 기능이 계속 발전합니다.</p></div>
     </div>
-    <p style="text-align:center;color:var(--muted);font-size:14.5px;margin:38px 0 14px;">색상 테마 7종 — 화면을 취향대로</p>
+    <p class="reveal" style="text-align:center;color:var(--muted);font-size:14.5px;margin:38px 0 14px;">색상 테마 7종 — 화면을 취향대로</p>
     <div class="themes">
-      <figure><img loading="lazy" src="assets/theme-daylight.png" alt="밝은 테마"><figcaption>밝은</figcaption></figure>
-      <figure><img loading="lazy" src="assets/theme-coral.png" alt="연지 테마"><figcaption>연지</figcaption></figure>
-      <figure><img loading="lazy" src="assets/theme-maple.png" alt="단풍 테마"><figcaption>단풍</figcaption></figure>
-      <figure><img loading="lazy" src="assets/theme-lime.png" alt="라임 테마"><figcaption>라임</figcaption></figure>
-      <figure><img loading="lazy" src="assets/theme-sky.png" alt="하늘 테마"><figcaption>하늘</figcaption></figure>
-      <figure><img loading="lazy" src="assets/theme-neon.png" alt="네온 테마"><figcaption>네온</figcaption></figure>
-      <figure><img loading="lazy" src="assets/theme-lavender.png" alt="라벤더 테마"><figcaption>라벤더</figcaption></figure>
+      <figure class="reveal" style="transition-delay:.05s"><img loading="lazy" src="assets/theme-daylight.png" alt="밝은 테마"><figcaption>밝은</figcaption></figure>
+      <figure class="reveal" style="transition-delay:.11s"><img loading="lazy" src="assets/theme-coral.png" alt="연지 테마"><figcaption>연지</figcaption></figure>
+      <figure class="reveal" style="transition-delay:.17s"><img loading="lazy" src="assets/theme-maple.png" alt="단풍 테마"><figcaption>단풍</figcaption></figure>
+      <figure class="reveal" style="transition-delay:.23s"><img loading="lazy" src="assets/theme-lime.png" alt="라임 테마"><figcaption>라임</figcaption></figure>
+      <figure class="reveal" style="transition-delay:.29s"><img loading="lazy" src="assets/theme-sky.png" alt="하늘 테마"><figcaption>하늘</figcaption></figure>
+      <figure class="reveal" style="transition-delay:.35s"><img loading="lazy" src="assets/theme-neon.png" alt="네온 테마"><figcaption>네온</figcaption></figure>
+      <figure class="reveal" style="transition-delay:.41s"><img loading="lazy" src="assets/theme-lavender.png" alt="라벤더 테마"><figcaption>라벤더</figcaption></figure>
     </div>
   </section>
 
   <!-- 5 기술 -->
   <section class="alt">
-    <div class="sec-tag">PATTERN ANALYSIS</div>
-    <h2 class="sec">자동으로 패턴을 인식하고 분석합니다</h2>
-    <p class="sec-lead">측정이 끝나면 압력 그래프의 형태를 보고 다섯 가지 이퀄라이징 패턴 중 하나로 자동 분석해 줍니다. <br>※ 해부학적 움직임을 직접 보는 것은 아니므로 <b>참고 정보</b>로 활용하세요.</p>
+    <div class="sec-tag reveal">PATTERN ANALYSIS</div>
+    <h2 class="sec reveal" style="transition-delay:.07s">자동으로 패턴을 인식하고 분석합니다</h2>
+    <p class="sec-lead reveal" style="transition-delay:.13s">측정이 끝나면 압력 그래프의 형태를 보고 다섯 가지 이퀄라이징 패턴 중 하나로 자동 분석해 줍니다. <br>※ 해부학적 움직임을 직접 보는 것은 아니므로 <b>참고 정보</b>로 활용하세요.</p>
     <div class="tech-grid">
-      <div class="tech"><img loading="lazy" src="assets/tech-valsalva.png" alt="발살바 압력 그래프"><div class="t"><b>발살바</b><span>폐·호흡근으로 천천히. 정점에서 머무름</span></div></div>
-      <div class="tech"><img loading="lazy" src="assets/tech-valsalva-frenzel.png" alt="발살바+프렌젤 압력 그래프"><div class="t"><b>발살바+프렌젤</b><span>혼합형. 정점에 작은 단차</span></div></div>
-      <div class="tech"><img loading="lazy" src="assets/tech-frenzel.png" alt="프렌젤 압력 그래프"><div class="t"><b>프렌젤</b><span>입 안 공기로 짧고 날카롭게</span></div></div>
-      <div class="tech"><img loading="lazy" src="assets/tech-mouthfill.png" alt="마우스필 압력 그래프"><div class="t"><b>마우스필</b><span>입 안 공기를 길게, 평탄하게</span></div></div>
-      <div class="tech"><img loading="lazy" src="assets/tech-mouthfill-frenzel.png" alt="마우스필 프렌젤 압력 그래프"><div class="t"><b>마우스필 프렌젤</b><span>입 안 공기 위 좁은 진동</span></div></div>
+      <div class="tech reveal" style="transition-delay:.08s"><img loading="lazy" src="assets/tech-valsalva.png" alt="발살바 압력 그래프"><div class="t"><b>발살바</b><span>폐·호흡근으로 천천히. 정점에서 머무름</span></div></div>
+      <div class="tech reveal" style="transition-delay:.16s"><img loading="lazy" src="assets/tech-valsalva-frenzel.png" alt="발살바+프렌젤 압력 그래프"><div class="t"><b>발살바+프렌젤</b><span>혼합형. 정점에 작은 단차</span></div></div>
+      <div class="tech reveal" style="transition-delay:.24s"><img loading="lazy" src="assets/tech-frenzel.png" alt="프렌젤 압력 그래프"><div class="t"><b>프렌젤</b><span>입 안 공기로 짧고 날카롭게</span></div></div>
+      <div class="tech reveal" style="transition-delay:.32s"><img loading="lazy" src="assets/tech-mouthfill.png" alt="마우스필 압력 그래프"><div class="t"><b>마우스필</b><span>입 안 공기를 길게, 평탄하게</span></div></div>
+      <div class="tech reveal" style="transition-delay:.4s"><img loading="lazy" src="assets/tech-mouthfill-frenzel.png" alt="마우스필 프렌젤 압력 그래프"><div class="t"><b>마우스필 프렌젤</b><span>입 안 공기 위 좁은 진동</span></div></div>
     </div>
   </section>
 
   <!-- 누구에게 좋은가 -->
   <section>
-    <div class="sec-tag">WHO IT'S FOR</div>
-    <h2 class="sec">이런 분께 잘 맞습니다</h2>
-    <p class="sec-lead">이퀄라이징을 눈으로 확인하고 반복 연습하려는 분들을 위해 만들었습니다.</p>
+    <div class="sec-tag reveal">WHO IT'S FOR</div>
+    <h2 class="sec reveal" style="transition-delay:.07s">이런 분께 잘 맞습니다</h2>
+    <p class="sec-lead reveal" style="transition-delay:.13s">이퀄라이징을 눈으로 확인하고 반복 연습하려는 분들을 위해 만들었습니다.</p>
     <div class="features">
-      <div class="feat"><h4>이퀄라이징 리듬을 눈으로</h4><p>잘 되고 있는지 감각에만 의존하던 압력을 실시간 그래프로 확인하고 싶은 프리다이버.</p></div>
-      <div class="feat"><h4>패턴 반복 연습</h4><p>프렌젤·마우스필 같은 기술 패턴을 일정하게 반복 연습하려는 사용자.</p></div>
-      <div class="feat"><h4>강사의 시각 자료</h4><p>교육생에게 "지금 이런 상태"라고 그래프로 보여주며 설명하고 싶은 강사.</p></div>
-      <div class="feat"><h4>드라이 트레이닝 기록</h4><p>지상 훈련 결과를 저장·비교하며 변화를 남기고 싶은 사용자.</p></div>
+      <div class="feat reveal" style="transition-delay:.1s"><h4>이퀄라이징 리듬을 눈으로</h4><p>잘 되고 있는지 감각에만 의존하던 압력을 실시간 그래프로 확인하고 싶은 프리다이버.</p></div>
+      <div class="feat reveal" style="transition-delay:.2s"><h4>패턴 반복 연습</h4><p>프렌젤·마우스필 같은 기술 패턴을 일정하게 반복 연습하려는 사용자.</p></div>
+      <div class="feat reveal" style="transition-delay:.1s"><h4>강사의 시각 자료</h4><p>교육생에게 "지금 이런 상태"라고 그래프로 보여주며 설명하고 싶은 강사.</p></div>
+      <div class="feat reveal" style="transition-delay:.2s"><h4>드라이 트레이닝 기록</h4><p>지상 훈련 결과를 저장·비교하며 변화를 남기고 싶은 사용자.</p></div>
     </div>
   </section>
 
   <!-- 구성품 / 컬러 -->
   <section class="alt">
-    <div class="sec-tag">IN THE BOX</div>
-    <h2 class="sec">구성품과 두 가지 컬러</h2>
-    <p class="sec-lead">본체 · 이퀄벤트 · 튜브 · 눈금 압력조절 밸브. 훈련 장비이면서도 친근하게<br>— 주황 니모와 파랑 고래상어 버전.</p>
+    <div class="sec-tag reveal">IN THE BOX</div>
+    <h2 class="sec reveal" style="transition-delay:.07s">구성품과 두 가지 컬러</h2>
+    <p class="sec-lead reveal" style="transition-delay:.13s">본체 · 이퀄벤트 · 튜브 · 눈금 압력조절 밸브. 훈련 장비이면서도 친근하게<br>— 주황 니모와 파랑 고래상어 버전.</p>
     <div class="kits">
-      <div class="kit"><img loading="lazy" src="assets/kit-orange.jpg" alt="주황 니모 구성품"><div class="lbl">주황 · 니모 버전<span>본체 + 니모 이퀄벤트 + 튜브 + 압력조절 밸브 + USB 케이블</span></div></div>
-      <div class="kit"><img loading="lazy" src="assets/kit-blue.jpg" alt="파랑 고래상어 구성품"><div class="lbl">파랑 · 고래상어 버전<span>본체 + 고래상어 이퀄벤트 + 튜브 + 압력조절 밸브 + USB 케이블</span></div></div>
+      <div class="kit reveal" style="transition-delay:.1s"><img loading="lazy" src="assets/kit-orange.jpg" alt="주황 니모 구성품"><div class="lbl">주황 · 니모 버전<span>본체 + 니모 이퀄벤트 + 튜브 + 압력조절 밸브 + USB 케이블</span></div></div>
+      <div class="kit reveal" style="transition-delay:.22s"><img loading="lazy" src="assets/kit-blue.jpg" alt="파랑 고래상어 구성품"><div class="lbl">파랑 · 고래상어 버전<span>본체 + 고래상어 이퀄벤트 + 튜브 + 압력조절 밸브 + USB 케이블</span></div></div>
     </div>
   </section>
 
   <!-- 사용법 + 영상 -->
   <section>
-    <div class="sec-tag">HOW TO USE</div>
-    <h2 class="sec">꺼내서 쓱 연결하고 바로 측정</h2>
-    <p class="sec-lead">꺼내 쉽게 연결하고 바로 측정 — 분석까지 세 단계, 영상으로도 확인하세요.</p>
+    <div class="sec-tag reveal">HOW TO USE</div>
+    <h2 class="sec reveal" style="transition-delay:.07s">꺼내서 쓱 연결하고 바로 측정</h2>
+    <p class="sec-lead reveal" style="transition-delay:.13s">꺼내 쉽게 연결하고 바로 측정 — 분석까지 세 단계, 영상으로도 확인하세요.</p>
     <div class="steps">
-      <div class="step"><div class="n">1</div><h4>연결</h4><p>본체에 튜브를 딸깍 끼우고, 튜브 끝에 이퀄벤트를 연결합니다.</p></div>
-      <div class="step"><div class="n">2</div><h4>측정</h4><p>시작 버튼을 누르고 이퀄라이징. 압력이 실시간 그래프로 그려집니다.</p></div>
-      <div class="step"><div class="n">3</div><h4>분석</h4><p>측정이 끝나면 자동 저장. 분석 화면에서 통계와 조언을 확인합니다.</p></div>
+      <div class="step reveal" style="transition-delay:.1s"><div class="n">1</div><h4>연결</h4><p>본체에 튜브를 딸깍 끼우고, 튜브 끝에 이퀄벤트를 연결합니다.</p></div>
+      <div class="step reveal" style="transition-delay:.22s"><div class="n">2</div><h4>측정</h4><p>시작 버튼을 누르고 이퀄라이징. 압력이 실시간 그래프로 그려집니다.</p></div>
+      <div class="step reveal" style="transition-delay:.34s"><div class="n">3</div><h4>분석</h4><p>측정이 끝나면 자동 저장. 분석 화면에서 통계와 조언을 확인합니다.</p></div>
     </div>
-    <div class="video-box" style="margin-top:36px">
+    <div class="video-box reveal" style="margin-top:36px;transition-delay:.15s">
       <video controls preload="metadata" poster="assets/hero-orange.jpg">
         <source src="assets/demo.mp4" type="video/mp4">
         브라우저가 영상을 지원하지 않습니다.
@@ -389,9 +394,9 @@
 
   <!-- 스펙 -->
   <section class="alt">
-    <div class="sec-tag">SPEC</div>
-    <h2 class="sec">기본 사양</h2>
-    <table class="spec">
+    <div class="sec-tag reveal">SPEC</div>
+    <h2 class="sec reveal" style="transition-delay:.07s">기본 사양</h2>
+    <table class="spec reveal" style="transition-delay:.15s">
       <tr><th>모델</th><td>EQ-28</td></tr>
       <tr><th>디스플레이</th><td>2.8인치 터치 LCD (320×240, 가로형)</td></tr>
       <tr><th>크기</th><td>본체 90 × 77.6 × 25 mm · 가방 160 × 100 × 70 mm</td></tr>
@@ -405,7 +410,7 @@
       <tr><th>사용 환경</th><td>지상 드라이 트레이닝 전용 · 방수 아님 · 의료기기 아님</td></tr>
       <tr><th>구성품</th><td>본체 · 이퀄벤트 · 튜브 · 눈금 압력조절 밸브 · USB 케이블</td></tr>
     </table>
-    <p class="make-note"><b>제작 특성 안내</b><br>
+    <p class="make-note reveal" style="transition-delay:.25s"><b>제작 특성 안내</b><br>
       소량 제작 제품이지만 최대한 깔끔한 출력 품질과 마감 상태를 목표로 제작하고 있습니다.<br>
       다만 3D 프린팅 방식의 특성상 적층 결, 미세한 단차, 표면 질감 차이, 조립부의 작은 틈이 있을 수 있습니다.<br>
       이러한 차이는 기능상 문제가 없는 범위의 제작 특성이며, 기능과 내구성에 문제가 없는 제품만 검수 후 발송합니다.</p>
@@ -413,22 +418,22 @@
 
   <!-- 다운로드 -->
   <section>
-    <div class="sec-tag">DOWNLOAD</div>
-    <h2 class="sec">펌웨어 &amp; 매뉴얼</h2>
-    <p class="sec-lead">최신 펌웨어와 사용설명서를 내려받으세요. 펌웨어는 SD 카드에 복사 후 전원을 켜면 자동 업데이트됩니다.</p>
+    <div class="sec-tag reveal">DOWNLOAD</div>
+    <h2 class="sec reveal" style="transition-delay:.07s">펌웨어 &amp; 매뉴얼</h2>
+    <p class="sec-lead reveal" style="transition-delay:.13s">최신 펌웨어와 사용설명서를 내려받으세요. 펌웨어는 SD 카드에 복사 후 전원을 켜면 자동 업데이트됩니다.</p>
     <div class="dl-grid">
-      <a class="dl" href="download/"><b>최신 펌웨어 ↓</b><span>다운로드 페이지 · .bin</span></a>
-      <a class="dl" href="manual.html"><b>상세 사용설명서</b><span>전체 매뉴얼 (웹/인쇄)</span></a>
-      <a class="dl" href="quickstart.html"><b>퀵스타트</b><span>빠른 시작 1장</span></a>
+      <a class="dl reveal" href="download/" style="transition-delay:.1s"><b>최신 펌웨어 ↓</b><span>다운로드 페이지 · .bin</span></a>
+      <a class="dl reveal" href="manual.html" style="transition-delay:.2s"><b>상세 사용설명서</b><span>전체 매뉴얼 (웹/인쇄)</span></a>
+      <a class="dl reveal" href="quickstart.html" style="transition-delay:.3s"><b>퀵스타트</b><span>빠른 시작 1장</span></a>
     </div>
   </section>
 
   <!-- 정식 출시 안내 -->
   <section class="alt">
-    <div class="sec-tag">COMING SOON</div>
-    <h2 class="sec">정식 출시를 준비하고 있습니다</h2>
-    <p class="sec-lead">사전 예약은 마감되었습니다. KC 인증 완료 후 <b>7월 중순 정식 예약</b>을 오픈할 예정입니다.</p>
-    <div class="price-card">
+    <div class="sec-tag reveal">COMING SOON</div>
+    <h2 class="sec reveal" style="transition-delay:.07s">정식 출시를 준비하고 있습니다</h2>
+    <p class="sec-lead reveal" style="transition-delay:.13s">사전 예약은 마감되었습니다. KC 인증 완료 후 <b>7월 중순 정식 예약</b>을 오픈할 예정입니다.</p>
+    <div class="price-card reveal" style="transition-delay:.2s">
       <span class="badge">정식 예약 오픈 예정</span>
       <div class="now" style="font-size:34px;line-height:1.15;">7월 중순</div>
       <div class="note">정식 예약 일정과 혜택은 별바다랩 카페에서 가장 먼저 안내됩니다.<br>알림 받으시면 오픈 소식을 놓치지 않으실 수 있습니다.</div>
@@ -448,5 +453,15 @@
   </footer>
 
 </div>
+<script>
+(function(){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+</script>
 </body>
 </html>

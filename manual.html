@@ -134,7 +134,7 @@
   <h1>사용자 매뉴얼 — 상세 사용설명서</h1>
   <div class="meta">
     프리다이빙 이퀄라이징 훈련 장비<br>
-    펌웨어 v1.1a 기준 · 최종 갱신 2026-06-21 · 빠른 시작은 별도 인쇄물 <a href="quickstart.html">quickstart</a> 참고
+    펌웨어 v1.1a 기준 · 최종 갱신 2026-07-05 · 빠른 시작은 별도 인쇄물 <a href="quickstart.html">quickstart</a> 참고
   </div>
 </header>
 
@@ -348,10 +348,10 @@
   <tbody>
     <tr><td><strong>횟수</strong></td><td>감지된 이퀄(피크) 횟수</td><td>반복 이퀄의 개수</td></tr>
     <tr><td><strong>주기</strong></td><td>평균 피크 간격 (초)</td><td>한 번의 이퀄에 걸린 평균 시간. 일정할수록 리듬이 안정적</td></tr>
-    <tr><td><strong>고점 변동</strong></td><td>피크 높이의 변동계수 (CV %)</td><td><strong>낮을수록 균일</strong> — 매번 비슷한 세기로 이퀄했다는 뜻. 높으면 들쭉날쭉</td></tr>
+    <tr><td><strong>고점 변동</strong></td><td>피크 높이가 들쭉날쭉한 정도 (%)</td><td><strong>낮을수록 균일</strong> — 매번 비슷한 세기로 이퀄했다는 뜻. 높으면 들쭉날쭉</td></tr>
     <tr><td><strong>상승 속도</strong></td><td>저점→고점 평균 속도 (hPa/s)</td><td><strong>클수록 빠른 가압.</strong> 프렌젤이 발살바보다 빠른 경향</td></tr>
     <tr><td><strong>하강 속도</strong></td><td>고점→저점 평균 속도 (hPa/s)</td><td>압력을 푸는 속도</td></tr>
-    <tr><td><strong>정점 유지</strong></td><td>피크 최고값의 90% 이상에 머문 평균 시간 (초)</td><td><strong>짧으면 프렌젤(뾰족한 피크), 길면 발살바(넓은 피크).</strong> 패턴 구분의 핵심 지표</td></tr>
+    <tr><td><strong>정점 유지</strong></td><td>피크 꼭대기 부근에 머문 평균 시간 (초)</td><td><strong>짧으면 프렌젤(뾰족한 피크), 길면 발살바(넓은 피크)</strong></td></tr>
     <tr><td><strong>고점 (평균)</strong></td><td>피크들의 평균 압력 (hPa)</td><td></td></tr>
     <tr><td><strong>저점 (평균)</strong></td><td>피크 사이 골(트로프)의 평균 압력 (hPa)</td><td></td></tr>
   </tbody>
@@ -364,7 +364,7 @@
   <thead><tr><th>표시</th><th>의미</th><th>읽는 법</th></tr></thead>
   <tbody>
     <tr><td><strong>유지</strong></td><td>압력을 유지한 시간 (초)</td><td>마우스필 압력을 얼마나 오래 안정적으로 들고 있었나</td></tr>
-    <tr><td><strong>압력 편차</strong></td><td>유지 구간 잔차 표준편차 (hPa)</td><td><strong>작을수록 안정.</strong> 귀로 미는 압력을 일정하게 잘 유지했다는 뜻</td></tr>
+    <tr><td><strong>압력 편차</strong></td><td>유지 중 압력 흔들림의 크기 (hPa)</td><td><strong>작을수록 안정.</strong> 귀로 미는 압력을 일정하게 잘 유지했다는 뜻</td></tr>
   </tbody>
 </table>
 
@@ -376,8 +376,7 @@
   <figure><img src="assets/tech-mouthfill.png" alt="마우스필 그래프"><figcaption>마우스필</figcaption></figure>
   <figure><img src="assets/tech-mouthfill-frenzel.png" alt="마우스필 프렌젤 그래프"><figcaption>마우스필 프렌젤</figcaption></figure>
 </div>
-<p>Equalscope는 측정 곡선의 형태를 보고 다섯 가지 기술 패턴 중 하나로 분류합니다.
-1차로 <strong>상승 속도</strong>를 보고 진동형(반복 가압)인지 유지형(압력 유지)인지 나눈 뒤, 세부 형태로 기술을 판정합니다.</p>
+<p>Equalscope는 측정 곡선의 형태적 특징을 종합하여 다섯 가지 기술 패턴 중 하나로 분류합니다.</p>
 <table class="pat3">
   <thead><tr><th>패턴</th><th>곡선 특징</th><th>기술적 의미</th></tr></thead>
   <tbody>
@@ -388,16 +387,8 @@
     <tr><td><strong>마우스필 프렌젤</strong></td><td>높은 저점 위에서 <strong>작은 진폭의 반복</strong></td><td>마우스필 공기를 프렌젤로 잘게 나눠 쓰는 고급 패턴</td></tr>
   </tbody>
 </table>
-<p><strong>판정 보조 지표 정리</strong></p>
-<ul>
-  <li>진동형 ↔ 유지형: <strong>상승 속도</strong>가 기준. 빠르면 진동형(발살바/프렌젤), 느리면 유지형(마우스필).</li>
-  <li>발살바 ↔ 프렌젤: <strong>정점 유지</strong> 시간. 길면 발살바, 짧으면 프렌젤.</li>
-  <li>발살바+프렌젤: 상승 도중 <strong>평탄한 "어깨" 구간</strong>이 검출되면 혼합형으로 판정.</li>
-  <li>마우스필 ↔ 마우스필 프렌젤: 저점이 높게 유지된 채 작은 반복 진동이 있으면 마우스필 프렌젤.</li>
-</ul>
-
 <h3 id="s5_3">5.3 분류 신뢰도</h3>
-<p>패턴 판정 옆에 <strong>신뢰도(%)</strong>가 함께 표시될 수 있습니다. 이는 측정이 패턴 경계에서 얼마나 떨어져 있는지를 나타냅니다.</p>
+<p>패턴 판정 옆에 <strong>신뢰도(%)</strong>가 함께 표시될 수 있습니다. 판정이 얼마나 분명한지를 나타내는 값입니다.</p>
 <ul>
   <li><strong>높음(분명)</strong> — 곡선이 해당 패턴의 전형에 가까움.</li>
   <li><strong>50% 부근(경계)</strong> — 두 패턴의 중간 형태. 예를 들어 "발살바와 프렌젤이 반반 섞인" 상태일 수 있음.</li>
@@ -408,8 +399,8 @@
 <p>판정에는 <strong>품질 등급</strong>과 <strong>경고</strong>가 함께 붙습니다.</p>
 <p><strong>품질 등급</strong></p>
 <ul>
-  <li>진동형: <strong>고점 변동(CV)</strong>이 작을수록 좋은 등급. 매번 균일한 세기로 이퀄했다는 뜻.</li>
-  <li>유지형(마우스필): 유지 구간의 <strong>안정성</strong>(초기/중간/말미 흔들림)으로 등급 판정.</li>
+  <li>진동형: 피크 세기가 <strong>균일</strong>할수록 좋은 등급 — 매번 비슷한 세기로 이퀄했다는 뜻.</li>
+  <li>유지형(마우스필): 압력을 얼마나 <strong>흔들림 없이 유지</strong>했는지로 등급이 정해집니다.</li>
 </ul>
 <p><strong>경고 메시지 (해당 시 표시)</strong></p>
 <table>

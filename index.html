@@ -43,7 +43,7 @@
   "@graph":[
     {"@type":"Organization","@id":"https://equalscope.kr/#org","name":"Equalscope","alternateName":"별바다랩","url":"https://equalscope.kr/","logo":"https://equalscope.kr/favicon.svg"},
     {"@type":"WebSite","@id":"https://equalscope.kr/#website","url":"https://equalscope.kr/","name":"Equalscope","inLanguage":"ko","publisher":{"@id":"https://equalscope.kr/#org"}},
-    {"@type":"Product","name":"Equalscope","description":"프리다이빙 이퀄라이징 압력을 실시간 그래프로 보고, 훈련을 자동 기록·분석·비교하는 이퀄라이징 훈련 플랫폼 장비.","image":"https://equalscope.kr/assets/hero-both.jpg","brand":{"@id":"https://equalscope.kr/#org"},"offers":{"@type":"Offer","url":"https://equalscope.kr/","priceCurrency":"KRW","price":"229000","priceValidUntil":"2026-12-31","availability":"https://schema.org/PreOrder"}}
+    {"@type":"Product","name":"Equalscope","description":"프리다이빙 이퀄라이징 압력을 실시간 그래프로 보고, 훈련을 자동 기록·분석·비교하는 이퀄라이징 훈련 플랫폼 장비.","image":"https://equalscope.kr/assets/hero-both.jpg","brand":{"@id":"https://equalscope.kr/#org"},"offers":{"@type":"Offer","url":"https://equalscope.kr/","priceCurrency":"KRW","price":"229000","priceValidUntil":"2026-12-31","availability":"https://schema.org/InStock"}}
   ]
 }
 </script>
@@ -270,6 +270,7 @@
   <div class="topbar">
     <a class="brand" href="/"><img class="mark" src="assets/brand/byulbada-dive_symbol.svg" alt="">Equalscope</a>
     <nav class="nav-links">
+      <a href="#order">주문</a>
       <a href="quickstart.html">퀵스타트</a>
       <a href="manual.html">매뉴얼</a>
       <a class="nav-cta" href="download/">펌웨어 ↓</a>
@@ -282,7 +283,7 @@
     <h1>압력만 측정하는 장비가 아닙니다.<br><span class="pt">더 나은 훈련을 위한 플랫폼입니다.</span></h1>
     <p class="sub"><span style="color:#eef5fb;font-weight:700;">훈련을 기록하고 분석하여, 다음 훈련이 더 좋아지도록 돕습니다.</span><br>보이지 않던 압력을 실시간 그래프로 — 스마트폰 없이, 장비 하나로.</p>
     <div class="btn-row">
-      <a class="btn btn-primary" href="https://cafe.naver.com/byulbadalab" target="_blank" rel="noopener">출시 알림 받기</a>
+      <a class="btn btn-primary" href="#order">지금 주문하기</a>
       <a class="btn btn-ghost" href="#features">기능 살펴보기</a>
     </div>
     <p class="hero-note">※ 지상 드라이 트레이닝 전용 비방수 훈련 보조 장비이며, 의료기기가 아닙니다.</p>
@@ -460,24 +461,28 @@
   <section class="navy-sec">
     <div class="sec-tag">BETA RESPONSE</div>
     <h2 class="sec">실물을 본 반응은 다릅니다</h2>
-    <p class="sec-lead">정식 출시에 앞서, 베타 테스터들이 실사용하며 완성도를 검증하고 있습니다.</p>
+    <p class="sec-lead">베타 테스트와 사전 예약 배송을 거쳐 완성도를 검증했습니다.</p>
     <div class="who">
-      <div class="w"><h4>안정성</h4><p>베타 테스트 기간 동안 현재까지 보고된 기능 결함이 없습니다. 출시 전 마지막 완성도를 다듬고 있습니다.</p></div>
+      <div class="w"><h4>안정성</h4><p>베타 테스트와 사전 예약 배송 이후 현재까지 보고된 기능 결함이 없습니다. 출시 후에도 펌웨어 업데이트로 계속 다듬어 갑니다.</p></div>
       <div class="w"><h4>첫인상</h4><p>실물과 실제 동작을 처음 본 자리에서 바로 구매를 결정한 분이 나올 만큼, 화면과 만듦새에 대한 반응이 좋습니다.</p></div>
       <div class="w"><h4>가장 많이 듣는 말</h4><p>"기존 장비에는 없던 기능들" — 자동 분석과 참조 비교, 그리고 디자인이 가장 자주 언급됩니다.</p></div>
     </div>
   </section>
 
-  <!-- 정식 출시 안내 -->
-  <section class="alt">
-    <div class="sec-tag">COMING SOON</div>
-    <h2 class="sec">정식 출시를 준비하고 있습니다</h2>
-    <p class="sec-lead">사전 예약은 마감되었습니다. <b>KC 전파인증을 완료</b>했으며(R-R-SSD1-EQ-28), <b>7월 중순 정식 예약</b>을 오픈할 예정입니다.</p>
+  <!-- 정식 출시 · 주문 안내 -->
+  <section class="alt" id="order">
+    <div class="sec-tag">ORDER</div>
+    <h2 class="sec">정식 출시 — 주문 안내</h2>
+    <p class="sec-lead"><b>KC 전파인증을 완료</b>하고(R-R-SSD1-EQ-28) 정식 출시되었습니다.<br>주문은 당분간 <b>월 2회 예약 · 발송</b> 방식으로 운영됩니다.</p>
     <div class="price-card">
-      <span class="badge">정식 예약 오픈 예정</span>
-      <div class="now" style="font-size:34px;line-height:1.15;">7월 중순</div>
-      <div class="note">정식 예약 일정과 혜택은 별바다랩 카페에서 가장 먼저 안내됩니다.<br>알림 받으시면 오픈 소식을 놓치지 않으실 수 있습니다.</div>
-      <a class="btn btn-primary" href="https://cafe.naver.com/byulbadalab" target="_blank" rel="noopener">카페에서 알림 받기</a>
+      <span class="badge">정식 출시</span>
+      <div class="now">229,000<small>원</small></div>
+      <div class="note">매월 <b>15일</b> 예약 마감 → 다음 주 순차 발송<br>매월 <b>말일</b> 예약 마감 → 다음 달 첫째 주 순차 발송<br>주문 방법과 입금 안내는 별바다랩 카페 공지에서 확인하세요.</div>
+      <a class="btn btn-primary" href="https://cafe.naver.com/byulbadalab" target="_blank" rel="noopener">카페에서 주문하기</a>
+    </div>
+    <div class="features" style="max-width:760px;margin:26px auto 0;">
+      <div class="feat"><h4>무료 개별 각인</h4><p>주문 시 원하는 문구를 본체에 무료로 각인해 드립니다. 잘 보이도록 <b>짧은 영문 문구</b>를 권장합니다.</p></div>
+      <div class="feat"><h4>이퀄벤트 패키지 추가 할인</h4><p>본체 구매자는 이퀄벤트 패키지(이퀄벤트 + 금속 피팅 + 열쇠고리 끈 + 풍선)를 정가 20,000원에서 <b>20% 할인된 16,000원</b>에 추가 구매할 수 있습니다.</p></div>
     </div>
   </section>
 
@@ -486,7 +491,7 @@
   <footer>
     <blockquote class="safety">Equalscope는 이퀄라이징 훈련을 돕는 <b>보조 장비</b>이며 의료기기가 아닙니다. 분석·조언 결과는 참고 정보로 활용하시고, 프리다이빙 훈련은 반드시 안전 수칙과 강사 지도를 따르세요.</blockquote>
     <div class="fbrand">Equalscope</div>
-    <div>문의 &amp; A/S &amp; 출시 알림 →
+    <div>주문 &amp; 문의 &amp; A/S →
       <a href="https://cafe.naver.com/byulbadalab" target="_blank" rel="noopener">네이버 별바다랩 카페</a>
     </div>
     <div class="small">상호 별바다다이브 · 대표 현우석 · 사업자등록번호 556-03-04058<br>© 2026 별바다다이브</div>

@@ -148,8 +148,8 @@
   .device .cap{color:var(--muted);padding:12px 12px 14px;font-size:13.5px;text-align:center;line-height:1.55;}
   .device .cap b{display:block;color:var(--navy);font-size:16px;margin-bottom:3px;line-height:1.35;}
 
-  /* 5 기술 */
-  .tech-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;}
+  /* 6 기술 (2행×3열) */
+  .tech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
   .tech{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;}
   .tech img{width:100%;background:#0a0f14;}
   .tech .t{padding:10px 10px 12px;}
@@ -367,13 +367,14 @@
   <section class="alt">
     <div class="sec-tag">PATTERN ANALYSIS</div>
     <h2 class="sec">자동으로 패턴을 인식하고 분석합니다</h2>
-    <p class="sec-lead"><b>기존 훈련 장비에 없던, Equalscope의 대표 기능입니다.</b> 측정이 끝나면 압력 그래프의 형태를 보고 다섯 가지 이퀄라이징 패턴 중 하나로 자동 분석해 줍니다. <br>※ 해부학적 움직임을 직접 보는 것은 아니므로 <b>참고 정보</b>로 활용하세요.</p>
+    <p class="sec-lead"><b>기존 훈련 장비에 없던, Equalscope의 대표 기능입니다.</b> 측정이 끝나면 압력 그래프의 형태를 보고 여섯 가지 이퀄라이징 패턴 중 하나로 자동 분석해 줍니다. <br>※ 해부학적 움직임을 직접 보는 것은 아니므로 <b>참고 정보</b>로 활용하세요.</p>
     <div class="tech-grid">
       <div class="tech"><img loading="lazy" src="assets/tech-valsalva.png" alt="발살바 압력 그래프"><div class="t"><b>발살바</b><span>폐·호흡근으로 천천히. 정점에서 머무름</span></div></div>
       <div class="tech"><img loading="lazy" src="assets/tech-valsalva-frenzel.png" alt="발살바+프렌젤 압력 그래프"><div class="t"><b>발살바+프렌젤</b><span>혼합형. 정점에 작은 단차</span></div></div>
       <div class="tech"><img loading="lazy" src="assets/tech-frenzel.png" alt="프렌젤 압력 그래프"><div class="t"><b>프렌젤</b><span>입 안 공기로 짧고 날카롭게</span></div></div>
       <div class="tech"><img loading="lazy" src="assets/tech-mouthfill.png" alt="마우스필 압력 그래프"><div class="t"><b>마우스필</b><span>입 안 공기를 길게, 평탄하게</span></div></div>
       <div class="tech"><img loading="lazy" src="assets/tech-mouthfill-frenzel.png" alt="마우스필 프렌젤 압력 그래프"><div class="t"><b>마우스필 프렌젤</b><span>입 안 공기 위 좁은 진동</span></div></div>
+      <div class="tech"><img loading="lazy" src="assets/tech-btv.png" alt="BTV(핸즈프리) 압력 그래프"><div class="t"><b>BTV (핸즈프리)</b><span>밀지 않고 이관을 직접 여는 희소 기법. 아주 낮은 압의 진동</span></div></div>
     </div>
   </section>
 

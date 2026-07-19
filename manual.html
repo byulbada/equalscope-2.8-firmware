@@ -123,7 +123,9 @@
   /* 8.설정 페이지 3장 — 폭에 꽉차게 (큰 사진이 PDF 빈 공간도 메움) */
   .figrow.pair.wide figure{flex:1 1 0;max-width:none;}
   .figrow figcaption{font-size:12px;color:var(--muted);margin-top:4px;}
-  @media print{ figure.fig,.figrow{page-break-inside:avoid;} figure.fig img,.figrow.shots img{max-width:300px;} }
+  @media print{ figure.fig,.figrow{page-break-inside:avoid;} figure.fig img,.figrow.shots img{max-width:300px;}
+    /* 7.1 인터벌 2장 — 인쇄에선 설정 3장 묶음과 같은 폭으로 축소 (PDF 빈 공간 방지) */
+    .figrow.pair.compact figure{flex:0 1 auto;} .figrow.pair.compact img{max-width:220px;} }
 </style>
 </head>
 <body>
@@ -523,7 +525,7 @@
 <h3 id="s7_1">7.1 EQ 인터벌</h3>
 <p>구간별로 <strong>(간격 × 횟수)</strong>를 정해 두면, 측정을 시작하는 순간부터 그 순서대로
 <strong>비프음 + 화면 시각 신호</strong>가 울립니다. 하강 시나리오에 맞춰 이퀄 리듬을 훈련하는 도구입니다.</p>
-<div class="figrow pair">
+<div class="figrow pair compact">
   <figure><img src="assets/screen-settings2.png" alt="설정 페이지 2 — EQ 인터벌 토글과 인터벌 편집 버튼"><figcaption>설정 페이지 2 — EQ 인터벌 토글 + [인터벌 편집]</figcaption></figure>
   <figure><img src="assets/screen-interval-edit.png" alt="인터벌 편집 화면 — 4구간 (간격 × 횟수)"><figcaption>인터벌 편집 — 구간별 (간격 × 횟수), 상단에 합계 표시</figcaption></figure>
 </div>

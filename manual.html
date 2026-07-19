@@ -125,7 +125,8 @@
   .figrow figcaption{font-size:12px;color:var(--muted);margin-top:4px;}
   @media print{ figure.fig,.figrow{page-break-inside:avoid;} figure.fig img,.figrow.shots img{max-width:300px;}
     /* 7.1 인터벌 2장 — 인쇄에선 설정 3장 묶음과 같은 폭으로 축소 (PDF 빈 공간 방지) */
-    .figrow.pair.compact figure{flex:0 1 auto;} .figrow.pair.compact img{max-width:220px;} }
+    .figrow.pair.compact figure{flex:0 1 auto;} .figrow.pair.compact img{max-width:220px;}
+    figure.fig.shot.compact img{max-width:240px;} }
 </style>
 </head>
 <body>
@@ -540,8 +541,7 @@
   <li><strong>그래프 알람 마커</strong>: 알람이 울린 위치가 그래프에 <strong>세로선</strong>으로 표시됩니다 (구간이 바뀌는 첫 알람은 더 길게). 줌·스크롤을 해도 함께 움직여, <strong>"알람 시점 vs 실제 이퀄"</strong>을 비교하며 리듬을 점검할 수 있습니다.</li>
   <li><strong>기록 보존</strong>: 알람 위치는 측정 CSV 파일에도 저장되어, 나중에 파일을 다시 열어도 마커가 그대로 표시됩니다.</li>
 </ul>
-<figure class="fig shot"><img src="assets/screen-interval-chart.png" alt="측정 화면 — EQ 인터벌 알람 세로선 마커"><figcaption>측정 중 그래프 — 알람 시점이 세로선 마커로 남아 계획 대비 실제 이퀄을 비교</figcaption></figure>
-<blockquote>이전 버전의 <strong>메트로놈</strong> 설정은 업데이트 시 "1구간 무한 반복"으로 자동 이전됩니다.</blockquote>
+<figure class="fig shot compact"><img src="assets/screen-interval-chart.png" alt="측정 화면 — EQ 인터벌 알람 세로선 마커"><figcaption>측정 중 그래프 — 알람 시점이 세로선 마커로 남아 계획 대비 실제 이퀄을 비교</figcaption></figure>
 
 <h3 id="s7_2">7.2 스톱워치</h3>
 <p>측정 중 경과 시간을 <strong>hh:mm:ss</strong>로 메인 화면 좌측 상단에 실시간 표시합니다.

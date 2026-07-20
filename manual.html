@@ -137,7 +137,7 @@
   <h1>사용자 매뉴얼 — 상세 사용설명서</h1>
   <div class="meta">
     프리다이빙 이퀄라이징 훈련 장비<br>
-    펌웨어 v1.1e 기준 · 최종 갱신 2026-07-20 · 빠른 시작은 별도 인쇄물 <a href="quickstart.html">quickstart</a> 참고
+    펌웨어 v1.1f 기준 · 최종 갱신 2026-07-21 · 빠른 시작은 별도 인쇄물 <a href="quickstart.html">quickstart</a> 참고
   </div>
 </header>
 
@@ -547,7 +547,8 @@
   <li><strong>설정 위치</strong>: 설정 페이지 2 — <strong>EQ 인터벌</strong> 토글 + <strong>[인터벌 편집]</strong> 버튼 (<a href="#s8_2">8.2</a>)</li>
   <li><strong>편집 화면</strong>: 최대 <strong>4구간</strong>, 각 구간은 <strong>간격(초) × 횟수</strong>로 지정합니다.
     <ul><li><strong>간격 0 = 구간 없음</strong> (해당 구간 건너뜀)</li>
-        <li><strong>횟수 0 = 무한 반복(∞)</strong> — 그 구간의 간격으로 계속 울립니다</li>
+        <li><strong>1초 미만은 0.1초 단위</strong>로 설정할 수 있습니다 (0.1 → 0.9 → 1 → 2 → …). 빠른 리듬으로 반복하는 훈련에 쓸 수 있습니다.</li>
+        <li><strong>횟수 0 = 무한 반복(∞)</strong> — 그 구간의 간격으로 계속 울립니다. 이때는 알람음이 <strong>높은 음과 낮은 음으로 번갈아</strong> 울려 박자를 타기 쉽습니다.</li>
         <li>상단에 <strong>합계 횟수·총 시간</strong>이 실시간으로 표시되어 시퀀스 전체 길이를 바로 확인할 수 있습니다</li></ul></li>
   <li><strong>동작</strong>: 측정 <strong>[시작]과 동시에</strong> 구간 1부터 순서대로 진행합니다. 알람 시점이 그래프의 시간축과 일치하므로, 훈련 후 그래프에서 그대로 되짚어 볼 수 있습니다.</li>
   <li><strong>활용 예</strong>: "2초×5 → 4초×5 → 8초×5" — 하강 초반에는 잦게, 내려갈수록 간격을 늘리는 식으로 수심 구간별 이퀄 빈도를 미리 설계해 훈련합니다. 한 구간만 두고 무한 반복으로 쓰면 단순 메트로놈처럼도 쓸 수 있습니다.</li>
@@ -605,7 +606,7 @@
   <tbody>
     <tr><td><strong>볼륨</strong></td><td>1</td><td>0~100 %</td><td>인터벌·알람음 크기 (슬라이더)</td></tr>
     <tr><td><strong>EQ 인터벌</strong></td><td>2</td><td>ON / OFF</td><td>구간별 알람 시퀀스 켜기/끄기 (<a href="#s7_1">7.1</a>)</td></tr>
-    <tr><td><strong>인터벌 편집</strong></td><td>2</td><td>4구간 (간격×횟수)</td><td>간격 0 = 구간 없음 · 횟수 0 = 무한 반복(∞)</td></tr>
+    <tr><td><strong>인터벌 편집</strong></td><td>2</td><td>4구간 (간격×횟수)</td><td>간격 0 = 구간 없음 · 1초 미만은 0.1초 단위 · 횟수 0 = 무한 반복(∞)</td></tr>
     <tr><td><strong>압력 알람</strong></td><td>2</td><td>ON / OFF</td><td>켜면 설정한 압력 범위를 벗어날 때 알람 + 그래프에 훈련 밴드 표시 (<a href="#s4_3">4.3</a>)</td></tr>
     <tr><td><strong>최고 압력</strong></td><td>2</td><td>0~150 hPa (5 단위)</td><td>알람·훈련 밴드의 상한</td></tr>
     <tr><td><strong>최저 압력</strong></td><td>2</td><td>-20~100 hPa</td><td>알람·훈련 밴드의 하한 (0 부근은 1 단위로 미세 조정)</td></tr>
@@ -704,7 +705,7 @@
 
 </main>
 
-<footer>Equalscope 사용자 매뉴얼 · 펌웨어 v1.1d 기준 · © 2026 별바다다이브</footer>
+<footer>Equalscope 사용자 매뉴얼 · 펌웨어 v1.1f 기준 · © 2026 별바다다이브</footer>
 
 </div>
 </body>

@@ -7,6 +7,9 @@
 <meta name="description" content="프리다이빙 이퀄 툴 Equalscope — 압력만 측정하는 장비가 아닙니다. 훈련을 실시간 그래프로 보고, 자동 기록·분석·비교하며 계속 발전하는 이퀄라이징 훈련 플랫폼입니다.">
 <meta name="author" content="별바다랩 (Byulbada Lab)">
 <link rel="canonical" href="https://equalscope.kr/">
+<link rel="alternate" hreflang="ko" href="https://equalscope.kr/">
+<link rel="alternate" hreflang="en" href="https://equalscope.kr/en/">
+<link rel="alternate" hreflang="x-default" href="https://equalscope.kr/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -85,6 +88,14 @@
   .topbar .nav-links{display:flex;align-items:center;gap:20px;}
   .topbar .nav-links a:not(.nav-cta){font-size:14px;font-weight:700;color:#cdd9e6;text-decoration:none;}
   .topbar .nav-links a:not(.nav-cta):hover{color:#fff;}
+  /* 언어 전환 (2026-07-28) — 현재 언어는 눌리지 않는 상태로 보인다.
+     내용과 무관한 뼈대라 재포지셔닝 후에도 그대로 쓴다. */
+  .topbar .lang{display:flex;align-items:center;border:1px solid #3b5a7d;border-radius:999px;overflow:hidden;}
+  .topbar .lang a,.topbar .lang>span{font-size:12.5px;font-weight:700;padding:5px 11px;
+                                     text-decoration:none;line-height:1.3;}
+  .topbar .lang>span{background:var(--orange);color:#fff;}
+  .topbar .lang a{color:#cdd9e6;}
+  .topbar .lang a:hover{background:#1d3a5a;color:#fff;}
 
   /* ===== 히어로 ===== */
   .hero{background:radial-gradient(120% 120% at 80% 0%,var(--navy3),var(--navy) 60%);color:#fff;
@@ -274,6 +285,7 @@
       <a href="quickstart.html">퀵스타트</a>
       <a href="manual.html">매뉴얼</a>
       <a class="nav-cta" href="download/">펌웨어 ↓</a>
+      <span class="lang"><span>KO</span><a href="/en/" hreflang="en">EN</a></span>
     </nav>
   </div>
 
@@ -494,6 +506,7 @@
     <div class="fbrand">Equalscope</div>
     <div>주문 &amp; 문의 &amp; A/S →
       <a href="https://cafe.naver.com/byulbadalab" target="_blank" rel="noopener">네이버 별바다랩 카페</a>
+      · <a href="https://instagram.com/san.bada.byul" target="_blank" rel="noopener">인스타그램 @san.bada.byul</a>
     </div>
     <div class="small">상호 별바다다이브 · 대표 현우석 · 사업자등록번호 556-03-04058<br>© 2026 별바다다이브</div>
   </footer>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Equalscope — Freediving Equalization Training Device</title>
+<meta name="description" content="Equalscope is a standalone freediving equalization trainer. See your mouth pressure as a live graph, record every session, and get automatic pattern analysis — no phone or app required.">
+<meta name="author" content="Byulbada Dive">
+<link rel="canonical" href="https://equalscope.kr/en/">
+<link rel="alternate" hreflang="ko" href="https://equalscope.kr/">
+<link rel="alternate" hreflang="en" href="https://equalscope.kr/en/">
+<link rel="alternate" hreflang="x-default" href="https://equalscope.kr/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0D2137">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Equalscope">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:url" content="https://equalscope.kr/en/">
+<meta property="og:title" content="Equalscope — Freediving Equalization Training Device">
+<meta property="og:description" content="See your equalization as a live graph. Record, analyse and compare every session — standalone, no phone required.">
+<meta property="og:image" content="https://equalscope.kr/assets/brand/og-image.png?v=3">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Equalscope — Freediving Equalization Training Device">
+<meta name="twitter:description" content="See your equalization as a live graph. Record, analyse and compare every session — standalone, no phone required.">
+<meta name="twitter:image" content="https://equalscope.kr/assets/brand/og-image.png?v=3">
+<!--
+  Equalscope — English landing (equalscope.kr/en/).
+
+  ★ 이 페이지는 "문을 열어 두는" 짧은 한 장이다 (2026-07-28).
+    FW 1.2 에서 한글 랜딩을 "올인원 드라이 트레이닝" 으로 재포지셔닝할 때 본문을
+    한/영 동시에 다시 쓴다. 그때 이 페이지도 함께 늘린다 — 지금 전부 번역해 두면
+    그 작업에서 통째로 버려지므로 **핵심만** 담았다.
+    언어 전환 구조(상단 KO/EN)는 내용과 무관한 뼈대라 그대로 재사용된다.
+
+  스타일은 한글 랜딩(../index.html)의 브랜드 톤을 따르되, 한 장짜리에 맞게
+  필요한 것만 옮겨 왔다 (한글 폰트 Pretendard 는 불필요해서 뺐다).
+-->
+<style>
+  @font-face{font-family:'Montserrat';font-style:normal;font-weight:600;font-display:swap;
+             src:url('../assets/fonts/montserrat-latin-600.woff2') format('woff2');}
+  @font-face{font-family:'Montserrat';font-style:normal;font-weight:700;font-display:swap;
+             src:url('../assets/fonts/montserrat-latin-700.woff2') format('woff2');}
+  :root{
+    --navy:#0d2137; --navy2:#16314f; --navy3:#1f3c5c;
+    --orange:#FF6600; --orange-d:#e25c00; --blue:#0099FF;
+    --ink:#152234; --muted:#5b6b7d; --line:#e3e9f0; --soft:#f6f9fc; --soft2:#eef4fa;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#fff;color:var(--ink);
+       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       line-height:1.62;-webkit-font-smoothing:antialiased;}
+  img,video{max-width:100%;display:block;}
+  a{color:var(--orange);}
+  .wrap{max-width:1080px;margin:0 auto;}
+
+  /* 상단 바 */
+  .topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;
+          background:rgba(13,33,55,.96);backdrop-filter:blur(6px);padding:12px 26px;}
+  .topbar .brand{display:flex;align-items:center;gap:9px;font-family:"Montserrat",sans-serif;
+                 font-size:22px;font-weight:600;color:var(--orange);letter-spacing:-.5px;text-decoration:none;}
+  .topbar .brand .mark{height:26px;width:auto;display:block;margin:-2px 0;}
+  .topbar .nav-links{display:flex;align-items:center;gap:18px;}
+  .topbar .nav-links a:not(.nav-cta){font-size:14px;font-weight:700;color:#cdd9e6;text-decoration:none;}
+  .topbar .nav-links a:not(.nav-cta):hover{color:#fff;}
+  .topbar .nav-cta{font-size:14px;font-weight:700;color:#fff;background:var(--orange);
+                   padding:9px 18px;border-radius:999px;text-decoration:none;}
+  .topbar .nav-cta:hover{background:var(--orange-d);}
+  /* 언어 전환 — 현재 언어는 눌리지 않는 상태로 보인다 */
+  .lang{display:flex;align-items:center;gap:0;border:1px solid #3b5a7d;border-radius:999px;overflow:hidden;}
+  .lang a,.lang span{font-size:12.5px;font-weight:700;padding:5px 11px;text-decoration:none;line-height:1.3;}
+  .lang span{background:var(--orange);color:#fff;}
+  .lang a{color:#cdd9e6;}
+  .lang a:hover{background:#1d3a5a;color:#fff;}
+
+  /* 히어로 */
+  .hero{background:radial-gradient(120% 120% at 80% 0%,var(--navy3),var(--navy) 60%);color:#fff;
+        padding:56px 26px 46px;text-align:center;}
+  .hero .eyebrow{display:inline-block;font-size:12.5px;font-weight:800;letter-spacing:1.6px;
+                 text-transform:uppercase;color:var(--blue);margin-bottom:14px;}
+  .hero h1{font-size:38px;line-height:1.24;margin:0 0 14px;font-weight:800;letter-spacing:-.6px;}
+  .hero h1 .pt{color:var(--orange);}
+  .hero .sub{color:#c6d5e4;font-size:17px;margin:0 auto 24px;max-width:660px;}
+  .btn{display:inline-block;font-weight:700;text-decoration:none;border-radius:999px;padding:13px 26px;font-size:15.5px;}
+  .btn-primary{background:var(--orange);color:#fff;}
+  .btn-primary:hover{background:var(--orange-d);}
+  .btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+  .hero-note{color:#8fa6bd;font-size:13px;margin:20px 0 0;}
+  .hero-img{max-width:760px;margin:30px auto 0;}
+  .hero-img img{border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.35);}
+
+  section{padding:56px 26px;}
+  .alt{background:var(--soft);}
+  .sec-tag{text-align:center;font-size:12px;font-weight:800;letter-spacing:1.8px;
+           text-transform:uppercase;color:var(--blue);margin-bottom:8px;}
+  h2.sec{font-size:28px;font-weight:800;color:var(--navy);text-align:center;margin:0 0 10px;letter-spacing:-.5px;}
+  p.sec-lead{text-align:center;color:var(--muted);max-width:720px;margin:0 auto 30px;font-size:16px;}
+
+  .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:940px;margin:0 auto;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 20px;}
+  .card .num{width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;
+             display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;margin-bottom:12px;}
+  .card h3{font-size:18px;color:var(--navy);margin:0 0 8px;font-weight:700;}
+  .card p{margin:0;font-size:14.6px;color:var(--muted);}
+
+  .features{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:940px;margin:0 auto;}
+  .feat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px;}
+  .feat h4{margin:0 0 6px;font-size:16.5px;color:var(--navy);font-weight:700;}
+  .feat p{margin:0;font-size:14.5px;color:var(--muted);}
+  .feat b{color:var(--navy);}
+
+  .tech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:940px;margin:0 auto;}
+  .tech{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+  .tech img{width:100%;}
+  .tech .t{padding:12px 14px;font-size:13.6px;color:var(--muted);}
+  .tech .t b{display:block;color:var(--navy);font-size:15.5px;margin-bottom:3px;}
+
+  table.spec{width:100%;max-width:780px;margin:0 auto;border-collapse:collapse;font-size:14.8px;}
+  table.spec th,table.spec td{border:1px solid var(--line);padding:11px 14px;text-align:left;vertical-align:top;}
+  table.spec th{background:var(--soft2);color:var(--navy);width:34%;font-weight:700;}
+
+  .price-card{max-width:520px;margin:0 auto;background:#fff;border:2px solid var(--orange);
+              border-radius:16px;padding:28px 24px;text-align:center;}
+  .price-card .now{font-size:34px;font-weight:800;color:var(--navy);line-height:1.2;}
+  .price-card .now small{font-size:16px;font-weight:700;color:var(--muted);}
+  .price-card .usd{color:var(--muted);font-size:14.5px;margin-top:2px;}
+  .price-card .note{color:var(--muted);font-size:14.5px;margin:14px 0 18px;}
+  .mailrow{color:var(--muted);font-size:14px;margin-top:12px;}
+  .pay{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px;}
+  .pay span{background:var(--soft2);border:1px solid var(--line);border-radius:999px;
+            padding:6px 14px;font-size:13.5px;font-weight:700;color:var(--navy);}
+
+  .dl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:820px;margin:0 auto;}
+  .dl{display:block;background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;
+      text-decoration:none;text-align:center;}
+  .dl b{display:block;color:var(--navy);font-size:16px;margin-bottom:4px;}
+  .dl span{color:var(--muted);font-size:13.5px;}
+
+  footer{background:var(--navy);color:#aebfcf;padding:40px 26px;text-align:center;font-size:14px;}
+  footer .safety{background:var(--navy2);border-left:3px solid var(--orange);border-radius:8px;
+                 max-width:760px;margin:0 auto 24px;padding:14px 18px;text-align:left;color:#c9d7e5;font-size:13.8px;}
+  footer .safety b{color:#fff;}
+  footer .fbrand{font-family:"Montserrat",sans-serif;font-weight:600;font-size:20px;color:var(--orange);margin-bottom:8px;}
+  footer a{color:#8fc7ff;}
+  footer .small{color:#7c91a6;font-size:12.6px;margin-top:12px;}
+
+  @media (max-width:860px){
+    .cards3,.tech-grid,.dl-grid{grid-template-columns:1fr;}
+    .features{grid-template-columns:1fr;}
+    .hero h1{font-size:29px;}
+    .topbar{padding:10px 16px;}
+    .topbar .nav-links{gap:12px;}
+    .topbar .nav-links a:not(.nav-cta){font-size:13px;}
+    .topbar .nav-cta{padding:8px 13px;font-size:13px;}
+    section{padding:44px 18px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a class="brand" href="/en/"><img class="mark" src="../assets/brand/byulbada-dive_symbol.svg" alt="">Equalscope</a>
+    <nav class="nav-links">
+      <a href="#order">Order</a>
+      <a href="../download/">Firmware</a>
+      <span class="lang"><a href="/" hreflang="ko">한국어</a><span>EN</span></span>
+    </nav>
+  </div>
+
+  <div class="hero">
+    <span class="eyebrow">Freediving equalization training platform</span>
+    <h1>Not just a pressure gauge.<br><span class="pt">A training platform.</span></h1>
+    <p class="sub">Equalization is invisible. Equalscope shows it as a live graph, records every
+       session, and analyses your pattern automatically — standalone, with no phone or app.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="#order">How to order</a>
+    </div>
+    <p class="hero-note">Dry-land training aid. Not waterproof. Not a medical device.</p>
+    <div class="hero-img"><img src="../assets/hero-both.jpg" alt="Equalscope orange and blue sets with live pressure graph, tube, pressure valve and Equalvent"></div>
+  </div>
+
+  <section>
+    <div class="sec-tag">Why Equalscope</div>
+    <h2 class="sec">Everything happens on the device</h2>
+    <p class="sec-lead">No app to launch, no pairing, no phone screen going to sleep in the middle of a class.
+       Turn it on and measure.</p>
+    <div class="cards3">
+      <div class="card"><div class="num">1</div><h3>Works on its own</h3>
+        <p>No smartphone, no PC, no Bluetooth pairing. The device measures, draws, stores and analyses by itself.</p></div>
+      <div class="card"><div class="num">2</div><h3>40 samples per second</h3>
+        <p>A smooth, continuous curve with no lag — fast repeated equalizations are captured as they happen.</p></div>
+      <div class="card"><div class="num">3</div><h3>Automatic analysis</h3>
+        <p>After each session it summarises count, rhythm, rise and fall speed, and estimates which
+           equalization technique the pressure pattern looks like.</p></div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="sec-tag">Features</div>
+    <h2 class="sec">What it does</h2>
+    <div class="features">
+      <div class="feat"><h4>Live pressure graph</h4>
+        <p>Watch your mouth pressure in real time on a 2.8" touch screen. Pinch to zoom, swipe to scroll.</p></div>
+      <div class="feat"><h4>Reference overlay</h4>
+        <p>Save a good session as a reference and see it <b>overlaid</b> on your live graph. Your best run becomes the target.</p></div>
+      <div class="feat"><h4>Every session saved</h4>
+        <p>Sessions are stored automatically as CSV — on internal memory or a microSD card. Open them in
+           Excel or Google Sheets and analyse them any way you like.</p></div>
+      <div class="feat"><h4>EQ interval trainer</h4>
+        <p>Build an alarm sequence — "every 2 s × 5, then every 4 s × 5" — to rehearse the equalization
+           rhythm of a descent. Alarm points are marked on the graph so you can compare plan against reality.</p></div>
+      <div class="feat"><h4>Calibrated pressure valve</h4>
+        <p>A numbered dial lets you repeat the exact same resistance every time — simulating the shrinking
+           air volume of depth on dry land (especially useful for mouthfill).</p></div>
+      <div class="feat"><h4>English built in</h4>
+        <p>The device menu is available in English, and firmware updates are installed straight from an
+           SD card — no PC software required.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-tag">Pattern analysis</div>
+    <h2 class="sec">It recognises how you equalize</h2>
+    <p class="sec-lead">From the shape of the pressure curve, Equalscope estimates which of six equalization
+       patterns your session resembles. It reads pressure, not anatomy — treat the result as a reference, not a diagnosis.</p>
+    <div class="tech-grid">
+      <div class="tech"><img loading="lazy" src="../assets/tech-valsalva.png" alt="Valsalva pressure curve">
+        <div class="t"><b>Valsalva</b>Slow build from lungs and breathing muscles, held at the peak</div></div>
+      <div class="tech"><img loading="lazy" src="../assets/tech-valsalva-frenzel.png" alt="Valsalva–Frenzel pressure curve">
+        <div class="t"><b>Valsalva + Frenzel</b>Mixed — a small step at the peak</div></div>
+      <div class="tech"><img loading="lazy" src="../assets/tech-frenzel.png" alt="Frenzel pressure curve">
+        <div class="t"><b>Frenzel</b>Short, sharp pulses from air in the mouth</div></div>
+      <div class="tech"><img loading="lazy" src="../assets/tech-mouthfill.png" alt="Mouthfill pressure curve">
+        <div class="t"><b>Mouthfill</b>A long, flat hold on mouth air</div></div>
+      <div class="tech"><img loading="lazy" src="../assets/tech-mouthfill-frenzel.png" alt="Mouthfill Frenzel pressure curve">
+        <div class="t"><b>Mouthfill Frenzel</b>Narrow pulses riding on top of held mouth air</div></div>
+      <div class="tech"><img loading="lazy" src="../assets/tech-btv.png" alt="BTV pressure curve">
+        <div class="t"><b>BTV (hands-free)</b>Opening the tubes without pushing — very low pressure oscillation</div></div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="sec-tag">Spec</div>
+    <h2 class="sec">Specifications</h2>
+    <table class="spec">
+      <tr><th>Model</th><td>EQ-28</td></tr>
+      <tr><th>Display</th><td>2.8" colour touch LCD, 320 × 240</td></tr>
+      <tr><th>Size</th><td>Device 90 × 77.6 × 25 mm · Case 160 × 100 × 70 mm</td></tr>
+      <tr><th>Measurement</th><td>Pressure sensor, 40 Hz sampling, auto zero calibration at power-on</td></tr>
+      <tr><th>Storage</th><td>Internal memory + microSD slot — CSV sessions and PNG screenshots (SD card not included)</td></tr>
+      <tr><th>Audio</th><td>Speaker — pressure alarms and EQ interval cues</td></tr>
+      <tr><th>Power</th><td>Built-in 3.7 V 1,000 mAh Li-Po, USB charging</td></tr>
+      <tr><th>Connection</th><td>USB file transfer to PC · firmware update from SD card</td></tr>
+      <tr><th>Connector</th><td>4 mm pneumatic quick connector</td></tr>
+      <tr><th>Languages</th><td>English / Korean</td></tr>
+      <tr><th>In the box</th><td>Device · Equalvent mouthpiece · tube · calibrated pressure valve · USB cable</td></tr>
+      <tr><th>Use</th><td>Dry-land training only · not waterproof · not a medical device</td></tr>
+    </table>
+  </section>
+
+  <section id="order">
+    <div class="sec-tag">Order</div>
+    <h2 class="sec">International orders</h2>
+    <p class="sec-lead">Equalscope is made in small batches in South Korea and shipped worldwide.
+       Each unit is inspected by hand before it ships.</p>
+    <div class="price-card">
+      <!-- ★ 방수 가방으로 업그레이드하면 USD 199 로 올린다 (별님 2026-07-28).
+           그때 이 숫자와 아래 안내 문구만 고치면 된다. -->
+      <div class="now">USD 189</div>
+      <div class="usd">plus shipping — quoted for your country</div>
+      <div class="note">Payment by <b>PayPal</b>. Send us your country and we will reply with the
+        shipping cost and a payment link. A short engraving on the device is free if you would like one.</div>
+      <a class="btn btn-primary" href="https://instagram.com/san.bada.byul" target="_blank" rel="noopener">Message us on Instagram</a>
+      <div class="mailrow">or email <a id="mailtxt" href="#"><noscript>godnanai (at) naver.com</noscript></a></div>
+      <div class="pay"><span>PayPal</span><span>Worldwide shipping</span><span>Made in Korea</span></div>
+    </div>
+
+    <p class="sec-lead" style="margin-top:26px;font-size:14.5px;">
+      Please note: the device carries Korean radio certification (KC). It is sold as a personal
+      training aid; any import duties or local requirements in your country are the buyer's responsibility.</p>
+  </section>
+
+  <section class="alt">
+    <div class="sec-tag">Download</div>
+    <h2 class="sec">Firmware &amp; manual</h2>
+    <p class="sec-lead">Copy the firmware file to an SD card and power the device on — it updates itself.</p>
+    <div class="dl-grid">
+      <a class="dl" href="../download/"><b>Latest firmware</b><span>download page · .bin</span></a>
+      <a class="dl" href="../manual.html"><b>Full manual</b><span>currently Korean only</span></a>
+      <a class="dl" href="../quickstart.html"><b>Quick start</b><span>currently Korean only</span></a>
+    </div>
+  </section>
+
+  <footer>
+    <blockquote class="safety">Equalscope is a <b>training aid</b>, not a medical device. Analysis and
+      advice are reference information only. Always follow freediving safety rules and train under
+      qualified instruction. Never train equalization or breath-hold in or near water alone.</blockquote>
+    <div class="fbrand">Equalscope</div>
+    <div>Orders &amp; support →
+      <a href="https://instagram.com/san.bada.byul" target="_blank" rel="noopener">Instagram @san.bada.byul</a>
+      · <a id="mailtxt2" href="#"><noscript>godnanai (at) naver.com</noscript></a></div>
+    <div class="small">Byulbada Dive · Woo-seok Hyun · Business reg. 556-03-04058<br>© 2026 Byulbada Dive</div>
+  </footer>
+
+</div>
+<script>
+/* 이메일 주소를 HTML 에 글자로 박아 두지 않는다 — 수집 로봇이 그대로 긁어가 스팸이 는다.
+   여기서 조각을 합쳐 넣으므로 소스만 훑는 로봇에는 주소가 보이지 않는다.
+   자바스크립트가 꺼져 있으면 <noscript> 의 "godnanai (at) naver.com" 이 대신 보인다. */
+(function(){
+  var u = "godnanai", d = "naver.com", addr = u + "@" + d;
+  var subj = "?subject=" + encodeURIComponent("Equalscope order enquiry");
+  ["mailtxt","mailtxt2"].forEach(function(id){
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.href = "mailto:" + addr + subj;
+    el.textContent = addr;
+  });
+})();
+</script>
+</body>
+</html>

@@ -14,6 +14,10 @@
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#0D2137">
+<!-- 본문 폰트 Pretendard — 한글 랜딩과 같은 것을 쓴다. 동적 서브셋이라 이 페이지에선
+     라틴 글자만 내려받는다. Montserrat 은 워드마크 전용(아래 @font-face). -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Equalscope">
 <meta property="og:locale" content="en_US">
@@ -38,7 +42,7 @@
     언어 전환 구조(상단 KO/EN)는 내용과 무관한 뼈대라 그대로 재사용된다.
 
   스타일은 한글 랜딩(../index.html)의 브랜드 톤을 따르되, 한 장짜리에 맞게
-  필요한 것만 옮겨 왔다 (한글 폰트 Pretendard 는 불필요해서 뺐다).
+  필요한 것만 옮겨 왔다. 본문 폰트는 한글 랜딩과 같은 Pretendard 를 쓴다.
 -->
 <style>
   @font-face{font-family:'Montserrat';font-style:normal;font-weight:600;font-display:swap;
@@ -51,8 +55,12 @@
     --ink:#152234; --muted:#5b6b7d; --line:#e3e9f0; --soft:#f6f9fc; --soft2:#eef4fa;
   }
   *{box-sizing:border-box;}
+  /* ★ 본문은 Pretendard — 한글 랜딩과 같은 인상을 준다 (별님 2026-07-28).
+     예전엔 폰트를 지정하지 않아 기기마다(윈도우 Segoe UI / 맥 SF / 안드로이드 Roboto)
+     제각각으로 보였다. Montserrat 은 로고·제목용 글꼴이라 긴 문장에는 쓰지 않는다 —
+     Pretendard 는 Inter 계열이라 라틴 글자 본문 품질이 좋다. */
   body{margin:0;background:#fff;color:var(--ink);
-       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       font-family:"Pretendard",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
        line-height:1.62;-webkit-font-smoothing:antialiased;}
   img,video{max-width:100%;display:block;}
   a{color:var(--orange);}

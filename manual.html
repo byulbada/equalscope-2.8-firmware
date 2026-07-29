@@ -120,7 +120,8 @@
   .figrow.patterns figure{flex:0 1 30%;max-width:31%;}
   .figrow.themes figure{flex:0 1 22%;max-width:23%;}
   .figrow.themes img{width:100%;border:1px solid var(--line);border-radius:5px;}
-  /* 8.설정 페이지 3장 — 폭에 꽉차게 (큰 사진이 PDF 빈 공간도 메움) */
+  /* .pair.wide — 한 줄에 꽉 채우는 변형. 설정 페이지가 3장일 때 썼는데 FW 1.2 에서
+     4장이 되며 너무 작아져 기본 .pair(2장씩 줄바꿈)로 되돌렸다. 규칙은 남겨 둔다. */
   .figrow.pair.wide figure{flex:1 1 0;max-width:none;}
   .figrow figcaption{font-size:12px;color:var(--muted);margin-top:4px;}
   @media print{ figure.fig,.figrow{page-break-inside:avoid;} figure.fig img,.figrow.shots img{max-width:300px;}
@@ -757,7 +758,7 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
 <p>메인 화면에서 <strong>[설정]</strong>을 누르면 열립니다. 설정은 <strong>4개 페이지</strong>로 구성되며, <strong>좌우 화살표</strong>로 페이지를 이동합니다.</p>
 
 <h3>설정 페이지 한눈에 보기</h3>
-<div class="figrow pair wide">
+<div class="figrow pair">
   <figure><img src="assets/screen-settings.png" alt="설정 1페이지"><figcaption>페이지 1</figcaption></figure>
   <figure><img src="assets/screen-settings2.png" alt="설정 2페이지"><figcaption>페이지 2</figcaption></figure>
   <figure><img src="assets/screen-settings3.png" alt="설정 3페이지"><figcaption>페이지 3</figcaption></figure>
@@ -870,9 +871,6 @@ EQ 인터벌이 함께 시작합니다. 이어서 <em>plus 1 ~ 5</em>가 안내�
   <p>· 현재 펌웨어 버전은 <strong>설정 → 도움말</strong> 화면 하단에서 확인할 수 있습니다.</p>
 </blockquote>
 <p>새 펌웨어는 <strong>equalscope.kr/download</strong> 에서 내려받을 수 있습니다. 새 펌웨어가 올라오면 파일을 받아 위 순서대로 업데이트하세요.</p>
-
-<blockquote>SD 카드에 <strong>펌웨어 파일이 여러 개</strong> 있으면 <strong>버전이 가장 높은 것</strong>이 설치됩니다.
-옛 파일이 남아 있으면 지우고 <strong>새 파일만</strong> 두세요.</blockquote>
 
 <h3 id="s10_2">10.2 영점 보정과 센서 정확도</h3>
 <ul>

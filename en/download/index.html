@@ -49,6 +49,12 @@
   table{width:100%;border-collapse:collapse;font-size:14.5px;}
   thead th{color:#8aa0b8;font-weight:700;font-size:12.5px;text-align:left;padding:0 10px 10px;border-bottom:1px solid rgba(255,255,255,.18);}
   tbody td{padding:14px 10px;border-bottom:1px solid rgba(255,255,255,.12);color:#c4d3e2;vertical-align:top;line-height:1.55;}
+  /* Changes are listed one item per line (별님 2026-07-30) — joining them with `·`
+     makes a multi-item release read as one block of text. Keep in sync with /download/. */
+  tbody td ul{margin:0;padding-left:17px;}
+  tbody td li{margin:4px 0;}
+  tbody td li:first-child{margin-top:0;}
+  tbody td li:last-child{margin-bottom:0;}
   td.ver{font-weight:800;color:#fff;white-space:nowrap;}
   td.date{white-space:nowrap;color:#9fb4c9;}
   td.dl{text-align:right;white-space:nowrap;}
@@ -126,14 +132,21 @@
           <tr>
             <td class="ver">v2.0 <span class="latest">latest</span></td>
             <td class="date">2026-07-30</td>
-            <td><b>Adds breathing training (CO2 / O2 tables).</b> One device now covers both
-              equalizing and breath training — pick a table or build your own, set breathe and hold
-              times for each round, follow the voice guidance, and keep the session as a record ·
-              <b>Competition-style start</b> (3·2·1 → official top → plus 1–5) can also be turned on
-              for equalizing measurements · <b>SD cards of 64 GB and larger (exFAT)</b> are now read
-              directly · Session and training records <b>can be renamed</b> — press and hold a cell
-              in the list for about 0.9 s · Auto-save now waits <b>one minute</b>, so interval
-              training is no longer cut off between sets.</td>
+            <td>
+              <ul>
+                <li><b>Adds breathing training (CO2 / O2 tables).</b> One device now covers both
+                  equalizing and breath training — pick a table or build your own, set breathe and
+                  hold times for each round, follow the voice guidance, and keep the session as a
+                  record.</li>
+                <li><b>Competition-style start</b> can also be turned on for equalizing measurements
+                  (3·2·1 → official top → plus 1–5).</li>
+                <li>Session and training records <b>can be renamed</b> — press and hold a cell in
+                  the list for about 0.9 s.</li>
+                <li>Auto-save now waits <b>one minute</b>, so interval training is no longer cut off
+                  between sets.</li>
+                <li><b>SD cards of 64 GB and larger (exFAT)</b> are now read directly.</li>
+              </ul>
+            </td>
             <td class="dl"><a class="dlbtn" href="https://github.com/byulbada/equalscope-2.8-firmware/releases/download/v2.0/equpdate_2.0.bin">Download <small>.bin</small></a><div class="fname">equpdate_2.0.bin</div></td>
           </tr>
           <tr>
@@ -147,9 +160,14 @@
           <tr>
             <td class="ver">v1.1f</td>
             <td class="date">2026-07-21</td>
-            <td>EQ interval steps in 0.1 s increments — intervals under one second are now possible
-              for fast rhythm work. In repeating intervals the alarm tone alternates, which makes the
-              beat easier to follow.</td>
+            <td>
+              <ul>
+                <li>EQ interval steps in 0.1 s increments — intervals under one second are now
+                  possible for fast rhythm work.</li>
+                <li>In repeating intervals the alarm tone alternates, which makes the beat easier
+                  to follow.</li>
+              </ul>
+            </td>
             <td class="dl"><a class="dlbtn" href="https://github.com/byulbada/equalscope-2.8-firmware/releases/download/v1.1f/equpdate_1.1f.bin">Download <small>.bin</small></a><div class="fname">equpdate_1.1f.bin</div></td>
           </tr>
           <tr>
@@ -163,10 +181,15 @@
           <tr>
             <td class="ver">v1.1d</td>
             <td class="date">2026-07-19</td>
-            <td>EQ interval added — build an alarm sequence of (interval × count) per stage to
-              rehearse the equalization rhythm of a descent. Alarm points are marked on the graph and
-              saved in the CSV. Also: low-battery protection (warning at 15%, automatic save and
-              shutdown at 5%) and a new default screen brightness of 50%.</td>
+            <td>
+              <ul>
+                <li>EQ interval added — build an alarm sequence of (interval × count) per stage to
+                  rehearse the equalization rhythm of a descent. Alarm points are marked on the
+                  graph and saved in the CSV.</li>
+                <li>Low-battery protection — warning at 15%, automatic save and shutdown at 5%.</li>
+                <li>New default screen brightness of 50%.</li>
+              </ul>
+            </td>
             <td class="dl"><a class="dlbtn" href="https://github.com/byulbada/equalscope-2.8-firmware/releases/download/v1.1d/equpdate_1.1d.bin">Download <small>.bin</small></a><div class="fname">equpdate_1.1d.bin</div></td>
           </tr>
           <tr>
@@ -180,9 +203,14 @@
           <tr>
             <td class="ver">v1.1b</td>
             <td class="date">2026-07-15</td>
-            <td>Fixed an intermittent problem where one touch on start/stop was read twice, so a
-              measurement stopped right after it started. Also adds automatic detection of the newer
-              production board (V2 touch controller) — one firmware for both.</td>
+            <td>
+              <ul>
+                <li>Fixed an intermittent problem where one touch on start/stop was read twice, so a
+                  measurement stopped right after it started.</li>
+                <li>Adds automatic detection of the newer production board (V2 touch controller) —
+                  one firmware for both.</li>
+              </ul>
+            </td>
             <td class="dl"><a class="dlbtn" href="https://github.com/byulbada/equalscope-2.8-firmware/releases/download/v1.1b/equpdate_1.1b.bin">Download <small>.bin</small></a><div class="fname">equpdate_1.1b.bin</div></td>
           </tr>
           <tr>

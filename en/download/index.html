@@ -34,6 +34,17 @@
   .intro{font-size:14.5px;color:#aebfcf;line-height:1.65;text-align:center;max-width:600px;margin:0 auto 30px;}
   .intro a{color:var(--orange);text-decoration:none;}
 
+  /* Pre-update notice — added for v2.0. Owners who only have a 64 GB+ (exFAT) card
+     cannot update at all if told the wrong order, because v1.1g and earlier cannot
+     read that card in the first place. Order must be: FAT32 → update → any card. */
+  .notice{max-width:600px;margin:0 auto 30px;padding:16px 18px;border-radius:12px;
+          background:rgba(255,102,0,.10);border:1px solid rgba(255,102,0,.38);
+          font-size:14px;line-height:1.7;color:#d7e2ee;}
+  .notice b{color:#fff;}
+  .notice .nt{display:block;font-weight:800;color:var(--orange);margin-bottom:6px;font-size:14.5px;}
+  .notice ol{margin:8px 0 0;padding-left:20px;}
+  .notice li{margin:3px 0;}
+
   .history h2{font-size:17px;color:#dfe7ef;font-weight:700;margin-bottom:14px;}
   table{width:100%;border-collapse:collapse;font-size:14.5px;}
   thead th{color:#8aa0b8;font-weight:700;font-size:12.5px;text-align:left;padding:0 10px 10px;border-bottom:1px solid rgba(255,255,255,.18);}
@@ -96,13 +107,38 @@
         the device picks the highest version — keep only the one you want.</p>
     </div>
 
+    <div class="notice">
+      <span class="nt">Before you update</span>
+      Keep <b>only the new .bin file</b> on the SD card. If an older file is still there, that one may be installed instead.<br>
+      <b>If you use a 64 GB or larger card and are still on v1.1g or earlier</b>, the order matters —
+      those versions cannot read cards that large, so the update cannot be started from such a card.
+      <ol>
+        <li>Format the card as <b>FAT32</b> (Rufus on Windows, Disk Utility with MBR on macOS).</li>
+        <li>Update to <b>v2.0</b> using that card.</li>
+        <li>After updating, <b>cards of any size</b> work as they are.</li>
+      </ol>
+    </div>
+
     <div class="history">
       <h2>Firmware versions</h2>
       <table>
         <thead><tr><th>Version</th><th>Date</th><th>Changes</th><th>Download</th></tr></thead>
         <tbody>
           <tr>
-            <td class="ver">v1.1g <span class="latest">latest</span></td>
+            <td class="ver">v2.0 <span class="latest">latest</span></td>
+            <td class="date">2026-07-30</td>
+            <td><b>Adds breathing training (CO2 / O2 tables).</b> One device now covers both
+              equalizing and breath training — pick a table or build your own, set breathe and hold
+              times for each round, follow the voice guidance, and keep the session as a record ·
+              <b>Competition-style start</b> (3·2·1 → official top → plus 1–5) can also be turned on
+              for equalizing measurements · <b>SD cards of 64 GB and larger (exFAT)</b> are now read
+              directly · Session and training records <b>can be renamed</b> — press and hold a cell
+              in the list for about 0.9 s · Auto-save now waits <b>one minute</b>, so interval
+              training is no longer cut off between sets.</td>
+            <td class="dl"><a class="dlbtn" href="https://github.com/byulbada/equalscope-2.8-firmware/releases/download/v2.0/equpdate_2.0.bin">Download <small>.bin</small></a><div class="fname">equpdate_2.0.bin</div></td>
+          </tr>
+          <tr>
+            <td class="ver">v1.1g</td>
             <td class="date">2026-07-22</td>
             <td>Removed the charging bolt on the battery icon. It sometimes appeared when the device
               was not charging, and a wrong indicator is worse than none. <b>Charging is shown by the

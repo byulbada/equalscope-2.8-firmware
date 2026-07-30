@@ -31,6 +31,17 @@
   .intro{font-size:14.5px;color:#aebfcf;line-height:1.65;text-align:center;max-width:600px;margin:0 auto 30px;}
   .intro a{color:var(--orange);text-decoration:none;}
 
+  /* 업데이트 전 주의 박스 — v2.0 부터. 64GB 이상(exFAT) 카드만 가진 기존 사용자는
+     안내 순서를 틀리면 업데이트 자체를 못 한다(펌웨어를 올릴 SD 를 못 읽는다).
+     반드시 ① FAT32 포맷 → ② 업데이트 → ③ 이후 아무 카드나 순서로 쓸 것. */
+  .notice{max-width:600px;margin:0 auto 30px;padding:16px 18px;border-radius:12px;
+          background:rgba(255,102,0,.10);border:1px solid rgba(255,102,0,.38);
+          font-size:14px;line-height:1.7;color:#d7e2ee;}
+  .notice b{color:#fff;}
+  .notice .nt{display:block;font-weight:800;color:var(--orange);margin-bottom:6px;font-size:14.5px;}
+  .notice ol{margin:8px 0 0;padding-left:20px;}
+  .notice li{margin:3px 0;}
+
   .history h2{font-size:17px;color:#dfe7ef;font-weight:700;margin-bottom:14px;}
   table{width:100%;border-collapse:collapse;font-size:14.5px;}
   thead th{color:#8aa0b8;font-weight:700;font-size:12.5px;text-align:left;padding:0 10px 10px;border-bottom:1px solid rgba(255,255,255,.18);}
@@ -75,7 +86,19 @@
     <div class="lang"><span>KO</span><a href="/en/download/" hreflang="en">EN</a></div>
     <div class="brand"><img class="mark" src="/assets/brand/byulbada-dive_symbol.svg" alt="">Equalscope</div>
     <h1>다운로드</h1>
-    <p class="intro">펌웨어 파일(<b>.bin</b>)을 SD 카드 맨 위(루트) 폴더에 복사한 뒤 전원을 켜면 <b>자동으로 업데이트</b>됩니다. 자세한 방법은 <a href="../manual.html#sec9">사용설명서 9장</a>을 참고하세요.</p>
+    <p class="intro">펌웨어 파일(<b>.bin</b>)을 SD 카드 맨 위(루트) 폴더에 복사한 뒤 전원을 켜면 <b>자동으로 업데이트</b>됩니다. 자세한 방법은 <a href="../manual.html#sec10">사용설명서 10장</a>을 참고하세요.</p>
+
+    <div class="notice">
+      <span class="nt">업데이트 전에 확인해 주세요</span>
+      <b>SD 카드에는 새 .bin 파일 하나만</b> 두세요. 옛 파일이 함께 있으면 그쪽이 설치될 수 있습니다.<br>
+      <b>64GB 이상 카드를 쓰고 계시고, 아직 v1.1g 이하 펌웨어라면</b> 순서가 중요합니다 —
+      v1.1g 이하는 64GB 이상 카드를 읽지 못하므로, 그 카드로는 업데이트 자체가 되지 않습니다.
+      <ol>
+        <li>카드를 <b>FAT32</b> 로 포맷합니다 (윈도우는 Rufus, 맥은 디스크 유틸리티 · MBR).</li>
+        <li>그 카드로 <b>v2.0 으로 업데이트</b>합니다.</li>
+        <li>업데이트 뒤에는 <b>64GB 이상 카드도 그대로</b> 쓰실 수 있습니다.</li>
+      </ol>
+    </div>
 
     <div class="history">
       <h2>펌웨어 버전</h2>
@@ -83,7 +106,13 @@
         <thead><tr><th>버전</th><th>날짜</th><th>변경 내용</th><th>다운로드</th></tr></thead>
         <tbody>
           <tr>
-            <td class="ver">v1.1g <span class="latest">최신</span></td>
+            <td class="ver">v2.0 <span class="latest">최신</span></td>
+            <td class="date">2026-07-30</td>
+            <td><b>호흡 훈련(CO2 / O2 테이블) 모드가 새로 들어갔습니다.</b> 이제 한 대로 이퀄라이징과 호흡 훈련을 함께 하실 수 있습니다 — 테이블을 고르거나 직접 만들어 라운드마다 호흡·숨참기 시간을 정하고, 음성 안내를 들으며 진행한 뒤 기록으로 남깁니다 · <b>대회식 시작 음성</b>(3·2·1 → official top → plus 1~5)을 이퀄 측정에도 켤 수 있습니다 · <b>64GB 이상(exFAT) SD 카드</b>를 그대로 인식합니다 · 측정·훈련 기록의 <b>이름을 바꿀 수 있습니다</b>(목록에서 칸을 0.9초 길게 누르면 됩니다) · 자동 저장 대기가 <b>1분</b>으로 늘어 인터벌 훈련 중 세트 사이에 끊기지 않습니다.</td>
+            <td class="dl"><a class="dlbtn" href="https://github.com/byulbada/equalscope-2.8-firmware/releases/download/v2.0/equpdate_2.0.bin">내려받기 <small>.bin</small></a><div class="fname">equpdate_2.0.bin</div></td>
+          </tr>
+          <tr>
+            <td class="ver">v1.1g</td>
             <td class="date">2026-07-22</td>
             <td>충전 중 배터리 아이콘에 번개를 표시하던 기능을 제거했습니다. 충전이 아닌데도 번개가 켜지는 경우가 있어, 잘못된 표시를 남겨두기보다 되돌리는 쪽을 택했습니다. <b>충전 여부는 USB 커넥터 왼쪽의 초록색 불로 확인하실 수 있습니다</b> (완충되면 꺼집니다).</td>
             <td class="dl"><a class="dlbtn" href="https://github.com/byulbada/equalscope-2.8-firmware/releases/download/v1.1g/equpdate_1.1g.bin">내려받기 <small>.bin</small></a><div class="fname">equpdate_1.1g.bin</div></td>

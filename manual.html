@@ -540,7 +540,7 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
 <h3 id="s6_8">6.8 PC로 파일 옮기기 (USB 드라이브 모드)</h3>
 <p>기기를 USB 케이블로 PC에 연결하면 <strong>이동식 저장장치처럼</strong> 인식시켜 파일을 직접 복사할 수 있습니다.</p>
 <ol>
-  <li><strong>설정 → 파일 전송</strong> 행의 <strong>[연결]</strong> 버튼을 <strong>1.5초 길게</strong> 누릅니다.
+  <li><strong>설정 → USB</strong> 행의 <strong>[연결]</strong> 버튼을 <strong>1.5초 길게</strong> 누릅니다.
     <ul><li>(우발적 클릭으로 USB 연결이 켜졌다 꺼지는 걸 막기 위해 일부러 길게 누르도록 했습니다)</li></ul></li>
   <li>확인하면 USB 드라이브 모드로 진입 — PC에서 저장장치로 나타납니다.</li>
   <li><strong>측정 CSV 파일</strong>(<code>session/</code> 폴더)과 <strong>스크린샷 이미지</strong>(<code>capture/</code> 폴더)를 PC로 복사한 뒤 안전하게 분리합니다.</li>
@@ -770,9 +770,9 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
 <table>
   <thead><tr><th>페이지</th><th>항목</th></tr></thead>
   <tbody>
-    <tr><td><strong>1</strong></td><td>테마 · 자동 종료 · 밝기 · 볼륨 · 파일 전송(USB)</td></tr>
+    <tr><td><strong>1</strong></td><td>테마 · 자동 종료 · 밝기 · 볼륨 · USB</td></tr>
     <tr><td><strong>2</strong></td><td>EQ 인터벌(+편집) · 압력 알람 · 최고 압력 알람 · 최저 압력 알람 · 대회식 시작</td></tr>
-    <tr><td><strong>3</strong></td><td>언어 · Y축 최고 · Y축 최저 · 기본 줌</td></tr>
+    <tr><td><strong>3</strong></td><td>언어 · Y 최고 · Y 최소 · 기본 줌</td></tr>
     <tr><td><strong>4</strong></td><td>부팅 시 모드 선택 · 기본 모드 · 호흡 모드로 전환</td></tr>
   </tbody>
 </table>
@@ -828,8 +828,8 @@ EQ 인터벌이 함께 시작합니다. 이어서 <em>plus 1 ~ 5</em>가 안내�
 <table class="setbl">
   <thead><tr><th>항목</th><th>페이지</th><th>범위</th><th>설명</th></tr></thead>
   <tbody>
-    <tr><td><strong>Y축 최고</strong></td><td>3</td><td>10~200 hPa (5 단위)</td><td>그래프 세로축 위쪽 한계</td></tr>
-    <tr><td><strong>Y축 최저</strong></td><td>3</td><td>-50~190 hPa</td><td>그래프 세로축 아래쪽 한계. <strong>-5 ~ 5 사이는 1 단위</strong>, 그 밖은 5 단위 — <strong>-1, -2</strong> 처럼 0 바로 아래에 눈금을 둘 수 있어 <strong>작은 음압이 바닥에 깔리지 않고 보입니다</strong></td></tr>
+    <tr><td><strong>Y 최고</strong></td><td>3</td><td>10~200 hPa (5 단위)</td><td>그래프 세로축 위쪽 한계</td></tr>
+    <tr><td><strong>Y 최소</strong></td><td>3</td><td>-50~190 hPa</td><td>그래프 세로축 아래쪽 한계. <strong>-5 ~ 5 사이는 1 단위</strong>, 그 밖은 5 단위 — <strong>-1, -2</strong> 처럼 0 바로 아래에 눈금을 둘 수 있어 <strong>작은 음압이 바닥에 깔리지 않고 보입니다</strong></td></tr>
     <tr><td><strong>기본 줌</strong></td><td>3</td><td>—</td><td>측정 시작 시 적용되는 기본 시간축 배율</td></tr>
   </tbody>
 </table>
@@ -839,7 +839,7 @@ EQ 인터벌이 함께 시작합니다. 이어서 <em>plus 1 ~ 5</em>가 안내�
   <thead><tr><th>항목</th><th>페이지</th><th>범위</th><th>설명</th></tr></thead>
   <tbody>
     <tr><td><strong>자동 종료</strong></td><td>1</td><td>0~120 분</td><td>일정 시간 무동작 시 자동으로 전원 끔. <strong>0이면 자동 종료 안 함</strong></td></tr>
-    <tr><td><strong>파일 전송(USB)</strong></td><td>1</td><td>—</td><td>[연결] 1.5초 롱프레스로 PC 연결 (<a href="#s6_8">6.8</a>)</td></tr>
+    <tr><td><strong>USB</strong></td><td>1</td><td>—</td><td>PC 와 연결해 파일을 옮깁니다 — <strong>[연결]</strong>을 1.5초 길게 누르세요 (<a href="#s6_8">6.8</a>)</td></tr>
     <tr><td><strong>부팅 시 모드 선택</strong></td><td>4</td><td>ON / OFF</td><td>끄면 전원을 켤 때 기본 모드로 바로 들어갑니다 (<a href="#s8_1">8.1</a>)</td></tr>
     <tr><td><strong>기본 모드</strong></td><td>4</td><td>이퀄 / 호흡</td><td>위 항목이 꺼져 있을 때 어느 모드로 들어갈지</td></tr>
     <tr><td><strong>호흡 모드로 전환</strong></td><td>4</td><td>—</td><td>확인 후 저장하고 다시 시작합니다 (<a href="#sec8">8장</a>)</td></tr>

@@ -250,12 +250,10 @@
   footer a{color:var(--orange);font-weight:600;}
   footer .small{font-size:12.5px;color:#7c91a6;margin-top:14px;line-height:1.7;}
 
-  /* ===== 훈련 사이클 스트립 ===== */
-  .flow{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:900px;margin:36px auto 16px;}
-  .flow .f{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;text-align:center;flex:1 1 140px;}
-  .flow .f b{display:block;color:var(--navy);font-size:15.5px;margin-bottom:2px;}
-  .flow .f span{display:block;font-size:12.5px;color:var(--muted);line-height:1.45;}
-  .flow .arrow{display:flex;align-items:center;justify-content:center;color:var(--orange);font-weight:800;font-size:17px;}
+  /* .flow-note — 섹션을 마무리하는 가운데 정렬 문장.
+     ※ 예전엔 '훈련 사이클 스트립'(측정→자동저장→분석→참조→다음훈련 5칸)이 함께
+       있었으나 삭제했다(별님 2026-07-31) — 모바일에서 5칸이 세로로 쌓여 자리만
+       길게 차지하고, 바로 위 3장 카드와 내용이 겹쳐 임팩트가 없었다. */
   .flow-note{max-width:640px;margin:0 auto;text-align:center;font-size:15px;color:var(--muted);}
   .flow-note b{color:var(--navy);}
 
@@ -283,9 +281,6 @@
     .topbar .lang a,.topbar .lang>span{font-size:11.5px;padding:4px 8px;}
     .gift{flex-direction:column;} .gift img{width:100%;}
     .feat.valve{padding-right:92px;}
-    .flow{flex-direction:column;align-items:center;}
-    .flow .f{width:100%;max-width:340px;flex:none;}
-    .flow .arrow{transform:rotate(90deg);height:16px;}
   }
   /* 아주 좁은 화면 — 상단 "주문" 은 접는다. 히어로에 큰 [지금 주문하기] 가 있어
      기능이 사라지지 않는다 (2026-07-28: 항목이 많아 글자가 세로로 접혔다). */
@@ -373,18 +368,6 @@
       <div class="card"><div class="num">2</div><h3>초당 40회, 부드러운 실시간 그래프</h3><p>40Hz 고속 측정으로 끊김 없이 매끄럽게. 장비가 직접 측정·표시하므로 통신 지연 없이 부드럽게 이어집니다.</p></div>
       <div class="card"><div class="num">3</div><h3>훈련 후 자동 분석·조언</h3><p>반복 횟수·주기·상승/하강 속도·정점 유지 시간을 요약하고, 압력 패턴으로 기술 유형을 추정합니다.</p></div>
     </div>
-    <div class="flow">
-      <div class="f"><b>측정</b><span>켜면 바로,<br>실시간 그래프</span></div>
-      <div class="arrow">→</div>
-      <div class="f"><b>자동 저장</b><span>끝나면 파일로<br>기록</span></div>
-      <div class="arrow">→</div>
-      <div class="f"><b>분석·조언</b><span>통계 요약 +<br>패턴 추정</span></div>
-      <div class="arrow">→</div>
-      <div class="f"><b>참조 비교</b><span>좋은 기록과<br>겹쳐 보기</span></div>
-      <div class="arrow">→</div>
-      <div class="f"><b>다음 훈련</b><span>더 나은 기준으로<br>반복</span></div>
-    </div>
-    <p class="flow-note">이 <b>훈련 사이클 전체가 장비 하나 안에서</b> 완결됩니다.<br>그리고 펌웨어 업데이트로, 이 사이클 자체가 계속 발전합니다.</p>
   </section>
 
   <!-- 화면으로 보기 -->

@@ -65,10 +65,26 @@
   .dlbtn:hover{background:var(--orange-d);}
   .dlbtn small{font-weight:600;font-size:11px;opacity:.85;}
   .fname{margin-top:7px;font-size:11.5px;color:#8aa0b8;font-family:ui-monospace,Menlo,Consolas,monospace;}
+  /* Wrapper that stacks the two buttons (.uf2 / .bin) — releases with USB update ship two
+     files per row. Rows up to v2.0 have only the .bin, so they do not use it. */
+  td.dl .dls{display:flex;flex-direction:column;gap:9px;align-items:flex-end;}
+  @media(max-width:600px){ td.dl .dls{align-items:flex-start;} }
 
-  .steps{max-width:600px;margin:0 auto 30px;font-size:14.5px;color:#aebfcf;line-height:1.7;}
-  .steps ol{margin:0;padding-left:20px;}
-  .steps b{color:#dfe7ef;}
+  /* Two ways to update (2026-08-01, USB cable update added). The release ships two files
+     (.bin / .uf2) — spell out which goes where or that becomes most of the support mail.
+     The Korean page carries the same block; keep them in step. */
+  .ways{display:flex;gap:14px;max-width:600px;margin:0 auto 30px;flex-wrap:wrap;}
+  .way{flex:1 1 258px;padding:16px 18px;border-radius:12px;background:rgba(255,255,255,.06);
+       border:1px solid rgba(255,255,255,.18);font-size:13.5px;line-height:1.65;color:#c4d3e2;}
+  .way h3{font-size:14.5px;color:#fff;font-weight:800;margin-bottom:7px;}
+  .way h3 code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;
+               color:var(--orange);font-weight:700;}
+  .way b{color:#fff;}
+  .way ol{margin:0;padding-left:18px;}
+  .way li{margin:3px 0;}
+  .way img{width:100%;max-width:216px;display:block;margin:11px auto 0;border-radius:8px;
+           border:1px solid rgba(255,255,255,.22);}
+  .way .note{display:block;margin-top:10px;font-size:12.5px;color:#9fb4c9;}
 
   .links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:38px;}
   .links a{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#dfe7ef;
@@ -98,19 +114,32 @@
     <div class="lang"><a href="/download/" hreflang="ko">한국어</a><span>EN</span></div>
     <div class="brand"><img class="mark" src="/assets/brand/byulbada-dive_symbol.svg" alt="">Equalscope</div>
     <h1>Downloads</h1>
-    <p class="intro">Copy the firmware file (<b>.bin</b>) to the top level of an SD card and power the
-      device on — it updates itself.</p>
+    <p class="intro">Update over a <b>USB cable</b> or with an <b>SD card</b> — neither way needs any
+      software installed on your PC.</p>
 
-    <div class="steps">
-      <ol>
-        <li>Download the <b>.bin</b> file below.</li>
-        <li>Copy it to the <b>root folder</b> of a microSD card (not inside a folder).</li>
-        <li>Insert the card and turn the device on. The update runs automatically and the file is
-            removed when it finishes.</li>
-        <li>Check the version under <b>Settings → Help</b>.</li>
-      </ol>
-      <p style="margin-top:12px;font-size:13.5px;">If you have several firmware files on the card,
-        the device picks the highest version — keep only the one you want.</p>
+    <div class="ways">
+      <div class="way">
+        <h3>USB cable <code>.uf2</code></h3>
+        <ol>
+          <li>Connect the device to your PC with a USB cable.</li>
+          <li>Settings → hold <b>USB</b> for 1.5 s → <b>[Firmware Update]</b>.</li>
+          <li>Drop the <code>.uf2</code> file onto the <b>EQ UPDATE</b> drive that appears.</li>
+          <li>The device asks to restart — tap <b>[Restart]</b>.</li>
+        </ol>
+        <img src="/assets/usb-mode-en.png" alt="The USB screen on the device — File Transfer or Firmware Update">
+        <span class="note">No SD card needed. <b>v2.0 and earlier do not have this</b>, so those
+          versions need one SD card update first.</span>
+      </div>
+      <div class="way">
+        <h3>SD card <code>.bin</code></h3>
+        <ol>
+          <li>Copy the <code>.bin</code> file to the <b>root folder</b> of a microSD card.</li>
+          <li>Insert the card and <b>turn the device on</b>.</li>
+          <li>It updates during boot and restarts.</li>
+        </ol>
+        <span class="note">The firmware file is deleted from the card once the update finishes.
+          You can check the version under <b>Settings → Help</b>.</span>
+      </div>
     </div>
 
     <div class="notice">
@@ -119,7 +148,7 @@
       those versions cannot read cards that large, so the update cannot be started from such a card.
       <ol>
         <li>Format the card as <b>FAT32</b> (Rufus on Windows, Disk Utility with MBR on macOS).</li>
-        <li>Update to <b>v2.0</b> using that card.</li>
+        <li>Update to the <b>latest version</b> using that card (the top <code>.bin</code> below).</li>
         <li>After updating, <b>cards of any size</b> work as they are.</li>
       </ol>
     </div>
@@ -128,6 +157,9 @@
       <h2>Firmware versions</h2>
       <table>
         <thead><tr><th>Version</th><th>Date</th><th>Changes</th><th>Download</th></tr></thead>
+        <!-- ★ New version rows carry **two files** (.uf2 for USB, .bin for SD). Wrap both in
+             <div class="dls"> to stack them, .uf2 first — the no-SD path is the default advice.
+             Keep the Korean page in step. -->
         <tbody>
           <tr>
             <td class="ver">v2.0 <span class="latest">latest</span></td>

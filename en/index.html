@@ -157,8 +157,32 @@
   footer a{color:#8fc7ff;}
   footer .small{color:#7c91a6;font-size:12.6px;margin-top:12px;}
 
+  /* 구성품 사진 */
+  .kit{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:820px;margin:0 auto;}
+  .kit figure{margin:0;}
+  .kit img{width:100%;border-radius:12px;}
+  .kit figcaption{margin-top:8px;font-size:14px;color:var(--muted);text-align:center;font-weight:700;}
+
+  /* ON SCREEN — 캡처 격자 + 테마 갤러리 */
+  .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:940px;margin:0 auto;}
+  .shots figure{margin:0;}
+  .shots img{width:100%;border-radius:10px;border:1px solid var(--line);}
+  .shots figcaption{margin-top:8px;font-size:13.8px;color:var(--muted);text-align:center;line-height:1.5;}
+  .shots figcaption b{display:block;color:var(--navy);font-size:15px;margin-bottom:2px;}
+  .themes{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:940px;margin:30px auto 0;}
+  .themes figure{margin:0;}
+  .themes img{width:100%;border-radius:8px;border:1px solid var(--line);}
+  .themes figcaption{margin-top:5px;font-size:12.5px;color:var(--muted);text-align:center;}
+
+  /* 카드 안 화면 캡처 — 한글판과 같은 값 */
+  .cardshot{display:flex;justify-content:center;margin-bottom:14px;}
+  .cardshot img{width:100%;max-width:300px;border-radius:8px;}
+
   @media (max-width:860px){
     .cards3,.tech-grid,.dl-grid{grid-template-columns:1fr;}
+    .shots{grid-template-columns:1fr;}
+    .themes{grid-template-columns:repeat(2,1fr);}
+    .kit{grid-template-columns:1fr;}
     .features{grid-template-columns:1fr;}
     .hero h1{font-size:29px;}
     .topbar{padding:10px 16px;}
@@ -177,15 +201,21 @@
     <nav class="nav-links">
       <a href="#order">Order</a>
       <a href="download/">Firmware</a>
-      <span class="lang"><a href="/" hreflang="ko">한국어</a><span>EN</span></span>
+      <span class="lang"><a href="/" hreflang="ko" onclick="try{localStorage.setItem('eqs_lang','ko')}catch(e){}">한국어</a><span>EN</span></span>
     </nav>
   </div>
 
   <div class="hero">
-    <span class="eyebrow">Freediving equalization training platform</span>
-    <h1>Not just a pressure gauge.<br><span class="pt">A training platform.</span></h1>
-    <p class="sub">Equalization is invisible. Equalscope shows it as a live graph, records every
-       session, and analyses your pattern automatically — standalone, with no phone or app.</p>
+    <!-- ★ 문구 금기 2가지 — 한글 랜딩과 같다 (영문에도 그대로 적용).
+         ① "all of dry training" 류로 쓰지 말 것 — 폐활량 측정 문의가 실제로 왔다.
+            이 장비가 하는 것은 equalizing 과 breathing training **둘**이다.
+         ② 범주 이름으로 "breath-hold / static" 을 쓰지 말 것 — 프리다이버는 STA 종목으로
+            읽는다. CO2·O2 테이블은 스태틱이 아니므로 **breathing training** 으로 쓴다
+            (장비 화면·매뉴얼 표기와도 일치). -->
+    <span class="eyebrow">Freediving dry training</span>
+    <h1>Not equalizing alone.<br><span class="pt">Breathing training too.</span></h1>
+    <p class="sub"><span style="color:#eef5fb;font-weight:700;">Equalizing pressure is measured and analysed live,<br>
+       and CO₂·O₂ tables are run and recorded with voice guidance.</span><br>No phone, no app.</p>
     <div class="btn-row">
       <a class="btn btn-primary" href="#order">Get in touch</a>
     </div>
@@ -193,7 +223,34 @@
     <div class="hero-img"><img src="../assets/hero-both.jpg" alt="Equalscope orange and blue sets with live pressure graph, tube, pressure valve and Equalvent"></div>
   </div>
 
+  <!-- 두 모드 — 한글판 TWO MODES 대응 (FW 2.0 재포지셔닝의 핵심 섹션) -->
   <section>
+    <div class="sec-tag">Two modes</div>
+    <h2 class="sec">Two kinds of training, one device</h2>
+    <p class="sec-lead">You pick the mode when you turn it on — watch your equalizing, or run a breathing table.<br>
+       Both go from measuring to recording and analysis inside the device.</p>
+    <div class="cards3" style="grid-template-columns:repeat(2,1fr);max-width:760px;margin:0 auto;">
+      <div class="card">
+        <div class="cardshot"><img loading="lazy" src="../assets/en/screen-measure.png" alt="Equalizing measurement — live pressure graph"></div>
+        <h3>Equalizing</h3>
+        <p>Pressure you could never see, as a <b>live graph at 40 samples per second</b>. When the session
+           ends it summarises count, rhythm and speed, and <b>estimates the technique</b>. Keep a good
+           session as a reference and overlay it next time.</p>
+      </div>
+      <div class="card">
+        <div class="cardshot"><img loading="lazy" src="../assets/en/screen-co2-run-hold.png" alt="Breathing training — hold phase"></div>
+        <h3>Breathing training (CO₂ · O₂)</h3>
+        <p>Follow a <b>CO₂ or O₂ table</b> through rounds of breathing and holding. <b>English voice guidance</b>
+           calls the phase and the time left, so you can train with your eyes closed, and every round is
+           kept as a record.</p>
+      </div>
+    </div>
+    <p class="flow-note" style="margin-top:22px;">Nothing extra to pack — no separate tool, no phone for an app.
+       <b>One device in the bag.</b><br>Breathing training arrived as a firmware update, and the promise it came
+       from — <b>a device that grows with freedivers</b> — has not changed.</p>
+  </section>
+
+  <section class="alt">
     <div class="sec-tag">Why Equalscope</div>
     <h2 class="sec">Everything happens on the device</h2>
     <p class="sec-lead">No app to launch, no pairing, no phone screen going to sleep in the middle of a class.
@@ -207,6 +264,38 @@
         <p>After each session it summarises count, rhythm, rise and fall speed, and estimates which
            equalization technique the pressure pattern looks like.</p></div>
     </div>
+  </section>
+
+  <!-- ON SCREEN — 한글판 대응. 캡처는 모두 영문 UI (assets/en/) -->
+  <section>
+    <div class="sec-tag">On screen</div>
+    <h2 class="sec">It all fits on one screen</h2>
+    <p class="sec-lead">A 2.8-inch touch screen carries the live graph, the analysis and the files.
+       Pinch to zoom, swipe to scroll through the curve.</p>
+    <div class="shots">
+      <figure><img loading="lazy" src="../assets/en/screen-measure.png" alt="Live measurement with a reference graph underneath">
+        <figcaption><b>Live measurement &amp; reference</b>Lay a good session underneath and compare as you go</figcaption></figure>
+      <figure><img loading="lazy" src="../assets/en/screen-analysis.png" alt="Analysis and advice after a session">
+        <figcaption><b>Analysis &amp; advice</b>Statistics, an estimated technique and a short piece of advice</figcaption></figure>
+      <figure><img loading="lazy" src="../assets/en/screen-files.png" alt="File management screen">
+        <figcaption><b>Files</b>Copy between internal memory and SD, set a reference, delete</figcaption></figure>
+      <figure><img loading="lazy" src="../assets/en/screen-settings.png" alt="Settings screen">
+        <figcaption><b>Settings</b>Theme, brightness, alarms, EQ interval, language and more</figcaption></figure>
+      <figure><img loading="lazy" src="../assets/en/screen-co2-home.png" alt="Breathing training home with the table preview">
+        <figcaption><b>Breathing — table preview</b>Every round's breathe and hold time at a glance</figcaption></figure>
+      <figure><img loading="lazy" src="../assets/en/screen-co2-detail.png" alt="Breathing training record with per-round times">
+        <figcaption><b>Breathing — record</b>What you actually did, round by round</figcaption></figure>
+    </div>
+    <div class="themes">
+      <figure><img loading="lazy" src="../assets/en/theme-daylight.png" alt="Daylight theme"><figcaption>Daylight</figcaption></figure>
+      <figure><img loading="lazy" src="../assets/en/theme-coral.png" alt="Coral theme"><figcaption>Coral</figcaption></figure>
+      <figure><img loading="lazy" src="../assets/en/theme-maple.png" alt="Maple theme"><figcaption>Maple</figcaption></figure>
+      <figure><img loading="lazy" src="../assets/en/theme-lime.png" alt="Lime theme"><figcaption>Lime</figcaption></figure>
+      <figure><img loading="lazy" src="../assets/en/theme-sky.png" alt="Sky theme"><figcaption>Sky</figcaption></figure>
+      <figure><img loading="lazy" src="../assets/en/theme-neon.png" alt="Neon theme"><figcaption>Neon</figcaption></figure>
+      <figure><img loading="lazy" src="../assets/en/theme-lavender.png" alt="Lavender theme"><figcaption>Lavender</figcaption></figure>
+    </div>
+    <p class="sec-lead" style="margin:18px auto 0;">Seven colour themes — pick the one you can read best.</p>
   </section>
 
   <section class="alt">
@@ -275,7 +364,22 @@
     </table>
   </section>
 
-  <section id="order">
+  <!-- 구성품 — 제품 사진은 글자가 없어 한글판 것을 그대로 쓴다 (assets/ 공용) -->
+  <section>
+    <div class="sec-tag">In the box</div>
+    <h2 class="sec">What you get</h2>
+    <p class="sec-lead">Two colours to choose from. Everything needed to start training on land.</p>
+    <div class="kit">
+      <figure><img loading="lazy" src="../assets/kit-orange.jpg" alt="Orange Equalscope set"><figcaption>Orange</figcaption></figure>
+      <figure><img loading="lazy" src="../assets/kit-blue.jpg" alt="Blue Equalscope set"><figcaption>Blue</figcaption></figure>
+    </div>
+    <div class="features" style="margin-top:24px;">
+      <div class="feat"><h4>Main unit &amp; tube</h4><p>The device, a silicone tube and a metal fitting. A <b>pressure valve with a marked dial</b> lets you repeat the same setting exactly.</p></div>
+      <div class="feat"><h4>Equalvent</h4><p>The nose piece you press against a nostril. Sold as a set with a fitting, a lanyard and a balloon.</p></div>
+    </div>
+  </section>
+
+  <section class="alt" id="order">
     <div class="sec-tag">Order</div>
     <h2 class="sec">Ordering from outside Korea</h2>
     <p class="sec-lead">Equalscope is made in small batches in South Korea, and each unit is
@@ -299,7 +403,7 @@
       training aid; any import duties or local requirements in your country are the buyer's responsibility.</p>
   </section>
 
-  <section class="alt">
+  <section>
     <div class="sec-tag">Download</div>
     <h2 class="sec">Firmware &amp; manual</h2>
     <p class="sec-lead">Copy the firmware file to an SD card and power the device on — it updates itself.</p>
@@ -318,7 +422,9 @@
     <div>Orders &amp; support →
       <a href="https://instagram.com/san.bada.byul" target="_blank" rel="noopener">Instagram @san.bada.byul</a>
       · <a id="mailtxt2" href="#"><noscript>godnanai (at) naver.com</noscript></a></div>
-    <div class="small">Byulbada Dive · Woo-seok Hyun · Business reg. 556-03-04058<br>© 2026 Byulbada Dive</div>
+    <!-- ★ 대표자명 영문 표기는 **Wooseok Hyun** (별님 2026-07-31 확정).
+         하이픈 넣은 "Woo-seok" 으로 바꾸지 말 것 — 본인이 쓰는 표기다. -->
+    <div class="small">Byulbada Dive · Wooseok Hyun · Business reg. 556-03-04058<br>© 2026 Byulbada Dive</div>
   </footer>
 
 </div>

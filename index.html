@@ -10,6 +10,36 @@
 <link rel="alternate" hreflang="ko" href="https://equalscope.kr/">
 <link rel="alternate" hreflang="en" href="https://equalscope.kr/en/">
 <link rel="alternate" hreflang="x-default" href="https://equalscope.kr/">
+<!--
+  언어 자동 안내 (2026-08-02) — 영어권 방문자를 /en/ 으로 보낸다.
+
+  ★ **나라가 아니라 브라우저 언어로 나눈다.** GitHub Pages 는 정적 호스팅이라 서버가
+    방문자를 판별할 수 없고(나라로 나누려면 도메인 앞에 Cloudflare 같은 것을 세워야
+    한다), 실은 언어가 더 정확하다 — 해외 사는 한국인은 한국어를, 한국에 있는 외국인은
+    영어를 본다. VPN 에도 흔들리지 않는다.
+  ★ 규칙 셋 (이것들이 없으면 사용자가 갇힌다):
+    ① 사용자가 KO/EN 을 **직접 누른 적이 있으면 그 선택이 언제나 이긴다** (localStorage).
+       없으면 영문 페이지에서 [한국어] 를 눌러도 여기서 다시 /en/ 으로 튕겨 나간다.
+    ② 주소에 `?ko` 를 붙이면 무조건 한국어 — 공유 링크용 탈출구.
+       (영어로 설정된 폰을 쓰는 한국 사용자에게 보낼 때 `equalscope.kr/?ko`)
+    ③ `replace` 로 바꿔서 **되돌아가기가 튕기지 않게** 한다.
+  ★ 문서를 그리기 전에 실행되도록 <head> 안에 둔다 — 한글이 한 번 번쩍이지 않게.
+  ※ 검색엔진은 위 hreflang / canonical 로 판단하므로 이 전환에 영향받지 않는다.
+  ※ 여기(랜딩)만 전환한다. /download/ · /manual.html 은 공유된 주소 그대로 열리는 편이
+    낫고, 그 페이지들엔 KO/EN 버튼이 바로 위에 있다.
+-->
+<script>
+(function () {
+  try {
+    if (/[?&]ko(=|&|$)/.test(location.search)) return;          /* 규칙 ② */
+    var pick = localStorage.getItem('eqs_lang');                 /* 규칙 ① */
+    if (pick === 'ko') return;
+    if (pick === 'en') { location.replace('/en/'); return; }
+    var l = (navigator.languages && navigator.languages[0]) || navigator.language || '';
+    if (!/^ko/i.test(l)) location.replace('/en/');
+  } catch (e) { /* localStorage 를 막아 둔 브라우저 등 — 그냥 한국어로 둔다 */ }
+})();
+</script>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -250,12 +280,10 @@
   footer a{color:var(--orange);font-weight:600;}
   footer .small{font-size:12.5px;color:#7c91a6;margin-top:14px;line-height:1.7;}
 
-  /* ===== 훈련 사이클 스트립 ===== */
-  .flow{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:900px;margin:36px auto 16px;}
-  .flow .f{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;text-align:center;flex:1 1 140px;}
-  .flow .f b{display:block;color:var(--navy);font-size:15.5px;margin-bottom:2px;}
-  .flow .f span{display:block;font-size:12.5px;color:var(--muted);line-height:1.45;}
-  .flow .arrow{display:flex;align-items:center;justify-content:center;color:var(--orange);font-weight:800;font-size:17px;}
+  /* .flow-note — 섹션을 마무리하는 가운데 정렬 문장.
+     ※ 예전엔 '훈련 사이클 스트립'(측정→자동저장→분석→참조→다음훈련 5칸)이 함께
+       있었으나 삭제했다(별님 2026-07-31) — 모바일에서 5칸이 세로로 쌓여 자리만
+       길게 차지하고, 바로 위 3장 카드와 내용이 겹쳐 임팩트가 없었다. */
   .flow-note{max-width:640px;margin:0 auto;text-align:center;font-size:15px;color:var(--muted);}
   .flow-note b{color:var(--navy);}
 
@@ -283,9 +311,6 @@
     .topbar .lang a,.topbar .lang>span{font-size:11.5px;padding:4px 8px;}
     .gift{flex-direction:column;} .gift img{width:100%;}
     .feat.valve{padding-right:92px;}
-    .flow{flex-direction:column;align-items:center;}
-    .flow .f{width:100%;max-width:340px;flex:none;}
-    .flow .arrow{transform:rotate(90deg);height:16px;}
   }
   /* 아주 좁은 화면 — 상단 "주문" 은 접는다. 히어로에 큰 [지금 주문하기] 가 있어
      기능이 사라지지 않는다 (2026-07-28: 항목이 많아 글자가 세로로 접혔다). */
@@ -305,7 +330,7 @@
       <a class="nav-order" href="#order">주문</a>
       <a href="manual.html">매뉴얼</a>
       <a class="nav-cta" href="download/">펌웨어 ↓</a>
-      <span class="lang"><span>KO</span><a href="/en/" hreflang="en">EN</a></span>
+      <span class="lang"><span>KO</span><a href="/en/" hreflang="en" onclick="try{localStorage.setItem('eqs_lang','en')}catch(e){}">EN</a></span>
     </nav>
   </div>
 
@@ -360,7 +385,12 @@
          예전 문구는 "이퀄 툴 따로, 앱 켤 스마트폰 따로 — 가방에 하나만" 이었는데,
          '따로'가 두 번 먼저 나와 **아직 둘 다 필요한 것처럼** 읽혔다.
          없어도 된다는 것이 이 문장의 요지이므로 그것부터 말한다. -->
-    <p class="flow-note" style="margin-top:22px;">따로 챙길 것이 없습니다. 이퀄 툴도, 앱 켤 스마트폰도 — <b>가방에 하나만 넣으면 됩니다.</b><br>펌웨어 업데이트로 호흡 훈련이 더해졌듯, 앞으로도 장비는 계속 자랍니다.</p>
+    <!-- ★ 둘째 줄 "프리다이버와 함께 성장하는 제품" 은 **제품을 처음 소개한 자리에서
+         별님이 직접 한 말** 그대로다 (2026-07-31 반영). 다듬어서 매끄럽게 바꾸지 말 것 —
+         그때 한 말을 그대로 옮기는 것이 이 문장의 값어치다.
+         앞에 "호흡 훈련이 업데이트로 더해졌듯" 을 둔 이유도 있다: 약속만 있으면 흔한
+         말이 되고, 실제로 지킨 증거가 앞에 서야 무게가 실린다. 순서를 뒤집지 말 것. -->
+    <p class="flow-note" style="margin-top:22px;">따로 챙길 것이 없습니다. 이퀄 툴도, 앱 켤 스마트폰도 — <b>가방에 하나만 넣으면 됩니다.</b><br>펌웨어 업데이트로 호흡 훈련이 더해졌듯, <b>프리다이버와 함께 성장하는 제품</b>을 만들겠다는 처음의 약속은 변하지 않습니다.</p>
   </section>
 
   <!-- 3 차별점 -->
@@ -373,18 +403,6 @@
       <div class="card"><div class="num">2</div><h3>초당 40회, 부드러운 실시간 그래프</h3><p>40Hz 고속 측정으로 끊김 없이 매끄럽게. 장비가 직접 측정·표시하므로 통신 지연 없이 부드럽게 이어집니다.</p></div>
       <div class="card"><div class="num">3</div><h3>훈련 후 자동 분석·조언</h3><p>반복 횟수·주기·상승/하강 속도·정점 유지 시간을 요약하고, 압력 패턴으로 기술 유형을 추정합니다.</p></div>
     </div>
-    <div class="flow">
-      <div class="f"><b>측정</b><span>켜면 바로,<br>실시간 그래프</span></div>
-      <div class="arrow">→</div>
-      <div class="f"><b>자동 저장</b><span>끝나면 파일로<br>기록</span></div>
-      <div class="arrow">→</div>
-      <div class="f"><b>분석·조언</b><span>통계 요약 +<br>패턴 추정</span></div>
-      <div class="arrow">→</div>
-      <div class="f"><b>참조 비교</b><span>좋은 기록과<br>겹쳐 보기</span></div>
-      <div class="arrow">→</div>
-      <div class="f"><b>다음 훈련</b><span>더 나은 기준으로<br>반복</span></div>
-    </div>
-    <p class="flow-note">이 <b>훈련 사이클 전체가 장비 하나 안에서</b> 완결됩니다.<br>그리고 펌웨어 업데이트로, 이 사이클 자체가 계속 발전합니다.</p>
   </section>
 
   <!-- 화면으로 보기 -->

@@ -74,7 +74,12 @@
   .hsub{font-size:11px;color:var(--muted);margin-top:1.2mm;line-height:1.35;}
 
   /* ── 단계 카드(앞면) ── */
-  .steps{display:flex;flex-direction:column;gap:1.2mm;margin-top:2mm;}
+  /* ★ 남는 공간은 **단계 카드들이 고르게 나눠 갖는다** (푸터를 뺀 뒤 QR 박스 위에
+     한 덩어리로 몰려 구멍처럼 보였다). flex:1 로 늘어나고 space-between 으로 벌어지니
+     앞면(5장)·뒷면(4장)이 각자 알아서 균형을 잡는다 — 면마다 여백을 손으로 맞출
+     필요가 없다. gap 은 최소 간격 역할만 한다. */
+  .steps{display:flex;flex-direction:column;gap:1.2mm;margin-top:2mm;
+         flex:1 1 auto;justify-content:space-between;}
   .step{display:flex;align-items:flex-start;gap:2.6mm;
         background:#fff;border:1px solid var(--line);border-radius:3.1mm;
         padding:1.4mm 2.9mm;box-shadow:0 1px 3px rgba(13,33,55,.05);}
@@ -94,7 +99,9 @@
 
   /* ── 주의 박스 ── */
   .notice{border:1px solid #ffcfa6;background:#fff8f2;border-radius:3.1mm;
-          padding:2.1mm 2.9mm;margin-top:1.6mm;}
+          padding:2.1mm 2.9mm;margin-top:3mm;}
+  /* ↑ 위 단계 카드와의 간격 — 카드 사이 간격보다 좁으면 안전 박스가 마지막 카드에
+     붙어 보인다. 뒷면은 단계 / 안전 / 설명서 세 덩어리로 읽혀야 한다. */
   .notice b{display:block;color:var(--orange-d);font-size:11px;font-weight:800;margin-bottom:.7mm;}
   .notice p{font-size:10px;color:#9a5a2a;line-height:1.4;}
   .notice em{font-style:normal;font-weight:800;color:var(--orange-d);}
@@ -120,13 +127,13 @@
      그래서 QR 바로 위에 오는 요소에 고정 간격을 준다:
        앞면 = 단계 카드 묶음(.steps) / 뒷면 = 안전 박스(.notice)
      ※ 문구가 길어져 지면이 빡빡해져도 이 간격은 유지된다. */
-  .front .steps{margin-bottom:1.8mm;}
-  .back  .notice{margin-bottom:1.8mm;}
+  .front .steps{margin-bottom:3mm;}
+  .back  .notice{margin-bottom:3mm;}
 
-  /* ── 푸터 (양면 © 통일) ── */
-  .foot{text-align:center;font-size:10.5px;color:var(--muted);}
-  .front .foot{margin-top:auto;padding-top:2.2mm;border-top:1px solid var(--line);}
-  .back  .foot{margin-top:2.2mm;padding-top:2.2mm;border-top:1px solid var(--line);}
+  /* ※ 하단 "© 2026 별바다다이브" 푸터는 **뺐다** (별님 2026-08-02).
+     상호는 앞면 로고 락업과 양면 QR 박스의 주소(equalscope.kr)로 이미 드러나는데,
+     구분선까지 달고 자리만 차지해 QR 박스에 닿을 지경이었다. 좁은 카드에서는
+     한 번 더 적는 것보다 여백이 낫다. */
 
   @media print{
     /* 인쇄·PDF 시 배경색(번호 배지·강조·QR) 강제 출력 — 안 켜면 색이 빠짐 */
@@ -185,8 +192,6 @@
       <span class="u">equalscope.kr/manual.html</span>
     </div>
   </div>
-
-  <div class="foot">© 2026 별바다다이브</div>
 </section>
 
 <!-- ───────── 뒷면 : 호흡 훈련 ─────────
@@ -229,8 +234,6 @@
       <span class="u">equalscope.kr/manual.html</span>
     </div>
   </div>
-
-  <div class="foot">© 2026 별바다다이브</div>
 </section>
 
 </body>

@@ -58,14 +58,14 @@
 
   /* ── 로고 락업 (심볼 + 워드마크) ── */
   .brand{display:flex;align-items:center;gap:2.4mm;}
-  .brand .sym{height:9.1mm;width:auto;flex:none;}
+  .brand .sym{height:8.4mm;width:auto;flex:none;}
   .brand .wm{font-family:"Montserrat","Pretendard",sans-serif;font-weight:600;
              color:var(--navy);font-size:18px;line-height:1;letter-spacing:-.3px;}
   .brand .wm small{display:block;font-family:"Pretendard",sans-serif;font-weight:500;
                    color:var(--muted);font-size:10px;letter-spacing:.04em;margin-top:1.5px;}
   .brand .wm small.en{font-family:"Montserrat",sans-serif;letter-spacing:.12em;}
 
-  .rule{height:1px;background:var(--line);margin:2mm 0;}
+  .rule{height:1px;background:var(--line);margin:1.6mm 0;}
 
   /* ── 헤더(타이틀) ── */
   .htitle{font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.5px;line-height:1;}
@@ -74,10 +74,10 @@
   .hsub{font-size:11px;color:var(--muted);margin-top:1.2mm;line-height:1.35;}
 
   /* ── 단계 카드(앞면) ── */
-  .steps{display:flex;flex-direction:column;gap:1.4mm;margin-top:2.4mm;}
+  .steps{display:flex;flex-direction:column;gap:1.2mm;margin-top:2mm;}
   .step{display:flex;align-items:flex-start;gap:2.6mm;
         background:#fff;border:1px solid var(--line);border-radius:3.1mm;
-        padding:1.7mm 2.9mm;box-shadow:0 1px 3px rgba(13,33,55,.05);}
+        padding:1.4mm 2.9mm;box-shadow:0 1px 3px rgba(13,33,55,.05);}
   .step .num{flex:none;width:6.5mm;height:6.5mm;border-radius:50%;background:var(--blue);
              color:#fff;font-weight:700;font-size:12px;
              display:flex;align-items:center;justify-content:center;line-height:1;}
@@ -115,14 +115,17 @@
   .qrline .t .u{font-family:"Montserrat","Pretendard",sans-serif;color:var(--navy);
                 font-weight:600;font-size:10.5px;margin-top:1mm;}
 
-  /* ★ 앞면은 단계 카드가 QR 박스 바로 위까지 내려온다. .qrline 의 margin-top:auto 는
-     남는 공간이 없으면 0 이 되어 **테두리가 맞닿는다**(별님 2026-08-02 지적).
-     최소 간격을 고정으로 확보한다 — 뒷면은 주의 박스가 이미 간격을 갖고 있다. */
+  /* ★ QR 박스 위쪽 최소 간격 — .qrline 의 margin-top:auto 는 남는 공간이 없으면
+     0 이 되어 **바로 위 박스와 테두리가 맞닿는다**(별님 2026-08-02, 양면 모두 지적).
+     그래서 QR 바로 위에 오는 요소에 고정 간격을 준다:
+       앞면 = 단계 카드 묶음(.steps) / 뒷면 = 안전 박스(.notice)
+     ※ 문구가 길어져 지면이 빡빡해져도 이 간격은 유지된다. */
   .front .steps{margin-bottom:1.8mm;}
+  .back  .notice{margin-bottom:1.8mm;}
 
   /* ── 푸터 (양면 © 통일) ── */
   .foot{text-align:center;font-size:10.5px;color:var(--muted);}
-  .front .foot{margin-top:auto;padding-top:2.6mm;border-top:1px solid var(--line);}
+  .front .foot{margin-top:auto;padding-top:2.2mm;border-top:1px solid var(--line);}
   .back  .foot{margin-top:2.2mm;padding-top:2.2mm;border-top:1px solid var(--line);}
 
   @media print{

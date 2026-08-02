@@ -41,7 +41,11 @@
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   body{background:#e9edf1;color:var(--ink);
-       font-family:"Pretendard","Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;line-height:1.45;}
+       font-family:"Pretendard","Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;line-height:1.45;
+       /* ★ 한글은 낱말 중간에서 끊으면 안 된다 (별님 2026-07-28, 랜딩에도 같은 규칙).
+          이 카드에는 빠져 있어서 "전/원 버튼", "마세/요" 처럼 잘렸다 — 좁은 지면일수록
+          더 눈에 띈다. keep-all 이면 띄어쓰기 자리에서만 줄이 바뀐다. */
+       word-break:keep-all;}
   img{max-width:100%;display:block;}
 
   .page{
@@ -77,8 +81,12 @@
   .step .num{flex:none;width:6.5mm;height:6.5mm;border-radius:50%;background:var(--blue);
              color:#fff;font-weight:700;font-size:12px;
              display:flex;align-items:center;justify-content:center;line-height:1;}
-  .step .tx h3{font-size:12px;font-weight:800;color:var(--navy);line-height:1.15;}
-  .step .tx p{font-size:10px;color:#52606e;line-height:1.3;margin-top:.4mm;}
+  /* ★ 제목과 설명을 **한 줄로 이어** 쓴다 (별님 2026-08-02). 제목 아래에 설명을 두면
+     카드 하나가 두 줄 높이를 먹어서 단계를 늘릴 수가 없었다. 오른쪽에 붙이면 짧은
+     설명은 한 줄, 긴 설명은 두 줄로 접히며 카드가 낮아진다.
+     ※ 설명이 세 줄로 접히면 지면이 넘친다 — 한 줄에 22자 남짓이 들어간다. */
+  .step .tx{font-size:10px;color:#52606e;line-height:1.35;}
+  .step .tx b{font-size:11.5px;font-weight:800;color:var(--navy);margin-right:1.3mm;}
   .step .tx em{font-style:normal;font-weight:800;color:var(--orange-d);}
   /* 강조 단계(영점 보정) */
   .step.hl{border-color:#ffd2ad;background:#fff8f2;}
@@ -141,31 +149,31 @@
   <div class="steps">
     <div class="step">
       <div class="num">1</div>
-      <div class="tx"><h3>연결하기</h3><p>본체 – 튜브 – 이퀄벤트 순서로 끼웁니다.</p></div>
+      <div class="tx"><b>연결 후 전원 켜기</b>본체와 튜브를 연결하고 전원 버튼을 <em>약 3초</em> 길게.</div>
     </div>
     <div class="step">
       <div class="num">2</div>
-      <div class="tx"><h3>전원 켜기</h3><p>전원 버튼을 <em>약 3초</em> 길게.</p></div>
+      <div class="tx"><b>모드 선택</b><em>이퀄라이징 · 호흡 훈련</em> 중 하나를 고릅니다.</div>
     </div>
     <div class="step hl">
       <div class="num">3</div>
-      <div class="tx"><h3>영점 보정</h3><p>부팅 후 <em>약 5초간</em> 압력을 가하지 마세요.</p></div>
+      <div class="tx"><b>영점 보정</b><em>약 5초간</em> 압력을 가하지 마세요.</div>
     </div>
     <div class="step">
       <div class="num">4</div>
-      <div class="tx"><h3>측정하기</h3><p><em>[시작]</em> → 코에 대고 이퀄라이징 → <em>[정지]</em>.</p></div>
+      <div class="tx"><b>측정</b><em>[시작]</em> → 코에 대고 이퀄라이징 → <em>[정지]</em>.</div>
     </div>
     <div class="step">
       <div class="num">5</div>
-      <div class="tx"><h3>분석하기</h3><p><em>[분석]</em>에서 통계·기법 추정·조언 확인.</p></div>
+      <div class="tx"><b>분석</b><em>[분석]</em>에서 통계·기법 추정·조언을 봅니다.</div>
     </div>
   </div>
 
   <div class="qrline">
     <div class="qr"><img src="assets/qr-manual.png" alt="사용설명서 QR"></div>
     <div class="t">
-      <b>사용설명서를 꼭 보세요</b>
-      <span>이 카드에 없는 것이 다 있습니다.</span>
+      <b>사용 설명서</b>
+      <span>기능이 많으므로 정독을 권장합니다.</span>
       <span class="u">equalscope.kr/manual.html</span>
     </div>
   </div>
@@ -179,24 +187,24 @@
   ★ 안전 문구는 이 면에서 빼지 말 것. 예고 없는 의식 소실이 실제 위험이다. -->
 <section class="page back">
   <div class="htitle">호흡 훈련<small>CO₂ · O₂</small></div>
-  <div class="hsub">테이블에 맞춰 음성이 호흡과 숨참기를 이끌어 줍니다.</div>
+  <div class="hsub">훈련 테이블에 맞춰 음성이 호흡과 숨참기를 안내합니다.</div>
 
   <div class="steps">
     <div class="step">
       <div class="num">1</div>
-      <div class="tx"><h3>모드 바꾸기</h3><p><em>설정 → [전환]</em>. 이퀄로 돌아올 때도 같은 자리.</p></div>
+      <div class="tx"><b>테이블 고르기</b><em>[테이블]</em>에서 고르거나 만듭니다.</div>
     </div>
     <div class="step">
       <div class="num">2</div>
-      <div class="tx"><h3>테이블 고르기</h3><p><em>[테이블]</em>에서 고르거나 직접 만듭니다.</p></div>
+      <div class="tx"><b>훈련하기</b><em>[시작]</em> → 음성 안내대로 진행합니다.</div>
     </div>
     <div class="step">
       <div class="num">3</div>
-      <div class="tx"><h3>훈련하기</h3><p><em>[시작]</em> → 음성 안내대로 진행합니다.</p></div>
+      <div class="tx"><b>기록 보기</b><em>[기록]</em>에서 라운드별로 확인합니다.</div>
     </div>
     <div class="step">
       <div class="num">4</div>
-      <div class="tx"><h3>기록 보기</h3><p><em>[기록]</em>에서 라운드별로 확인합니다.</p></div>
+      <div class="tx"><b>모드 바꾸기</b>이퀄로 돌아갈 땐 <em>설정 → [전환]</em>.</div>
     </div>
   </div>
 
@@ -208,8 +216,8 @@
   <div class="qrline">
     <div class="qr"><img src="assets/qr-manual.png" alt="사용설명서 QR"></div>
     <div class="t">
-      <b>사용설명서를 꼭 보세요</b>
-      <span>호흡 훈련 · 안전 안내 · USB 업데이트까지.</span>
+      <b>사용 설명서</b>
+      <span>많은 기능에 대한 자세한 설명이 포함되어 있습니다.</span>
       <span class="u">equalscope.kr/manual.html</span>
     </div>
   </div>

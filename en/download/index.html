@@ -146,7 +146,31 @@
              Keep the Korean page in step. -->
         <tbody>
           <tr>
-            <td class="ver">v2.0 <span class="latest">latest</span></td>
+            <td class="ver">v2.0a <span class="latest">latest</span></td>
+            <td class="date">2026-08-03</td>
+            <td>
+              <ul>
+                <li><b>Update over a USB cable — no SD card needed.</b> Settings → USB →
+                  [Firmware Update] shows a drive; drop the <code>.uf2</code> file onto it and
+                  you are done. <b>This is the last SD card update</b> — once you are on this
+                  version, a cable is all you need.</li>
+                <li><b>Negative pressure is now reported in two levels.</b> A single slip and a
+                  habit of pulling negative used to get the same message. Shallow cases are still
+                  always reported — only the wording changes.</li>
+                <li><b>The low pressure alarm steps in 0.1</b>, so alarms below 1 hPa are possible,
+                  and the <b>Y axis minimum steps by 1</b> near zero. Setting labels are now
+                  "Max / Min pressure alarm".</li>
+                <li>Fixed: <b>a measurement was lost if you unplugged the cable</b> after powering
+                  the device from USB. It is kept now.</li>
+                <li>The SD card is <b>released properly</b> on restart and power off — no more
+                  "empty card" or format prompts on the PC.</li>
+                <li>The device <b>no longer powers off by itself</b> while you copy files over USB.</li>
+              </ul>
+            </td>
+            <td class="dl"><div class="dls"><a class="dlbtn" href="https://github.com/byulbada/equalscope-2.8-firmware/releases/download/v2.0a/equpdate_2.0a.uf2">Download <small>.uf2</small></a><a class="dlbtn" href="https://github.com/byulbada/equalscope-2.8-firmware/releases/download/v2.0a/equpdate_2.0a.bin">Download <small>.bin</small></a></div><div class="fname">.uf2 for USB / .bin for SD</div></td>
+          </tr>
+          <tr>
+            <td class="ver">v2.0</td>
             <td class="date">2026-07-30</td>
             <td>
               <ul>

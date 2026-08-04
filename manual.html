@@ -78,8 +78,14 @@
   table.warn3{table-layout:fixed;}
   table.warn3 th:first-child,table.warn3 td:first-child{width:26%;white-space:normal;}
   table.warn3 th:nth-child(2),table.warn3 td:nth-child(2){width:30%;}
-  /* 8.설정 표: '페이지' 헤더가 세로로 쪼개지지 않게 한 줄 유지 */
-  table.setbl th:nth-child(2){white-space:nowrap;}
+  /* 9.설정 표(9.1~9.4): 4열 항목/페이지/범위/설명.
+     자동 레이아웃에서는 **항목 열이 설명 열과 비슷하게 넓어져** 설명이 좁아지고 표가
+     세로로 길어졌다(별님 2026-08-03, 9.3 만 설명이 넉넉했다). 폭을 못박아 설명에
+     제일 넓은 자리를 준다. 1열의 nowrap 도 풀어야 24% 가 지켜진다. */
+  table.setbl{table-layout:fixed;}
+  table.setbl th:first-child,table.setbl td:first-child{width:24%;white-space:normal;}
+  table.setbl th:nth-child(2),table.setbl td:nth-child(2){width:16%;white-space:nowrap;}
+  table.setbl th:nth-child(3),table.setbl td:nth-child(3){width:16%;}
 
   blockquote{margin:12px 0;padding:10px 14px;border-radius:6px;
              background:var(--soft);border-left:4px solid #9bb0c4;color:#33485e;font-size:14px;}

@@ -71,6 +71,13 @@
   /* 5.2 패턴 표: 1열 좁히고 내용 긴 2·3열 넓게 (고정 레이아웃) */
   table.pat3{table-layout:fixed;}
   table.pat3 th:first-child,table.pat3 td:first-child{width:25%;white-space:normal;}
+  /* 5.4 경고 표: 좁은 화면(모바일)에서 2열('의미')이 **한 글자 폭**으로 짜부라져 표가
+     세로로 한없이 길어졌다(별님 2026-08-03). 웹에서는 정상이라 자동 레이아웃이 좁은
+     폭에서 1열 nowrap + 3열 장문에 눌린 탓 — 고정 레이아웃으로 열 폭을 못박는다.
+     1열도 nowrap 을 풀어 "음압 감지 (두 단계)" 가 두 줄로 접히게 둔다. */
+  table.warn3{table-layout:fixed;}
+  table.warn3 th:first-child,table.warn3 td:first-child{width:26%;white-space:normal;}
+  table.warn3 th:nth-child(2),table.warn3 td:nth-child(2){width:30%;}
   /* 8.설정 표: '페이지' 헤더가 세로로 쪼개지지 않게 한 줄 유지 */
   table.setbl th:nth-child(2){white-space:nowrap;}
 
@@ -419,7 +426,7 @@
   <li>유지형(마우스필): 압력을 얼마나 <strong>흔들림 없이 유지</strong>했는지로 등급이 정해집니다.</li>
 </ul>
 <p><strong>경고 메시지 (해당 시 표시)</strong></p>
-<table>
+<table class="warn3">
   <thead><tr><th>경고</th><th>의미</th><th>점검 사항</th></tr></thead>
   <tbody>
     <tr><td><strong>음압 감지</strong> (두 단계)</td><td>이퀄 사이 압력이 0 아래로 내려감</td><td>이퀄라이징은 공기를 <strong>미는</strong> 동작입니다 — 빨아들이는 힘이 섞이지 않았는지 확인하세요. <strong>얕고 드물면</strong> 사실만 알려 주고, <strong>깊거나 반복되면</strong> 더 강하게 경고합니다 (깊은 수심에서 귀 손상으로 이어질 수 있습니다)</td></tr>

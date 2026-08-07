@@ -150,22 +150,26 @@
             <td class="date">2026-08-04</td>
             <td>
               <ul>
-                <li><b>Technique detection is more accurate.</b> With a mouthfill held, the
-                  pressure floor is already high — and the device was counting the small ripples
-                  at that level as equalizations. That made <b>Frenzel read as Valsalva</b>. Only
-                  real peaks are counted now, which also fixed <b>Valenzel reading as Frenzel</b>.</li>
+                <li><b>Sharper pattern detection — Frenzel no longer reads as Valsalva.</b>
+                  With a mouthfill held, the pressure floor is already high, and the device was
+                  counting the small ripples at that level as equalizations. It then judged the
+                  peak as long-held and called it Valsalva. Only real peaks count now.
+                  <b>Valenzel reading as Frenzel</b> is fixed too — same cause.</li>
                 <li><b>Mouthfill is recognised in interval training.</b> Between intervals you
-                  bring air up from the lungs into the mouth; the segments after that fill are
-                  now read as mouthfill Frenzel.</li>
-                <li><b>Gentler wording on shallow negative pressure.</b> Instructors genuinely
-                  differ on how much it matters, so the device states that rather than taking a
-                  side. Deep or repeated negative pressure is still reported clearly.</li>
+                  bring air up from the lungs into the mouth; Frenzel-shaped segments after that
+                  fill are now judged as mouthfill Frenzel.</li>
+                <li><b>Gentler wording on shallow negative pressure.</b> Instructors differ on
+                  how to read a shallow one — some see it as a natural byproduct of the tongue
+                  releasing, others hold that none should appear. The wording now reflects both
+                  views. Deep or repeated negative pressure is still reported clearly.</li>
                 <li>Fixed: the arrow in the file screens <b>skipped two pages on one tap</b>
-                  (equalizing, breathing and settings screens).</li>
-                <li>Fixed: <b>the default zoom setting was ignored</b> — 1/2 or 1/4 always fell
-                  back to 1x on [Reset] and at power on.</li>
-                <li>Fixed: a <b>large empty gap in front of a reference-only trace</b>,
-                  most visible at 1/4x.</li>
+                  — equalizing, breathing and settings screens all fixed.</li>
+                <li><b>The default zoom setting was ignored.</b> With 1/2 or 1/4 set, [Reset] or
+                  power on always fell back to 1x. It now starts at the zoom you set.</li>
+                <li><b>A large empty gap in front of a reference-only trace</b>, most visible at
+                  1/4x. When the trace fits on screen it is now drawn from the left.</li>
+                <li>Handling was hardened for dropping a different file onto the update drive
+                  mid-copy.</li>
               </ul>
             </td>
             <td class="dl"><div class="dls"><a class="dlbtn" href="https://github.com/byulbada/equalscope-2.8-firmware/releases/download/v2.0b/equpdate_2.0b.uf2">Download <small>.uf2</small></a><a class="dlbtn" href="https://github.com/byulbada/equalscope-2.8-firmware/releases/download/v2.0b/equpdate_2.0b.bin">Download <small>.bin</small></a></div><div class="fname">.uf2 for USB / .bin for SD</div></td>

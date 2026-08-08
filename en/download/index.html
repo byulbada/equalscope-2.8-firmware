@@ -146,7 +146,32 @@
              Keep the Korean page in step. -->
         <tbody>
           <tr>
-            <td class="ver">v2.0b <span class="latest">latest</span></td>
+            <td class="ver">v2.0c <span class="latest">latest</span></td>
+            <td class="date">2026-08-09</td>
+            <td>
+              <ul>
+                <li><b>Saving a recording is much faster.</b> Internal memory was
+                  especially slow — after a long session the Stats button took a while to
+                  appear. The internal storage now uses a different file system:
+                  <b>a 1-minute session went from about 2.9 s to 0.5 s</b>, and 10 minutes
+                  from about 24 s to roughly 4 s. Opening the file list and loading a
+                  recording are faster too, and a progress figure is shown while saving.</li>
+                <li><b>The first boot after this update tidies the internal storage once.</b>
+                  It shows "Tidying up storage" and takes a few seconds — <b>do not power off
+                  during it.</b> Your recordings are carried over. With an SD card inserted,
+                  a copy is written to <code>_migrate</code> on the card first.</li>
+                <li>⚠️ <b>Going back to an earlier version erases the internal recordings.</b>
+                  The storage format changed and older firmware cannot read it. If you may
+                  roll back, <b>copy your recordings to an SD card first.</b></li>
+                <li>Recording CSVs carry the max/min values on the first line only (since
+                  2.0b), which halves the file size. Older firmware shows the trace and
+                  alarm marks normally, only the max/min lines are missing.</li>
+              </ul>
+            </td>
+            <td class="dl"><div class="dls"><a class="dlbtn" href="https://github.com/byulbada/equalscope-2.8-firmware/releases/download/v2.0c/equpdate_2.0c.uf2">Download <small>.uf2</small></a><a class="dlbtn" href="https://github.com/byulbada/equalscope-2.8-firmware/releases/download/v2.0c/equpdate_2.0c.bin">Download <small>.bin</small></a></div><div class="fname">.uf2 for USB / .bin for SD</div></td>
+          </tr>
+          <tr>
+            <td class="ver">v2.0b</td>
             <td class="date">2026-08-07</td>
             <td>
               <ul>

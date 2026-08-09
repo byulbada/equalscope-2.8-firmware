@@ -63,6 +63,10 @@
      files per row. Rows up to v2.0 have only the .bin, so they do not use it. */
   td.dl .dls{display:flex;flex-direction:column;gap:9px;align-items:flex-end;}
   @media(max-width:600px){ td.dl .dls{align-items:flex-start;} }
+  /* Rollback boundary (v2.0c) — below this line, rolling back erases internal recordings.
+     Keep the class on the v2.0c row when newer versions are added: it marks the boundary,
+     not the latest release. Same block exists on the Korean page. */
+  tbody tr.fs-break td{border-bottom:2px solid var(--orange);}
 
   /* Two ways to update (2026-08-01, USB cable update added). The release ships two files
      (.bin / .uf2) — spell out which goes where or that becomes most of the support mail.
@@ -100,6 +104,8 @@
     tbody tr{border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:12px;margin-bottom:14px;}
     tbody td{border:0;padding:3px 0;}
     td.dl{text-align:left;margin-top:8px;}
+    tbody tr.fs-break{border-color:var(--orange);}
+    tbody tr.fs-break td{border-bottom:0;}
   }
 </style>
 </head>
@@ -145,8 +151,30 @@
              <div class="dls"> to stack them, .uf2 first — the no-SD path is the default advice.
              Keep the Korean page in step. -->
         <tbody>
+          <tr class="fs-break">
+            <td class="ver">v2.0c <span class="latest">latest</span></td>
+            <td class="date">2026-08-09</td>
+            <td>
+              <ul>
+                <li><b>Saving to internal memory is faster.</b> A progress figure is shown
+                  while it saves.</li>
+                <li>The first boot after this update tidies the internal storage once.
+                  "Tidying up storage" appears for a few seconds — <b>do not power off.</b>
+                  Your files are kept. With an SD card inserted, a copy is written to the
+                  <code>_migrate</code> folder on the card first.</li>
+                <li>Recording CSVs carry the max/min values on the first line only, which
+                  reduces file size. Opened with older firmware, the max/min lines are not
+                  drawn.</li>
+                <li>Refined the negative-pressure check and its wording. A single very
+                  shallow dip no longer sets off the strong warning.</li>
+                <li>⚠️ <b>Going back to an earlier version erases the recordings in internal
+                  memory.</b> If you may roll back, copy them to an SD card first.</li>
+              </ul>
+            </td>
+            <td class="dl"><div class="dls"><a class="dlbtn" href="https://github.com/byulbada/equalscope-2.8-firmware/releases/download/v2.0c/equpdate_2.0c.uf2">Download <small>.uf2</small></a><a class="dlbtn" href="https://github.com/byulbada/equalscope-2.8-firmware/releases/download/v2.0c/equpdate_2.0c.bin">Download <small>.bin</small></a></div><div class="fname">.uf2 for USB / .bin for SD</div></td>
+          </tr>
           <tr>
-            <td class="ver">v2.0b <span class="latest">latest</span></td>
+            <td class="ver">v2.0b</td>
             <td class="date">2026-08-07</td>
             <td>
               <ul>

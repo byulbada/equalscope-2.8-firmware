@@ -31,6 +31,13 @@
 <script>
 (function () {
   try {
+    /* ★ 로컬 미리보기(file://)에서는 전환하지 않는다 (2026-08-11).
+       아래 '/en/' 은 **절대경로**라 file:// 에서는 드라이브 루트로 해석된다 —
+       `file:///F:/en/` 로 튕겨 아무것도 안 뜬다. 서버에 올라가면 정상이므로
+       프로덕션 동작은 그대로 두고 로컬만 비켜 간다.
+       ※ Edge 에서만 났던 이유 — Chrome 은 file:// 에서 localStorage 를 막아
+         아래 getItem 이 예외를 내고 catch 로 빠져 리디렉트까지 못 갔다. */
+    if (location.protocol === 'file:') return;
     if (/[?&]ko(=|&|$)/.test(location.search)) return;          /* 규칙 ② */
     var pick = localStorage.getItem('eqs_lang');                 /* 규칙 ① */
     if (pick === 'ko') return;

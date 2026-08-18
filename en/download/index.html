@@ -152,7 +152,22 @@
              Keep the Korean page in step. -->
         <tbody>
           <tr>
-            <td class="ver">v2.1 <span class="latest">latest</span></td>
+            <td class="ver">v2.1a <span class="latest">latest</span></td>
+            <td class="date">2026-08-18</td>
+            <td>
+              <ul>
+                <li><b>Fixed BTV (hands-free) being misidentified as Frenzel.</b></li>
+                <li><b>Fixed equalization count being under-reported when you equalize quickly.</b> Recordings spaced around 0.5s were losing nearly half their count.</li>
+                <li>Fixed the minimum-pressure marker landing in the wrong place on Mouthfill recordings. It now sits where the value was actually measured, inside the hold.</li>
+                <li>When a measurement ends on its own, the screen now finishes with it - no empty stretch is added to the graph. Also fixed cases where the device powered off without warning.</li>
+                <li>Inserting an SD card opens the [Files] screen on the SD tab. The boot screen now shows the firmware version.</li>
+                <li>Default settings changed - high-pressure alarm 60hPa, low-pressure alarm -2.0hPa, Y-axis max 70. <b>Existing settings are kept as they are.</b></li>
+              </ul>
+            </td>
+            <td class="dl"><div class="dls"><a class="dlbtn" href="https://github.com/byulbada/equalscope-2.8-firmware/releases/download/v2.1a/equpdate_2.1a.uf2">Download <small>.uf2</small></a><a class="dlbtn" href="https://github.com/byulbada/equalscope-2.8-firmware/releases/download/v2.1a/equpdate_2.1a.bin">Download <small>.bin</small></a></div><div class="fname">.uf2 for USB / .bin for SD</div></td>
+          </tr>
+          <tr>
+            <td class="ver">v2.1</td>
             <td class="date">2026-08-16</td>
             <td>
               <ul>

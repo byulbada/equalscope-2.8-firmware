@@ -141,8 +141,11 @@
   /* ===== 히어로 ===== */
   .hero{background:radial-gradient(120% 120% at 80% 0%,var(--navy3),var(--navy) 60%);color:#fff;
         padding:54px 40px 0;text-align:center;position:relative;}
+  /* ★ 배지는 **두 개를 나란히** (2026-08-18, 별님) — 한 배지에 두 줄로 넣었더니
+     글자가 작아 보이고 한눈에 안 들어왔다. 좁은 화면에서는 wrap 으로 접힌다. */
+  .hero .eyebrows{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:18px;}
   .hero .eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.12em;
-                 color:var(--orange);border:1px solid rgba(255,102,0,.5);border-radius:999px;padding:5px 14px;margin-bottom:18px;}
+                 color:var(--orange);border:1px solid rgba(255,102,0,.5);border-radius:999px;padding:5px 14px;}
   .hero h1{font-size:40px;line-height:1.25;font-weight:800;margin:0 0 16px;letter-spacing:-1px;}
   .hero h1 .pt{color:var(--orange);}
   .hero p.sub{font-size:18px;color:#c4d3e2;max-width:620px;margin:0 auto 26px;}
@@ -354,9 +357,9 @@
            폐활량을 재 주는 도구는 있지만 그건 의료기기 영역이다. 같은 범주 안에서
            이퀄라이징과 호흡 훈련을 한 대로 하는 건 이쪽뿐이라, 못 쓸 이유가 없다.
            문의 한 건 때문에 규칙까지 두었던 것이 과했다. -->
-    <span class="eyebrow">올인원 드라이 트레이닝</span>
+    <div class="eyebrows"><span class="eyebrow">자동 분석으로 더 스마트한</span><span class="eyebrow">올인원 드라이 트레이닝</span></div>
     <h1>이퀄라이징부터 호흡 훈련까지,<br><span class="pt">하나로.</span></h1>
-    <p class="sub"><span style="color:#eef5fb;font-weight:700;">이퀄라이징 압력은 실시간으로 측정·분석하고,<br>CO₂·O₂ 테이블은 음성 안내에 따라 훈련하고 기록합니다.</span><br>스마트폰도, 앱도 없이. 이 한 대로.</p>
+    <p class="sub"><span style="color:#eef5fb;font-weight:700;">이퀄라이징 압력은 실시간으로 측정·분석하고, 무엇을 고칠지 알려 줍니다.<br>CO₂·O₂ 테이블은 음성 안내에 따라 훈련하고 기록합니다.</span><br>스마트폰도, 앱도 없이. 이 한 대로.</p>
     <div class="btn-row">
       <a class="btn btn-primary" href="#order">지금 주문하기</a>
       <a class="btn btn-ghost" href="#features">기능 살펴보기</a>

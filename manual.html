@@ -82,10 +82,18 @@
      자동 레이아웃에서는 **항목 열이 설명 열과 비슷하게 넓어져** 설명이 좁아지고 표가
      세로로 길어졌다(별님 2026-08-03, 9.3 만 설명이 넉넉했다). 폭을 못박아 설명에
      제일 넓은 자리를 준다. 1열의 nowrap 도 풀어야 24% 가 지켜진다. */
+  /* ⛔⛔ `.setbl` 은 **4열(항목/페이지/범위/설명) 설정 표 전용**이다 (2026-08-21).
+     2열에 `white-space:nowrap` 이 걸려 있어서, 그 자리에 **문장**이 오는 표에 붙이면
+     글자가 칸을 넘어 옆 열과 겹쳐 보인다(별님 실기 — 8.4 의 표 둘이 그랬다).
+     3열 설정 표는 아래 `.setbl3` 을, 그냥 내용 표는 클래스를 안 붙이면 된다. */
   table.setbl{table-layout:fixed;}
   table.setbl th:first-child,table.setbl td:first-child{width:24%;white-space:normal;}
   table.setbl th:nth-child(2),table.setbl td:nth-child(2){width:16%;white-space:nowrap;}
   table.setbl th:nth-child(3),table.setbl td:nth-child(3){width:16%;}
+  /* 3열 설정 표(8.8 항목/범위/설명) — 페이지 열이 없으니 nowrap 도 없다 */
+  table.setbl3{table-layout:fixed;}
+  table.setbl3 th:first-child,table.setbl3 td:first-child{width:26%;white-space:normal;}
+  table.setbl3 th:nth-child(2),table.setbl3 td:nth-child(2){width:22%;}
 
   blockquote{margin:12px 0;padding:10px 14px;border-radius:6px;
              background:var(--soft);border-left:4px solid #9bb0c4;color:#33485e;font-size:14px;}
@@ -137,6 +145,37 @@
      4장이 되며 너무 작아져 기본 .pair(2장씩 줄바꿈)로 되돌렸다. 규칙은 남겨 둔다. */
   .figrow.pair.wide figure{flex:1 1 0;max-width:none;}
   .figrow figcaption{font-size:12px;color:var(--muted);margin-top:4px;}
+  /* ══ 좁은 화면(휴대폰) ══════════════════════════════════════════════════
+     ★ 왜 필요한가 (별님 2026-08-21) — 이 문서에는 **인쇄 규칙만** 있고 화면 폭에
+       따른 규칙이 없었다. 그래서 휴대폰에서 9장 설정 표가 두 가지로 망가졌다:
+         ① 좌우 여백이 38px 씩이라 본문이 314px 밖에 안 남아 **표가 화면 밖으로 잘렸다**
+         ② `.setbl` 의 고정 폭(24/16/16%)은 820px 기준이라 좁은 화면에서 범위 열이
+            50px 남짓이 된다 — "밝은 · 연지 · 단풍 …" 이 **여섯 줄**로 접혔다
+     ⛔ 고정 폭을 좁은 화면까지 끌고 가지 말 것. 넓은 화면에서 설명 열을 넉넉히
+        주려고 못박은 값이라, 좁아지면 오히려 반대로 작동한다.
+     ※ 인쇄(PDF)는 아래 @media print 가 따로 맡는다 — 여기 값에 안 휘둘린다. */
+  @media (max-width:640px){
+    header{padding:20px 16px 16px;}
+    header .brand{font-size:24px;}
+    main{padding:8px 14px 30px;}
+    footer{padding:14px 16px;}
+    table{font-size:13px;}
+    th,td{padding:6px 7px;}
+    /* 설정 표 — 폭을 풀고 **내용에 맞춰** 나눈다. 페이지 열은 숫자 한 자라 최소로. */
+    table.setbl,table.setbl3{table-layout:auto;}
+    table.setbl th,table.setbl td,
+    table.setbl3 th,table.setbl3 td{width:auto;}
+    table.setbl th:nth-child(2),table.setbl td:nth-child(2){width:1%;white-space:nowrap;}
+    table.setbl th:nth-child(3),table.setbl td:nth-child(3){width:auto;}
+    /* 다른 고정 폭 표도 같은 이유로 푼다 */
+    table.warn3,table.pat3,table.faq{table-layout:auto;}
+    table.warn3 th,table.warn3 td,table.pat3 th,table.pat3 td,
+    table.faq th,table.faq td{width:auto;}
+    .toc ol{columns:1;}
+    /* 그래도 넘치는 표가 생기면 **잘리지 말고 옆으로 밀리게** — 마지막 안전망 */
+    main{overflow-x:auto;}
+  }
+
   @media print{ figure.fig,.figrow{page-break-inside:avoid;} figure.fig img,.figrow.shots img{max-width:300px;}
     /* 7.1 인터벌 2장 — 인쇄에선 설정 3장 묶음과 같은 폭으로 축소 (PDF 빈 공간 방지) */
     .figrow.pair.compact figure{flex:0 1 auto;} .figrow.pair.compact img{max-width:220px;}
@@ -693,7 +732,7 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
 <p>훈련은 <strong>테이블</strong>을 따라 진행됩니다. 테이블은 라운드마다 <strong>호흡 시간</strong>과
 <strong>숨참기 시간</strong>이 적힌 계획입니다. 무엇을 늘리고 무엇을 고정하느냐에 따라
 훈련 목적이 달라집니다.</p>
-<table class="setbl">
+<table>
   <thead><tr><th>종류</th><th>어떻게 변하나</th><th>무엇을 기르나</th></tr></thead>
   <tbody>
     <tr><td><strong>CO2 테이블</strong></td><td>숨참기는 <strong>고정</strong>, <strong>호흡(회복) 시간이 점점 줄어듭니다</strong></td><td>이산화탄소가 쌓인 상태를 견디는 힘 — 숨참기 초·중반의 답답함</td></tr>
@@ -702,7 +741,7 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
 </table>
 <p><strong>기본으로 들어 있는 테이블 4종</strong>입니다. 지우거나 고칠 수 없고, 대신 <strong>[수정]</strong>을 누르면
 그 값을 밑그림으로 <strong>새 테이블이 하나 만들어집니다</strong>.</p>
-<table class="setbl">
+<table>
   <thead><tr><th>이름</th><th>라운드</th><th>호흡</th><th>숨참기</th></tr></thead>
   <tbody>
     <tr><td><strong>CO2 Beginner</strong></td><td>6R</td><td>2:00에서 15초씩 줄어듦</td><td>1:00 고정</td></tr>
@@ -793,7 +832,7 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
 
 <h3 id="s8_8">8.8 호흡 모드 설정</h3>
 <figure class="fig shot compact"><img src="assets/screen-co2-settings.png" alt="호흡 모드 설정 화면"><figcaption>호흡 모드의 설정 화면</figcaption></figure>
-<table class="setbl">
+<table class="setbl3">
   <thead><tr><th>항목</th><th>범위 / 선택</th><th>설명</th></tr></thead>
   <tbody>
     <tr><td><strong>부팅 시 모드 선택</strong></td><td>ON / OFF</td><td>끄면 전원을 켤 때 <strong>기본 모드</strong>로 바로 들어갑니다</td></tr>
@@ -842,7 +881,7 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
 <table class="setbl">
   <thead><tr><th>항목</th><th>페이지</th><th>범위 / 선택</th><th>설명</th></tr></thead>
   <tbody>
-    <tr><td><strong>테마</strong></td><td>1</td><td>밝은 · 연지 · 단풍 · 라임 · 하늘 · 네온 · 라벤더 (7종)</td><td>색상 테마 선택</td></tr>
+    <tr><td><strong>테마</strong></td><td>1</td><td>7종</td><td>색상 테마 선택 — 이름은 <strong>위 사진</strong> 참고</td></tr>
     <tr><td><strong>밝기</strong></td><td>1</td><td>10~100 % (10 단위)</td><td>화면 백라이트 밝기</td></tr>
     <tr><td><strong>언어</strong></td><td>3</td><td>한국어 / English</td><td>표시 언어</td></tr>
   </tbody>

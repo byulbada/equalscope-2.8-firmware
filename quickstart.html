@@ -129,6 +129,13 @@
      ※ 문구가 길어져 지면이 빡빡해져도 이 간격은 유지된다. */
   .front .steps{margin-bottom:3mm;}
   .back  .notice{margin-bottom:3mm;}
+  /* ★ 뒷면 맨 아래 = **취급 주의** (별님 2026-08-21). QR 이 있던 자리를 넘겨받았다.
+     ⛔ 뒷면 QR 을 되살리려거든 이 박스를 어디에 둘지 먼저 정할 것 — 두 개를 다
+        넣으면 지면이 넘친다. 설명서로 가는 길은 **앞면 QR 이 그대로 맡는다.**
+     ※ 왜 넣었나 — 여름철 차 안에 오래 둔 제품에서 케이스 변형이 실제로 났다
+       (2026-08-21). 배터리 쪽이 더 위험해서 그것을 먼저 적는다. */
+  .back .notice.care{margin-top:auto;margin-bottom:0;
+                     border-color:#ffb98a;background:#fff3e9;}
 
   /* ※ 하단 "© 2026 별바다다이브" 푸터는 **뺐다** (별님 2026-08-02).
      상호는 앞면 로고 락업과 양면 QR 박스의 주소(equalscope.kr)로 이미 드러나는데,
@@ -150,7 +157,9 @@
   ★ 면을 **모드로 나눈다** (별님 2026-08-02). 예전엔 앞면 5단계 + 뒷면 사용 팁이었는데,
     호흡 훈련이 들어오면서 카드가 장비의 절반만 설명하고 있었다. 팁(그래프 조작·참조
     비교·분리 방법)은 **사용설명서로 넘긴다** — 카드에 다 담으려면 어느 쪽도 제대로
-    못 담는다. 대신 QR 을 양면에 두어 설명서로 가는 길을 두 배로 넓혔다. -->
+    못 담는다.
+  ※ QR 은 예전에 양면에 있었는데, 2026-08-21 에 **뒷면 것을 취급 주의로 바꿨다**
+    (별님). 설명서로 가는 길은 이 앞면 QR 하나가 맡는다. -->
 <section class="page front">
   <div class="brand">
     <img class="sym" src="assets/brand/byulbada-dive_symbol.svg" alt="">
@@ -226,13 +235,10 @@
     <p><em>물 밖에서만</em> 하세요 — 예고 없이 의식을 잃을 수 있습니다. 숨참기 전 과호흡 금지, 이상하면 즉시 중단. 물에서는 버디·강사와 함께.</p>
   </div>
 
-  <div class="qrline">
-    <div class="qr"><img src="assets/qr-manual.png" alt="사용설명서 QR"></div>
-    <div class="t">
-      <b>사용 설명서</b>
-      <span>많은 기능에 대한 자세한 설명이 포함되어 있습니다.</span>
-      <span class="u">equalscope.kr/manual.html</span>
-    </div>
+  <div class="notice care">
+    <b>취급 주의</b>
+    <p><em>차 안에 두고 내리지 마세요.</em> 여름철 차 안은 60~70°C까지 올라갑니다.
+       뜨거운 곳에 오래 두면 <em>배터리가 부풀거나 불이 날 수 있고</em>, 케이스도 변형됩니다.</p>
   </div>
 </section>
 

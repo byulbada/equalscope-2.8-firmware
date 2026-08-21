@@ -102,7 +102,14 @@
           padding:2.1mm 2.9mm;margin-top:3mm;}
   /* ↑ 위 단계 카드와의 간격 — 카드 사이 간격보다 좁으면 안전 박스가 마지막 카드에
      붙어 보인다. 뒷면은 단계 / 안전 / 설명서 세 덩어리로 읽혀야 한다. */
-  .notice b{display:block;color:var(--orange-d);font-size:11px;font-weight:800;margin-bottom:.7mm;}
+  /* ★ 제목 앞에 경고 아이콘 (2026-08-21, 별님). **두 단계로 나눈다** —
+       안전   = 테두리 삼각형(주황). 혼자 물에서 할 일은 드물지만 사람 일은 모른다.
+       취급 주의 = **꽉 찬 삼각형(빨강)**. 이쪽은 **실제로 일어난 일**이라 더 세게.
+     ⛔ 이모지(⚠️)를 쓰지 말 것 — 인쇄용 PDF 로 구울 때 색 비트맵이라 결과가
+        흔들린다. 인라인 SVG 는 벡터라 아웃라인 처리(-dNoOutputFonts)와도 안 부딪힌다. */
+  .notice b{display:flex;align-items:center;gap:1.3mm;
+            color:var(--orange-d);font-size:11px;font-weight:800;margin-bottom:.7mm;}
+  .notice b svg{width:3.8mm;height:3.8mm;flex:none;}
   .notice p{font-size:10px;color:#9a5a2a;line-height:1.4;}
   .notice em{font-style:normal;font-weight:800;color:var(--orange-d);}
 
@@ -135,7 +142,10 @@
      ※ 왜 넣었나 — 여름철 차 안에 오래 둔 제품에서 케이스 변형이 실제로 났다
        (2026-08-21). 배터리 쪽이 더 위험해서 그것을 먼저 적는다. */
   .back .notice.care{margin-top:auto;margin-bottom:0;
-                     border-color:#ffb98a;background:#fff3e9;}
+                     border-color:#efa595;background:#fff1ed;}
+  .notice.care b{color:#c0392b;}
+  .notice.care p{color:#8f4436;}
+  .notice.care em{color:#c0392b;}
 
   /* ※ 하단 "© 2026 별바다다이브" 푸터는 **뺐다** (별님 2026-08-02).
      상호는 앞면 로고 락업과 양면 QR 박스의 주소(equalscope.kr)로 이미 드러나는데,
@@ -231,12 +241,12 @@
   </div>
 
   <div class="notice">
-    <b>안전</b>
+    <b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2 22.2 20.6H1.8Z" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round"/><path d="M12 9.6v4.6" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/><circle cx="12" cy="17.6" r="1.25" fill="currentColor"/></svg>안전</b>
     <p><em>물 밖에서만</em> 하세요 — 예고 없이 의식을 잃을 수 있습니다. 숨참기 전 과호흡 금지, 이상하면 즉시 중단. 물에서는 버디·강사와 함께.</p>
   </div>
 
   <div class="notice care">
-    <b>취급 주의</b>
+    <b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2 22.2 20.6H1.8Z" fill="currentColor"/><path d="M12 9.4v4.8" stroke="#fff" stroke-width="2.1" stroke-linecap="round"/><circle cx="12" cy="17.5" r="1.25" fill="#fff"/></svg>취급 주의</b>
     <p><em>차 안에 두고 내리지 마세요.</em> 여름철 차 안은 60~70°C까지 올라갑니다.
        뜨거운 곳에 오래 두면 <em>배터리가 부풀거나 불이 날 수 있고</em>, 케이스도 변형됩니다.</p>
   </div>

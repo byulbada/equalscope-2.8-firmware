@@ -132,6 +132,15 @@
   table.spec th,table.spec td{border:1px solid var(--line);padding:11px 14px;text-align:left;vertical-align:top;}
   table.spec th{background:var(--soft2);color:var(--navy);width:34%;font-weight:700;}
 
+  /* 보관 주의 카드 — 한글판 .make-note.care 와 같은 모양·같은 색 (별님 2026-08-22).
+     ⛔ 두 페이지의 색이 갈라지지 않게 할 것. 원본은 퀵스타트 뒷면 '취급 주의' 박스다. */
+  .make-note{max-width:760px;margin:24px auto 0;font-size:13.5px;color:var(--muted);
+             background:#fff;border:1px solid var(--line);border-left:3px solid var(--orange);
+             border-radius:10px;padding:14px 18px;line-height:1.7;}
+  .make-note b{color:var(--navy);}
+  .make-note.care{border-color:#efa595;border-left-color:#c0392b;background:#fff1ed;color:#8f4436;}
+  .make-note.care b{color:#c0392b;}
+
   .price-card{max-width:520px;margin:0 auto;background:#fff;border:2px solid var(--orange);
               border-radius:16px;padding:28px 24px;text-align:center;}
   .price-card .now{font-size:34px;font-weight:800;color:var(--navy);line-height:1.2;}
@@ -367,6 +376,11 @@
       <tr><th>In the box</th><td>Device · Equalvent mouthpiece · tube · calibrated pressure valve · USB cable</td></tr>
       <tr><th>Use</th><td>Dry-land training only · not waterproof · not a medical device</td></tr>
     </table>
+    <!-- 한글판과 같은 자리·같은 뜻 (별님 2026-08-22). 문구를 갈라지게 두지 말 것. -->
+    <p class="make-note care"><b>Built-in battery · Storage</b><br>
+      A rechargeable battery is built in, so you can start training without a cable.
+      In return, please keep one rule — <b>do not leave it in a parked car.</b><br>
+      A car interior can reach 60–70°C in summer. Long exposure to heat can make the battery swell or catch fire, and the case can deform.</p>
   </section>
 
   <!-- 구성품 — 제품 사진은 글자가 없어 한글판 것을 그대로 쓴다 (assets/ 공용) -->

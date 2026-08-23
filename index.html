@@ -205,12 +205,36 @@
   .feat.valve{position:relative;padding-right:96px;}
   .feat.valve .dialimg{position:absolute;top:16px;right:16px;width:66px;height:66px;object-fit:cover;border-radius:10px;border:1px solid var(--line);box-shadow:0 3px 8px rgba(0,0,0,.12);}
 
-  /* 디바이스 화면 프레임 */
-  .screens{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;align-items:start;justify-items:center;}
-  .device{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;width:fit-content;max-width:100%;}
-  .device img{display:block;width:320px;max-width:100%;height:auto;background:#0a0f14;}
-  .device .cap{color:var(--muted);padding:12px 12px 14px;font-size:13.5px;text-align:center;line-height:1.55;}
-  .device .cap b{display:block;color:var(--navy);font-size:16px;margin-bottom:3px;line-height:1.35;}
+  /* ===== 레벨 카드 (별님 2026-08-22) =====
+     ★ 왜 레벨로 나누나 — 기능을 평면으로 나열하면 "이게 되는 장비" 로 읽히고,
+       이퀄이 고쳐진 사람은 쓸 이유가 사라진다(실제로 그런 역설이 생겼다).
+       초·중·상이 **사다리로 보이면** 이퀄 고치기가 첫 칸일 뿐임이 저절로 드러난다.
+     ⛔ 세 칸을 같은 무게로 둘 것 — 하나를 크게 하면 다시 '주력 기능 소개' 가 된다. */
+  .levels{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch;}
+  .lv{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px 22px 18px;
+      display:flex;flex-direction:column;border-top:3px solid var(--orange);}
+  .lv .step{font-size:12.5px;font-weight:700;letter-spacing:.06em;color:var(--orange);margin-bottom:6px;}
+  .lv h4{margin:0 0 8px;font-size:17px;color:var(--navy);font-weight:700;line-height:1.35;}
+  .lv p{margin:0 0 14px;font-size:14.5px;color:var(--muted);}
+  .lv b{color:var(--navy);}
+  .lv .chips{margin-top:auto;display:flex;flex-wrap:wrap;gap:6px;}
+  .lv .chips span{font-size:12.5px;background:var(--soft);border:1px solid var(--line);
+                  color:var(--navy);border-radius:999px;padding:3px 10px;}
+  /* 세 단계를 잇는 마무리 — 이 페이지에서 하려는 말이 여기 한 줄에 있다 */
+  .lv-note{max-width:760px;margin:22px auto 0;text-align:center;font-size:15px;
+           color:var(--muted);line-height:1.75;}
+  .lv-note b{color:var(--navy);}
+
+  /* 화면 스크린샷 — ★ 영문판(.shots)에서 가져왔다 (별님 2026-08-22).
+     옛 .screens/.device 는 **2열 × 3줄**에 흰 액자를 둘렀고, 사진이 제 크기(320px)
+     대로만 들어가 칸이 남았다. 3열로 바꾸니 여섯 장이 **두 줄**에 들어오고 사진도
+     칸을 꽉 채운다 — 별님: *"영문이 한글 페이지보다 더 좋아 보인다."*
+     ⛔ 두 페이지가 갈라지지 않게 할 것. 여기와 en/index.html 은 같은 규칙이다. */
+  .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:940px;margin:0 auto;}
+  .shots figure{margin:0;}
+  .shots img{width:100%;border-radius:10px;border:1px solid var(--line);background:#0a0f14;}
+  .shots figcaption{margin-top:8px;font-size:13.8px;color:var(--muted);text-align:center;line-height:1.5;}
+  .shots figcaption b{display:block;color:var(--navy);font-size:15px;margin-bottom:2px;}
 
   /* 6 기술 (2행×3열) */
   .tech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
@@ -313,7 +337,8 @@
   @media(max-width:820px){
     .hero h1{font-size:30px;} .hero p.sub{font-size:16px;}
     section{padding:42px 16px;}
-    .cards3,.features,.screens,.kits,.steps,.who,.dl-grid{grid-template-columns:1fr;}
+    .cards3,.features,.kits,.steps,.who,.dl-grid,.levels{grid-template-columns:1fr;}
+    .shots{grid-template-columns:1fr;}   /* 영문판과 같은 규칙 */
     .tech-grid{grid-template-columns:repeat(2,1fr);}
     .themes figure{flex-basis:46%;}
     .topbar{padding:10px 16px;}
@@ -430,13 +455,19 @@
     <div class="sec-tag">ON SCREEN</div>
     <h2 class="sec">화면 하나에 다 담았습니다</h2>
     <p class="sec-lead">2.8인치 터치 화면에서 실시간 그래프, 분석, 파일 관리까지. 손가락으로 줌·스와이프하며 그래프를 자유롭게 봅니다.</p>
-    <div class="screens">
-      <div class="device"><img loading="lazy" src="assets/screen-measure.png" alt="실시간 측정 화면 — 압력 그래프와 참조 그래프 겹쳐 보기"><div class="cap"><b>실시간 측정 &amp; 참조 비교</b>좋은 샘플을 겹쳐 놓고 내 그래프와 비교</div></div>
-      <div class="device"><img loading="lazy" src="assets/screen-analysis.png" alt="분석 화면 — 통계 요약과 기술 추정, 자동 조언"><div class="cap"><b>훈련 후 분석 &amp; 조언</b>통계 요약 + 기술 추정 + 간단 조언</div></div>
-      <div class="device"><img loading="lazy" src="assets/screen-files.png" alt="파일 관리 화면 — 내부 메모리/SD 카드 파일 목록"><div class="cap"><b>파일 관리</b>내부 메모리·SD 간 복사, 참조 등록, 삭제</div></div>
-      <div class="device"><img loading="lazy" src="assets/screen-settings.png" alt="설정 화면 — 테마, 자동 종료, 밝기 등"><div class="cap"><b>설정</b>테마·밝기·알람·EQ 인터벌·언어 등</div></div>
-      <div class="device"><img loading="lazy" src="assets/screen-co2-home.png" alt="호흡 훈련 홈 화면 — 라운드별 호흡·숨참기 시간"><div class="cap"><b>호흡 훈련 — 테이블 미리보기</b>라운드별 호흡·숨참기 시간을 한눈에</div></div>
-      <div class="device"><img loading="lazy" src="assets/screen-co2-detail.png" alt="호흡 훈련 기록 상세 — 라운드별 실제 진행"><div class="cap"><b>호흡 훈련 — 기록</b>라운드마다 실제로 얼마나 했는지 남습니다</div></div>
+    <div class="shots">
+      <figure><img loading="lazy" src="assets/screen-measure.png" alt="실시간 측정 화면 — 압력 그래프와 참조 그래프 겹쳐 보기">
+        <figcaption><b>실시간 측정 &amp; 참조 비교</b>좋은 샘플을 겹쳐 놓고 내 그래프와 비교</figcaption></figure>
+      <figure><img loading="lazy" src="assets/screen-analysis.png" alt="분석 화면 — 통계 요약과 기술 추정, 자동 조언">
+        <figcaption><b>훈련 후 분석 &amp; 조언</b>통계 요약 + 기술 추정 + 간단 조언</figcaption></figure>
+      <figure><img loading="lazy" src="assets/screen-files.png" alt="파일 관리 화면 — 내부 메모리/SD 카드 파일 목록">
+        <figcaption><b>파일 관리</b>내부 메모리·SD 간 복사, 참조 등록, 삭제</figcaption></figure>
+      <figure><img loading="lazy" src="assets/screen-settings.png" alt="설정 화면 — 테마, 자동 종료, 밝기 등">
+        <figcaption><b>설정</b>테마·밝기·알람·EQ 인터벌·언어 등</figcaption></figure>
+      <figure><img loading="lazy" src="assets/screen-co2-home.png" alt="호흡 훈련 홈 화면 — 라운드별 호흡·숨참기 시간">
+        <figcaption><b>호흡 훈련 — 테이블 미리보기</b>라운드별 호흡·숨참기 시간을 한눈에</figcaption></figure>
+      <figure><img loading="lazy" src="assets/screen-co2-detail.png" alt="호흡 훈련 기록 상세 — 라운드별 실제 진행">
+        <figcaption><b>호흡 훈련 — 기록</b>라운드마다 실제로 얼마나 했는지 남습니다</figcaption></figure>
     </div>
   </section>
 
@@ -444,7 +475,9 @@
   <section>
     <div class="sec-tag">FEATURES</div>
     <h2 class="sec">주요 기능</h2>
-    <p class="sec-lead">드라이 트레이닝을 더 편하고 정확하게 만들어 주는 기능들 —<br>대부분이 <b>기존 훈련 장비에는 없던 기능</b>입니다.</p>
+    <!-- ★ 리드를 레벨 섹션에 잇는다 (별님 2026-08-22) — 목록만 던지면 다시 평면이
+         된다. "골라 쓰는" 이라는 말이 앞 섹션의 사다리를 여기까지 끌고 온다. -->
+    <p class="sec-lead"><b>레벨별로 골라 쓰는 기능들</b> — 지금 필요한 것만 쓰다가, 실력이 늘면 나머지가 차례로 쓰입니다.<br>대부분이 <b>기존 훈련 장비에는 없던 기능</b>입니다.</p>
     <div class="features">
       <div class="feat"><h4>실시간 압력 그래프</h4><p>초당 40회 측정으로 끊김 없는 부드러운 곡선. 장비가 직접 측정하고 그리기 때문에 지연 없이, 빠른 이퀄 반복도 놓치지 않습니다.</p></div>
       <div class="feat"><h4>자동 분석 · 조언<span class="newtag">기존 장비에 없던</span></h4><p>측정이 끝나면 반복 횟수·주기·속도를 요약하고, 압력 패턴으로 기술 유형까지 추정합니다. 감각이 아닌 숫자로 훈련을 돌아봅니다.</p></div>
@@ -488,19 +521,49 @@
     </div>
   </section>
 
-  <!-- 누구에게 좋은가 -->
+  <!-- 레벨별 (옛 "이런 분께 잘 맞습니다" 를 교체, 별님 2026-08-22)
+       ※ 왜 바꿨나 — 강사에게서 "장비 덕에 교육생 둘의 이퀄이 고쳐졌다" 는 말을
+         들었는데 정작 추가 구매가 없었다. **이퀄 고치는 장비로만 보이면 고쳐진
+         순간 살 이유가 사라진다.** 옛 섹션은 기능 목록과 내용이 겹치기만 했다.
+       ★ 초·중·상을 사다리로 보이게 두는 것 자체가 이 섹션의 논리다 — "계속 쓰는
+         장비입니다" 라고 주장하는 것보다, 다음 칸이 보이는 편이 세다.
+       ⛔ 살릴 것 둘(물에 자주 못 가는 분 / 강사 시각 자료)은 카드 안으로 흡수했다.
+         지운 것이 아니다. -->
   <section>
-    <div class="sec-tag">WHO IT'S FOR</div>
-    <h2 class="sec">이런 분께 잘 맞습니다</h2>
-    <p class="sec-lead">이퀄라이징을 눈으로 확인하고 반복 연습하려는 분들을 위해 만들었습니다.</p>
-    <div class="features">
-      <div class="feat"><h4>이퀄라이징 리듬을 눈으로</h4><p>잘 되고 있는지 감각에만 의존하던 압력을 실시간 그래프로 확인하고 싶은 프리다이버.</p></div>
-      <div class="feat"><h4>패턴 반복 연습</h4><p>프렌젤·마우스필 같은 기술 패턴을 일정하게 반복 연습하려는 사용자.</p></div>
-      <div class="feat"><h4>강사의 시각 자료</h4><p>교육생에게 "지금 이런 상태"라고 그래프로 보여주며 설명하고 싶은 강사.</p></div>
-      <div class="feat"><h4>드라이 트레이닝 기록</h4><p>지상 훈련 결과를 저장·비교하며 변화를 남기고 싶은 사용자.</p></div>
-      <div class="feat"><h4>CO₂ · O₂ 테이블 훈련</h4><p>CO₂·O₂ 테이블을 앱으로 하시던 분. 폰을 꺼내지 않아도 되고, 훈련 기록이 이퀄라이징 기록과 한자리에 모입니다.</p></div>
-      <div class="feat"><h4>물에 자주 못 가는 분</h4><p>바다·풀 일정이 드물어도 지상에서 훈련을 이어가고 싶은 프리다이버.</p></div>
+    <div class="sec-tag">YOUR JOURNEY</div>
+    <h2 class="sec">실력이 늘수록, 쓰는 기능이 달라집니다</h2>
+    <p class="sec-lead">이퀄이 되기 시작하면 끝이 아니라 <b>거기서부터 시작</b>입니다.<br>단계마다 필요한 것이 달라서, 그때마다 쓰는 기능도 달라집니다.</p>
+    <div class="levels">
+      <div class="lv">
+        <div class="step">STEP 1 · 시작</div>
+        <h4>발살바에서 프렌젤로</h4>
+        <p>가장 많이 막히는 구간입니다. 무엇이 잘못됐는지 감각만으로 답을 얻기 어려운 단계라, <b>그래프와 분석이 도움을 줍니다.</b> 강사의 좋은 기록을 참조로 걸어 두고 내 것과 비교해 볼 수도 있습니다.</p>
+        <div class="chips"><span>실시간 압력 그래프</span><span>자동 분석·조언</span><span>참조 그래프 비교</span></div>
+      </div>
+      <div class="lv">
+        <div class="step">STEP 2 · 다지기</div>
+        <h4>마우스필과 음압</h4>
+        <p>프렌젤이 되기 시작하면 다음은 <b>얼마나 곱게 하느냐</b>, 그리고 그 다음 단계인 <b>마우스필</b> 훈련으로 넘어갑니다. 음압은 스스로 느끼기 어려운데 그래프에는 그대로 남습니다. CO₂·O₂ 테이블 훈련도 같은 장비에서 할 수 있습니다.</p>
+        <div class="chips"><span>마우스필 훈련</span><span>최고/최저 압력 알람</span><span>음압 확인</span><span>CO₂·O₂ 테이블</span></div>
+      </div>
+      <div class="lv">
+        <div class="step">STEP 3 · 깊이</div>
+        <h4>더 깊은 수심 · 강사 · 선수</h4>
+        <p>수심을 지상에서 흉내 내는 단계입니다. <b>눈금 밸브로 같은 조건을 정확히 반복</b>하고, 인터벌로 하강 리듬을 맞춥니다. 교육생에게 보여 줄 화면과 기록도 그대로 남습니다.</p>
+        <div class="chips"><span>EQ 인터벌</span><span>눈금 압력조절 밸브</span><span>대회식 시작</span><span>기록 공유·시각 자료</span></div>
+      </div>
     </div>
+
+    <p class="lv-note">세 단계 모두 — <b>모든 훈련이 기록으로 남고, 언제든 예전과 비교됩니다.</b><br>
+      한 번 고치고 끝나는 장비가 아니라, 프리다이빙을 하는 동안 계속 곁에 두는 장비입니다.<br>
+      바다에 자주 못 가는 기간에도 훈련은 이어집니다.</p>
+
+    <!-- ⛔ '처음 재 보면 누구나 놀랍니다' 류의 강사 안심 문단을 여기 넣지 말 것
+         (별님 2026-08-22, 써 봤다가 뺐다) — *"누군가가 보면 자기 꾸짖는 느낌이
+         들 수도 있겠다."* 위로하려는 글이 지적으로 읽힌다.
+         ※ 배경 = 10대 공구를 얘기하던 강사가 직접 테스트해 보고 과압·음압이 나오자
+           "비싸다" 는 핑계로 접었다. 진짜 이유는 학생 앞에서 자기 흠을 보이기
+           싫다는 것이었다. 다만 그 문제를 **랜딩 문구로 풀려고 하지 말 것.** -->
   </section>
 
   <!-- 구성품 / 컬러 -->

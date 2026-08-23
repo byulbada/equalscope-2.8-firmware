@@ -132,6 +132,54 @@
   table.spec th,table.spec td{border:1px solid var(--line);padding:11px 14px;text-align:left;vertical-align:top;}
   table.spec th{background:var(--soft2);color:var(--navy);width:34%;font-weight:700;}
 
+  /* ===== 한글판에서 가져온 것들 (별님 2026-08-22, 두 페이지 동기화) =====
+     영문판이 축약본이라 아래 클래스들이 아예 없었다. 규칙은 index.html 과 같다.
+     ⛔ 값을 여기서만 고치지 말 것 — 두 파일이 갈라진다. */
+  .problem{text-align:center;background:var(--navy2);color:#dce6f0;}
+  .problem h2{font-size:25px;font-weight:800;color:#fff;margin:0 auto 14px;max-width:720px;line-height:1.4;}
+  .problem p{max-width:680px;margin:0 auto;color:#a9bccf;font-size:16px;}
+  .problem .accent{color:var(--orange);}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .step{text-align:center;}
+  .step .n{display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;border-radius:50%;
+           background:var(--orange);color:#fff;font-size:22px;font-weight:800;margin-bottom:12px;}
+  .step h4{margin:0 0 6px;color:var(--navy);font-size:17px;}
+  .step p{margin:0;color:var(--muted);font-size:14.5px;}
+  .video-box{max-width:760px;margin:0 auto;border-radius:14px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.25);}
+  .video-box video{width:100%;display:block;background:#000;}
+
+  .navy-sec{background:var(--navy);color:#fff;}
+  .navy-sec h2.sec{color:#fff;}
+  .navy-sec p.sec-lead{color:#aebfcf;}
+  .who{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .who .w{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:22px;}
+  .who .w h4{margin:0 0 7px;color:var(--orange);font-size:17px;}
+  .who .w p{margin:0;color:#c4d3e2;font-size:14.5px;}
+
+  /* .newtag 주황 = "기존 장비에 없던" / .newtag.mode 파랑 = "호흡 훈련 모드 기능" */
+  .newtag.mode{background:#e8f4ff;border-color:rgba(0,153,255,.45);color:#0b6fbf;}
+  .newtag{display:inline-block;background:#fff2e8;border:1px solid rgba(255,102,0,.4);color:var(--orange-d);
+          font-size:11px;font-weight:700;letter-spacing:.02em;padding:1px 8px;border-radius:999px;margin-left:7px;vertical-align:2px;white-space:nowrap;}
+  .feat.valve{position:relative;padding-right:96px;}
+  .feat.valve .dialimg{position:absolute;top:16px;right:16px;width:66px;height:66px;object-fit:cover;border-radius:10px;border:1px solid var(--line);box-shadow:0 3px 8px rgba(0,0,0,.12);}
+
+  /* 레벨 카드 — 한글판 .levels/.lv 와 같은 모양 (별님 2026-08-22).
+     ⛔ 두 페이지가 갈라지지 않게 할 것. 근거 주석은 한글판 index.html 에 있다. */
+  .levels{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch;}
+  .lv{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px 22px 18px;
+      display:flex;flex-direction:column;border-top:3px solid var(--orange);}
+  .lv .step{font-size:12.5px;font-weight:700;letter-spacing:.06em;color:var(--orange);margin-bottom:6px;}
+  .lv h4{margin:0 0 8px;font-size:17px;color:var(--navy);font-weight:700;line-height:1.35;}
+  .lv p{margin:0 0 14px;font-size:14.5px;color:var(--muted);}
+  .lv b{color:var(--navy);}
+  .lv .chips{margin-top:auto;display:flex;flex-wrap:wrap;gap:6px;}
+  .lv .chips span{font-size:12.5px;background:var(--soft);border:1px solid var(--line);
+                  color:var(--navy);border-radius:999px;padding:3px 10px;}
+  .lv-note{max-width:760px;margin:22px auto 0;text-align:center;font-size:15px;
+           color:var(--muted);line-height:1.75;}
+  .lv-note b{color:var(--navy);}
+
   /* 보관 주의 카드 — 한글판 .make-note.care 와 같은 모양·같은 색 (별님 2026-08-22).
      ⛔ 두 페이지의 색이 갈라지지 않게 할 것. 원본은 퀵스타트 뒷면 '취급 주의' 박스다. */
   .make-note{max-width:760px;margin:24px auto 0;font-size:13.5px;color:var(--muted);
@@ -179,10 +227,13 @@
   .shots img{width:100%;border-radius:10px;border:1px solid var(--line);}
   .shots figcaption{margin-top:8px;font-size:13.8px;color:var(--muted);text-align:center;line-height:1.5;}
   .shots figcaption b{display:block;color:var(--navy);font-size:15px;margin-bottom:2px;}
-  .themes{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:940px;margin:30px auto 0;}
-  .themes figure{margin:0;}
-  .themes img{width:100%;border-radius:8px;border:1px solid var(--line);}
-  .themes figcaption{margin-top:5px;font-size:12.5px;color:var(--muted);text-align:center;}
+  /* 테마 그림띠 — ★ 한글판과 같은 규칙으로 바꿨다 (별님 2026-08-22).
+     옛 4열 그리드는 **7장이라 마지막 줄 3장이 왼쪽으로 몰렸다.** flex + 가운데
+     정렬이면 남는 줄도 가운데 온다. ⛔ 그리드로 되돌리지 말 것. */
+  .themes{display:flex;flex-wrap:wrap;justify-content:center;gap:18px 14px;max-width:1000px;margin:0 auto;}
+  .themes figure{margin:0;text-align:center;flex:0 1 calc(25% - 11px);}
+  .themes img{border-radius:7px;border:1px solid var(--line);width:100%;}
+  .themes figcaption{font-size:12px;color:var(--muted);margin-top:5px;}
 
   /* 카드 안 화면 캡처 — 한글판과 같은 값 */
   .cardshot{display:flex;justify-content:center;margin-bottom:14px;}
@@ -191,9 +242,13 @@
   @media (max-width:860px){
     .cards3,.tech-grid,.dl-grid{grid-template-columns:1fr;}
     .shots{grid-template-columns:1fr;}
-    .themes{grid-template-columns:repeat(2,1fr);}
+    .themes figure{flex-basis:46%;}   /* 한글판과 같은 규칙 — 좁은 폭에선 2장씩 */
     .kit{grid-template-columns:1fr;}
     .features{grid-template-columns:1fr;}
+    .levels{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr;}
+    .who{grid-template-columns:1fr;}
+    .feat.valve{padding-right:92px;}
     .hero h1{font-size:29px;}
     .topbar{padding:10px 16px;}
     .topbar .nav-links{gap:12px;}
@@ -234,6 +289,14 @@
     <p class="hero-note">Dry-land training aid. Not waterproof. Not a medical device.</p>
     <div class="hero-img"><img src="../assets/hero-both.jpg" alt="Equalscope orange and blue sets with live pressure graph, tube, pressure valve and Equalvent"></div>
   </div>
+
+  <!-- 도입부 훅 — 한글판 .problem 대응 (별님 2026-08-22에 옮겨 왔다).
+       ★ 기능을 말하기 전에 **문제**를 먼저 말하는 자리다. 순서를 바꾸지 말 것. -->
+  <section class="problem">
+    <h2>The days you actually get in the water are fewer than you think.</h2>
+    <p>You don't only improve in the water. Dry-land training comes down to two things — <em>equalization</em> and <em>breathing</em>. But equalization gave you <span class="accent">no way to see</span> whether it was working, so you went by feel; and breathing training meant <span class="accent">carrying a phone</span> to run an app.</p>
+    <p style="margin-top:12px"><span class="accent">Equalscope puts both in one device.</span> Turn it on and pick a mode.</p>
+  </section>
 
   <!-- 두 모드 — 한글판 TWO MODES 대응 (FW 2.0 재포지셔닝의 핵심 섹션) -->
   <section>
@@ -298,6 +361,46 @@
       <figure><img loading="lazy" src="../assets/en/screen-co2-detail.png" alt="Breathing training record with per-round times">
         <figcaption><b>Breathing — record</b>What you actually did, round by round</figcaption></figure>
     </div>
+    <!-- ⛔ 테마 그림띠는 여기 두지 않는다 — 한글판과 같이 **주요 기능 섹션 끝**에
+         있다(별님 2026-08-22 동기화). 예전엔 이 자리에 있어서 두 페이지가 어긋났다. -->
+  </section>
+
+  <section class="alt">
+    <div class="sec-tag">Features</div>
+    <h2 class="sec">What it does</h2>
+    <!-- 한글판과 같은 리드·같은 14장 (별님 2026-08-22). 축약본이던 6장을 채웠다. -->
+    <p class="sec-lead"><b>Features you pick up as you improve</b> — use what you need now, and the rest comes into play later.<br>Most of them are <b>not found on existing training devices</b>.</p>
+    <div class="features">
+      <div class="feat"><h4>Live pressure graph</h4>
+        <p>40 samples per second draw a smooth, unbroken curve. The device measures and draws it itself, so there is no lag — even fast repeated equalizations are caught.</p></div>
+      <div class="feat"><h4>Automatic analysis &amp; advice<span class="newtag">not on other devices</span></h4>
+        <p>When a session ends the device summarises count, rhythm and speed, and estimates your technique from the pressure pattern. You review training with numbers, not with feel.</p></div>
+      <div class="feat"><h4>Reference overlay &amp; comparison<span class="newtag">not on other devices</span></h4>
+        <p>Save a good session as a reference and see it <b>overlaid</b> on your live graph. It doesn't stop at looking — the device <b>compares the two and tells you what changed</b>, against a coach's model run or against your own earlier one.</p></div>
+      <div class="feat"><h4>Every session saved</h4>
+        <p>Sessions are stored automatically as CSV — on internal memory or a microSD card. Open them in Excel or Google Sheets and analyse them any way you like.</p></div>
+      <div class="feat"><h4>Three-finger screenshot<span class="newtag">not on other devices</span></h4>
+        <p>Touch the screen with three fingers and it saves exactly what you see — ready to use for student feedback or for sharing a record.</p></div>
+      <div class="feat"><h4>Firmware update from SD<span class="newtag">not on other devices</span></h4>
+        <p>Drop the file on an SD card and power on — the update runs by itself. No PC software, no app, and new features keep arriving after you buy.</p></div>
+      <div class="feat"><h4>High / low pressure alarm<span class="newtag">not on other devices</span></h4>
+        <p>A sound tells you when you leave the range you set, so you don't have to keep watching the screen.</p></div>
+      <div class="feat"><h4>EQ interval trainer<span class="newtag">not on other devices</span></h4>
+        <p>Build an alarm sequence — "every 2 s × 5, then every 4 s × 5" — to rehearse the equalization rhythm of a descent. Alarm points are marked on the graph so you can compare plan against reality.</p></div>
+      <div class="feat valve"><img loading="lazy" class="dialimg" src="../assets/valve-dial.jpg" alt="Numbered valve dial"><h4>Calibrated pressure valve<span class="newtag">not on other devices</span></h4>
+        <p><b>A dial with printed numbers.</b> Repeat the exact same setting every time. Simulates the shrinking air volume of depth on dry land — especially useful for mouthfill.</p></div>
+      <div class="feat"><h4>Seven themes · English / Korean<span class="newtag">not on other devices</span></h4>
+        <p>Seven colour themes, with the menu in English or Korean. Brightness, alarms and auto power-off are all set on the device itself.</p></div>
+      <div class="feat"><h4>CO₂ · O₂ table training<span class="newtag mode">breathing mode</span></h4>
+        <p>Four tables are built in, and you can keep <b>up to 50 of your own</b>. Set the number of rounds, the starting time and the step — the table builds itself, and shows you the last round and the total time before you commit.</p></div>
+      <div class="feat"><h4>English voice guidance<span class="newtag mode">breathing mode</span></h4>
+        <p>Phase changes and remaining time are announced out loud, so you can train <b>with your eyes closed</b>. The first hold starts the way a competition does (3 · 2 · 1 → official top).</p></div>
+      <div class="feat"><h4>Built around your own PB<span class="newtag mode">breathing mode</span></h4>
+        <p>Choose what <b>percentage</b> of your static PB to start from and the hold times are calculated for you. Not someone else's table — <b>one that fits your body</b>.</p></div>
+      <div class="feat"><h4>Competition-style start (EQ)<span class="newtag">not on other devices</span></h4>
+        <p>Equalization sessions can start like a competition too. Measurement, stopwatch and intervals all begin <b>at the official top</b>, so the starting routine becomes part of the training.</p></div>
+    </div>
+    <p style="text-align:center;color:var(--muted);font-size:14.5px;margin:38px 0 14px;">Seven colour themes — make the screen yours</p>
     <div class="themes">
       <figure><img loading="lazy" src="../assets/en/theme-daylight.png" alt="Daylight theme"><figcaption>Daylight</figcaption></figure>
       <figure><img loading="lazy" src="../assets/en/theme-coral.png" alt="Coral theme"><figcaption>Coral</figcaption></figure>
@@ -306,32 +409,6 @@
       <figure><img loading="lazy" src="../assets/en/theme-sky.png" alt="Sky theme"><figcaption>Sky</figcaption></figure>
       <figure><img loading="lazy" src="../assets/en/theme-neon.png" alt="Neon theme"><figcaption>Neon</figcaption></figure>
       <figure><img loading="lazy" src="../assets/en/theme-lavender.png" alt="Lavender theme"><figcaption>Lavender</figcaption></figure>
-    </div>
-    <p class="sec-lead" style="margin:18px auto 0;">Seven colour themes — pick the one you can read best.</p>
-  </section>
-
-  <section class="alt">
-    <div class="sec-tag">Features</div>
-    <h2 class="sec">What it does</h2>
-    <div class="features">
-      <div class="feat"><h4>Live pressure graph</h4>
-        <p>Watch your mouth pressure in real time on a 2.8" touch screen. Pinch to zoom, swipe to scroll.</p></div>
-      <div class="feat"><h4>Reference overlay &amp; comparison</h4>
-        <p>Save a good session as a reference and see it <b>overlaid</b> on your live graph. It doesn't stop at
-           looking — the device <b>compares the two and tells you what changed</b>, against a coach's model run
-           or against your own earlier one.</p></div>
-      <div class="feat"><h4>Every session saved</h4>
-        <p>Sessions are stored automatically as CSV — on internal memory or a microSD card. Open them in
-           Excel or Google Sheets and analyse them any way you like.</p></div>
-      <div class="feat"><h4>EQ interval trainer</h4>
-        <p>Build an alarm sequence — "every 2 s × 5, then every 4 s × 5" — to rehearse the equalization
-           rhythm of a descent. Alarm points are marked on the graph so you can compare plan against reality.</p></div>
-      <div class="feat"><h4>Calibrated pressure valve</h4>
-        <p>A numbered dial lets you repeat the exact same resistance every time — simulating the shrinking
-           air volume of depth on dry land (especially useful for mouthfill).</p></div>
-      <div class="feat"><h4>English built in</h4>
-        <p>The device menu is available in English, and firmware updates are installed straight from an
-           SD card — no PC software required.</p></div>
     </div>
   </section>
 
@@ -359,6 +436,80 @@
     </div>
   </section>
 
+  <!-- 레벨별 — 한글판과 같은 자리(패턴 분석 다음), 같은 뜻 (별님 2026-08-22).
+       ※ 왜 넣었나 = 기능을 평면으로 나열하면 "이게 되는 장비" 로 읽히고, 이퀄이
+         고쳐진 사람은 쓸 이유가 사라진다. 초·중·상을 사다리로 보이게 두는 것
+         자체가 이 섹션의 논리다. 근거는 한글판 index.html 주석.
+       ⛔ 강사 안심 문단은 넣지 않는다 — 한글판에서 써 봤다가 뺐다(꾸짖는 느낌). -->
+  <section>
+    <div class="sec-tag">Your journey</div>
+    <h2 class="sec">What you use changes as you improve</h2>
+    <p class="sec-lead">Getting your equalization to work is not the finish line — <b>it is where it starts</b>.<br>Each stage needs something different, so the features you reach for change too.</p>
+    <div class="levels">
+      <div class="lv">
+        <div class="step">STEP 1 · START</div>
+        <h4>From Valsalva to Frenzel</h4>
+        <p>The step where most divers get stuck. Feel alone rarely gives you the answer, and <b>this is where the graph and the analysis help</b>. You can also load your instructor's good run as a reference and compare it with your own.</p>
+        <div class="chips"><span>Live pressure graph</span><span>Automatic analysis</span><span>Reference comparison</span></div>
+      </div>
+      <div class="lv">
+        <div class="step">STEP 2 · REFINE</div>
+        <h4>Mouthfill and negative pressure</h4>
+        <p>Once Frenzel works, the question becomes <b>how cleanly you do it</b> — and then <b>mouthfill</b>. Negative pressure is hard to feel, but it stays on the graph. CO₂ · O₂ table training runs on the same device.</p>
+        <div class="chips"><span>Mouthfill training</span><span>High / low pressure alarm</span><span>Negative pressure check</span><span>CO₂ · O₂ tables</span></div>
+      </div>
+      <div class="lv">
+        <div class="step">STEP 3 · DEPTH</div>
+        <h4>Deeper dives · instructors · athletes</h4>
+        <p>Simulating depth on dry land. <b>The calibrated valve repeats the same condition exactly</b>, and intervals match your descent rhythm. Screens and records are ready to show students.</p>
+        <div class="chips"><span>EQ intervals</span><span>Calibrated pressure valve</span><span>Competition-style start</span><span>Records to share</span></div>
+      </div>
+    </div>
+
+    <p class="lv-note">At every stage — <b>every session is saved, and can be compared with any earlier one.</b><br>
+      Not a device you fix one thing with and put away, but one that stays with you for as long as you freedive.<br>
+      Training continues even in the stretches when you cannot get to the water.</p>
+  </section>
+
+
+  <!-- 구성품 — 제품 사진은 글자가 없어 한글판 것을 그대로 쓴다 (assets/ 공용) -->
+
+
+  <section>
+    <div class="sec-tag">In the box</div>
+    <h2 class="sec">What you get</h2>
+    <p class="sec-lead">Two colours to choose from. Everything needed to start training on land.</p>
+    <div class="kit">
+      <figure><img loading="lazy" src="../assets/kit-orange.jpg" alt="Orange Equalscope set"><figcaption>Orange</figcaption></figure>
+      <figure><img loading="lazy" src="../assets/kit-blue.jpg" alt="Blue Equalscope set"><figcaption>Blue</figcaption></figure>
+    </div>
+    <div class="features" style="margin-top:24px;">
+      <div class="feat"><h4>Main unit &amp; tube</h4><p>The device, a silicone tube and a metal fitting. A <b>pressure valve with a marked dial</b> lets you repeat the same setting exactly.</p></div>
+      <div class="feat"><h4>Equalvent</h4><p>The nose piece you press against a nostril. Sold as a set with a fitting, a lanyard and a balloon.</p></div>
+    </div>
+  </section>
+
+  <!-- 사용법 — 한글판 HOW TO USE 대응 (별님 2026-08-22).
+       ※ 영상은 한글판 것을 그대로 쓴다 — 음성이 없고 "켜고 · 연결하고 · 측정하고 ·
+         분석된다" 를 보여줄 뿐이라 언어를 안 탄다(별님 확인).
+       ⬜ 영문 화면으로 다시 녹화할 예정이다. 그때 src 만 바꾸면 된다. -->
+  <section>
+    <div class="sec-tag">How to use</div>
+    <h2 class="sec">Unpack, connect, measure</h2>
+    <p class="sec-lead">Three steps from the box to an analysis — the video shows the whole thing.</p>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h4>Connect</h4><p>Click the tube into the device, then attach the Equalvent to the other end.</p></div>
+      <div class="step"><div class="n">2</div><h4>Measure</h4><p>Press start and equalize. Your pressure is drawn as a live graph.</p></div>
+      <div class="step"><div class="n">3</div><h4>Review</h4><p>The session saves itself. The analysis screen gives you the statistics and a short piece of advice.</p></div>
+    </div>
+    <div class="video-box" style="margin-top:36px;">
+      <video controls preload="metadata" poster="../assets/hero-orange.jpg">
+        <source src="../assets/demo.mp4" type="video/mp4">
+        Your browser cannot play this video.
+      </video>
+    </div>
+  </section>
+
   <section class="alt">
     <div class="sec-tag">Spec</div>
     <h2 class="sec">Specifications</h2>
@@ -383,18 +534,26 @@
       A car interior can reach 60–70°C in summer. Long exposure to heat can make the battery swell or catch fire, and the case can deform.</p>
   </section>
 
-  <!-- 구성품 — 제품 사진은 글자가 없어 한글판 것을 그대로 쓴다 (assets/ 공용) -->
   <section>
-    <div class="sec-tag">In the box</div>
-    <h2 class="sec">What you get</h2>
-    <p class="sec-lead">Two colours to choose from. Everything needed to start training on land.</p>
-    <div class="kit">
-      <figure><img loading="lazy" src="../assets/kit-orange.jpg" alt="Orange Equalscope set"><figcaption>Orange</figcaption></figure>
-      <figure><img loading="lazy" src="../assets/kit-blue.jpg" alt="Blue Equalscope set"><figcaption>Blue</figcaption></figure>
+    <div class="sec-tag">Download</div>
+    <h2 class="sec">Firmware &amp; manual</h2>
+    <p class="sec-lead">Copy the firmware file to an SD card and power the device on — it updates itself.</p>
+    <div class="dl-grid">
+      <a class="dl" href="download/"><b>Latest firmware</b><span>download page · .bin</span></a>
+      <a class="dl" href="../manual.html"><b>Full manual</b><span>currently Korean only</span></a>
+      <a class="dl" href="../quickstart.html"><b>Quick start</b><span>currently Korean only</span></a>
     </div>
-    <div class="features" style="margin-top:24px;">
-      <div class="feat"><h4>Main unit &amp; tube</h4><p>The device, a silicone tube and a metal fitting. A <b>pressure valve with a marked dial</b> lets you repeat the same setting exactly.</p></div>
-      <div class="feat"><h4>Equalvent</h4><p>The nose piece you press against a nostril. Sold as a set with a fitting, a lanyard and a balloon.</p></div>
+  </section>
+
+  <!-- 베타 반응 — 한글판 BETA RESPONSE 대응 (별님 2026-08-22) -->
+  <section class="navy-sec">
+    <div class="sec-tag">Beta response</div>
+    <h2 class="sec">Seeing one in person changes the reaction</h2>
+    <p class="sec-lead">Beta testing and the pre-order batch were used to verify that it holds up.</p>
+    <div class="who">
+      <div class="w"><h4>Reliability</h4><p>No functional defect has been reported since beta testing and the pre-order shipments. Firmware updates keep refining it after release.</p></div>
+      <div class="w"><h4>First impression</h4><p>More than one person decided to buy on the spot, the first time they saw the device running — the screen and the build quality get the strongest reactions.</p></div>
+      <div class="w"><h4>What we hear most</h4><p>"Things no other device does" — the automatic analysis, the reference comparison, and the design come up most often.</p></div>
     </div>
   </section>
 
@@ -420,17 +579,6 @@
     <p class="sec-lead" style="margin-top:26px;font-size:14.5px;">
       Please note: the device carries Korean radio certification (KC). It is sold as a personal
       training aid; any import duties or local requirements in your country are the buyer's responsibility.</p>
-  </section>
-
-  <section>
-    <div class="sec-tag">Download</div>
-    <h2 class="sec">Firmware &amp; manual</h2>
-    <p class="sec-lead">Copy the firmware file to an SD card and power the device on — it updates itself.</p>
-    <div class="dl-grid">
-      <a class="dl" href="download/"><b>Latest firmware</b><span>download page · .bin</span></a>
-      <a class="dl" href="../manual.html"><b>Full manual</b><span>currently Korean only</span></a>
-      <a class="dl" href="../quickstart.html"><b>Quick start</b><span>currently Korean only</span></a>
-    </div>
   </section>
 
   <footer>

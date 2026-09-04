@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Equalscope — 올인원 이퀄라이징 + CO₂·O₂ 호흡 훈련</title>
-<meta name="description" content="프리다이빙 올인원 드라이 트레이닝 장비 Equalscope — 이퀄라이징과 호흡 훈련을 한 대로. 압력은 실시간으로 측정·분석하고, CO2·O2 테이블은 음성 안내에 따라 훈련하고 기록합니다. 스마트폰도 앱도 없이.">
+<title>Equalscope — 올인원 이퀄라이징 + CO₂·O₂ 호흡 훈련 · 컨트랙션 감지</title>
+<meta name="description" content="프리다이빙 올인원 드라이 트레이닝 장비 Equalscope — 이퀄라이징과 호흡 훈련을 한 대로. 압력은 실시간으로 측정·분석하고, CO2·O2 테이블은 음성 안내에 따라 훈련하고 기록합니다. 숨을 참는 동안 오는 컨트랙션도 자동으로 세어 기록합니다. 스마트폰도 앱도 없이.">
 <meta name="author" content="별바다랩 (Byulbada Lab)">
 <link rel="canonical" href="https://equalscope.kr/">
 <link rel="alternate" hreflang="ko" href="https://equalscope.kr/">
@@ -450,6 +450,47 @@
     </div>
   </section>
 
+
+  <!-- 컨트랙션 (FW 2.4) -->
+  <!-- ★ 독립 섹션인 이유 (별님 2026-09-05) — 기능 카드 한 칸으로는 안 된다.
+       "배 위에 올려놓으면 수축을 세어 준다" 가 직관적이지 않아서, **어떻게 놓는지**와
+       **뭘 알 수 있는지**를 보여 줘야 반응이 온다. 커뮤니티에서 제일 반응이 좋았던
+       기능이기도 하다("신기하다면서 펌웨어 새로 나오길 기다리는 사람도 있고").
+       ★ 자리는 「훈련 사이클」 뒤 · 「화면 하나에」 앞이다. 제품이 무엇인지를 먼저
+         세우고, 그다음에 이 기능을 보여 주고, 이어서 화면들로 넘어간다. 이 섹션의
+         사진 둘이 다음 섹션(화면 모음)으로 자연스럽게 이어진다.
+       ⛔ **"세계 최초" 를 쓰지 말 것** (별님 2026-09-05 결정). 커뮤니티에서 편하게
+          하는 말과 판매 페이지는 기준이 다르다 — 표시광고법상 실증 책임이 붙는
+          표현이고, "전 세계에 없다" 는 증명할 수 있는 종류가 아니다.
+          ⇒ 이 페이지의 기존 문법인 `기존 장비에 없던` 태그를 쓴다. 그건 확인 가능한
+            범위이고, 무게도 크게 다르지 않다. -->
+  <section id="contraction">
+    <div class="sec-tag">CONTRACTION</div>
+    <h2 class="sec">수축(컨트랙션)을 세어 줍니다</h2>
+    <p class="sec-lead">숨을 오래 참으면 배가 저절로 움찔거립니다. 언제 처음 왔는지, 몇 번 왔는지 —<br>
+      그동안은 <b>옆에서 누가 세어 주지 않으면 알 수 없던 숫자</b>였습니다.</p>
+
+    <div class="cards3" style="grid-template-columns:repeat(2,1fr);max-width:760px;margin:0 auto;">
+      <div class="card">
+        <div class="cardshot"><img loading="lazy" src="assets/screen-co2-run-strip.png" alt="훈련 화면 아래에 그려지는 배의 흔들림 그래프"></div>
+        <h3>배 위에 올려놓기만</h3>
+        <p>누워서 <b>배 위에 그냥 올려놓으면</b> 됩니다. 벨트도, 센서를 붙이는 일도 없습니다. 훈련 중에는 배의 흔들림이 화면 아래에 실시간으로 그려집니다.</p>
+      </div>
+      <div class="card">
+        <div class="cardshot"><img loading="lazy" src="assets/screen-co2-graph.png" alt="수축 그래프 다시보기 — 수축 자리에 표시가 붙는다"></div>
+        <h3>끝나면 숫자로</h3>
+        <p>라운드마다 <b>횟수 · 처음 온 시각 · 평균 간격</b>이 기록에 남습니다. 그래프를 다시 열어 어느 봉우리가 수축이었는지 확인할 수 있습니다.</p>
+      </div>
+    </div>
+
+    <p class="flow-note" style="margin-top:22px;">
+      <b>첫 수축까지 걸린 시간</b>은 CO₂ 내성을 보는 지표입니다. 훈련이 쌓이면 그 시간이 어떻게 달라지는지,
+      수축 간격이 어떻게 좁아지는지가 <b>기록으로 남습니다.</b><br>
+      기존 훈련 장비에는 없던 기능이며, <b>펌웨어 업데이트로 더해집니다</b> — 이미 쓰고 계신 분도 그대로 쓸 수 있습니다.</p>
+
+    <p class="hero-note" style="margin-top:14px;">※ 심장 박동이 아니라 <b>그 위로 뚜렷하게 솟은 움직임</b>만 셉니다. 사람마다 배 움직임이 달라 기준은 그 판에서 직접 잡습니다.</p>
+  </section>
+
   <!-- 화면으로 보기 -->
   <section class="alt" id="features">
     <div class="sec-tag">ON SCREEN</div>
@@ -490,7 +531,9 @@
       <div class="feat valve"><img loading="lazy" class="dialimg" src="assets/valve-dial.jpg" alt="눈금 다이얼"><h4>압력 조절 밸브 (눈금)<span class="newtag">기존 장비에 없던</span></h4><p><b>눈금이 있는 압력 조절 다이얼.</b> 자주 쓰는 설정값을 정확히 반복할 수 있습니다. 입 안 공기가 줄어드는 수심을 지상에서 시뮬레이션(특히 마우스필).</p></div>
       <div class="feat"><h4>멀티 테마 · 한국어/영어<span class="newtag">기존 장비에 없던</span></h4><p>7가지 색상 테마와 한국어·영어 지원. 밝기·알람·자동 종료 등 세부 설정도 장비에서 바로.</p></div>
       <div class="feat"><h4>CO₂ · O₂ 테이블 훈련<span class="newtag mode">호흡 훈련</span></h4><p>기본 제공 4종에 더해 <b>훈련 테이블을 최대 50개</b>까지. 라운드 수·시작 시간·증감만 정하면 테이블이 자동으로 만들어지고, 만들기 전에 마지막 라운드와 총 시간을 미리 보여 줍니다.</p></div>
-      <div class="feat"><h4>영어 음성 안내<span class="newtag mode">호흡 훈련</span></h4><p>구간 전환과 남은 시간을 소리로 알려 주어 <b>눈을 감고도</b> 훈련할 수 있습니다. 첫 숨참기는 <b>대회 방식</b>(3·2·1 → official top)으로 시작해 실제 경기 감각을 만듭니다.</p></div>
+      <div class="feat"><h4>컨트랙션 자동 감지<span class="newtag">기존 장비에 없던</span></h4><p>배 위에 올려놓고 훈련하면 <b>수축을 세어 줍니다.</b> 라운드마다 횟수·처음 온 시각·평균 간격이 기록으로 남습니다. 위 <a href="#contraction">컨트랙션</a> 항목 참고.</p></div>
+      <div class="feat"><h4>영어 음성 안내<span class="newtag mode">호흡 훈련</span></h4><p>구간 전환과 남은 시간을 소리로 알려 주어 <b>눈을 감고도</b> 훈련할 수 있습니다. 첫 숨참기는 <b>대회 방식</b>(3·2·1 → official top)으로 시작해 실제 경기 감각을 만듭니다. 안내는 <b>항목마다 켜고 끄고</b>, 목소리도 <b>여성·남성</b> 중에 고릅니다.</p></div>
+      <div class="feat"><h4>툭 쳐서 시작·정지<span class="newtag">기존 장비에 없던</span></h4><p>호스를 물면 손이 자유롭지 않습니다. 테이블에 둔 기기를 <b>가볍게 툭 치면</b> 측정이 시작되고, 한 번 더 치면 멈춥니다. 손에 들고 있을 때는 반응하지 않습니다.</p></div>
       <div class="feat"><h4>내 최고 기록 기준 설계<span class="newtag mode">호흡 훈련</span></h4><p>스태틱 최고 기록의 <b>몇 %</b>로 시작할지 정하면 숨참기 시간이 자동으로 계산됩니다. 남의 테이블이 아니라 <b>내 몸에 맞는 테이블</b>로 훈련합니다.</p></div>
       <div class="feat"><h4>대회식 시작 (이퀄)<span class="newtag">기존 장비에 없던</span></h4><p>이퀄라이징 측정도 대회처럼 시작할 수 있습니다. <b>official top 순간부터</b> 측정·스톱워치·인터벌이 함께 출발해, 시작 루틴까지 훈련이 됩니다.</p></div>
     </div>
@@ -606,21 +649,31 @@
       <tr><th>디스플레이</th><td>2.8인치 터치 LCD (320×240, 가로형)</td></tr>
       <tr><th>크기</th><td>본체 90 × 77.6 × 25 mm · 가방 160 × 100 × 70 mm</td></tr>
       <tr><th>압력 측정</th><td>압력 센서 · 40Hz 샘플링 · 부팅 시 자동 영점 보정</td></tr>
+      <tr><th>모션 센서</th><td>6축 가속도·자이로 — 컨트랙션 감지 · 툭 쳐서 시작 · 영점 흔들림 감지</td></tr>
       <tr><th>훈련 모드</th><td>이퀄라이징 측정 · 호흡 훈련(CO₂ / O₂ 테이블) — 전원을 켤 때 선택</td></tr>
     <tr><th>저장</th><td>내부 메모리 + microSD 슬롯 (CSV 저장 / 화면 캡처 PNG) · SD 카드는 미포함(별매)<br>32GB 이하(FAT32) · 64GB 이상(exFAT) 모두 인식</td></tr>
-      <tr><th>오디오</th><td>스피커 — 압력 알람 · EQ 인터벌 알람 · 호흡 훈련 영어 음성 안내</td></tr>
+      <tr><th>오디오</th><td>스피커 — 압력 알람 · EQ 인터벌 알람 · 호흡 훈련 영어 음성 안내(여성·남성 선택)</td></tr>
       <tr><th>전원</th><td>내장 리튬폴리머 배터리 3.7V 1,000mAh (USB 충전)</td></tr>
-      <tr><th>연결 · 업데이트</th><td>USB로 PC 파일 전송 · SD 카드로 펌웨어 업데이트</td></tr>
+      <tr><th>연결 · 업데이트</th><td>USB로 PC 파일 전송 · 펌웨어 업데이트는 <b>USB 케이블 또는 SD 카드</b></td></tr>
       <tr><th>커넥터</th><td>4mm 공압 퀵 커넥터</td></tr>
       <tr><th>언어</th><td>한국어 / English</td></tr>
       <tr><th>인증</th><td>KC 전파인증 완료 · 인증번호 R-R-SSD1-EQ-28</td></tr>
       <tr><th>사용 환경</th><td>지상 드라이 트레이닝 전용 · 방수 아님 · 의료기기 아님</td></tr>
       <tr><th>구성품</th><td>본체 · 받침대 · 이퀄벤트 · 튜브 · 눈금 압력조절 밸브 · USB 케이블</td></tr>
     </table>
+    <!-- ★ 가운데 문장을 덜어냈다 (별님 2026-09-05: *"이 부분은 이제 빼버릴까?"*).
+         뺀 것 = "3D 프린팅 소량 제작이지만, … 3D 프린팅인 줄 몰랐다는 반응이 나올
+         만큼 깔끔한 마감을 지향합니다."
+         이유 = **'~이지만' 이 스스로 의심을 심는다.** 답하려던 그 걱정을 문장이 먼저
+         꺼내 놓는 셈이라, 프리미엄으로 자리를 옮긴 지금 페이지와 안 맞는다.
+         ⛔ 그렇다고 문단을 통째로 지우지 않았다. 남긴 두 줄은 일을 한다:
+           · 검수 한 줄 = 소량 제작에서 신뢰를 만드는 자리
+           · **적층 결 한 줄 = 사기 전에 알리는 고지**다. 이걸 빼면 받아 보고
+             "말이 없었다" 가 된다. 기능과 무관한 특성이라도 미리 말해 두는 편이
+             교환·반품보다 서로 낫다. -->
     <p class="make-note"><b>품질 · 검수</b><br>
       모든 제품은 기능·내구성·마감을 하나하나 검수한 뒤 발송합니다.<br>
-      3D 프린팅 소량 제작이지만, 실물을 보고 3D 프린팅 제작인 줄 몰랐다는 반응이 나올 만큼 깔끔한 마감을 지향합니다.<br>
-      다만 경사가 큰 곡면 일부(이퀄벤트 입 주변 등)에는 미세한 적층 결이 보일 수 있습니다 — 기능·내구성과 무관한 제작 특성입니다.</p>
+      경사가 큰 곡면 일부(이퀄벤트 입 주변 등)에는 미세한 적층 결이 보일 수 있습니다 — 기능·내구성과 무관한 제작 특성입니다.</p>
     <!-- 배터리 내장을 알리면서 같은 자리에서 보관 주의를 준다 (별님 2026-08-22).
          ※ 퀵스타트에만 있던 차량 경고를 랜딩에도 올린 것이다. 배터리가 없는 저가
            제품을 쓰던 분께는 셀링 포인트이기도 하지만 **거기에 힘을 주지는 않는다** —
@@ -637,9 +690,9 @@
   <section>
     <div class="sec-tag">DOWNLOAD</div>
     <h2 class="sec">펌웨어 &amp; 매뉴얼</h2>
-    <p class="sec-lead">최신 펌웨어와 사용설명서를 내려받으세요. 펌웨어는 SD 카드에 복사 후 전원을 켜면 자동 업데이트됩니다.</p>
+    <p class="sec-lead">최신 펌웨어와 사용설명서를 내려받으세요. 펌웨어는 <b>USB 케이블</b>로 기기 드라이브에 끌어다 놓거나,<br><b>SD 카드</b>에 복사한 뒤 전원을 켜면 자동으로 업데이트됩니다.</p>
     <div class="dl-grid">
-      <a class="dl" href="download/"><b>최신 펌웨어 ↓</b><span>다운로드 페이지 · .bin</span></a>
+      <a class="dl" href="download/"><b>최신 펌웨어 ↓</b><span>다운로드 페이지 · .uf2 (USB) / .bin (SD)</span></a>
       <a class="dl" href="manual.html"><b>상세 사용설명서</b><span>전체 매뉴얼 (웹/인쇄)</span></a>
       <a class="dl" href="quickstart.html"><b>퀵스타트</b><span>빠른 시작 1장</span></a>
     </div>

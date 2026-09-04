@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Equalscope — Freediving Equalization Training Device</title>
-<meta name="description" content="Equalscope is a standalone freediving equalization trainer. See your mouth pressure as a live graph, record every session, and get automatic pattern analysis — no phone or app required.">
+<title>Equalscope — Freediving Equalization &amp; Breathing Trainer with Contraction Detection</title>
+<meta name="description" content="Equalscope is a standalone freediving equalization trainer. See your mouth pressure as a live graph, record every session, and get automatic pattern analysis. Breath-hold tables with voice guidance, and it counts your contractions — no phone or app required.">
 <meta name="author" content="Byulbada Dive">
 <link rel="canonical" href="https://equalscope.kr/en/">
 <link rel="alternate" hreflang="ko" href="https://equalscope.kr/">
@@ -341,6 +341,40 @@
     </div>
   </section>
 
+
+  <!-- CONTRACTION (FW 2.4) — 한글판 CONTRACTION 섹션 대응. 자리도 같다.
+       ⛔ 이 섹션의 캡처 둘(../assets/en/screen-co2-run-strip.png, -graph.png)은
+          **영문 UI 로 다시 찍어야 한다.** 그때까지 영문 페이지를 올리지 말 것.
+       ⛔ "world's first" 를 쓰지 말 것 — 한글판과 같은 이유(그쪽 주석 참고).
+          이 페이지의 기존 문법인 `not on other devices` 배지를 쓴다. -->
+  <section id="contraction">
+    <div class="sec-tag">Contraction</div>
+    <h2 class="sec">It counts your contractions</h2>
+    <p class="sec-lead">Hold your breath long enough and your belly starts to twitch on its own.
+       When the first one came, how many followed — until now those were numbers
+       <b>nobody knew unless someone sat there counting.</b></p>
+
+    <div class="cards3" style="grid-template-columns:repeat(2,1fr);max-width:760px;margin:0 auto;">
+      <div class="card">
+        <div class="cardshot"><img loading="lazy" src="../assets/en/screen-co2-run-strip.png" alt="Belly movement drawn along the bottom of the training screen"></div>
+        <h3>Just rest it on your belly</h3>
+        <p>Lie down and <b>put the device on your belly</b> — no strap, nothing to attach. While you hold, the movement is drawn live along the bottom of the screen.</p>
+      </div>
+      <div class="card">
+        <div class="cardshot"><img loading="lazy" src="../assets/en/screen-co2-graph.png" alt="Contraction graph replay with markers on each counted peak"></div>
+        <h3>Numbers when it ends</h3>
+        <p>Each round records <b>how many, when the first one came, and the average gap.</b> Open the graph again to see which peaks were counted.</p>
+      </div>
+    </div>
+
+    <p class="flow-note" style="margin-top:22px;">
+      <b>Time to the first contraction</b> is a measure of CO₂ tolerance. As sessions add up,
+      how that time moves — and how the gaps tighten — <b>stays in the record.</b><br>
+      Not found on existing training devices, and it <b>arrives as a firmware update</b> — devices already in use get it too.</p>
+
+    <p class="hero-note" style="margin-top:14px;">Note: it does not count your heartbeat — only movement that <b>clearly rises above it</b>. Everyone's belly moves differently, so the baseline is taken from that hold itself.</p>
+  </section>
+
   <!-- ON SCREEN — 한글판 대응. 캡처는 모두 영문 UI (assets/en/) -->
   <section>
     <div class="sec-tag">On screen</div>
@@ -381,8 +415,8 @@
         <p>Sessions are stored automatically as CSV — on internal memory or a microSD card. Open them in Excel or Google Sheets and analyse them any way you like.</p></div>
       <div class="feat"><h4>Three-finger screenshot<span class="newtag">not on other devices</span></h4>
         <p>Touch the screen with three fingers and it saves exactly what you see — ready to use for student feedback or for sharing a record.</p></div>
-      <div class="feat"><h4>Firmware update from SD<span class="newtag">not on other devices</span></h4>
-        <p>Drop the file on an SD card and power on — the update runs by itself. No PC software, no app, and new features keep arriving after you buy.</p></div>
+      <div class="feat"><h4>Firmware update by USB or SD<span class="newtag">not on other devices</span></h4>
+        <p>Drag the file onto the device over USB, or drop it on an SD card and power on — the update runs by itself. No PC software, no app, and new features keep arriving after you buy.</p></div>
       <div class="feat"><h4>High / low pressure alarm<span class="newtag">not on other devices</span></h4>
         <p>A sound tells you when you leave the range you set, so you don't have to keep watching the screen.</p></div>
       <div class="feat"><h4>EQ interval trainer<span class="newtag">not on other devices</span></h4>
@@ -393,8 +427,12 @@
         <p>Seven colour themes, with the menu in English or Korean. Brightness, alarms and auto power-off are all set on the device itself.</p></div>
       <div class="feat"><h4>CO₂ · O₂ table training<span class="newtag mode">breathing mode</span></h4>
         <p>Four tables are built in, and you can keep <b>up to 50 of your own</b>. Set the number of rounds, the starting time and the step — the table builds itself, and shows you the last round and the total time before you commit.</p></div>
+      <div class="feat"><h4>Contraction detection<span class="newtag">not on other devices</span></h4>
+        <p>Train with the device on your belly and it <b>counts your contractions</b> — how many, when the first came, the average gap, kept per round. See <a href="#contraction">Contraction</a> above.</p></div>
+      <div class="feat"><h4>Tap to start and stop<span class="newtag">not on other devices</span></h4>
+        <p>With a hose in your mouth your hands are not free. <b>Tap the device</b> where it sits on the table to start measuring, tap again to stop. It ignores taps while you are holding it.</p></div>
       <div class="feat"><h4>English voice guidance<span class="newtag mode">breathing mode</span></h4>
-        <p>Phase changes and remaining time are announced out loud, so you can train <b>with your eyes closed</b>. The first hold starts the way a competition does (3 · 2 · 1 → official top).</p></div>
+        <p>Phase changes and remaining time are announced out loud, so you can train <b>with your eyes closed</b>. The first hold starts the way a competition does (3 · 2 · 1 → official top). Each announcement can be <b>turned on or off</b>, and the voice can be <b>female or male</b>.</p></div>
       <div class="feat"><h4>Built around your own PB<span class="newtag mode">breathing mode</span></h4>
         <p>Choose what <b>percentage</b> of your static PB to start from and the hold times are calculated for you. Not someone else's table — <b>one that fits your body</b>.</p></div>
       <div class="feat"><h4>Competition-style start (EQ)<span class="newtag">not on other devices</span></h4>
@@ -518,10 +556,11 @@
       <tr><th>Display</th><td>2.8" colour touch LCD, 320 × 240</td></tr>
       <tr><th>Size</th><td>Device 90 × 77.6 × 25 mm · Case 160 × 100 × 70 mm</td></tr>
       <tr><th>Measurement</th><td>Pressure sensor, 40 Hz sampling, auto zero calibration at power-on</td></tr>
+      <tr><th>Motion sensor</th><td>6-axis accelerometer / gyro — contraction detection · tap to start · movement check while zeroing</td></tr>
       <tr><th>Storage</th><td>Internal memory + microSD slot — CSV sessions and PNG screenshots (SD card not included)</td></tr>
-      <tr><th>Audio</th><td>Speaker — pressure alarms and EQ interval cues</td></tr>
+      <tr><th>Audio</th><td>Speaker — pressure alarms, EQ interval cues, and English voice guidance (female or male)</td></tr>
       <tr><th>Power</th><td>Built-in 3.7 V 1,000 mAh Li-Po, USB charging</td></tr>
-      <tr><th>Connection</th><td>USB file transfer to PC · firmware update from SD card</td></tr>
+      <tr><th>Connection</th><td>USB file transfer to PC · firmware update <b>by USB cable or SD card</b></td></tr>
       <tr><th>Connector</th><td>4 mm pneumatic quick connector</td></tr>
       <tr><th>Languages</th><td>English / Korean</td></tr>
       <tr><th>In the box</th><td>Device · Equalvent mouthpiece · tube · calibrated pressure valve · USB cable</td></tr>
@@ -537,9 +576,9 @@
   <section>
     <div class="sec-tag">Download</div>
     <h2 class="sec">Firmware &amp; manual</h2>
-    <p class="sec-lead">Copy the firmware file to an SD card and power the device on — it updates itself.</p>
+    <p class="sec-lead">Drag the firmware onto the device over <b>USB</b>, or copy it to an <b>SD card</b> and power on — it updates itself.</p>
     <div class="dl-grid">
-      <a class="dl" href="download/"><b>Latest firmware</b><span>download page · .bin</span></a>
+      <a class="dl" href="download/"><b>Latest firmware</b><span>download page · .uf2 (USB) / .bin (SD)</span></a>
       <a class="dl" href="../manual.html"><b>Full manual</b><span>currently Korean only</span></a>
       <a class="dl" href="../quickstart.html"><b>Quick start</b><span>currently Korean only</span></a>
     </div>

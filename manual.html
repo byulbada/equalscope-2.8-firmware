@@ -941,22 +941,27 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
 <h3 id="s8_9">8.9 호흡 모드 설정</h3>
 <p>호흡 모드의 설정은 <strong>3개 페이지</strong>입니다. <strong>좌우 화살표</strong>로 넘깁니다.</p>
 <div class="figrow pair">
-  <figure><img src="assets/screen-co2-settings.png" alt="호흡 모드 설정 1페이지"><figcaption>페이지 1 — 모드 · PB · 볼륨</figcaption></figure>
+  <figure><img src="assets/screen-co2-settings.png" alt="호흡 모드 설정 1페이지"><figcaption>페이지 1 — 훈련 값 · USB · 소리</figcaption></figure>
   <figure><img src="assets/screen-co2-settings2.png" alt="호흡 모드 설정 2페이지 — 음성 안내"><figcaption>페이지 2 — 음성 안내</figcaption></figure>
-  <figure><img src="assets/screen-co2-settings3.png" alt="호흡 모드 설정 3페이지 — 안내 목소리 · USB · 그래프 눈금"><figcaption>페이지 3 — 목소리 · USB · 그래프 눈금</figcaption></figure>
+  <figure><img src="assets/screen-co2-settings3.png" alt="호흡 모드 설정 3페이지 — 모드"><figcaption>페이지 3 — 모드</figcaption></figure>
 </div>
 
-<h4>페이지 1 — 모드 · 기록</h4>
+<blockquote><strong>펌웨어 2.4 에서 자리를 다시 모았습니다.</strong> 자주 만지는 훈련 값이 1페이지 앞으로 오고,
+한 번 정해 두는 <strong>모드 설정은 마지막 3페이지</strong>로 갔습니다 — 이퀄 설정에서도 훈련 모드가 마지막 페이지입니다.
+<strong>없어진 항목은 없고 자리만 바뀌었습니다.</strong></blockquote>
+
+<h4>페이지 1 — 훈련 값 · USB · 소리</h4>
 <table class="setbl3">
   <thead><tr><th>항목</th><th>범위 / 선택</th><th>설명</th></tr></thead>
   <tbody>
-    <tr><td><strong>부팅 시 모드 선택</strong></td><td>ON / OFF</td><td>끄면 전원을 켤 때 <strong>기본 모드</strong>로 바로 들어갑니다</td></tr>
-    <tr><td><strong>기본 모드</strong></td><td>이퀄 / 호흡</td><td>위 항목이 꺼져 있을 때 어느 모드로 들어갈지</td></tr>
-    <tr><td><strong>이퀄 모드로 전환</strong></td><td>—</td><td>확인 후 저장하고 다시 시작합니다</td></tr>
     <tr><td><strong>스태틱 PB</strong></td><td>분 · 초</td><td>내 <strong>스태틱 최고 기록</strong>. 자동 생성의 <strong>PB 비율</strong> 기준으로만 쓰입니다 (최소 30초)</td></tr>
+    <tr><td><strong>그래프 눈금 (g)</strong></td><td>0.1 ~ 0.5</td><td>수축 그래프 <strong>세로축 맨 위가 몇 g</strong>인지 (<a href="#s8_7">8.7</a>). 배 움직임 크기가 사람마다 달라 조절합니다 (펌웨어 2.4~)</td></tr>
+    <tr><td><strong>USB</strong></td><td>—</td><td>PC 와 연결해 기록을 옮깁니다 — <strong>[연결]</strong>을 1.5초 길게 누르세요 (<a href="#s6_8">6.8</a>)</td></tr>
     <tr><td><strong>볼륨</strong></td><td>0~100 %</td><td>음성 안내와 알람의 크기</td></tr>
+    <tr><td><strong>안내 목소리</strong></td><td>여성 / 남성</td><td>음성 안내를 읽는 목소리. <strong>이퀄 모드의 대회식 시작도 같은 목소리를 씁니다</strong> (펌웨어 2.3~)</td></tr>
   </tbody>
 </table>
+<p>볼륨과 안내 목소리가 아래에 있는 것은 <strong>다음 장이 음성 안내</strong>이기 때문입니다. 소리 설정이 이어서 나옵니다.</p>
 
 <h4>페이지 2 — 음성 안내 (펌웨어 2.3~)</h4>
 <p>훈련 중 나오는 안내를 <strong>항목마다 켜고 끕니다.</strong> 필요한 것만 남기면 됩니다.
@@ -974,13 +979,13 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
 <blockquote><strong>구간이 바뀔 때 나오는 Breathe / Hold 는 항상 나옵니다.</strong>
 지금이 호흡인지 숨참기인지는 눈을 감고 있어도 반드시 알아야 하기 때문입니다.</blockquote>
 
-<h4>페이지 3 — 목소리 · USB · 그래프</h4>
+<h4>페이지 3 — 모드</h4>
 <table class="setbl3">
   <thead><tr><th>항목</th><th>범위 / 선택</th><th>설명</th></tr></thead>
   <tbody>
-    <tr><td><strong>안내 목소리</strong></td><td>여성 / 남성</td><td>음성 안내를 읽는 목소리. <strong>이퀄 모드의 대회식 시작도 같은 목소리를 씁니다</strong> (펌웨어 2.3~)</td></tr>
-    <tr><td><strong>USB</strong></td><td>—</td><td>PC 와 연결해 기록을 옮깁니다 — <strong>[연결]</strong>을 1.5초 길게 누르세요 (<a href="#s6_8">6.8</a>)</td></tr>
-    <tr><td><strong>그래프 눈금 (g)</strong></td><td>0.1 ~ 0.5</td><td>수축 그래프 <strong>세로축 맨 위가 몇 g</strong>인지 (<a href="#s8_7">8.7</a>). 배 움직임 크기가 사람마다 달라 조절합니다 (펌웨어 2.4~)</td></tr>
+    <tr><td><strong>부팅 시 모드 선택</strong></td><td>ON / OFF</td><td>끄면 전원을 켤 때 <strong>기본 모드</strong>로 바로 들어갑니다</td></tr>
+    <tr><td><strong>기본 모드</strong></td><td>이퀄 / 호흡</td><td>위 항목이 꺼져 있을 때 어느 모드로 들어갈지</td></tr>
+    <tr><td><strong>이퀄 모드로 전환</strong></td><td>—</td><td>확인 후 저장하고 다시 시작합니다</td></tr>
   </tbody>
 </table>
 

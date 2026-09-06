@@ -248,6 +248,13 @@
     /* ★ 좁은 폭에서도 **두 장씩** (별님 2026-09-06) — 근거는 한글판 같은 자리 주석.
        ⛔ 두 페이지가 갈라지지 않게 할 것. */
     .shots{grid-template-columns:repeat(2,1fr);gap:12px;}
+    /* ★ 사진이 든 2칸 카드를 PATTERN ANALYSIS 와 같은 짜임으로 (별님 2026-09-06) —
+       근거는 한글판 같은 자리 주석. ⛔ 두 페이지가 갈라지지 않게 할 것. */
+    .cards-shot{gap:14px;}
+    .cards-shot .card{padding:0 0 15px;overflow:hidden;}
+    .cards-shot .cardshot{margin-bottom:11px;}
+    .cards-shot .cardshot img{border-radius:0;}
+    .cards-shot .card h3,.cards-shot .card p{padding:0 12px;}
     .themes figure{flex-basis:46%;}   /* 한글판과 같은 규칙 — 좁은 폭에선 2장씩 */
     .kit{grid-template-columns:1fr;}
     .features{grid-template-columns:1fr;}
@@ -312,7 +319,7 @@
     <h2 class="sec">Two kinds of training, one device</h2>
     <p class="sec-lead">You pick the mode when you turn it on — watch your equalizing, or run a breathing table.<br>
        Both go from measuring to recording and analysis inside the device.</p>
-    <div class="cards3" style="grid-template-columns:repeat(2,1fr);max-width:760px;margin:0 auto;">
+    <div class="cards3 cards-shot" style="grid-template-columns:repeat(2,1fr);max-width:760px;margin:0 auto;">
       <div class="card">
         <div class="cardshot"><img loading="lazy" src="../assets/en/screen-measure.png" alt="Equalizing measurement — live pressure graph"></div>
         <h3>Equalizing</h3>
@@ -375,7 +382,7 @@
        In the hardest part of the hold, of all places.<br><b>Now you don't have to count.</b>
        The record builds while you stay with the training.</p>
 
-    <div class="cards3" style="grid-template-columns:repeat(2,1fr);max-width:760px;margin:0 auto;">
+    <div class="cards3 cards-shot" style="grid-template-columns:repeat(2,1fr);max-width:760px;margin:0 auto;">
       <div class="card">
         <div class="cardshot"><img loading="lazy" src="../assets/en/screen-co2-run-strip.png" alt="Belly movement drawn along the bottom of the training screen"></div>
         <h3>Just rest it on your belly</h3>

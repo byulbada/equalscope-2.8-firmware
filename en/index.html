@@ -114,9 +114,13 @@
   .flow-note b{color:var(--navy);}
 
   .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:940px;margin:0 auto;}
-  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 20px;}
-  .card .num{width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;
-             display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;margin-bottom:12px;}
+  /* ⛔ 한글판(../index.html)과 **같은 값**이어야 한다 (별님 2026-09-06) — 여기가
+     혼자 왼쪽 정렬에 번호도 네이비 원이라 두 페이지가 다른 제품처럼 보였다.
+     별님: *"why equalscope 는 왼쪽 정렬로 되어 있고, 한글과 번호 색도 다르다."*
+     ⇒ 정렬(가운데)·여백·번호(주황 글자 + 연회색 라운드 사각)를 한글판에 맞췄다. */
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 22px;text-align:center;}
+  .card .num{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;
+             background:var(--soft2);color:var(--orange);font-size:20px;font-weight:800;margin-bottom:14px;}
   .card h3{font-size:18px;color:var(--navy);margin:0 0 8px;font-weight:700;}
   .card p{margin:0;font-size:14.6px;color:var(--muted);}
 
@@ -244,7 +248,11 @@
   .cardshot img{width:100%;max-width:300px;border-radius:8px;}
 
   @media (max-width:860px){
-    .cards3,.tech-grid,.dl-grid{grid-template-columns:1fr;}
+    .cards3,.dl-grid{grid-template-columns:1fr;}
+    /* ⛔ .tech-grid 를 여기 묶지 말 것 (별님 2026-09-06) — 한글판은 좁은 폭에서
+       **두 칸**인데 영문만 한 칸이라 여섯 장이 여섯 줄로 늘어져 있었다.
+       PATTERN ANALYSIS 는 이 페이지의 대표 섹션이라 그 차이가 바로 보인다. */
+    .tech-grid{grid-template-columns:repeat(2,1fr);}
     /* ★ 좁은 폭에서도 **두 장씩** (별님 2026-09-06) — 근거는 한글판 같은 자리 주석.
        ⛔ 두 페이지가 갈라지지 않게 할 것. */
     .shots{grid-template-columns:repeat(2,1fr);gap:12px;}

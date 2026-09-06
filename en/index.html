@@ -245,7 +245,9 @@
 
   @media (max-width:860px){
     .cards3,.tech-grid,.dl-grid{grid-template-columns:1fr;}
-    .shots{grid-template-columns:1fr;}
+    /* ★ 좁은 폭에서도 **두 장씩** (별님 2026-09-06) — 근거는 한글판 같은 자리 주석.
+       ⛔ 두 페이지가 갈라지지 않게 할 것. */
+    .shots{grid-template-columns:repeat(2,1fr);gap:12px;}
     .themes figure{flex-basis:46%;}   /* 한글판과 같은 규칙 — 좁은 폭에선 2장씩 */
     .kit{grid-template-columns:1fr;}
     .features{grid-template-columns:1fr;}

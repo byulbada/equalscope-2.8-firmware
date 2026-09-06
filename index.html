@@ -338,7 +338,11 @@
     .hero h1{font-size:30px;} .hero p.sub{font-size:16px;}
     section{padding:42px 16px;}
     .cards3,.features,.kits,.steps,.who,.dl-grid,.levels{grid-template-columns:1fr;}
-    .shots{grid-template-columns:1fr;}   /* 영문판과 같은 규칙 */
+    /* ★ 좁은 폭에서도 **두 장씩** (별님 2026-09-06) — 한 장씩 세우니 여섯 장이
+       여섯 줄이 되어 이 섹션만 한없이 길었다. 두 장씩이면 세 줄이다.
+       ※ 바로 아래 `.themes figure{flex-basis:46%}` 가 이미 같은 규약이다(2장씩).
+       ⛔ 두 페이지가 갈라지지 않게 할 것 — en/index.html 도 같은 값이다. */
+    .shots{grid-template-columns:repeat(2,1fr);gap:12px;}
     .tech-grid{grid-template-columns:repeat(2,1fr);}
     .themes figure{flex-basis:46%;}
     .topbar{padding:10px 16px;}

@@ -108,6 +108,10 @@
            text-transform:uppercase;color:var(--blue);margin-bottom:8px;}
   h2.sec{font-size:28px;font-weight:800;color:var(--navy);text-align:center;margin:0 0 10px;letter-spacing:-.5px;}
   p.sec-lead{text-align:center;color:var(--muted);max-width:720px;margin:0 auto 30px;font-size:16px;}
+  /* ⛔ 이 규칙이 빠져 있었다 (2026-09-06) — `flow-note` 를 세 군데서 쓰는데 정의가 없어
+     그냥 본문으로 나왔다. 한글판(../index.html)과 같은 값이다. */
+  .flow-note{max-width:640px;margin:0 auto;text-align:center;font-size:15px;color:var(--muted);}
+  .flow-note b{color:var(--navy);}
 
   .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:940px;margin:0 auto;}
   .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 20px;}
@@ -281,8 +285,10 @@
            본문을 다시 쓸 때 eyebrow 도 "All-in-one dry training" 으로 맞출 것. -->
     <div class="eyebrows"><span class="eyebrow">Smarter with automatic analysis</span><span class="eyebrow">All-in-one freediving dry training</span></div>
     <h1>Not equalizing alone.<br><span class="pt">Breathing training too.</span></h1>
+    <!-- ★ 둘째 줄에 **컨트랙션**을 넣었다 (별님 2026-09-06) — 근거는 한글판 같은 자리
+         주석. 줄을 늘리지 말고 있던 문장을 고쳐 담을 것(히어로는 두 줄 + 태그라인 고정). -->
     <p class="sub"><span style="color:#eef5fb;font-weight:700;">Equalizing pressure is measured and analysed live, and you are told what to fix.<br>
-       CO₂·O₂ tables are run and recorded with voice guidance.</span><br>No phone, no app.</p>
+       CO₂·O₂ tables are guided by voice, and contractions are detected and recorded on their own.</span><br>No phone, no app.</p>
     <div class="btn-row">
       <a class="btn btn-primary" href="#order">Get in touch</a>
     </div>
@@ -346,33 +352,46 @@
        ⛔ 이 섹션의 캡처 둘(../assets/en/screen-co2-run-strip.png, -graph.png)은
           **영문 UI 로 다시 찍어야 한다.** 그때까지 영문 페이지를 올리지 말 것.
        ⛔ "world's first" 를 쓰지 말 것 — 한글판과 같은 이유(그쪽 주석 참고).
-          이 페이지의 기존 문법인 `not on other devices` 배지를 쓴다. -->
+          이 페이지의 기존 문법인 `not on other devices` 배지를 쓴다.
+       ★★ 2026-09-06 개편 — **근거는 한글판 같은 자리 주석이 정본이다.** 요약:
+          주인공은 "자동으로 남는다"(경쟁 앱은 사람이 탭으로 표시한다) ·
+          ⛔ "not a feeling but data" 금지(신호가 없는 컨트랙션이 실재한다) ·
+          ⛔ "every contraction" 금지 · ⛔ 판정은 실시간이 아니라 **라운드가 끝난 뒤** ·
+          ⛔ "strength" → **movement size**(장비가 재는 것은 배 흔들림의 크기다) ·
+          ⛔ "a measure of CO₂ tolerance" 로 단정하지 말 것. -->
   <section id="contraction">
     <div class="sec-tag">Contraction</div>
-    <h2 class="sec">It measures your contractions too</h2>
+    <h2 class="sec">Contractions, recorded on their own</h2>
     <p class="sec-lead">Hold your breath long enough and your belly starts to twitch on its own.
-       <b>When the first one came, how far apart they fell, how many, how strong</b> —
-       until now those were numbers <b>nobody knew unless someone sat there counting.</b></p>
+       <b>When the first one came, how many, how the gaps changed</b> —
+       until now you had to <b>count them yourself, or tap a button</b> to mark each one.
+       In the hardest part of the hold, of all places.<br><b>Now you don't have to count.</b>
+       The record builds while you stay with the training.</p>
 
     <div class="cards3" style="grid-template-columns:repeat(2,1fr);max-width:760px;margin:0 auto;">
       <div class="card">
         <div class="cardshot"><img loading="lazy" src="../assets/en/screen-co2-run-strip.png" alt="Belly movement drawn along the bottom of the training screen"></div>
         <h3>Just rest it on your belly</h3>
-        <p>Lie down and <b>put the device on your belly</b> — no strap, nothing to attach. While you hold, the movement is drawn live along the bottom of the screen.</p>
+        <p>Lie down and <b>put the device on your belly</b> — no strap, nothing to attach, no button to press. While you hold, <b>the belly movement is drawn live</b> along the bottom of the screen.</p>
       </div>
       <div class="card">
-        <div class="cardshot"><img loading="lazy" src="../assets/en/screen-co2-graph.png" alt="Contraction graph replay listing the time and strength of each contraction"></div>
+        <div class="cardshot"><img loading="lazy" src="../assets/en/screen-co2-graph.png" alt="Contraction graph replay listing the time and movement size of each contraction"></div>
         <h3>Numbers when it ends</h3>
-        <p>Each round summarises <b>how many, when the first one came, the average gap.</b> Open the graph and you get <b>the time and strength of every single one.</b></p>
+        <p>The round is worked out when it finishes. The summary keeps <b>how many, when the first one came, the average gap</b>, and the graph lists <b>the time and movement size of each one</b>.</p>
       </div>
     </div>
 
+    <!-- ⛔ 여기에 "처음 온 시각 · 평균 간격 · 하나하나의 시각" 을 다시 적지 말 것
+         (별님 2026-09-06) — 위 리드와 오른쪽 카드가 이미 두 번 말했다. 마무리 자리다. -->
     <p class="flow-note" style="margin-top:22px;">
-      <b>Time to the first contraction</b> is a measure of CO₂ tolerance. And it <b>does not stop at an average</b> —
-      every contraction is listed with its time and strength, so you can read <b>whether the gaps tighten</b> as the hold goes on.<br>
+      <b>The same idea that put your mouth pressure on a screen now keeps your contractions.</b><br>
+      A hold used to leave a time. Now it leaves the movement that went with it.<br>
       Not found on existing training devices, and it <b>arrives as a firmware update</b> — devices already in use get it too.</p>
 
-    <p class="hero-note" style="margin-top:14px;">Note: it does not count your heartbeat — only movement that <b>clearly rises above it</b>. Everyone's belly moves differently, so the baseline is taken from that hold itself.</p>
+    <!-- ⛔ `hero-note` 를 쓰지 말 것 — 어두운 히어로용 글자색이라 흰 바닥에서 안 읽힌다
+         (근거는 한글판 같은 자리 주석). 본문과 같은 `flow-note` 로 쓴다. -->
+    <p class="flow-note" style="margin-top:16px;">Note: contractions are detected from belly movement.
+      Small movements may go undetected, and the result can change with where the device sits or with other body movement.</p>
   </section>
 
   <!-- ON SCREEN — 한글판 대응. 캡처는 모두 영문 UI (assets/en/) -->
@@ -427,8 +446,8 @@
         <p>Seven colour themes, with the menu in English or Korean. Brightness, alarms and auto power-off are all set on the device itself.</p></div>
       <div class="feat"><h4>CO₂ · O₂ table training<span class="newtag mode">breathing mode</span></h4>
         <p>Four tables are built in, and you can keep <b>up to 50 of your own</b>. Set the number of rounds, the starting time and the step — the table builds itself, and shows you the last round and the total time before you commit.</p></div>
-      <div class="feat"><h4>Contraction detection<span class="newtag">not on other devices</span></h4>
-        <p>Train with the device on your belly and it <b>records your contractions</b> — how many, when the first came, the average gap, plus <b>the time and strength of each one</b>. See <a href="#contraction">Contraction</a> above.</p></div>
+      <div class="feat"><h4>Contractions recorded on their own<span class="newtag">not on other devices</span></h4>
+        <p>Train with the device on your belly and <b>the record builds without you counting</b> — how many, when the first came, the average gap, plus <b>the time and movement size of each one</b>. See <a href="#contraction">Contraction</a> above.</p></div>
       <div class="feat"><h4>Tap to start and stop<span class="newtag">not on other devices</span></h4>
         <p>One hand is busy holding the Equalvent to your nose. <b>Tap the device</b> where it sits on the table to start measuring — and tapping to stop is supported too. It ignores taps while you are holding it. <b>Turn it on in settings</b> and set the sensitivity; it is off by default.</p></div>
       <div class="feat"><h4>English voice guidance<span class="newtag mode">breathing mode</span></h4>

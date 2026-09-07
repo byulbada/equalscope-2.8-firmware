@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Equalscope User Manual</title>
+<meta name="description" content="Equalscope freediving equalization trainer user manual. Measuring, analysis and records, breath training, settings, and firmware updates.">
+<link rel="canonical" href="https://equalscope.kr/en/manual.html">
+<link rel="alternate" hreflang="ko" href="https://equalscope.kr/manual.html">
+<link rel="alternate" hreflang="en" href="https://equalscope.kr/en/manual.html">
+<link rel="alternate" hreflang="x-default" href="https://equalscope.kr/manual.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<!-- 본문 폰트 Pretendard — 영문 랜딩(en/index.html)과 같은 것을 쓴다.
+     동적 서브셋이라 이 페이지에선 라틴 글자만 내려받는다. -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css">
+<!--
+  Equalscope User Manual (English) — 한글 정본 `../manual.html` 의 번역판.
+
+  ★★ **정본은 한글 `manual.html` 이다.** 내용이 바뀌면 **한글을 먼저 고치고 여기로
+     옮긴다.** 이쪽에서 먼저 고치면 두 판이 조용히 갈린다.
+     ⛔ 절 번호·앵커 id(#sec1, #s8_7 …)는 **한글판과 똑같이** 유지할 것 — 두 판을
+        나란히 놓고 대조하는 유일한 수단이고, 밖에서 걸린 링크도 이것을 쓴다.
+
+  ⛔⛔ **장비 화면에 나오는 낱말은 영문 펌웨어의 그것 그대로** 쓴다.
+     정본 = `eqtool_2.8_espidf/main/ui/common/i18n.cpp` 의 `s_str_en[]`.
+     한글 문구를 영어로 새로 옮기지 말 것 — 장비 화면에 없는 낱말이 되면 사용자가
+     화면에서 그것을 못 찾는다. 이 규칙 때문에 아래처럼 갈리는 자리가 있다:
+       설정 버튼   = [Set]      (Settings 아님)
+       분석 버튼   = [Stats]    (Analysis 아님)
+       재시작      = [Reboot]   / 초기화 = [Reset] (메인의 [Reset]과 낱말이 겹친다)
+       참조 해제   = [Unset]    / 참조 등록 = [Ref]
+       시간 안내   = Time cue (min,30s), 값은 Left / Elapsed
+       언어        = Lang       / 자동 종료 = Auto Off
+
+  ══ 화면 사진 ══
+  ⚠️ **지금은 한글 화면 사진을 그대로 쓰고 있다** (2026-09-08, 별님 승인).
+     영문 화면 캡처를 아직 안 찍었기 때문이다. 사진은 `../assets/` 하나를 한·영이
+     같이 본다 — 영문 캡처를 찍으면 `../assets/en/` 을 새로 만들고 이 파일의
+     `<img src>` 만 그쪽으로 돌린다. 한글판은 건드리지 않는다.
+  ★ 어느 사진이 어느 화면인지는 한글판 머리말에 적어 두었다.
+
+  ⛔ 새 펌웨어를 낼 때 **여기 머리말 버전 · 맨 아래 footer 버전** 둘 다 고칠 것.
+-->
+<style>
+  /* 영문 워드마크 폰트 Montserrat — 로컬 임베드 (CDN 의존 제거) */
+  @font-face{font-family:'Montserrat';font-style:normal;font-weight:600;font-display:swap;
+             src:url('../assets/fonts/montserrat-latin-600.woff2') format('woff2');}
+  @font-face{font-family:'Montserrat';font-style:normal;font-weight:700;font-display:swap;
+             src:url('../assets/fonts/montserrat-latin-700.woff2') format('woff2');}
+  :root{
+    --navy:#0d2137; --navy2:#16314f; --orange:#FF6600;
+    --ink:#222; --muted:#5b6b7a; --line:#e2e8ee; --soft:#f4f7fa;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:#e9edf1;color:var(--ink);
+       font-family:"Pretendard","Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;line-height:1.65;font-size:15px;}
+  .wrap{max-width:820px;margin:0 auto;background:#fff;
+        box-shadow:0 1px 10px rgba(0,0,0,.12);}
+
+  /* 헤더 배너 */
+  header{background:var(--navy);color:#fff;padding:30px 38px 24px;}
+  header .brand{display:flex;align-items:center;gap:10px;font-family:"Montserrat","Pretendard",sans-serif;font-size:30px;font-weight:600;color:var(--orange);letter-spacing:-.5px;}
+  header .brand .mark{height:35px;width:auto;margin:-4px 0;}
+  header .brand b{color:inherit;}
+  header h1{font-size:18px;font-weight:600;margin:6px 0 14px;color:#dfe7ef;}
+  header .meta{font-size:12.5px;color:#9fb1c2;line-height:1.7;border-top:1px solid #27425f;padding-top:12px;}
+  header .meta a{color:var(--orange);text-decoration:none;}
+
+  main{padding:8px 38px 40px;}
+
+  h2{font-size:21px;color:var(--navy);margin:34px 0 6px;padding:8px 0 8px 12px;
+     border-left:5px solid var(--orange);background:linear-gradient(90deg,var(--soft),transparent);}
+  h3{font-size:16px;color:var(--navy2);margin:22px 0 6px;}
+  h4{font-size:14px;color:#37506b;margin:16px 0 4px;}
+  p{margin:8px 0;}
+  a{color:#0a6ebd;}
+  hr{border:none;border-top:1px solid var(--line);margin:26px 0;}
+
+  ul,ol{margin:8px 0 8px 4px;padding-left:22px;}
+  li{margin:4px 0;}
+
+  code{background:#eef2f6;border:1px solid #e0e6ec;border-radius:4px;
+       padding:1px 5px;font-size:13px;font-family:Consolas,"D2Coding",monospace;color:#234;}
+  pre{background:var(--navy);color:#e6eef6;padding:12px 14px;border-radius:6px;
+      font-size:13px;overflow:auto;font-family:Consolas,"D2Coding",monospace;}
+
+  table{width:100%;border-collapse:collapse;margin:10px 0 4px;font-size:14px;}
+  th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top;}
+  /* 표 첫 열(항목/버튼/표시 라벨)은 줄바꿈 없이 한 줄로 */
+  th:first-child,td:first-child{white-space:nowrap;}
+  th{background:var(--navy);color:#fff;font-weight:600;}
+  tbody tr:nth-child(even){background:var(--soft);}
+  /* ⛔ 영문은 낱말이 길어 첫 열 nowrap 이 표를 밖으로 밀어낸다 — 문장이 들어가는
+     표(FAQ·패턴·경고·설정)는 한글판과 같은 클래스로 폭을 못박고 nowrap 을 푼다. */
+  table.faq{table-layout:fixed;}
+  table.faq th:first-child,table.faq td:first-child{width:32%;white-space:normal;overflow-wrap:anywhere;}
+  table.pat3{table-layout:fixed;}
+  table.pat3 th:first-child,table.pat3 td:first-child{width:25%;white-space:normal;}
+  table.warn3{table-layout:fixed;}
+  table.warn3 th:first-child,table.warn3 td:first-child{width:26%;white-space:normal;}
+  table.warn3 th:nth-child(2),table.warn3 td:nth-child(2){width:30%;}
+  /* ⛔⛔ `.setbl` 은 **4열(항목/페이지/범위/설명) 설정 표 전용**이다. 2열에 nowrap 이
+     걸려 있어 그 자리에 문장이 오는 표에 붙이면 글자가 옆 열과 겹친다. */
+  table.setbl{table-layout:fixed;}
+  table.setbl th:first-child,table.setbl td:first-child{width:24%;white-space:normal;}
+  table.setbl th:nth-child(2),table.setbl td:nth-child(2){width:16%;white-space:nowrap;}
+  table.setbl th:nth-child(3),table.setbl td:nth-child(3){width:16%;}
+  /* 3열 설정 표(항목/범위/설명) — 페이지 열이 없으니 nowrap 도 없다 */
+  table.setbl3{table-layout:fixed;}
+  table.setbl3 th:first-child,table.setbl3 td:first-child{width:26%;white-space:normal;}
+  table.setbl3 th:nth-child(2),table.setbl3 td:nth-child(2){width:22%;}
+  /* 3열 내용 표(구성품·사양·패턴 등) — 첫 열의 영문 라벨이 길어 nowrap 을 푼다 */
+  table.lbl2 th:first-child,table.lbl2 td:first-child{white-space:normal;width:26%;}
+
+  blockquote{margin:12px 0;padding:10px 14px;border-radius:6px;
+             background:var(--soft);border-left:4px solid #9bb0c4;color:#33485e;font-size:14px;}
+  blockquote.warn{background:#fff4ec;border-left-color:var(--orange);color:#9a3d08;}
+  blockquote p{margin:4px 0;}
+
+  .toc{background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:14px 20px;margin:18px 0;}
+  .toc h2{border:0;background:none;margin:0 0 8px;padding:0;font-size:16px;}
+  .toc ol{columns:2;column-gap:30px;margin:0;padding-left:20px;}
+  .toc a{color:var(--navy2);text-decoration:none;}
+  .toc a:hover{color:var(--orange);}
+  .star{color:var(--orange);}
+
+  footer{background:var(--navy);color:#9fb1c2;font-size:12px;padding:16px 38px;text-align:center;}
+
+  @media print{
+    body{background:#fff;font-size:11.5pt;}
+    .wrap{box-shadow:none;max-width:none;}
+    header{padding:2px 0 14px;background:#fff;color:var(--ink);}
+    header h1{color:var(--ink);}
+    header .meta{color:#555;border-top-color:var(--line);}
+    footer{background:#fff;color:var(--ink);}
+    main{padding:0;}
+    h2,h3,h4{page-break-after:avoid;}
+    tr{page-break-inside:avoid;}
+    a{color:var(--ink);text-decoration:none;}
+    th{background:#eef2f6;color:var(--ink);font-weight:800;border-bottom:2px solid var(--navy);}
+    @page{size:A4;margin:10mm 14mm 14mm;}
+  }
+  figure.fig{margin:16px 0;text-align:center;}
+  figure.fig img{max-width:480px;width:100%;border:1px solid var(--line);border-radius:8px;}
+  figure.fig.shot img{max-width:340px;background:#0a0f14;border:0;padding:8px;}
+  figure.fig figcaption{font-size:13px;color:var(--muted);margin-top:6px;}
+  .figrow{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:16px 0;}
+  .figrow figure{margin:0;text-align:center;}
+  .figrow.shots figure{flex:1 1 150px;max-width:200px;}
+  .figrow.shots img{width:100%;background:#0a0f14;border-radius:6px;}
+  .figrow.pair figure{flex:1 1 280px;max-width:320px;}
+  .figrow.pair img{width:100%;background:#0a0f14;border-radius:6px;}
+  .figrow.patterns figure{flex:0 1 30%;max-width:31%;}
+  .figrow.themes figure{flex:0 1 22%;max-width:23%;}
+  .figrow.themes img{width:100%;border:1px solid var(--line);border-radius:5px;}
+  .figrow.pair.wide figure{flex:1 1 0;max-width:none;}
+  .figrow figcaption{font-size:12px;color:var(--muted);margin-top:4px;}
+  /* ══ 좁은 화면(휴대폰) — 한글판과 같은 규칙 ══
+     ⛔ 고정 폭을 좁은 화면까지 끌고 가지 말 것. 넓은 화면에서 설명 열을 넉넉히
+        주려고 못박은 값이라, 좁아지면 오히려 반대로 작동한다. */
+  @media (max-width:640px){
+    header{padding:20px 16px 16px;}
+    header .brand{font-size:24px;}
+    main{padding:8px 14px 30px;}
+    footer{padding:14px 16px;}
+    table{font-size:13px;}
+    th,td{padding:6px 7px;}
+    table.setbl,table.setbl3{table-layout:auto;}
+    table.setbl th,table.setbl td,
+    table.setbl3 th,table.setbl3 td{width:auto;}
+    table.setbl th:nth-child(2),table.setbl td:nth-child(2){width:1%;white-space:nowrap;}
+    table.setbl th:nth-child(3),table.setbl td:nth-child(3){width:auto;}
+    table.warn3,table.pat3,table.faq{table-layout:auto;}
+    table.warn3 th,table.warn3 td,table.pat3 th,table.pat3 td,
+    table.faq th,table.faq td{width:auto;}
+    table.lbl2 th:first-child,table.lbl2 td:first-child{width:auto;}
+    .toc ol{columns:1;}
+    /* 그래도 넘치는 표가 생기면 잘리지 말고 옆으로 밀리게 — 마지막 안전망 */
+    main{overflow-x:auto;}
+  }
+
+  @media print{ figure.fig,.figrow{page-break-inside:avoid;}
+    /* ⛔ `figure.fig.shot img` 를 따로 적어 줘야 한다 — 화면용 규칙이 클래스가 하나
+       더 많아 이기기 때문이다. 같은 종류 사진은 인쇄에서도 같은 크기다. */
+    figure.fig img,figure.fig.shot img,.figrow.shots img{max-width:300px;}
+    .figrow.pair figure{max-width:300px;} .figrow.pair img{max-width:300px;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="brand"><img class="mark" src="../assets/brand/byulbada-dive_symbol.svg" alt="">Equalscope</div>
+  <h1>User Manual — full reference</h1>
+  <!-- ★ 릴리스 때 버전·날짜를 여기와 **맨 아래 footer 두 곳** 다 고칠 것. -->
+  <div class="meta">
+    Freediving equalization training device<br>
+    For firmware v2.4a · Updated 2026-09-08 · For the short version see the printable <a href="quickstart.html">quick start</a><br>
+    <a href="../manual.html" hreflang="ko">한국어 매뉴얼</a>
+  </div>
+</header>
+
+<main>
+
+<nav class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#sec1">Before you start</a></li>
+    <li><a href="#sec2">Basic measurement</a></li>
+    <li><a href="#sec3">Screen controls</a></li>
+    <li><a href="#sec4">Reading the graph</a></li>
+    <li><a href="#sec5">Session analysis</a></li>
+    <li><a href="#sec6">Managing files</a></li>
+    <li><a href="#sec7">Rhythm training</a></li>
+    <li><a href="#sec8">Breath training (CO2 / O2)</a></li>
+    <li><a href="#sec9">Settings</a></li>
+    <li><a href="#sec10">Care and updates</a></li>
+    <li><a href="#sec11">Troubleshooting (FAQ)</a></li>
+    <li><a href="#sec12">Safety</a></li>
+  </ol>
+</nav>
+
+<!-- 1 -->
+<h2 id="sec1">1. Before you start</h2>
+
+<h3 id="s1_1">1.1 What is in the box</h3>
+<figure class="fig photo"><img src="../assets/kit-orange.jpg" alt="Equalscope kit"><figcaption>In the box: device · stand · Equal Vent · tube · pressure relief valve · USB cable</figcaption></figure>
+<table class="lbl2">
+  <thead><tr><th>Part</th><th>What it is</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Device</strong></td><td>2.8" touch LCD · pressure sensor · SD card slot (card sold separately) · built-in battery · speaker · USB port</td></tr>
+    <tr><td><strong>Accessories</strong></td><td>Equal Vent (Nemo / whale shark character) · 4&nbsp;mm PU tube · pressure relief valve · USB cable</td></tr>
+    <tr><td><strong>Case</strong></td><td>3D-printed body (orange / blue) · stand that doubles as a connector cover</td></tr>
+  </tbody>
+</table>
+
+<h3 id="s1_2">1.2 Charging and power</h3>
+<figure class="fig photo"><img src="../assets/port-usb.jpg" alt="USB port"><figcaption>USB-C charging port — a green light to the left of the connector is on while charging, and goes out when the battery is full</figcaption></figure>
+<ul>
+  <li><strong>Charging</strong>: plug a <strong>USB-C cable</strong> into the port on the device.
+    <ul><li>A <strong>green light to the left of the USB connector</strong> comes on so you can see it is charging. <strong>The light goes out when charging is finished.</strong></li>
+        <li>The battery reading refreshes <strong>about every 10 seconds</strong>, so you can also watch the percentage climb while it charges.</li></ul></li>
+  <li><strong>Turning it on</strong>: hold the physical power button for <strong>about 3 seconds</strong>. After the splash screen it spends <strong>about 5 seconds setting the zero point</strong>.
+    <ul><li>⚠️ <strong>While it is zeroing</strong>, do not hold the Equal Vent to your nose or put any pressure into the tube — <strong>leave it at ambient pressure.</strong> The baseline it takes here decides how accurate everything after it is.</li></ul></li>
+  <li><strong>Turning it off</strong>: two ways.
+    <ul><li>Hold the <strong>physical power button</strong> for about 3 seconds</li>
+        <li>Press <strong>[Power] on the main screen</strong></li></ul></li>
+  <li><strong>Auto off</strong>: it switches itself off after the set idle time (<a href="#s9_4">9.4</a>).</li>
+  <li><strong>Low battery protection</strong>: below <strong>15%</strong> it beeps at intervals; below <strong>5%</strong> it counts down 10 seconds, saves the measurement and shuts down. Charge it when you hear the warning (it does not trigger while charging).</li>
+</ul>
+
+<h3 id="s1_3">1.3 SD card</h3>
+<figure class="fig photo"><img src="../assets/slot-sd.jpg" alt="SD card slot"><figcaption>SD card slot on the side (you can insert and remove it with the device switched on)</figcaption></figure>
+<ul>
+  <li>It goes in the slot on the device, and you <strong>can insert and remove it while the device is on.</strong></li>
+  <li>It is used for measurement files and screenshots.</li>
+  <li>You can measure and save <strong>without a card</strong>, using the <strong>internal memory</strong> (see <a href="#s6_2">6.2</a> for the difference).</li>
+  <li><strong>Firmware updates no longer need an SD card either</strong> — a USB cable is enough (<a href="#s10_1">10.1</a>).</li>
+  <li><strong>Any card works.</strong> 32&nbsp;GB and under (FAT32) of course, and <strong>64&nbsp;GB and larger cards (exFAT)</strong> are read as they are. The card from your action camera is fine.
+    <ul><li>Measurement files are tiny — <strong>8&nbsp;GB lasts years</strong>. You do not need a big card.</li>
+        <li><strong>Firmware v1.1g and older</strong> cannot read cards of 64&nbsp;GB and up. If you are on one of those, format a card as FAT32, <strong>do the update first</strong>, and after that any card will do.</li></ul></li>
+</ul>
+
+<h3 id="s1_4">1.4 Specifications</h3>
+<!-- ⛔⛔ **랜딩(en/index.html)의 사양 표와 같은 내용·같은 차례**로 유지할 것.
+     한쪽을 고치면 다른 쪽도 같이 본다. 한글판 1.4 와도 같은 차례다. -->
+<table class="lbl2">
+  <thead><tr><th>Item</th><th>Detail</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Model</strong></td><td>EQ-28</td></tr>
+    <tr><td><strong>Display</strong></td><td>2.8-inch touch LCD (320×240, landscape)</td></tr>
+    <tr><td><strong>Size</strong></td><td>Device 90 × 77.6 × 25&nbsp;mm · bag 180 × 120 × 60&nbsp;mm</td></tr>
+    <tr><td><strong>Pressure sensing</strong></td><td>Pressure sensor · 40&nbsp;Hz sampling · automatic zeroing at power-on</td></tr>
+    <tr><td><strong>Motion sensor</strong></td><td>6-axis accelerometer / gyro — contraction detection · tap to start · movement detection while zeroing</td></tr>
+    <tr><td><strong>Training modes</strong></td><td>Equalization measurement · breath training (CO₂ / O₂ tables) — chosen at power-on</td></tr>
+    <tr><td><strong>Storage</strong></td><td>Internal memory + microSD slot (sessions as CSV / screenshots as PNG) · SD card not included</td></tr>
+    <tr><td><strong>Audio</strong></td><td>Speaker — pressure alarm · EQ Interval alarm · English voice guidance for breath training (female / male)</td></tr>
+    <tr><td><strong>Power</strong></td><td>Built-in Li-Po battery 3.7&nbsp;V 1,000&nbsp;mAh (USB charging)</td></tr>
+    <tr><td><strong>Connection · updates</strong></td><td>USB file transfer to a PC · firmware update by <strong>USB cable or SD card</strong></td></tr>
+    <tr><td><strong>Connector</strong></td><td>4&nbsp;mm pneumatic quick connector</td></tr>
+    <tr><td><strong>Languages</strong></td><td>English / Korean</td></tr>
+    <tr><td><strong>Certification</strong></td><td>KC radio certification · R-R-SSD1-EQ-28</td></tr>
+    <tr><td><strong>Intended use</strong></td><td>Dry land training only · not waterproof · not a medical device</td></tr>
+    <tr><td><strong>In the box</strong></td><td>Device · stand · Equal Vent · tube · graduated pressure relief valve · USB cable</td></tr>
+  </tbody>
+</table>
+
+<!-- 2 -->
+<h2 id="sec2">2. Basic measurement</h2>
+
+<h3 id="s2_1">2.1 Connecting and wearing</h3>
+<figure class="fig photo"><img src="../assets/connect-h.jpg" alt="Assembled Equalscope set"><figcaption>Device ↔ tube ↔ Equal Vent, all connected</figcaption></figure>
+<ol>
+  <li><strong>Device ↔ tube</strong>: push the connector on the end of the tube onto the connector on the device until it <strong>clicks</strong>. To take it off, simply pull the tube connector straight off.</li>
+  <li><strong>Tube ↔ Equal Vent</strong>: <strong>push the tube straight into</strong> the push-fit on the Equal Vent. To remove it, <strong>press down the plastic collar on the fitting</strong> and pull the tube out.</li>
+  <li>Switch on, wait for the zeroing to finish, and you are ready to measure.</li>
+  <li><strong>You hold the Equal Vent up to your nose when you measure</strong> — line up the <strong>holes on the front of the Equal Vent with your nostrils</strong>. (Do this after you start the measurement — see <a href="#s2_3">2.3</a>.)</li>
+</ol>
+
+<h3 id="s2_2">2.2 Using the pressure relief valve</h3>
+<figure class="fig photo"><img src="../assets/valve-orange.jpg" alt="Pressure relief valve"><figcaption>Pressure relief valve — pull the graduated dial to turn it, push it in to lock</figcaption></figure>
+<ul>
+  <li>The <strong>graduated dial</strong> sets how much air bleeds out. <strong>The higher the number, the more pressure escapes.</strong></li>
+  <li><strong>How to use it</strong>: to change the setting, <strong>pull the valve out and turn it</strong>; to lock it there, <strong>push it back in</strong>.</li>
+  <li>It <strong>indirectly simulates</strong> the air in your mouth running out, so you can practise the techniques that matter at depth — <strong>mouthfill above all</strong> — on dry land, over and over.</li>
+  <li>Because the dial is graduated, it is easy to <strong>set the same conditions again</strong> next time.</li>
+</ul>
+
+<h3 id="s2_3">2.3 How a measurement runs</h3>
+<pre>press [Start] → equalize (live graph) → [Stop] → saved automatically → [Stats]</pre>
+<ol>
+  <li><strong>[Start]</strong> — begins the measurement. The graph is drawn live.</li>
+  <li><strong>Measure</strong> — hold the Equal Vent <strong>up to your nose</strong> and equalize. Current, minimum and maximum pressure are shown as numbers and on the graph.</li>
+  <li><strong>[Stop]</strong> — when you stop, the result is <strong>saved automatically</strong> (<a href="#s6_1">6.1</a>).</li>
+  <li><strong>[Stats]</strong> — after stopping, the [Start] button becomes [Stats]. Press it to see the pattern analysis (<a href="#sec5">chapter 5</a>).</li>
+  <li>To measure again, press <strong>[Reset]</strong> to clear the graph.</li>
+</ol>
+
+<h3 id="s2_4">2.4 Reading the main screen</h3>
+<figure class="fig shot"><img src="../assets/screen-frenzel.png" alt="Live measurement graph"><figcaption>Main screen while measuring — three pressure values, stopwatch and battery on top, live graph in the middle, five buttons along the bottom</figcaption></figure>
+<p>While you measure, the main screen shows all of this at once.</p>
+<ul>
+  <li><strong>Three pressure values</strong> — current / minimum (▼) / maximum (▲), in hPa</li>
+  <li><strong>Stopwatch</strong> — top left, elapsed time (hh:mm:ss)</li>
+  <li><strong>Battery</strong> — top right</li>
+  <li><strong>Live graph</strong> — in the middle. It tracks the run so far with an <strong>orange line for the highest point and a red line for the lowest</strong> (chapter <a href="#sec4">4</a> covers this in detail)</li>
+</ul>
+
+<!-- 3 -->
+<h2 id="sec3">3. Screen controls</h2>
+
+<h3 id="s3_1">3.1 The five buttons</h3>
+<p>There are five buttons along the bottom of the main screen. <code>[Start] [Files] [Reset] [Set] [Power]</code></p>
+<table class="lbl2">
+  <thead><tr><th>Button</th><th>What it does</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Start</strong></td><td>Starts a measurement. While measuring it reads <strong>Stop</strong>, and after stopping it reads <strong>Stats</strong></td></tr>
+    <tr><td><strong>Files</strong></td><td>Shows your saved measurements (<a href="#sec6">chapter 6</a>)</td></tr>
+    <tr><td><strong>Reset</strong></td><td>Clears the graph and returns to the ready state</td></tr>
+    <tr><td><strong>Set</strong></td><td>Options and theme (<a href="#sec9">chapter 9</a>)</td></tr>
+    <tr><td><strong>Power</strong></td><td>Switches the device off (icon only). Holding the physical power button for 3 seconds does the same</td></tr>
+  </tbody>
+</table>
+
+<h3 id="s3_2">3.2 Gestures</h3>
+<table class="lbl2">
+  <thead><tr><th>Gesture</th><th>What it does</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Pinch</strong> (two fingers)</td><td>Zooms the graph in and out along the time axis</td></tr>
+    <tr><td><strong>Swipe</strong> (one finger, left / right)</td><td>Scrolls the graph sideways</td></tr>
+    <tr><td><strong>Three-finger tap</strong></td><td>Screenshot (needs an SD card — see <a href="#s6_7">6.7</a>)</td></tr>
+    <tr><td><strong>Tap the device</strong></td><td>Starts a measurement; tap again to stop. <strong>Off by default</strong> — turn it on in settings page 4 (<a href="#s9_4">9.4</a>)</td></tr>
+  </tbody>
+</table>
+<p><strong>Tapping</strong> is for the moment when <strong>one hand is busy holding the Equal Vent to your nose.</strong>
+Give the device a light <strong>tap</strong> where it sits on the table and the measurement starts;
+tap it once more to stop. You do not have to hit a button accurately.</p>
+<blockquote>It does not respond while you are <strong>holding it in your hand</strong>. Only a tap on a device that was sitting still counts.
+If it misses your taps or reacts too easily, adjust <strong>Tap sensitivity</strong> (<a href="#s9_4">9.4</a>).</blockquote>
+
+<!-- 4 -->
+<h2 id="sec4">4. Reading the graph</h2>
+<p>On the live graph in the middle of the main screen, <strong>the horizontal axis is time and the vertical axis is pressure (hPa)</strong>.
+It samples at 40&nbsp;Hz (40 times a second), so the pressure in your mouth and ears is drawn almost in real time.</p>
+
+<h3 id="s4_1">4.1 What is on the graph</h3>
+<div class="figrow pair">
+  <figure><img src="../assets/screen-markers.png" alt="Single graph with peak and trough markers"><figcaption>(left) A single session — peak and trough markers plus the average lines</figcaption></figure>
+  <figure><img src="../assets/screen-measure.png" alt="Graph with a reference overlaid"><figcaption>(right) With a reference — your line, the reference line and the training band</figcaption></figure>
+</div>
+<table class="pat3">
+  <thead><tr><th>Element</th><th>Looks like</th><th>Meaning</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Your line</strong></td><td>Solid line</td><td>The pressure being measured right now. The main subject of the graph</td></tr>
+    <tr><td><strong>Peak marker</strong></td><td>Mark / dot above</td><td>The highest pressure in the session</td></tr>
+    <tr><td><strong>Trough marker</strong></td><td>Mark / dot below</td><td>The lowest pressure in the session</td></tr>
+    <tr><td><strong>Reference line</strong></td><td>Line in a separate colour</td><td>A reference session you have loaded — see <a href="#s6_5">6.5</a></td></tr>
+    <tr><td><strong>Average lines</strong></td><td>Horizontal lines</td><td>Average height of the analysed peaks and troughs (shown after you stop)</td></tr>
+    <tr><td><strong>Training band</strong></td><td>Shaded band with dotted edges</td><td>The pressure alarm range you set (<a href="#s9_2">9.2</a>)</td></tr>
+  </tbody>
+</table>
+
+<h3 id="s4_2">4.2 The numbers at the top</h3>
+<p>Three pressure values are shown live above the graph.</p>
+<ul>
+  <li><strong>Current pressure</strong> — the pressure at this moment</li>
+  <li><strong>Minimum</strong> (▼) — the lowest value since the measurement started</li>
+  <li><strong>Maximum</strong> (▲) — the highest value since the measurement started</li>
+</ul>
+<p>The <strong>stopwatch</strong> (elapsed time) sits in the top left and the <strong>battery</strong> in the top right.</p>
+
+<h3 id="s4_3">4.3 The training band (pressure alarm range)</h3>
+<p>Turn the pressure alarm on in settings (<a href="#s9_2">9.2</a>) and the <strong>range you set between the minimum and maximum</strong> is drawn on the graph as a shaded band, with dotted lines along the top and bottom edges.</p>
+<ul>
+  <li>Use it to <strong>keep your equalization inside a target range while you watch it happen.</strong></li>
+  <li>If the pressure leaves the range, the device sounds an alarm (as long as the volume is up).</li>
+</ul>
+
+<h3 id="s4_4">4.4 Zooming and scrolling</h3>
+<ul>
+  <li><strong>Pinch (two fingers apart or together)</strong> — zooms the time axis in and out, to look closely at a short stretch or see the whole session at once.</li>
+  <li><strong>Swipe (one finger, left or right)</strong> — scrolls the graph sideways while zoomed in. Your line and the reference line move together.</li>
+</ul>
+<blockquote>The zoom level is shown at the bottom right (x1, 1/2 and so on). You can change the starting zoom in settings (<a href="#s9_3">9.3</a>).</blockquote>
+
+<!-- 5 -->
+<h2 id="sec5">5. Session analysis</h2>
+<figure class="fig shot"><img src="../assets/screen-analysis.png" alt="Analysis screen"><figcaption>Analysis screen — the numbers, the pattern verdict with its confidence, and an advice message</figcaption></figure>
+<p>When you stop a measurement it is saved automatically and <strong>the [Start] button becomes [Stats].</strong>
+Press it to see the numbers, the pattern verdict and a message of advice.</p>
+
+<h3 id="s5_1">5.1 Reading the numbers</h3>
+<p>Here is what the figures on the analysis screen mean.
+<strong>Which ones you see depends on the pattern</strong> — oscillating patterns (the Valsalva and Frenzel family) get peak-based figures, while sustained patterns (mouthfill) get stability-based ones.</p>
+
+<h4>Shown for every session</h4>
+<table class="pat3">
+  <thead><tr><th>Label</th><th>Meaning</th><th>How to read it</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Time</strong></td><td>How long the session lasted (seconds)</td><td></td></tr>
+    <tr><td><strong>Max / Min</strong></td><td>Highest and lowest pressure in the session (hPa)</td><td></td></tr>
+    <tr><td><strong>Avg</strong></td><td>Average pressure over the session (hPa)</td><td></td></tr>
+  </tbody>
+</table>
+
+<h4>Oscillating patterns (Valsalva / Frenzel / mouthfill Frenzel / BTV)</h4>
+<table class="pat3">
+  <thead><tr><th>Label</th><th>Meaning</th><th>How to read it</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Peaks</strong></td><td>How many equalizations (peaks) were detected</td><td>The number of repeated equalizations</td></tr>
+    <tr><td><strong>Interval</strong></td><td>Average gap between peaks (seconds)</td><td>How long one equalization took on average. The steadier it is, the steadier your rhythm</td></tr>
+    <tr><td><strong>Peak CV</strong></td><td>How uneven the peak heights are (%)</td><td><strong>Lower is more even</strong> — you equalized with a similar strength every time. High means it varied</td></tr>
+    <tr><td><strong>Rise speed</strong></td><td>Average speed from trough to peak (hPa/s)</td><td><strong>Higher means faster pressurization.</strong> Frenzel tends to be faster than Valsalva</td></tr>
+    <tr><td><strong>Fall speed</strong></td><td>Average speed from peak to trough (hPa/s)</td><td>How quickly you release the pressure</td></tr>
+    <tr><td><strong>Hold</strong></td><td>Average time spent near the top of a peak (seconds)</td><td><strong>Short means Frenzel (sharp peaks), long means Valsalva (broad peaks)</strong></td></tr>
+    <tr><td><strong>Hi (avg)</strong></td><td>Average pressure of the peaks (hPa)</td><td></td></tr>
+    <tr><td><strong>Lo (avg)</strong></td><td>Average pressure of the troughs between peaks (hPa)</td><td></td></tr>
+  </tbody>
+</table>
+<blockquote><strong>A feel for the rise and fall speeds</strong>: the unit is hPa/s, and <strong>a bigger number means a faster change</strong>.
+(The label already says "speed", so the unit is left off the screen.)</blockquote>
+
+<h4>Sustained pattern (mouthfill)</h4>
+<table class="pat3">
+  <thead><tr><th>Label</th><th>Meaning</th><th>How to read it</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Hold</strong></td><td>How long you held the pressure (seconds)</td><td>How long you kept the mouthfill pressure steady</td></tr>
+    <tr><td><strong>Pressure SD</strong></td><td>How much the pressure wobbled while you held it (hPa)</td><td><strong>Smaller is steadier.</strong> You kept an even pressure against the ears</td></tr>
+  </tbody>
+</table>
+
+<h3 id="s5_2">5.2 The six patterns</h3>
+<div class="figrow shots patterns">
+  <figure><img src="../assets/tech-valsalva.png" alt="Valsalva graph"><figcaption>Valsalva</figcaption></figure>
+  <figure><img src="../assets/tech-valsalva-frenzel.png" alt="Valsalva plus Frenzel graph"><figcaption>Valsalva + Frenzel</figcaption></figure>
+  <figure><img src="../assets/tech-frenzel.png" alt="Frenzel graph"><figcaption>Frenzel</figcaption></figure>
+  <figure><img src="../assets/tech-mouthfill.png" alt="Mouthfill graph"><figcaption>Mouthfill</figcaption></figure>
+  <figure><img src="../assets/tech-mouthfill-frenzel.png" alt="Mouthfill Frenzel graph"><figcaption>Mouthfill Frenzel</figcaption></figure>
+  <figure><img src="../assets/tech-btv.png" alt="BTV (hands-free) graph"><figcaption>BTV (hands-free)</figcaption></figure>
+</div>
+<p>Equalscope weighs up the shape of the curve and sorts it into one of six technique patterns.</p>
+<table class="pat3">
+  <thead><tr><th>Pattern</th><th>Shape of the curve</th><th>What it means</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Valsalva</strong></td><td>Slow rise, <strong>broad peaks</strong> (long time at the top)</td><td>Driven by abdominal and chest pressure. It runs out at depth. The usual candidate for switching to Frenzel</td></tr>
+    <tr><td><strong>Valsalva + Frenzel</strong></td><td>Slow rise → a <strong>shoulder</strong> → a sharp Frenzel push</td><td>A mix with some Valsalva left in it. The shoulder is the evidence of the switch</td></tr>
+    <tr><td><strong>Frenzel</strong></td><td>Fast rise, <strong>narrow sharp peaks</strong> (short time at the top)</td><td>Pressure delivered by the tongue. Efficient, and the basis for going deeper</td></tr>
+    <tr><td><strong>Mouthfill</strong></td><td><strong>Low pressure held for a long time</strong></td><td>Air stored in the mouth and spent slowly. The key technique at depth</td></tr>
+    <tr><td><strong>Mouthfill Frenzel</strong></td><td><strong>Small repeated peaks</strong> on top of a high trough</td><td>An advanced pattern: the mouthfill air spent in small Frenzel portions</td></tr>
+    <tr><td><strong>BTV</strong> (hands-free)</td><td>Regular oscillation at <strong>very low pressure</strong></td><td>Opening the tubes directly with the muscles around them instead of pushing air. Largely innate, and rare</td></tr>
+  </tbody>
+</table>
+
+<h3 id="s5_3">5.3 Confidence in the verdict</h3>
+<p>A <strong>confidence figure (%)</strong> may be shown next to the pattern. It says how clear-cut the verdict is.</p>
+<ul>
+  <li><strong>High (clear)</strong> — the curve is close to the textbook form of that pattern.</li>
+  <li><strong>Around 50% (borderline)</strong> — halfway between two patterns. It might be, say, "half Valsalva and half Frenzel".</li>
+  <li><strong>Low (inconsistent)</strong> — read this as a sign that your technique <strong>was not consistent</strong> through the session.</li>
+</ul>
+
+<h3 id="s5_4">5.4 Quality grade and warnings</h3>
+<p>The verdict comes with a <strong>quality grade</strong> and any <strong>warnings</strong>.</p>
+<p><strong>Quality grade</strong></p>
+<ul>
+  <li>Oscillating patterns: the more <strong>even</strong> your peaks, the better the grade — you equalized with a similar strength every time.</li>
+  <li>Sustained pattern (mouthfill): the grade comes from how <strong>steadily you held</strong> the pressure.</li>
+</ul>
+<p><strong>Warnings (shown when they apply)</strong></p>
+<table class="warn3">
+  <thead><tr><th>Warning</th><th>Meaning</th><th>What to check</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Negative pressure</strong> (two levels)</td><td>Pressure dropped below zero between equalizations</td><td>Equalizing is about <strong>pushing</strong> air — check that no sucking has crept in. If it is <strong>shallow and rare</strong> the device simply tells you it happened; if it is <strong>deep or repeated</strong> it warns you more firmly (at depth this can injure the ears)</td></tr>
+    <tr><td><strong>Over-pressure</strong></td><td>Abnormally high pressure</td><td>Forcing it — risk of injury, ease off</td></tr>
+    <tr><td><strong>Unstable late on</strong></td><td>Pressure wobbles in the later part of the session</td><td>The point where endurance or concentration gave out</td></tr>
+    <tr><td><strong>Short session</strong></td><td>Not long enough to analyse</td><td>Measure for longer</td></tr>
+  </tbody>
+</table>
+
+<h3 id="s5_5">5.5 Technique per block (EQ Interval)</h3>
+<p>If you record with <strong>EQ Interval</strong> (<a href="#s7_1">7.1</a>) turned on, the device <strong>judges the technique in each interval block separately</strong>.
+So you can train the way a descent usually goes — <strong>"Frenzel while it is shallow, then mouthfill deeper down"</strong> — and each block is analysed on its own instead of the whole session being lumped together.</p>
+<figure class="fig shot"><img src="../assets/screen-segments.png" alt="Per-block technique analysis — a summary and the figures and advice for each block"><figcaption>A summary by block, then the figures and advice for each one (for example block 1 Frenzel, block 2 mouthfill)</figcaption></figure>
+<ul>
+  <li>The <strong>summary by block</strong> sits at the top of the analysis screen (for example "1: Frenzel / 2–3: mouthfill").</li>
+  <li>Below it come <strong>the figures and advice for each block</strong> in order — the same content as the whole-session analysis (5.1–5.4), one block at a time.</li>
+  <li>If a block is too short (under about 5 seconds) it is marked as not having enough to analyse.</li>
+  <li>Sessions recorded with the interval off are analysed <strong>as one whole</strong>, as before.</li>
+</ul>
+
+<h3 id="s5_6">5.6 Making use of the advice</h3>
+<p>At the bottom of the analysis screen is a <strong>message of advice</strong> matched to the pattern and the quality.
+(For example: "There is still some Valsalva in this. Ease off the abdominal effort and work on delivering a short push with the tongue.")</p>
+<p>Open the same recording again and you get the same advice, but <strong>a different recording is described differently.</strong></p>
+<blockquote class="warn">⚠️ This analysis and advice are <strong>for reference, based on the measured pressure pattern.</strong>
+They are not a medical diagnosis or a guarantee of safety. Train under the supervision of a qualified instructor.</blockquote>
+
+<h3 id="s5_7">5.7 Comparison (firmware 2.2 and later)</h3>
+<figure class="fig shot"><img src="../assets/screen-compare-btn.png" alt="Main screen with the Compare button"><figcaption>With a reference loaded, the first button becomes <strong>[Compare]</strong> instead of [Stats]</figcaption></figure>
+<p>Open another recording while a reference is loaded and <strong>the [Stats] button becomes [Compare].</strong>
+Press it and you first get a table with the two sets of numbers side by side, then a few lines saying what has changed.
+The analysis of the current recording follows as usual.</p>
+<p><strong>How to use it</strong> — in the Reference tab (<a href="#s6_5">6.5</a>), <code>[Open]</code> the recording you want to compare against,
+then go back to [Files] and open the one you want to look at. A session you have just finished works too.</p>
+<figure class="fig shot"><img src="../assets/screen-compare.png" alt="Comparison screen"><figcaption>Comparison — the reference and the current recording side by side, with the differences spelled out below</figcaption></figure>
+<table class="lbl2">
+  <thead><tr><th>What is compared</th><th>Details</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Equalization training</strong></td><td>Average peak · interval between equalizations · spread of that interval · evenness of strength · negative pressure</td></tr>
+    <tr><td><strong>Mouthfill</strong></td><td>Maximum pressure · hold time · pressure wobble while holding · negative pressure</td></tr>
+    <tr><td><strong>Change of technique</strong></td><td>It also points out a change such as Valsalva → Frenzel</td></tr>
+  </tbody>
+</table>
+<blockquote>The <strong>number</strong> of equalizations is not compared. Negative pressure is judged by <strong>depth</strong>, not by how often it appeared.</blockquote>
+<p>In these cases it does not compare, and tells you why.</p>
+<ul>
+  <li>When a <strong>mouthfill recording is set against a non-mouthfill one</strong> — mouthfill has almost no oscillation, so it is analysed differently</li>
+  <li>When one of the two is <strong>split into blocks</strong> (EQ Interval and the like)</li>
+  <li>When a recording is too short to settle on a technique</li>
+</ul>
+<blockquote>Even when it cannot compare, <strong>the analysis of the current recording appears as usual.</strong></blockquote>
+
+<!-- 6 -->
+<h2 id="sec6">6. Managing files</h2>
+
+<h3 id="s6_1">6.1 Automatic saving and the file format</h3>
+<p><strong>Stop a measurement and the result is saved automatically.</strong></p>
+<ul>
+  <li><strong>File name</strong>: <code>EQ0001_120s.csv</code>
+    <ul><li><code>EQ</code> + a <strong>four-digit number</strong> (one higher each measurement) + <strong>the length in seconds</strong></li>
+        <li>For example <code>EQ0042_23s.csv</code> is the 42nd measurement, 23 seconds long</li></ul></li>
+  <li><strong>Format</strong>: CSV, with the columns <code>Time(ms), Pressure(hPa), Max, Min</code></li>
+  <li><strong>Automatic trimming</strong>: the empty stretches at the start and end (zero pressure) are cut off and only the real signal is saved. If there is almost no signal, or it is very short, nothing is saved.</li>
+</ul>
+<blockquote>Files go <strong>to the SD card if one is fitted, and to the internal memory if not</strong>.
+If there is a problem with the card it <strong>saves to the internal memory instead</strong> and says so on screen.</blockquote>
+<p>When a measurement ends, the <strong>name of the saved file</strong> appears at the bottom of the screen (firmware 2.3 and later).
+It stays there until you touch the screen, so it is easy to find that session in the list later.</p>
+<p><strong>It saves even if you never press stop.</strong> If no pressure arrives for <strong>one minute</strong> after you have been equalizing,
+the device treats the session as finished and saves it.
+Walk away and leave the device running, and your recording is still there.</p>
+<ul>
+  <li>In interval training with rests between sets, <strong>starting again within a minute keeps it in one file</strong> rather than breaking it up.</li>
+  <li>If you equalize again after it has auto-saved, <strong>that part is not recorded.</strong>
+      To record it, press <strong>[Stop] and then [Start]</strong> again.</li>
+  <li>If you only pressed start and did nothing, <strong>no file is created.</strong></li>
+</ul>
+
+<h3 id="s6_2">6.2 Internal memory vs SD card</h3>
+<table class="lbl2">
+  <thead><tr><th>Storage</th><th>Character</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Internal memory</strong></td><td>Built in, always available with no card. Small — <strong>past 200 files the count turns a warning colour</strong> (time to tidy up or move files to a card)</td></tr>
+    <tr><td><strong>SD card</strong></td><td>Plenty of room, easy to move onto a PC. <strong>Can be inserted or removed at any time</strong></td></tr>
+  </tbody>
+</table>
+
+<h3 id="s6_3">6.3 A tour of the file screen</h3>
+<figure class="fig shot"><img src="../assets/screen-files.png" alt="File screen"><figcaption>File screen — three tabs (Internal / SD Card / Reference) and a grid of files</figcaption></figure>
+<p>Press <strong>[Files]</strong> on the main screen to open the list of saved measurements.</p>
+<ul>
+  <li>Three <strong>tabs</strong> along the top: <strong>Internal / SD Card / Reference</strong></li>
+  <li>Files are shown <strong>21 to a page</strong> (3 columns × 7 rows), <strong>newest first</strong>.</li>
+  <li>If there is more than one page, <strong>swipe left and right</strong> to turn it. (The bottom shows something like <code>1/2  32 files</code>.)</li>
+  <li>Tap a file to select it.</li>
+</ul>
+
+<h3 id="s6_4">6.4 The Internal and SD tabs</h3>
+<p>Select a file in the Internal or SD tab and these buttons become available. <code>[Open] [Copy] [Ref] [Del] [Close]</code></p>
+<table class="lbl2">
+  <thead><tr><th>Button</th><th>What it does</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Open</strong></td><td><strong>Loads the measurement onto the graph.</strong> It appears on the main screen and you can review it with [Stats]</td></tr>
+    <tr><td><strong>Copy</strong></td><td><strong>Copies to the other storage.</strong> From the Internal tab it goes to the SD card, from the SD tab to the internal memory</td></tr>
+    <tr><td><strong>Ref</strong></td><td><strong>Adds the measurement to the reference list.</strong> Once added it appears in the Reference tab (<a href="#s6_5">6.5</a>)</td></tr>
+    <tr><td><strong>Del</strong></td><td>Switches to delete mode, where you can remove several at once (<a href="#s6_6">6.6</a>)</td></tr>
+    <tr><td><strong>Close</strong></td><td>Leaves the file screen</td></tr>
+  </tbody>
+</table>
+
+<h3 id="s6_5">6.5 The Reference tab and training against a reference graph</h3>
+<figure class="fig shot"><img src="../assets/screen-measure.png" alt="Training against a reference"><figcaption>A reference graph in the background with your live line drawn over it</figcaption></figure>
+<p>The <strong>reference graph</strong> is the heart of training with Equalscope.
+It <strong>lays a model pattern in the background and draws your live graph over the top</strong>, so you can follow it or compare against it.</p>
+<blockquote><strong>How people use it</strong>: an instructor measures a model equalization pattern and hands it out as a reference → the student loads it into the background and trains by following it.</blockquote>
+<p>Select a file in the Reference tab and the buttons change. <code>[Open] [Unset] [Edit] [Del] [Close]</code></p>
+<table class="lbl2">
+  <thead><tr><th>Button</th><th>What it does</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Open</strong></td><td><strong>Loads the reference as the background graph.</strong> It appears behind your own line on the main screen</td></tr>
+    <tr><td><strong>Unset</strong></td><td><strong>Takes the reference graph off the main screen.</strong> It is not removed from the reference list</td></tr>
+    <tr><td><strong>Edit</strong></td><td>Renames the reference file. A meaningful name such as <code>frenzel_ref</code> is easier to find than a number like <code>EQ0042</code> (<a href="#s6_9">6.9</a>)</td></tr>
+    <tr><td><strong>Del</strong></td><td>Delete mode</td></tr>
+    <tr><td><strong>Close</strong></td><td>Leaves the screen</td></tr>
+  </tbody>
+</table>
+<blockquote>Open another recording while a reference is loaded and you get a <strong>comparison of the two</strong> (<a href="#s5_7">5.7</a>).</blockquote>
+<blockquote>Reference files live in the <strong>internal memory</strong>, so they survive removing the SD card. The zoom stays where you had it, so patterns of different widths (Valsalva, Frenzel and so on) can be compared at the same scale.</blockquote>
+
+<h3 id="s6_6">6.6 Deleting several files at once</h3>
+<p>Press <strong>[Del]</strong> to enter delete mode.</p>
+<ul>
+  <li><strong>Tap the files you want to remove</strong> one by one (the top shows <code>selected / total</code>)</li>
+  <li><strong>[All]</strong> selects them all at once</li>
+  <li>Press [Del] again to confirm, or [Close] to cancel</li>
+</ul>
+
+<h3 id="s6_7">6.7 Screenshots</h3>
+<p><strong>Tap the screen with three fingers</strong> and it is captured as an image straight away. Handy for keeping an analysis or a graph as <strong>feedback material</strong>.</p>
+<ul>
+  <li><strong>Where they go</strong>: saved as <strong>PNG</strong> in the <code>capture/</code> folder on the SD card.
+    <ul><li><strong>An SD card is required.</strong> Without one you get "Insert SD card".</li></ul></li>
+  <li><strong>File name</strong>: <code>SCR_00292_EQ0206_21s.png</code>
+    <ul><li><code>SCR_</code> + a five-digit number + <strong>the name of the measurement file you had open</strong></li>
+        <li>So a capture taken with a particular measurement on screen <strong>matches back to that measurement by name alone.</strong></li></ul></li>
+  <li>To stop accidental bursts, captures are spaced about 2 seconds apart.</li>
+</ul>
+<blockquote><strong>In practice</strong>: capture a student's analysis screen and you can go over the pressure pattern together afterwards, or set two sessions beside each other.</blockquote>
+
+<h3 id="s6_8">6.8 Moving files to a PC (USB drive mode)</h3>
+<figure class="fig shot compact"><img src="../assets/usb-mode.png" alt="USB choice screen — File Transfer or Firmware Update"><figcaption>Long-press [USB] and you choose what to do first</figcaption></figure>
+<p>Connect the device to a PC with a USB cable and it appears <strong>as a removable drive</strong>, so you can copy files straight off it.</p>
+<ol>
+  <li><strong>Long-press the [Connect] button for 1.5 seconds</strong> on the <strong>USB</strong> row in settings.
+    <ul><li>(The long press is deliberate, so a stray tap cannot switch the USB connection on and off.)</li></ul></li>
+  <li>On the screen that asks what you want to do, press <strong>[File Transfer]</strong>.
+      (For <strong>[Firmware Update]</strong> see <a href="#s10_1">10.1</a>.)</li>
+  <li>Once it appears as a drive on the PC, copy your <strong>measurement CSV files</strong> (the <code>session/</code> folder) and <strong>screenshots</strong> (the <code>capture/</code> folder), then eject it safely.</li>
+  <li><strong>Long-press the device screen for 1.5 seconds</strong> to go back to the normal screen.</li>
+</ol>
+<blockquote>
+  <p>· Measurement is suspended while USB drive mode is on. It works normally again once you leave.</p>
+  <p>· Screenshots only ever go to the SD card, so the card has to be in for them to show up over USB.</p>
+  <p>· <strong>Without an SD card, [File Transfer] cannot be selected</strong> — the card is the only thing exposed this way. To get files out of the internal memory, <strong>copy them to the SD card</strong> in the file screen first (<a href="#s6_4">6.4</a>).</p>
+</blockquote>
+
+<h3 id="s6_9">6.9 Renaming files</h3>
+<figure class="fig shot compact"><img src="../assets/screen-rename.png" alt="Rename keyboard screen"><figcaption>Long-press a file and the keyboard opens</figcaption></figure>
+<p><strong>Long-press a file for about a second</strong> in the list to rename it.
+It works in all three places — <strong>Internal, SD Card and Reference</strong>.
+The Reference tab also has an <strong>[Edit]</strong> button.</p>
+<blockquote>The Internal and SD tabs have no room for the button, so a note appears at the bottom of the screen:
+<strong>"Tip: long-press to rename"</strong> (firmware 2.4 and later).
+Select a file and the name of that file takes its place.</blockquote>
+<ul>
+  <li><strong>This device has no clock, so files carry no date.</strong> A number alone makes it hard to tell when a measurement was taken or whose it was. Putting something like <code>0728 HW</code> at the front helps.</li>
+  <li><strong>The list is sorted by name.</strong> Change the front of a name and the order changes with it — put initials first to group by person, or keep the number first to keep them in order of recording.</li>
+  <li><strong>The on-device keyboard is letters and numbers only.</strong> If you need other characters, rename the file on a PC and put it back on the card.</li>
+  <li>If the name is already taken, it <strong>tells you and leaves the name alone</strong> — nothing gets overwritten.</li>
+  <li>Breath training records are renamed with the <strong>[Edit]</strong> button (long-press works too), but there <strong>only the middle name part</strong> changes (<a href="#s8_8">8.8</a>).</li>
+</ul>
+
+<!-- 7 -->
+<h2 id="sec7">7. Rhythm training</h2>
+<p>Equalization settles into a steady rhythm when you <strong>repeat it at regular intervals</strong>. Equalscope gives you two tools for that.</p>
+
+<h3 id="s7_1">7.1 EQ Interval</h3>
+<p>Set up <strong>(interval × count)</strong> for each block and, from the moment you start measuring,
+you get <strong>a beep and a visual cue</strong> in that order. It is a tool for training your equalization rhythm against a descent plan.</p>
+<div class="figrow pair compact">
+  <figure><img src="../assets/screen-settings2.png" alt="Settings page 2 — EQ Interval toggle and the Edit Intervals button"><figcaption>Settings page 2 — the EQ Interval toggle and [Edit Intervals]</figcaption></figure>
+  <figure><img src="../assets/screen-interval-edit.png" alt="Interval editor — four blocks of interval × count"><figcaption>Interval editor — interval × count per block, with the totals on top</figcaption></figure>
+</div>
+<ul>
+  <li><strong>Where it lives</strong>: settings page 2 — the <strong>EQ Interval</strong> toggle and the <strong>[Edit Intervals]</strong> button (<a href="#s9_2">9.2</a>)</li>
+  <li><strong>The editor</strong>: up to <strong>four blocks</strong>, each set as <strong>interval (seconds) × count</strong>.
+    <ul><li><strong>Interval 0 = block off</strong> (that block is skipped)</li>
+        <li><strong>Below one second it steps in 0.1&nbsp;s</strong> (0.1 → 0.9 → 1 → 2 → …), for training a fast repeated rhythm.</li>
+        <li><strong>Count 0 = endless (∞)</strong> — it keeps beeping at that block's interval. Here the alarm <strong>alternates between a high and a low note</strong>, which makes the beat easier to follow.</li>
+        <li>The <strong>total count and total time</strong> are shown live at the top, so you can see how long the whole sequence runs</li></ul></li>
+  <li><strong>How it runs</strong>: it starts at block 1 <strong>the moment you press [Start]</strong>. The alarm times line up with the graph's time axis, so you can trace them afterwards on the graph itself.</li>
+  <li><strong>An example</strong>: "2&nbsp;s × 5 → 4&nbsp;s × 5 → 8&nbsp;s × 5" — frequent early in the descent, spreading out as you go deeper, so you can plan your equalization frequency by depth and train to it. With a single block on endless repeat it works as a plain metronome.</li>
+  <li><strong>Alarm markers on the graph</strong>: each alarm leaves a <strong>vertical line</strong> on the graph (the first alarm of a new block is drawn longer). They move with the zoom and scroll, so you can check <strong>"the alarm versus what I actually did"</strong> and work on your rhythm.</li>
+  <li><strong>Kept in the record</strong>: the alarm positions are stored in the measurement CSV, so the markers are still there when you open the file again later.</li>
+</ul>
+<figure class="fig shot compact"><img src="../assets/screen-interval-chart.png" alt="Measurement screen with EQ Interval alarm markers"><figcaption>The live graph — alarm times stay as vertical markers, so plan and reality sit side by side</figcaption></figure>
+
+<h3 id="s7_2">7.2 Stopwatch</h3>
+<p>While you measure, the elapsed time is shown live as <strong>hh:mm:ss</strong> in the top left of the main screen.
+It gives you the training time at a glance, and works with EQ Interval for keeping track of interval sessions.</p>
+
+<!-- 8 -->
+<h2 id="sec8">8. Breath training (CO2 / O2)</h2>
+<p>Equalscope has a second mode, <strong>separate from equalization measurement.</strong>
+<strong>Breath training mode</strong> takes you through breath-holds and recovery breathing to a table,
+building <strong>CO₂ tolerance</strong> and <strong>hypoxic tolerance</strong> as dry training.
+It keeps the time, guides you by voice, and saves the session as a record.</p>
+<blockquote class="warn">⚠️ <strong>Never use this in water.</strong> Breath training is done <strong>out of the water, sitting or lying down safely.</strong>
+Breath-hold training in water must be done with a buddy or an instructor, and this device does not take their place.</blockquote>
+
+<h3 id="s8_1">8.1 Switching modes</h3>
+<div class="figrow pair compact">
+  <figure><img src="../assets/screen-mode-select.png" alt="Mode selection at power-on — Equalizing or Breath Training"><figcaption>Choose a mode when you switch on (tilt the device and the logo slides)</figcaption></figure>
+  <figure><img src="../assets/screen-co2-settings.png" alt="Breath mode settings — Ask mode on boot, Default mode, Switch to EQ"><figcaption>Breath mode settings — this is where you go back to equalizing</figcaption></figure>
+</div>
+<ul>
+  <li><strong>When you switch on</strong>, a screen appears asking which of the two modes you want.</li>
+  <li>If you would rather not see it, turn off <strong>Ask mode on boot</strong> in settings. It then goes straight into the <strong>Default mode</strong>.</li>
+  <li>To change modes while you are using it, press <strong>[Switch]</strong> in that mode's settings.
+      After you confirm, it <strong>saves and restarts</strong> (it will not switch during a measurement).</li>
+</ul>
+
+<h3 id="s8_2">8.2 Before you start — the safety notice</h3>
+<figure class="fig shot compact"><img src="../assets/screen-co2-safety.png" alt="Full-screen safety notice shown before the first session"><figcaption>Shown once, when you start your first session</figcaption></figure>
+<p>The first time you start breath training, this notice appears <strong>once, full screen</strong>.
+Press <strong>[I understand]</strong> and it will not appear again.</p>
+<ul>
+  <li><strong>Dry training only.</strong> Do not use it in or beside water.</li>
+  <li><strong>Do not hyperventilate.</strong> Hyperventilating before a hold greatly increases the risk of blackout.</li>
+  <li><strong>Stop at once if you feel dizzy or unwell.</strong> Enduring it is not the training.</li>
+  <li><strong>In water, always with a buddy or an instructor.</strong></li>
+</ul>
+<blockquote class="warn">⚠️ <strong>Never</strong> do this alone, while driving, or near a bath or a pool.
+Breath-hold training can make you lose consciousness without warning.</blockquote>
+
+<h3 id="s8_3">8.3 Reading the home screen</h3>
+<figure class="fig shot compact"><img src="../assets/screen-co2-home.png" alt="Breath mode home screen — table name, round preview, battery"><figcaption>A preview of the selected table, round by round</figcaption></figure>
+<ul>
+  <li><strong>Top left</strong> — the name of the table you have chosen</li>
+  <li><strong>Top centre</strong> — <code>8R / 21:00</code> means <strong>8 rounds, 21 minutes in total</strong></li>
+  <li><strong>The list</strong> — <strong>breathe time / hold time</strong> for each round. Scroll up and down if there are many rounds.</li>
+  <li><strong>Buttons along the bottom</strong> — <code>[Start] [Files] [Tables] [Setup] [Power]</code></li>
+</ul>
+
+<h3 id="s8_4">8.4 Choosing a table</h3>
+<figure class="fig shot compact"><img src="../assets/screen-co2-tables.png" alt="Table list — the four presets and your own tables"><figcaption>[Tables] → select one and press [Open]</figcaption></figure>
+<p>Training follows a <strong>table</strong>: a plan with a <strong>breathe time</strong> and a <strong>hold time</strong> for every round.
+What you increase and what you keep fixed decides what the session trains.</p>
+<table class="pat3">
+  <thead><tr><th>Type</th><th>What changes</th><th>What it builds</th></tr></thead>
+  <tbody>
+    <tr><td><strong>CO2 table</strong></td><td>The hold stays <strong>fixed</strong> and the <strong>breathe (recovery) time gets shorter</strong></td><td>Tolerance of built-up carbon dioxide — the discomfort in the early and middle part of a hold</td></tr>
+    <tr><td><strong>O2 table</strong></td><td>The breathe time stays <strong>fixed</strong> and the <strong>hold gets longer</strong></td><td>Tolerance of falling oxygen — the late part of a hold</td></tr>
+  </tbody>
+</table>
+<p>These <strong>four tables are built in</strong>. They cannot be deleted or edited; instead, pressing <strong>[Edit]</strong>
+<strong>creates a new table</strong> using their values as a starting point.</p>
+<table>
+  <thead><tr><th>Name</th><th>Rounds</th><th>Breathe</th><th>Hold</th></tr></thead>
+  <tbody>
+    <tr><td><strong>CO2 Beginner</strong></td><td>6R</td><td>From 2:00, 15&nbsp;s shorter each round</td><td>1:00 fixed</td></tr>
+    <tr><td><strong>CO2 Standard</strong></td><td>8R</td><td>From 2:00, 15&nbsp;s shorter each round</td><td>1:30 fixed</td></tr>
+    <tr><td><strong>O2 Beginner</strong></td><td>6R</td><td>2:00 fixed</td><td>From 1:00, 5&nbsp;s longer each round</td></tr>
+    <tr><td><strong>O2 Standard</strong></td><td>8R</td><td>2:00 fixed</td><td>From 1:10, 10&nbsp;s longer each round</td></tr>
+  </tbody>
+</table>
+<ul>
+  <li><strong>Top right, <code>Total 8. 1/2</code></strong> — how many tables there are and which page you are on. Turn pages with the left and right arrows.</li>
+  <li><strong>The tag on the right</strong> — <code>preset</code> is a built-in table, <code>mixed</code> is one you made yourself.</li>
+  <li><strong>Name your tables in plain letters and numbers.</strong> The table name goes straight into the record's file name, and the on-device keyboard is letters and numbers only.</li>
+</ul>
+
+<h3 id="s8_5">8.5 Building your own table</h3>
+<div class="figrow pair compact">
+  <figure><img src="../assets/screen-co2-edit.png" alt="Table editor — breathe and hold times per round"><figcaption>Fine-tune the rounds one at a time</figcaption></figure>
+  <figure><img src="../assets/screen-co2-auto.png" alt="Auto-fill screen — rounds, start values, step, PB ratio"><figcaption>[Auto] fills the whole thing in one go</figcaption></figure>
+</div>
+<p>Press <strong>[Add]</strong> in the table list to open the editor. You can keep <strong>up to 50 tables</strong>,
+and one table can have <strong>up to 30 rounds</strong>.</p>
+<ul>
+  <li><strong>The editor</strong> — select a round in the list and change the breathe and hold times with <code>[-]</code> and <code>[+]</code> below.
+      <strong>[Add]</strong> puts in another round and <strong>[Del]</strong> takes one out. The name goes in the field at the top.</li>
+  <li><strong>[Auto]</strong> — fills everything in from a rule, instead of pressing your way through it.
+    <ul>
+      <li><strong>CO2 / O2</strong> — which kind of table to build</li>
+      <li><strong>Rounds</strong> — how many times to repeat</li>
+      <li><strong>Breathe start · step</strong> — the breathe time for the first round, and how much to add each round (negative to shorten)</li>
+      <li><strong>Hold start · step</strong> — the same for the hold</li>
+      <li><strong>PB ratio %</strong> — what percentage of your <strong>static personal best</strong> the hold should start at.
+          Change it and the <strong>Hold start</strong> just below is recalculated (enter your PB in <a href="#s8_9">8.9</a>)</li>
+    </ul>
+    The bottom line previews <strong>the values of the last round and the total time</strong>, so you can check before pressing <strong>[Fill]</strong> whether the table is too long or too punishing.</li>
+</ul>
+<blockquote class="warn">⚠️ Build the table <strong>for yourself</strong>. If someone else's table, or a preset, is hard work, then cutting rounds or shortening times is the right answer. Finishing a table is not the goal.</blockquote>
+
+<h3 id="s8_6">8.6 Training</h3>
+<div class="figrow pair compact">
+  <figure><img src="../assets/screen-co2-run-breathe.png" alt="Running — breathe phase (blue)"><figcaption>Breathe phase — blue</figcaption></figure>
+  <figure><img src="../assets/screen-co2-run-hold.png" alt="Running — hold phase (orange)"><figcaption>Hold phase — orange</figcaption></figure>
+</div>
+<ul>
+  <li><strong>Told apart by colour</strong> — <strong>blue is breathe</strong>, <strong>orange is hold</strong>.
+      The big number in the middle is the <strong>time left</strong>, and below it is <strong>which round</strong> you are on.</li>
+  <li><strong>Top corners</strong> — the planned time for this round on the left, for the next round on the right.</li>
+  <li><strong>The bar at the bottom</strong> — how far through the whole session you are. Time gone on the left, time left on the right.</li>
+  <li><strong>[Pause]</strong> — pauses. Press again to carry on.</li>
+  <li><strong>[Stop]</strong> — ends the session. <strong>What you did up to that point is still saved.</strong></li>
+</ul>
+<p>During a hold, a <strong>belly movement graph</strong> is drawn along the bottom of the screen.
+Rest the device on your belly and your <strong>contractions</strong> show up here —
+<a href="#s8_7">8.7</a> covers this separately.</p>
+
+<h4>Voice guidance</h4>
+<p><strong>Voice guidance</strong> runs alongside. You do not have to watch the screen, so you can train with your eyes closed.</p>
+<ul>
+  <li>It calls out <strong>Breathe / Hold</strong> when the phase changes</li>
+  <li>It calls the time at <strong>every minute, 30 sec, 10 sec and 5·4·3·2·1</strong> remaining</li>
+  <li>The <strong>first hold</strong> starts competition style — <em>3·2·1 → official top → plus 1~5</em>.
+      It is there to give you the feel of a real start, and happens once, in the first round</li>
+  <li>The voice is <strong>English</strong>. The volume is set in settings</li>
+</ul>
+<blockquote><strong>Each item can be switched on and off</strong> (firmware 2.3 and later).
+Sound is your only information when you train with your eyes closed, but there are also stretches where
+you would rather have quiet. The five items — <strong>Every min · 30 sec · 10 sec · Countdown · Official Top +1~5</strong> —
+are switched separately. <strong>You can also pick a female or male voice.</strong>
+See <a href="#s8_9">8.9</a> for the detail.</blockquote>
+
+<h3 id="s8_7">8.7 Measuring contractions (firmware 2.4 and later)</h3>
+<p>Hold your breath long enough and your belly starts to twitch by itself — the body's signal to breathe.
+These are <strong>contractions</strong>. When the first one arrives, how many there were, and how the gaps
+close up are <strong>an indicator of where you are.</strong></p>
+<p><strong>Rest the device on your belly while you train and it counts them for you.</strong></p>
+
+<h4>How to place it</h4>
+<ul>
+  <li>Lie down and <strong>simply rest it on your belly</strong>. No strap, no pressing it down.</li>
+  <li>It only watches <strong>during the hold.</strong></li>
+  <li>It has nothing to do with equalization measurement — you do not need the tube connected.</li>
+</ul>
+
+<h4>What you see while training</h4>
+<figure class="fig shot compact"><img src="../assets/screen-co2-run-strip.png" alt="Belly movement graph along the bottom of the hold screen"><figcaption>During a hold, the movement graph is drawn along the bottom</figcaption></figure>
+<ul>
+  <li>The graph at the bottom draws your <strong>belly movement</strong> live. A contraction shows up as a clear spike.</li>
+  <li>The <strong>width of the graph is scaled to the hold time of that round</strong>.
+      When the line reaches the right-hand edge, the round is over — so <strong>the time left is visible as a picture too</strong>.</li>
+  <li>During the breathe phase <strong>the picture of the hold you just did stays on screen</strong>, so you can look back at it.</li>
+</ul>
+
+<h4>When the session ends</h4>
+<p>A line is added to the record <strong>for each round</strong>. It only appears for rounds that had contractions.</p>
+<ul>
+  <li><strong>How many</strong> — how many arrived in that round</li>
+  <li><strong>First</strong> — <strong>the time from the start of the hold to the first contraction</strong></li>
+  <li><strong>Gap</strong> — the average gap between contractions</li>
+</ul>
+
+<h4>Reviewing the graph</h4>
+<div class="figrow pair compact">
+  <figure><img src="../assets/screen-co2-graph.png" alt="Contraction graph — filter off"><figcaption>Filter off — exactly as measured</figcaption></figure>
+  <figure><img src="../assets/screen-co2-graph-filter.png" alt="Contraction graph — filter on"><figcaption>Filter on — with the small ripples taken out</figcaption></figure>
+</div>
+<ul>
+  <li>Open a record and press <strong>[Graph]</strong> to see that round's trace again.
+      <strong>◀ ▶</strong> below moves between rounds.</li>
+  <li>The <strong>orange marks</strong> along the top are where a contraction was counted. Below the graph each one is listed with its time and strength.</li>
+  <li>Turn on the <strong>Filter</strong> switch at the top right for <strong>the graph with the small ripples taken out</strong>.
+      Use it to see with your own eyes which peaks were counted.</li>
+  <li>Turn on the <strong>Gap</strong> switch at the bottom right and the list shows <strong>the time since the previous
+      contraction, from the second item on</strong> (for example <code>1:18(0.23) / +3.8(0.19)</code>).
+      Turn it off and you are back to clock times.</li>
+  <li>Bellies move by different amounts, so the vertical scale <strong>can be changed in settings</strong> (<a href="#s8_9">8.9</a>).
+      If the trace looks flat, lower the scale; if the peaks hit the ceiling, raise it.</li>
+</ul>
+
+<h3 id="s8_8">8.8 Training records</h3>
+<div class="figrow pair compact">
+  <figure><img src="../assets/screen-co2-done.png" alt="Session complete — rounds, planned and actual time, where it was saved"><figcaption>A summary of the session and where it was saved</figcaption></figure>
+  <figure><img src="../assets/screen-co2-files.png" alt="Record list — Internal memory and SD card tabs"><figcaption>[Files] — your past sessions</figcaption></figure>
+</div>
+<ul>
+  <li><strong>The completion screen</strong> — how many rounds you did, the <strong>planned time and the actual time</strong>,
+      and <strong>where it was saved</strong> (SD card or internal memory).
+      Finish the whole table and the two times are almost the same. <strong>[Stop]</strong> partway through and the
+      actual time is shorter, and <strong>time spent paused does not count towards it</strong> — only the time you
+      really trained is kept.
+      If there is a problem with the SD card it <strong>saves to the internal memory instead</strong> and says so.</li>
+  <li><strong>The record list</strong> — the tabs at the top switch between <strong>internal memory and SD card</strong>.
+      Higher numbers are more recent.</li>
+  <li><strong>Renaming</strong> — select a record and press <strong>[Edit]</strong>.
+      <strong>Long-pressing it in the list</strong> works just as well.
+      <strong>This device has no clock, so records carry no date.</strong>
+      Writing something like <code>0728 HW</code> makes them easy to tell apart later.</li>
+  <li><strong>[Copy]</strong> moves records between the internal memory and the SD card, and <strong>[Del]</strong> removes them.</li>
+</ul>
+<figure class="fig shot compact"><img src="../assets/screen-co2-detail.png" alt="Record detail — breathe, hold and finish time per round"><figcaption>Open a record and what actually happened is there, round by round</figcaption></figure>
+<ul>
+  <li>The top summarises <strong>the total rounds, the actual time, and whether you finished or stopped</strong>.</li>
+  <li>The table below is <strong>breathe / hold / finish time</strong> per round. The finish time counts from the start of the session.</li>
+  <li>Under <strong>rounds that had contractions</strong> is one more line with <strong>how many, when the first came, and the average gap</strong>
+      (<a href="#s8_7">8.7</a>). Press <strong>[Graph]</strong> to see the trace from that round.</li>
+  <li>Records are CSV files, so you can move them to a PC and open them in Excel or Google Sheets (<a href="#s6_8">6.8</a>).</li>
+</ul>
+
+<h3 id="s8_9">8.9 Breath mode settings</h3>
+<p>Breath mode settings run to <strong>three pages</strong>. The <strong>left and right arrows</strong> turn them.</p>
+<div class="figrow pair">
+  <figure><img src="../assets/screen-co2-settings.png" alt="Breath mode settings page 1"><figcaption>Page 1 — mode switch · training values · sound · USB</figcaption></figure>
+  <figure><img src="../assets/screen-co2-settings2.png" alt="Breath mode settings page 2 — voice guidance"><figcaption>Page 2 — voice guidance</figcaption></figure>
+  <figure><img src="../assets/screen-co2-settings3.png" alt="Breath mode settings page 3 — mode"><figcaption>Page 3 — mode</figcaption></figure>
+</div>
+
+<!-- ⛔⛔ **한글판 8.9 의 규칙이 여기에도 그대로 걸린다**:
+       ① 과거와 비교하는 내용을 쓰지 않는다("예전에는", "자리를 다시 모았습니다").
+          매뉴얼은 **지금 이 장비가 어떻게 생겼는지**를 적는다.
+       ② 없는 것을 부연하지 않는다("합계는 두지 않았습니다").
+       ③ 개발 의도를 쓰지 않는다 — 그 자리는 코드 주석이다.
+       ★ 다만 버전 표기 `(firmware 2.4a and later)` 는 남긴다 — 읽고 할 일이 달라진다.
+     ⛔⛔ **설정 항목의 이름과 값은 장비 영문 화면 그대로.** 뜻이 통하게 풀어 쓰면
+       사용자가 화면에서 그 낱말을 못 찾는다. 정본은 i18n.cpp 의 `s_str_en[]`.
+       (한글판에서 「시간 안내」 값을 풀어 썼다가 물린 자리다 — 화면은 Left / Elapsed.)
+     ⛔ **표의 행 차례 = 화면의 행 차례**다 (`ui_co2_settings.cpp` build_page1 이 정본). -->
+<h4>Page 1 — mode switch · training values · sound · USB</h4>
+<table class="setbl3">
+  <thead><tr><th>Item</th><th>Range / choice</th><th>What it does</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Switch to EQ</strong></td><td>—</td><td>Confirms, saves and restarts (firmware 2.4a and later)</td></tr>
+    <tr><td><strong>Static PB</strong></td><td>min · sec</td><td>Your <strong>static personal best</strong>. Used only as the basis for <strong>PB ratio</strong> in auto-fill (minimum 30 seconds)</td></tr>
+    <tr><td><strong>Graph scale (g)</strong></td><td>0.1 – 1.0</td><td><strong>How many g the top of the vertical axis is</strong> on the contraction graph (<a href="#s8_7">8.7</a>). Bellies move by different amounts, so it is adjustable (firmware 2.4 and later)</td></tr>
+    <tr><td><strong>Volume (%)</strong></td><td>0–100 %</td><td>How loud the voice guidance and alarms are</td></tr>
+    <tr><td><strong>USB</strong></td><td>—</td><td>Connect to a PC to move records — long-press <strong>[Connect]</strong> for 1.5 seconds (<a href="#s6_8">6.8</a>)</td></tr>
+  </tbody>
+</table>
+
+<h4>Page 2 — voice guidance (firmware 2.3 and later)</h4>
+<p>Switch the guidance <strong>on and off item by item</strong>, and keep only what you want.
+They are listed in the order you actually hear them.</p>
+<table class="setbl3">
+  <thead><tr><th>Item</th><th>Range / choice</th><th>What it does</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Voice</strong></td><td>Female / Male</td><td>The voice that reads the guidance. <strong>The competition start in equalizing mode uses the same voice</strong> (firmware 2.3 and later)</td></tr>
+    <tr><td><strong>Time cue (min,30s)</strong></td><td>Left / Elapsed</td><td>Set to <strong>Elapsed</strong> and the hold counts up — "one minute", "two minutes". Together with a one-round, maximum-time table this becomes <strong>dry static training</strong>. In that case the 10 sec and countdown cues do not play during the hold (the breathe phase is unchanged). The default is Left (firmware 2.4a and later)</td></tr>
+    <tr><td><strong>Every min</strong></td><td>ON / OFF</td><td>Every minute (<em>one minute … ten minutes</em>). <strong>Turn it on together with 30 sec and it calls every 30 seconds</strong> (firmware 2.4a and later)</td></tr>
+    <tr><td><strong>30 sec</strong></td><td>ON / OFF</td><td><em>thirty seconds</em></td></tr>
+    <tr><td><strong>10 sec</strong></td><td>ON / OFF</td><td><em>ten</em></td></tr>
+    <tr><td><strong>Countdown</strong></td><td>ON / OFF</td><td>Just before a phase ends — <em>five · four · three · two · one</em></td></tr>
+    <tr><td><strong>Official Top +1~5</strong></td><td>ON / OFF</td><td>The competition start for the first hold — <em>official top</em> followed by <em>plus one ~ five</em></td></tr>
+  </tbody>
+</table>
+<blockquote><strong>The Breathe / Hold calls at each phase change are always there.</strong> They cannot be switched off.</blockquote>
+
+<h4>Page 3 — mode</h4>
+<table class="setbl3">
+  <thead><tr><th>Item</th><th>Range / choice</th><th>What it does</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Ask mode on boot</strong></td><td>ON / OFF</td><td>Turn it off and the device goes straight into the <strong>Default mode</strong> at power-on</td></tr>
+    <tr><td><strong>Default mode</strong></td><td>EQ / Breath</td><td>Which mode to enter when the item above is off</td></tr>
+  </tbody>
+</table>
+
+<p>The settings for equalizing mode are separate, in <a href="#sec9">chapter 9</a>. The two modes keep their settings independently, and only
+<strong>Ask mode on boot, Default mode and the mode switch</strong> appear identically on both sides.
+<strong>Voice</strong> is <strong>a single shared value</strong> — change it in either mode and it changes in both.</p>
+
+
+<!-- 9 -->
+<h2 id="sec9">9. Settings</h2>
+<p>Press <strong>[Set]</strong> on the main screen to open them. Settings run to <strong>four pages</strong>; the <strong>left and right arrows</strong> turn them.</p>
+
+<h3>The settings pages at a glance</h3>
+<div class="figrow pair">
+  <figure><img src="../assets/screen-settings.png" alt="Settings page 1"><figcaption>Page 1</figcaption></figure>
+  <figure><img src="../assets/screen-settings2.png" alt="Settings page 2"><figcaption>Page 2</figcaption></figure>
+  <figure><img src="../assets/screen-settings3.png" alt="Settings page 3"><figcaption>Page 3</figcaption></figure>
+  <figure><img src="../assets/screen-settings4.png" alt="Settings page 4"><figcaption>Page 4</figcaption></figure>
+</div>
+<table>
+  <thead><tr><th>Page</th><th>Theme</th><th>Items</th></tr></thead>
+  <tbody>
+    <tr><td><strong>1</strong></td><td>Device</td><td>Switch to Breath · Brightness · Volume · EQ Interval (+ Edit Intervals) · USB</td></tr>
+    <tr><td><strong>2</strong></td><td>Sound and alarms</td><td>Press. Alert · Max alarm · Min alarm · Official top · Voice</td></tr>
+    <tr><td><strong>3</strong></td><td>Display</td><td>Theme · Lang · Y Max · Y Min · Default Zoom</td></tr>
+    <tr><td><strong>4</strong></td><td>Training modes</td><td>Ask mode on boot · Default mode · Auto Off · Tap to start · Tap sensitivity</td></tr>
+  </tbody>
+</table>
+<p>Below, the items are grouped <strong>by what they do</strong>, with the page each one lives on.</p>
+
+<h3 id="s9_1">9.1 Display</h3>
+<div class="figrow themes">
+  <figure><img src="../assets/theme-daylight.png" alt="Daylight theme"><figcaption>Daylight</figcaption></figure>
+  <figure><img src="../assets/theme-coral.png" alt="Coral theme"><figcaption>Coral</figcaption></figure>
+  <figure><img src="../assets/theme-maple.png" alt="Maple theme"><figcaption>Maple</figcaption></figure>
+  <figure><img src="../assets/theme-lime.png" alt="Lime theme"><figcaption>Lime</figcaption></figure>
+  <figure><img src="../assets/theme-sky.png" alt="Sky theme"><figcaption>Sky</figcaption></figure>
+  <figure><img src="../assets/theme-neon.png" alt="Neon theme"><figcaption>Neon</figcaption></figure>
+  <figure><img src="../assets/theme-lavender.png" alt="Lavender theme"><figcaption>Lavender</figcaption></figure>
+</div>
+<table class="setbl">
+  <thead><tr><th>Item</th><th>Page</th><th>Range / choice</th><th>What it does</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Theme</strong></td><td>3</td><td>7 themes</td><td>Colour theme — the names are in <strong>the pictures above</strong></td></tr>
+    <tr><td><strong>Brightness (%)</strong></td><td>1</td><td>10–100 % (steps of 10)</td><td>Screen backlight brightness</td></tr>
+    <tr><td><strong>Lang</strong></td><td>3</td><td>English / Korean</td><td>Display language</td></tr>
+  </tbody>
+</table>
+
+<h3 id="s9_2">9.2 Sound</h3>
+<table class="setbl">
+  <thead><tr><th>Item</th><th>Page</th><th>Range</th><th>What it does</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Volume (%)</strong></td><td>1</td><td>0–100 %</td><td>How loud the interval and alarm sounds are (slider)</td></tr>
+    <tr><td><strong>EQ Interval</strong></td><td>1</td><td>ON / OFF</td><td>Turns the block alarm sequence on and off (<a href="#s7_1">7.1</a>)</td></tr>
+    <tr><td><strong>Edit Intervals</strong></td><td>1</td><td>4 blocks (interval × count)</td><td>Reached with the <strong>[Edit Intervals] button on the right of the EQ Interval row</strong>. Interval 0 = block off · below 1 second it steps in 0.1&nbsp;s · count 0 = endless (∞)</td></tr>
+    <tr><td><strong>Press. Alert</strong></td><td>2</td><td>ON / OFF</td><td>When on, sounds an alarm if the pressure leaves the set range, and draws the training band on the graph (<a href="#s4_3">4.3</a>)</td></tr>
+    <tr><td><strong>Max alarm</strong></td><td>2</td><td>0–150 hPa (steps of 5)</td><td>Upper limit of the alarm and the training band</td></tr>
+    <tr><td><strong>Min alarm</strong></td><td>2</td><td>-20.0–100.0 hPa</td><td>Lower limit of the alarm and the training band. <strong>The nearer zero, the finer it steps</strong> — see below</td></tr>
+    <tr><td><strong>Official top</strong></td><td>2</td><td>ON / OFF</td><td>Starts a measurement competition style (see below)</td></tr>
+    <tr><td><strong>Voice</strong></td><td>2</td><td>Female / Male</td><td>The voice that reads the guidance (firmware 2.3 and later). <strong>Shared with breath training mode</strong>, so changing it in either place changes both</td></tr>
+  </tbody>
+</table>
+<p><strong>Min alarm</strong> steps <strong>more finely the closer it is to zero</strong>.
+Between <strong>-1.0 and 1.0</strong> it steps by <strong>0.1</strong>, outside that by 1, and past ±5.0 by 5.</p>
+<p>Turn <strong>Official top</strong> on and pressing <strong>[Start]</strong> no longer begins the measurement straight away.
+The voice calls <em>3 · 2 · 1 → official top</em>, and measurement, stopwatch and
+EQ Interval all begin <strong>at the official top</strong>. Then <em>plus 1 ~ 5</em> follows.</p>
+<ul>
+  <li>It matches how a real competition runs, so it is used <strong>when a competition is coming up</strong>, to get the feel of the start.</li>
+  <li>Nothing is measured during the countdown, so <strong>the preparation time does not end up in the graph.</strong></li>
+  <li><strong>Touch the screen during the countdown to cancel.</strong></li>
+  <li>It uses the same English guidance as breath training mode (<a href="#s8_6">8.6</a>).
+      <strong>The female / male choice follows the same setting too.</strong></li>
+</ul>
+
+<h3 id="s9_3">9.3 Graph</h3>
+<table class="setbl">
+  <thead><tr><th>Item</th><th>Page</th><th>Range</th><th>What it does</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Y Max (hPa)</strong></td><td>3</td><td>10–200 hPa (steps of 5)</td><td>Upper limit of the graph's vertical axis</td></tr>
+    <tr><td><strong>Y Min (hPa)</strong></td><td>3</td><td>-50–190 hPa</td><td>Lower limit of the vertical axis. <strong>Between -5 and 5 it steps by 1</strong>, outside that by 5 — so you can put a gridline at <strong>-1 or -2</strong>, just below zero, and <strong>small negative pressures show up instead of sitting on the floor</strong></td></tr>
+    <tr><td><strong>Default Zoom</strong></td><td>3</td><td>—</td><td>The time-axis zoom a measurement starts at</td></tr>
+  </tbody>
+</table>
+
+<h3 id="s9_4">9.4 Other</h3>
+<table class="setbl">
+  <thead><tr><th>Item</th><th>Page</th><th>Range</th><th>What it does</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Auto Off</strong></td><td>4</td><td>0–120 min</td><td>Switches off by itself after this long with no activity. <strong>0 means never</strong></td></tr>
+    <tr><td><strong>USB</strong></td><td>1</td><td>—</td><td>Connect to a PC to move files — long-press <strong>[Connect]</strong> for 1.5 seconds (<a href="#s6_8">6.8</a>)</td></tr>
+    <tr><td><strong>Ask mode on boot</strong></td><td>4</td><td>ON / OFF</td><td>Turn it off and the device goes straight into the default mode at power-on (<a href="#s8_1">8.1</a>)</td></tr>
+    <tr><td><strong>Default mode</strong></td><td>4</td><td>EQ / Breath</td><td>Which mode to enter when the item above is off</td></tr>
+    <tr><td><strong>Switch to Breath</strong></td><td>1</td><td>—</td><td>Confirms, saves and restarts (<a href="#sec8">chapter 8</a>)</td></tr>
+    <tr><td><strong>Tap to start</strong></td><td>4</td><td>ON / OFF</td><td>Tap the device to start and stop a measurement (firmware 2.4 and later). <strong>Off by default</strong></td></tr>
+    <tr><td><strong>Tap sensitivity</strong></td><td>4</td><td>1–10</td><td>How gentle a tap it should notice. <strong>Higher is more sensitive</strong></td></tr>
+  </tbody>
+</table>
+<p><strong>Tap to start</strong> is for the moment when <strong>one hand is busy holding the Equal Vent to your nose.</strong>
+Give the device a light <strong>tap</strong> where it sits on the table and the measurement starts; tap again to stop.</p>
+<ul>
+  <li><strong>It does not respond while you are holding it</strong> — only a tap on a device that was sitting still counts.</li>
+  <li>If it misses your taps, <strong>raise the sensitivity</strong>; if brushing the desk sets it off, <strong>lower it</strong>.</li>
+</ul>
+
+<h3 id="s9_5">9.5 The buttons along the bottom</h3>
+<p>These sit at the bottom of the settings screen. <code>[Save] [Reboot] [Help] [Reset] [Close]</code></p>
+<table class="lbl2">
+  <thead><tr><th>Button</th><th>What it does</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Save</strong></td><td>Saves the settings you changed to the device</td></tr>
+    <tr><td><strong>Reboot</strong></td><td>Restarts the device (some settings only take effect after a restart)</td></tr>
+    <tr><td><strong>Help</strong></td><td>A summary of the controls and features (the firmware version is at the bottom)</td></tr>
+    <tr><td><strong>Reset</strong> ⚠️</td><td><strong>Returns every setting to the factory default</strong> (theme, brightness, alarms, Y axis and so on). Marked in red — it cannot be undone</td></tr>
+    <tr><td><strong>Close</strong></td><td>Leaves the settings screen</td></tr>
+  </tbody>
+</table>
+<blockquote><strong>Reset only resets the settings.</strong> Your saved measurements, screenshots and the file counter (the number the next measurement will get) are <strong>left alone</strong>. Nothing you recorded is deleted.</blockquote>
+<blockquote>Changes are kept only if you press <strong>[Save]</strong>. Close without saving and some of them will not stick.</blockquote>
+
+<!-- 10 -->
+<h2 id="sec10">10. Care and updates</h2>
+
+<h3 id="s10_1">10.1 Firmware updates</h3>
+<p>There are <strong>two ways</strong> to update. <strong>Over a USB cable</strong>, which needs no SD card, or
+<strong>with an SD card</strong> as before. Neither needs any software installed on the PC.</p>
+<p>New firmware is at <strong>equalscope.kr/en/download</strong>. Two files are posted, and
+<strong>they are for different things.</strong></p>
+<ul>
+  <li><code>equpdate_….uf2</code> — <strong>for the USB cable</strong> (method 1)</li>
+  <li><code>equpdate_….bin</code> — <strong>for the SD card</strong> (method 2)</li>
+</ul>
+
+<h4>Method 1 — USB cable (no SD card)</h4>
+<figure class="fig shot compact"><img src="../assets/usb-mode.png" alt="USB choice screen — File Transfer or Firmware Update"><figcaption>Long-press [USB], then choose [Firmware Update]</figcaption></figure>
+<ol>
+  <li><strong>Connect the device to a PC with a USB cable.</strong></li>
+  <li>Long-press the <strong>[Connect]</strong> button on the <strong>Settings → USB</strong> row for <strong>1.5 seconds</strong>,
+      then press <strong>[Firmware Update]</strong>.</li>
+  <li>When the device is ready, a drive called <strong>EQ UPDATE</strong> appears on the PC.</li>
+  <li><strong>Drag the <code>.uf2</code> file you downloaded onto that drive.</strong>
+      A progress bar fills on the device while it copies —
+      <strong>that is the firmware being written.</strong></li>
+  <li>When the copy finishes the device asks you to <strong>[Restart]</strong>. Press it and it comes up on the new firmware.</li>
+</ol>
+<blockquote>
+  <p>· <strong>Do not unplug the cable while it copies.</strong> If it does come out, the device still starts
+     <strong>on the old firmware</strong> — just begin again.</p>
+  <p>· <strong>Nothing is stored on this drive.</strong> It exists to receive the update file. Open it and
+     you will find a note (<code>README.TXT</code>) with the current version.</p>
+  <p>· Put a <code>.bin</code> file on it and the device tells you <strong>it is not an update file.</strong>
+     Over USB, use the <code>.uf2</code>.</p>
+  <p>· ★ <strong>Firmware v2.0 and older does not have this feature.</strong> If you are on one of those,
+     update <strong>once with the SD card method</strong> below — after that the USB cable is all you need.</p>
+</blockquote>
+
+<h4>Method 2 — SD card</h4>
+<ol>
+  <li>Copy the <strong><code>.bin</code> file</strong> you downloaded (it starts with <code>equpdate_</code>)
+      into the <strong>top (root) folder of the SD card</strong>.</li>
+  <li>Put the card in the device and <strong>switch it on.</strong></li>
+  <li>During start-up the device <strong>finds the firmware file by itself</strong>, updates and restarts.</li>
+  <li>When it is done, the firmware file on the card is <strong>deleted automatically</strong>.</li>
+</ol>
+<blockquote>
+  <p>· Because it deletes itself, the same version will not be installed again at the next start-up.</p>
+  <p>· You can check the current firmware version at the bottom of the <strong>Settings → Help</strong> screen.</p>
+</blockquote>
+
+<h3 id="s10_2">10.2 Zeroing and sensor accuracy</h3>
+<ul>
+  <li><strong>It re-zeroes every time you switch it on.</strong> For an accurate measurement, do not put any pressure on the Equal Vent at power-on — leave it at ambient pressure (<a href="#s1_2">1.2</a>).</li>
+  <li><strong>If the device is moved while it zeroes, it zeroes again</strong> (firmware 2.4 and later).
+      Switching it on as you take it out of the bag, or with it in your hand, mixes that movement into the zero,
+      and then <strong>everything you measure that day is off by the same amount.</strong>
+      <ul>
+        <li>If it keeps moving it skips the zero. A note stays at the bottom of the screen, and it
+            <strong>zeroes when you press [Start]</strong> instead.</li>
+        <li>When you see that note, <strong>put the device down on the table</strong> and start again.</li>
+      </ul></li>
+  <li>The sensor is calibrated for accuracy before it ships.</li>
+</ul>
+
+<h3 id="s10_3">10.3 Storage and cleaning</h3>
+<ul>
+  <li>⚠️ <strong>The device is not waterproof. Never wash it.</strong> Keep water away from it.</li>
+  <li>⚠️ <strong>Do not leave it anywhere hot.</strong> That means <strong>a car in summer</strong>,
+      a sunny windowsill, or near a heater. A closed car reaches
+      <strong>60–70&nbsp;°C</strong> in midsummer — <strong>do not leave it in the car.</strong>
+      <ul>
+        <li><strong>The battery</strong>: lithium batteries left hot for long periods
+            <strong>swell and lose much of their life</strong>, and rarely there is a
+            <strong>risk of fire</strong>. This is the more important of the two.</li>
+        <li><strong>The case</strong>: it is 3D printed, so <strong>long periods above 50&nbsp;°C
+            can warp it.</strong></li>
+      </ul></li>
+  <li><strong>Equal Vent</strong>: there is an insert nut inside, so it is not suited to washing. Wipe the part that touches your nose <strong>with a wet wipe and dry it straight away</strong>. If the inside needs cleaning, use a <strong>cotton bud</strong>.</li>
+  <li><strong>Hygiene (personal and shared)</strong>: the Equal Vent touches the area around the nose and mouth, so <strong>one per person is recommended</strong>. Where several people share one, as in a class, <strong>wipe the contact area with a disinfectant wipe and let it dry completely between users</strong>.</li>
+  <li><strong>Tube</strong>: take off all the fittings, wash it with water and <strong>dry it thoroughly</strong> before use.</li>
+  <li><strong>Battery</strong>: if you are not going to use the device for a long time, <strong>store it charged</strong>.</li>
+</ul>
+
+<!-- 11 -->
+<h2 id="sec11">11. Troubleshooting (FAQ)</h2>
+<table class="faq">
+  <thead><tr><th>Symptom</th><th>What to check</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Layer lines, small steps or gaps on the surface — is it faulty?</strong></td><td>Some parts are <strong>3D printed</strong>, so there can be layer lines, slight steps, differences in surface texture and small gaps where parts meet. That comes with the process, and only units with no problem in function or durability are inspected and shipped.</td></tr>
+    <tr><td><strong>It warped after a summer in the car</strong></td><td>The case is <strong>3D printed</strong> and <strong>long periods above 50&nbsp;°C</strong> can deform it. A closed car reaches 60–70&nbsp;°C in midsummer. See <a href="#s10_3">10.3</a> for storage.</td></tr>
+    <tr><td><strong>The SD card is not recognised</strong></td><td>Check that it is formatted FAT32, and try reseating the card.</td></tr>
+    <tr><td><strong>Can I update without an SD card?</strong></td><td>Yes, over a USB cable — drag the <code>.uf2</code> file onto the device's drive and that is it (<a href="#s10_1">10.1</a>). <strong>Firmware v2.0 and older</strong> does not have the feature, so those need one update by SD card first.</td></tr>
+    <tr><td><strong>I put a file on the update drive and nothing happened</strong></td><td>Over USB it is the <code>.uf2</code> file. The <code>.bin</code> is for the SD card, so the device refuses it and says it is not an update file (<a href="#s10_1">10.1</a>).</td></tr>
+    <tr><td><strong>The measurement was not saved</strong></td><td>Nothing is saved if the signal is too short or too weak. Check that the actual equalizing was measured for long enough (<a href="#s6_1">6.1</a>).</td></tr>
+    <tr><td><strong>The graph goes below zero / the zero is off</strong></td><td>Switch off and on again to re-zero, taking care not to put any pressure on it as it starts.</td></tr>
+    <tr><td><strong>Screenshots are not being saved</strong></td><td>Screenshots only go to the SD card. Check that a card is fitted (<a href="#s6_7">6.7</a>).</td></tr>
+    <tr><td><strong>The pattern is not what I expected</strong></td><td>If your technique was not consistent through the session it can come out as a borderline pattern (<a href="#s5_3">5.3</a>).</td></tr>
+  </tbody>
+</table>
+
+<!-- 12 -->
+<h2 id="sec12">12. Safety</h2>
+<ul>
+  <li><strong>Do breath training (breath-holds) out of the water only.</strong> You can lose consciousness without warning. Never do it alone, while driving, or beside water, and in water always train <strong>with a buddy or an instructor</strong> (<a href="#s8_2">8.2</a>).</li>
+  <li><strong>Do not hyperventilate before a hold.</strong> It greatly increases the risk of blackout.</li>
+  <li><strong>This is not a medical device.</strong> The measurements and analysis are <strong>a training aid and a reference</strong>, not grounds for a diagnosis or a guarantee of safety.</li>
+  <li><strong>Do not force the pressure.</strong> Over-pressurizing can injure you. Ease off when you see the over-pressure warning (<a href="#s5_4">5.4</a>).</li>
+  <li><strong>Do not leave it anywhere hot.</strong> Long periods at high temperature, as in a car in summer, can make <strong>the battery swell or, rarely, catch fire.</strong> See <a href="#s10_3">10.3</a> for storage.</li>
+  <li>Do all equalization and freediving training <strong>under the supervision of a qualified instructor.</strong></li>
+  <li>The advice in the analysis is <strong>information for reference</strong>, based on the measured pressure pattern.</li>
+</ul>
+
+</main>
+
+<footer>Equalscope User Manual · for firmware v2.4a · © 2026 Byulbada Dive</footer>
+
+</div>
+</body>
+</html>

@@ -640,13 +640,13 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
 <p><strong>참조 그래프</strong>는 Equalscope의 핵심 훈련 기능입니다.
 모범 패턴을 <strong>배경에 깔아 두고, 내 실시간 그래프를 그 위에 겹쳐</strong> 따라하거나 비교합니다.</p>
 <blockquote><strong>활용 시나리오</strong>: 강사가 모범 이퀄라이징 패턴을 측정해 참조로 배포 → 교육생이 그 참조를 배경에 깔고 똑같이 따라가며 훈련.</blockquote>
-<p>참조 탭에서 파일을 선택하면 버튼이 달라집니다. <code>[열기] [해제] [이름 변경] [삭제] [닫기]</code></p>
+<p>참조 탭에서 파일을 선택하면 버튼이 달라집니다. <code>[열기] [해제] [변경] [삭제] [닫기]</code></p>
 <table>
   <thead><tr><th>버튼</th><th>동작</th></tr></thead>
   <tbody>
     <tr><td><strong>열기</strong></td><td>선택한 참조를 <strong>배경 그래프로 불러옵니다.</strong> 메인 화면에서 내 측정선과 겹쳐 보입니다(참조선)</td></tr>
     <tr><td><strong>해제</strong></td><td>메인 화면에 겹쳐 보이던 <strong>참조 그래프를 화면에서 내립니다(끄기).</strong> 참조 목록에서 삭제되는 것은 아닙니다</td></tr>
-    <tr><td><strong>이름 변경</strong></td><td>참조 파일 이름을 바꿉니다. <code>EQ0042</code> 같은 번호 대신 <code>frenzel_ref</code>처럼 <strong>의미 있는 이름</strong>을 붙여 두면 찾기 쉽습니다 (<a href="#s6_9">6.9</a>)</td></tr>
+    <tr><td><strong>변경</strong></td><td>참조 파일 이름을 바꿉니다. <code>EQ0042</code> 같은 번호 대신 <code>frenzel_ref</code>처럼 <strong>의미 있는 이름</strong>을 붙여 두면 찾기 쉽습니다 (<a href="#s6_9">6.9</a>)</td></tr>
     <tr><td><strong>삭제</strong></td><td>삭제 모드</td></tr>
     <tr><td><strong>닫기</strong></td><td>종료</td></tr>
   </tbody>
@@ -860,20 +860,20 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
 <p><strong>음성 안내</strong>가 함께 나옵니다. 화면을 계속 보지 않아도 눈을 감고 훈련할 수 있습니다.</p>
 <ul>
   <li>구간이 바뀔 때 <strong>Breathe / Hold</strong>를 알려 줍니다</li>
-  <li>남은 시간이 <strong>1분 단위, 30초 전, 10초 전, 5·4·3·2·1</strong>일 때 알려 줍니다</li>
+  <li>남은 시간이 <strong>1분 단위, 30초, 10초 전, 5·4·3·2·1</strong>일 때 알려 줍니다</li>
   <li><strong>첫 숨참기</strong>는 대회 방식으로 시작합니다 — <em>3·2·1 → official top → plus 1~5</em>.
       실제 경기와 비슷한 감각을 만들기 위한 것으로, 첫 라운드에서 한 번만 나옵니다</li>
   <li>음성은 <strong>영어</strong>입니다. 소리 크기는 설정에서 조절합니다</li>
 </ul>
 <blockquote><strong>안내를 항목마다 켜고 끌 수 있습니다</strong> (펌웨어 2.3~).
 눈을 감고 하는 훈련이라 소리가 유일한 정보이지만, 반대로 <strong>조용했으면 하는 구간</strong>도
-있습니다. <strong>매 분 · 30초 전 · 10초 전 · 카운트다운 5~1 · Official Top +1~5</strong> 다섯 가지를
+있습니다. <strong>매 분 · 30초 · 10초 전 · 카운트다운 · Official Top +1~5</strong> 다섯 가지를
 각각 끕니다. <strong>안내 목소리도 여성 · 남성 중에 고릅니다.</strong>
 자세히는 <a href="#s8_9">8.9</a>를 보세요.</blockquote>
 
 <h3 id="s8_7">8.7 컨트랙션 측정하기 (펌웨어 2.4~)</h3>
 <p>숨을 오래 참으면 몸이 숨을 쉬라고 보내는 신호로 <strong>배가 저절로 움찔거립니다.</strong>
-이것을 <strong>컨트랙션</strong>(컨트랙션)이라고 합니다. 언제 처음 왔는지, 몇 번 왔는지, 간격이 어떻게
+이것을 <strong>컨트랙션</strong>이라고 합니다. 언제 처음 왔는지, 몇 번 왔는지, 간격이 어떻게
 좁아지는지가 <strong>내 상태를 보여 주는 지표</strong>입니다.</p>
 <p><strong>기기를 배 위에 올려놓고 훈련하면 장비가 대신 알려 줍니다.</strong></p>
 
@@ -1000,11 +1000,22 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
     <tr><td><strong>이퀄 모드로 전환</strong></td><td>—</td><td>확인 후 저장하고 다시 시작합니다 (펌웨어 2.4a~)</td></tr>
     <tr><td><strong>스태틱 PB</strong></td><td>분 · 초</td><td>내 <strong>스태틱 최고 기록</strong>. 자동 생성의 <strong>PB 비율</strong> 기준으로만 쓰입니다 (최소 30초)</td></tr>
     <tr><td><strong>그래프 눈금 (g)</strong></td><td>0.1 ~ 1.0</td><td>컨트랙션 그래프 <strong>세로축 맨 위가 몇 g</strong>인지 (<a href="#s8_7">8.7</a>). 배 움직임 크기가 사람마다 달라 조절합니다 (펌웨어 2.4~)</td></tr>
-    <tr><td><strong>USB</strong></td><td>—</td><td>PC 와 연결해 기록을 옮깁니다 — <strong>[연결]</strong>을 1.5초 길게 누르세요 (<a href="#s6_8">6.8</a>)</td></tr>
     <tr><td><strong>볼륨</strong></td><td>0~100 %</td><td>음성 안내와 알람의 크기</td></tr>
+    <tr><td><strong>USB</strong></td><td>—</td><td>PC 와 연결해 기록을 옮깁니다 — <strong>[연결]</strong>을 1.5초 길게 누르세요 (<a href="#s6_8">6.8</a>)</td></tr>
   </tbody>
 </table>
 
+<!-- ⛔⛔ **설정 항목의 이름과 값은 장비 화면에 적힌 낱말 그대로** (별님 2026-09-07).
+       뜻이 통하게 풀어 쓰면 사용자가 화면에서 그 낱말을 못 찾는다.
+       이 판에서 물린 것 셋 — 「시간 안내」의 값을 "남은 시간 / 지나간 시간" 으로
+       (화면은 **잔여 / 경과**), 「30초」를 "30초 전" 으로, 「카운트다운」을
+       "카운트다운 5~1" 로 풀어 썼다.
+       ★ 같은 지적을 릴리스 노트(2.4a)와 다운로드 페이지에서 먼저 받았다.
+         ⇒ 한 곳에서 물리면 **매뉴얼도 같이 볼 것.**
+       ⇒ 정본은 `main/ui/common/i18n.cpp` 의 한국어 표(STR_CO2_*). 지어내지 말 것.
+     ⛔ **표의 행 차례 = 화면의 행 차례**다. 페이지 1 은 화면이
+        모드 전환 → 스태틱 PB → 그래프 눈금 → 볼륨 → USB 순인데 표만 USB 가 위였다
+        (`ui_co2_settings.cpp` build_page1 이 정본). -->
 <h4>페이지 2 — 음성 안내 (펌웨어 2.3~)</h4>
 <p>훈련 중 나오는 안내를 <strong>항목마다 켜고 끕니다.</strong> 필요한 것만 남기면 됩니다.
 차례는 실제로 들리는 순서대로입니다.</p>
@@ -1012,11 +1023,11 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
   <thead><tr><th>항목</th><th>범위 / 선택</th><th>설명</th></tr></thead>
   <tbody>
     <tr><td><strong>안내 목소리</strong></td><td>여성 / 남성</td><td>음성 안내를 읽는 목소리. <strong>이퀄 모드의 대회식 시작도 같은 목소리를 씁니다</strong> (펌웨어 2.3~)</td></tr>
-    <tr><td><strong>시간 안내</strong></td><td>남은 시간 / 지나간 시간</td><td><strong>지나간 시간</strong>으로 두면 숨참기에서 "1분", "2분" 하고 올라가며 부릅니다. 1라운드 · 최대 시간 테이블과 함께 쓰면 <strong>드라이 스태틱 훈련</strong>이 됩니다. 이때 숨참기의 10초 전·카운트다운은 나오지 않습니다(호흡 구간은 그대로). 기본은 남은 시간 (펌웨어 2.4a~)</td></tr>
-    <tr><td><strong>매 분</strong></td><td>ON / OFF</td><td>1분 단위로 (<em>one minute … ten minutes</em>). <strong>「30초 전」과 함께 켜면 30초마다</strong> 알려 줍니다 (펌웨어 2.4a~)</td></tr>
-    <tr><td><strong>30초 전</strong></td><td>ON / OFF</td><td><em>thirty seconds</em></td></tr>
+    <tr><td><strong>시간 안내</strong></td><td>잔여 / 경과</td><td><strong>경과</strong>로 두면 숨참기에서 "1분", "2분" 하고 올라가며 부릅니다. 1라운드 · 최대 시간 테이블과 함께 쓰면 <strong>드라이 스태틱 훈련</strong>이 됩니다. 이때 숨참기의 10초 전·카운트다운은 나오지 않습니다(호흡 구간은 그대로). 기본은 잔여 (펌웨어 2.4a~)</td></tr>
+    <tr><td><strong>매 분</strong></td><td>ON / OFF</td><td>1분 단위로 (<em>one minute … ten minutes</em>). <strong>「30초」와 함께 켜면 30초마다</strong> 알려 줍니다 (펌웨어 2.4a~)</td></tr>
+    <tr><td><strong>30초</strong></td><td>ON / OFF</td><td><em>thirty seconds</em></td></tr>
     <tr><td><strong>10초 전</strong></td><td>ON / OFF</td><td><em>ten</em></td></tr>
-    <tr><td><strong>카운트다운 5~1</strong></td><td>ON / OFF</td><td>구간이 끝나기 직전 <em>five · four · three · two · one</em></td></tr>
+    <tr><td><strong>카운트다운</strong></td><td>ON / OFF</td><td>구간이 끝나기 직전 <em>five · four · three · two · one</em></td></tr>
     <tr><td><strong>Official Top +1~5</strong></td><td>ON / OFF</td><td>첫 숨참기의 대회식 시작 — <em>official top</em> 과 그 뒤 <em>plus one ~ five</em></td></tr>
   </tbody>
 </table>
@@ -1071,7 +1082,7 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
 <table class="setbl">
   <thead><tr><th>항목</th><th>페이지</th><th>범위 / 선택</th><th>설명</th></tr></thead>
   <tbody>
-    <tr><td><strong>테마</strong></td><td>1</td><td>7종</td><td>색상 테마 선택 — 이름은 <strong>위 사진</strong> 참고</td></tr>
+    <tr><td><strong>테마</strong></td><td>3</td><td>7종</td><td>색상 테마 선택 — 이름은 <strong>위 사진</strong> 참고</td></tr>
     <tr><td><strong>밝기</strong></td><td>1</td><td>10~100 % (10 단위)</td><td>화면 백라이트 밝기</td></tr>
     <tr><td><strong>언어</strong></td><td>3</td><td>한국어 / English</td><td>표시 언어</td></tr>
   </tbody>

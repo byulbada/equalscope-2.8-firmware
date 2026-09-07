@@ -28,7 +28,7 @@
     screen-co2-home / -edit / -tables      홈 · 테이블 편집 · 테이블 목록
     screen-co2-run-breathe / -run-hold / -run-strip   훈련 중 (호흡 · 숨참기 · 흔들림 그래프)
     screen-co2-done / -files / -detail     완료 · 기록 목록 · 기록 상세
-    screen-co2-graph / -graph-filter       수축 그래프 (필터 OFF / ON)
+    screen-co2-graph / -graph-filter       컨트랙션 그래프 (필터 OFF / ON)
     screen-files / screen-rename           이퀄 파일 목록 · 이름 변경 키보드
     screen-mode-select                     부팅 모드 선택
   ※ 기기 스크린샷은 320x240 PNG 다. 파일 시각이 01-01 로 찍히는 것은 정상 —
@@ -228,7 +228,7 @@
        (한 곳만 고쳐 footer 가 v1.1d 로 뒤처져 있던 사고가 있었다 — 2026-07-21) -->
   <div class="meta">
     프리다이빙 이퀄라이징 훈련 장비<br>
-    펌웨어 v2.4 기준 · 최종 갱신 2026-09-06 · 빠른 시작은 별도 인쇄물 <a href="quickstart.html">quickstart</a> 참고
+    펌웨어 v2.4a 기준 · 최종 갱신 2026-09-07 · 빠른 시작은 별도 인쇄물 <a href="quickstart.html">quickstart</a> 참고
   </div>
 </header>
 
@@ -853,7 +853,7 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
   <li><strong>[중단]</strong> — 훈련을 끝냅니다. <strong>중단해도 그때까지의 기록은 저장됩니다.</strong></li>
 </ul>
 <p>숨참기 구간에는 화면 아래에 <strong>배의 흔들림 그래프</strong>가 그려집니다.
-기기를 배 위에 올려놓고 훈련하면 <strong>수축(컨트랙션)</strong>이 여기에 잡힙니다 —
+기기를 배 위에 올려놓고 훈련하면 <strong>컨트랙션</strong>이 여기에 잡힙니다 —
 <a href="#s8_7">8.7</a>에서 따로 설명합니다.</p>
 
 <h4>음성 안내</h4>
@@ -871,9 +871,9 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
 각각 끕니다. <strong>안내 목소리도 여성 · 남성 중에 고릅니다.</strong>
 자세히는 <a href="#s8_9">8.9</a>를 보세요.</blockquote>
 
-<h3 id="s8_7">8.7 수축(컨트랙션) 측정하기 (펌웨어 2.4~)</h3>
+<h3 id="s8_7">8.7 컨트랙션 측정하기 (펌웨어 2.4~)</h3>
 <p>숨을 오래 참으면 몸이 숨을 쉬라고 보내는 신호로 <strong>배가 저절로 움찔거립니다.</strong>
-이것을 <strong>수축</strong>(컨트랙션)이라고 합니다. 언제 처음 왔는지, 몇 번 왔는지, 간격이 어떻게
+이것을 <strong>컨트랙션</strong>(컨트랙션)이라고 합니다. 언제 처음 왔는지, 몇 번 왔는지, 간격이 어떻게
 좁아지는지가 <strong>내 상태를 보여 주는 지표</strong>입니다.</p>
 <p><strong>기기를 배 위에 올려놓고 훈련하면 장비가 대신 알려 줍니다.</strong></p>
 
@@ -887,39 +887,37 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
 <h4>훈련 중에 보이는 것</h4>
 <figure class="fig shot compact"><img src="assets/screen-co2-run-strip.png" alt="숨참기 화면 아래의 흔들림 그래프"><figcaption>숨참기 구간에는 아래에 흔들림 그래프가 그려집니다</figcaption></figure>
 <ul>
-  <li>화면 아래 그래프가 <strong>배의 흔들림</strong>을 실시간으로 그립니다. 수축이 오면 눈에 띄게 솟습니다.</li>
+  <li>화면 아래 그래프가 <strong>배의 흔들림</strong>을 실시간으로 그립니다. 컨트랙션이 오면 눈에 띄게 솟습니다.</li>
   <li>그래프의 <strong>가로 폭이 그 라운드의 숨참기 시간에 맞춰져</strong> 있습니다.
       선이 오른쪽 끝에 닿으면 그 판이 끝납니다 — <strong>남은 시간이 그림으로도 보이는</strong> 셈입니다.</li>
   <li>호흡 구간에는 <strong>방금 한 숨참기의 그림이 그대로 남아</strong> 있어 되돌아볼 수 있습니다.</li>
 </ul>
 
 <h4>훈련이 끝나면</h4>
-<p>기록에 <strong>라운드마다</strong> 한 줄이 붙습니다. 수축이 있었던 라운드에만 나옵니다.</p>
+<p>기록에 <strong>라운드마다</strong> 한 줄이 붙습니다. 컨트랙션이 있었던 라운드에만 나옵니다.</p>
 <ul>
   <li><strong>횟수</strong> — 그 라운드에서 몇 번 왔는지</li>
-  <li><strong>처음</strong> — 숨참기를 시작해서 <strong>첫 수축까지 걸린 시간</strong></li>
-  <li><strong>간격</strong> — 수축 사이의 평균 간격</li>
+  <li><strong>처음</strong> — 숨참기를 시작해서 <strong>첫 컨트랙션까지 걸린 시간</strong></li>
+  <li><strong>간격</strong> — 컨트랙션 사이의 평균 간격</li>
 </ul>
 
 <h4>그래프 다시 보기</h4>
-<!-- ⬜⬜ **2.4a 를 낼 때 이 절이 통째로 손볼 자리다** (2026-09-06):
-       ① 캡처 둘 다 **FW 2.4 화면**이다 — 「간격」 스위치가 없고 머리말이 옛 표기다.
-          ✅ 새 캡처는 **둘 다 준비됐다**(별님이 찍어 올렸다). 이름만 갈아끼우면 된다:
-            `screen-co2-graph-2.4a.png`(필터 OFF) · `screen-co2-graph-filter-2.4a.png`(ON).
-            같은 판(#59)에서 찍어 두 장이 짝으로 읽힌다.
-       ② 「간격」 스위치 설명을 여기에 더한다(켜면 둘째 항목부터 앞 컨트랙션과의 시간 차).
-       ③ 이 문서의 '수축' 14곳을 **'컨트랙션'** 으로 바꾼다(장비 화면이 그렇게 바뀐다).
-       ⛔ ①②③ 은 **한꺼번에** 해야 한다 — 캡처만 바꾸면 글과 그림의 낱말이 어긋난다. -->
+<!-- ✅ **2.4a 반영 완료** (2026-09-07) — 캡처 둘·「간격」 설명·'컨트랙션' 표기를
+       **한꺼번에** 했다. ⛔ 다음에도 셋을 나눠 하지 말 것 — 캡처만 바꾸면 글과 그림의
+       낱말이 어긋난다. 두 캡처는 같은 판(#59)이라 짝으로 읽힌다. -->
 <div class="figrow pair compact">
-  <figure><img src="assets/screen-co2-graph.png" alt="수축 그래프 — 필터 OFF"><figcaption>필터 OFF — 잰 그대로</figcaption></figure>
-  <figure><img src="assets/screen-co2-graph-filter.png" alt="수축 그래프 — 필터 ON"><figcaption>필터 ON — 잔진동을 걷어낸 모습</figcaption></figure>
+  <figure><img src="assets/screen-co2-graph.png" alt="컨트랙션 그래프 — 필터 OFF"><figcaption>필터 OFF — 잰 그대로</figcaption></figure>
+  <figure><img src="assets/screen-co2-graph-filter.png" alt="컨트랙션 그래프 — 필터 ON"><figcaption>필터 ON — 잔진동을 걷어낸 모습</figcaption></figure>
 </div>
 <ul>
   <li>기록을 열고 <strong>[그래프]</strong>를 누르면 그 라운드의 파형을 다시 봅니다.
       아래 <strong>◀ ▶</strong>로 라운드를 넘깁니다.</li>
-  <li>위쪽의 <strong>주황색 표시</strong>가 수축으로 센 자리입니다. 그래프 아래에는 시각과 세기가 차례로 적힙니다.</li>
+  <li>위쪽의 <strong>주황색 표시</strong>가 컨트랙션으로 센 자리입니다. 그래프 아래에는 시각과 세기가 차례로 적힙니다.</li>
   <li>오른쪽 위 <strong>필터</strong> 스위치를 켜면 <strong>잔진동을 걷어낸 그래프</strong>로 바뀝니다.
-      어느 봉우리가 수축으로 세어졌는지 눈으로 확인할 때 씁니다.</li>
+      어느 봉우리가 컨트랙션으로 세어졌는지 눈으로 확인할 때 씁니다.</li>
+  <li>오른쪽 아래 <strong>간격</strong> 스위치를 켜면 목록의 <strong>둘째 항목부터
+      앞 컨트랙션과의 시간 차</strong>가 나옵니다 (예: <code>1:18(0.23) / +3.8(0.19)</code>).
+      끄면 종전대로 시각입니다.</li>
   <li>세로 눈금은 사람마다 배 움직임 크기가 달라 <strong>설정에서 바꿀 수 있습니다</strong> (<a href="#s8_9">8.9</a>).
       그림이 납작하면 눈금을 낮추고, 봉우리가 천장에 붙으면 올립니다.</li>
 </ul>
@@ -948,7 +946,7 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
 <ul>
   <li>맨 위에 <strong>전체 라운드 수 · 실제 진행 시간 · 완주/중단</strong>이 요약됩니다.</li>
   <li>아래 표는 라운드별 <strong>호흡 / 숨참기 / 완료 시각</strong>입니다. 완료 시각은 훈련 시작부터의 누적 시간입니다.</li>
-  <li><strong>수축이 있었던 라운드</strong> 아래에는 <strong>횟수 · 처음 온 시각 · 평균 간격</strong>이 한 줄 더 붙습니다
+  <li><strong>컨트랙션이 있었던 라운드</strong> 아래에는 <strong>횟수 · 처음 온 시각 · 평균 간격</strong>이 한 줄 더 붙습니다
       (<a href="#s8_7">8.7</a>). <strong>[그래프]</strong>를 누르면 그때의 파형을 다시 봅니다.</li>
   <li>기록은 CSV 파일이라 PC로 옮겨 엑셀·구글 시트에서 열어 볼 수 있습니다 (<a href="#s6_8">6.8</a>).</li>
 </ul>
@@ -956,7 +954,7 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
 <h3 id="s8_9">8.9 호흡 모드 설정</h3>
 <p>호흡 모드의 설정은 <strong>3개 페이지</strong>입니다. <strong>좌우 화살표</strong>로 넘깁니다.</p>
 <div class="figrow pair">
-  <figure><img src="assets/screen-co2-settings.png" alt="호흡 모드 설정 1페이지"><figcaption>페이지 1 — 훈련 값 · USB · 소리</figcaption></figure>
+  <figure><img src="assets/screen-co2-settings.png" alt="호흡 모드 설정 1페이지"><figcaption>페이지 1 — 모드 전환 · 훈련 값 · 소리 · USB</figcaption></figure>
   <figure><img src="assets/screen-co2-settings2.png" alt="호흡 모드 설정 2페이지 — 음성 안내"><figcaption>페이지 2 — 음성 안내</figcaption></figure>
   <figure><img src="assets/screen-co2-settings3.png" alt="호흡 모드 설정 3페이지 — 모드"><figcaption>페이지 3 — 모드</figcaption></figure>
 </div>
@@ -995,15 +993,15 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
      ★ 다만 **읽는 사람이 판단에 쓰는 이유는 남긴다** — 예를 들어 9.4 의 "툭 침 기본이
        꺼짐인 이유" 는 켤지 말지를 정하는 데 쓰이므로 설명이 아니라 정보다.
        가르는 기준: 그 문장을 읽고 **사용자가 할 일이 달라지는가**. -->
-<h4>페이지 1 — 훈련 값 · USB · 소리</h4>
+<h4>페이지 1 — 모드 전환 · 훈련 값 · 소리 · USB</h4>
 <table class="setbl3">
   <thead><tr><th>항목</th><th>범위 / 선택</th><th>설명</th></tr></thead>
   <tbody>
+    <tr><td><strong>이퀄 모드로 전환</strong></td><td>—</td><td>확인 후 저장하고 다시 시작합니다 (펌웨어 2.4a~)</td></tr>
     <tr><td><strong>스태틱 PB</strong></td><td>분 · 초</td><td>내 <strong>스태틱 최고 기록</strong>. 자동 생성의 <strong>PB 비율</strong> 기준으로만 쓰입니다 (최소 30초)</td></tr>
-    <tr><td><strong>그래프 눈금 (g)</strong></td><td>0.1 ~ 0.5</td><td>수축 그래프 <strong>세로축 맨 위가 몇 g</strong>인지 (<a href="#s8_7">8.7</a>). 배 움직임 크기가 사람마다 달라 조절합니다 (펌웨어 2.4~)</td></tr>
+    <tr><td><strong>그래프 눈금 (g)</strong></td><td>0.1 ~ 1.0</td><td>컨트랙션 그래프 <strong>세로축 맨 위가 몇 g</strong>인지 (<a href="#s8_7">8.7</a>). 배 움직임 크기가 사람마다 달라 조절합니다 (펌웨어 2.4~)</td></tr>
     <tr><td><strong>USB</strong></td><td>—</td><td>PC 와 연결해 기록을 옮깁니다 — <strong>[연결]</strong>을 1.5초 길게 누르세요 (<a href="#s6_8">6.8</a>)</td></tr>
     <tr><td><strong>볼륨</strong></td><td>0~100 %</td><td>음성 안내와 알람의 크기</td></tr>
-    <tr><td><strong>안내 목소리</strong></td><td>여성 / 남성</td><td>음성 안내를 읽는 목소리. <strong>이퀄 모드의 대회식 시작도 같은 목소리를 씁니다</strong> (펌웨어 2.3~)</td></tr>
   </tbody>
 </table>
 
@@ -1013,7 +1011,9 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
 <table class="setbl3">
   <thead><tr><th>항목</th><th>범위 / 선택</th><th>설명</th></tr></thead>
   <tbody>
-    <tr><td><strong>매 분</strong></td><td>ON / OFF</td><td>남은 시간을 1분 단위로 (<em>one minute … ten minutes</em>)</td></tr>
+    <tr><td><strong>안내 목소리</strong></td><td>여성 / 남성</td><td>음성 안내를 읽는 목소리. <strong>이퀄 모드의 대회식 시작도 같은 목소리를 씁니다</strong> (펌웨어 2.3~)</td></tr>
+    <tr><td><strong>시간 안내</strong></td><td>남은 시간 / 지나간 시간</td><td><strong>지나간 시간</strong>으로 두면 숨참기에서 "1분", "2분" 하고 올라가며 부릅니다. 1라운드 · 최대 시간 테이블과 함께 쓰면 <strong>드라이 스태틱 훈련</strong>이 됩니다. 이때 숨참기의 10초 전·카운트다운은 나오지 않습니다(호흡 구간은 그대로). 기본은 남은 시간 (펌웨어 2.4a~)</td></tr>
+    <tr><td><strong>매 분</strong></td><td>ON / OFF</td><td>1분 단위로 (<em>one minute … ten minutes</em>). <strong>「30초 전」과 함께 켜면 30초마다</strong> 알려 줍니다 (펌웨어 2.4a~)</td></tr>
     <tr><td><strong>30초 전</strong></td><td>ON / OFF</td><td><em>thirty seconds</em></td></tr>
     <tr><td><strong>10초 전</strong></td><td>ON / OFF</td><td><em>ten</em></td></tr>
     <tr><td><strong>카운트다운 5~1</strong></td><td>ON / OFF</td><td>구간이 끝나기 직전 <em>five · four · three · two · one</em></td></tr>
@@ -1028,7 +1028,6 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
   <tbody>
     <tr><td><strong>부팅 시 모드 선택</strong></td><td>ON / OFF</td><td>끄면 전원을 켤 때 <strong>기본 모드</strong>로 바로 들어갑니다</td></tr>
     <tr><td><strong>기본 모드</strong></td><td>이퀄 / 호흡</td><td>위 항목이 꺼져 있을 때 어느 모드로 들어갈지</td></tr>
-    <tr><td><strong>이퀄 모드로 전환</strong></td><td>—</td><td>확인 후 저장하고 다시 시작합니다</td></tr>
   </tbody>
 </table>
 
@@ -1051,10 +1050,10 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
 <table>
   <thead><tr><th>페이지</th><th>성격</th><th>항목</th></tr></thead>
   <tbody>
-    <tr><td><strong>1</strong></td><td>기기</td><td>자동 종료 · 밝기 · 볼륨 · EQ 인터벌(+편집) · USB</td></tr>
+    <tr><td><strong>1</strong></td><td>기기</td><td>호흡 모드로 전환 · 밝기 · 볼륨 · EQ 인터벌(+편집) · USB</td></tr>
     <tr><td><strong>2</strong></td><td>소리·알람</td><td>압력 알람 · 최고 압력 알람 · 최저 압력 알람 · 대회식 시작 · 안내 목소리</td></tr>
     <tr><td><strong>3</strong></td><td>보기</td><td>테마 · 언어 · Y 최고 · Y 최소 · 기본 줌</td></tr>
-    <tr><td><strong>4</strong></td><td>훈련 모드</td><td>부팅 시 모드 선택 · 기본 모드 · 호흡 모드로 전환 · 툭 쳐서 시작 · 툭 침 감도</td></tr>
+    <tr><td><strong>4</strong></td><td>훈련 모드</td><td>부팅 시 모드 선택 · 기본 모드 · 자동 종료 · 툭 쳐서 시작 · 툭 침 감도</td></tr>
   </tbody>
 </table>
 <p>아래는 <strong>기능별</strong>로 묶어 설명합니다. (각 항목이 어느 페이지에 있는지 함께 표시)</p>
@@ -1119,11 +1118,11 @@ EQ 인터벌이 함께 시작합니다. 이어서 <em>plus 1 ~ 5</em>가 안내�
 <table class="setbl">
   <thead><tr><th>항목</th><th>페이지</th><th>범위</th><th>설명</th></tr></thead>
   <tbody>
-    <tr><td><strong>자동 종료</strong></td><td>1</td><td>0~120 분</td><td>일정 시간 무동작 시 자동으로 전원 끔. <strong>0이면 자동 종료 안 함</strong></td></tr>
+    <tr><td><strong>자동 종료</strong></td><td>4</td><td>0~120 분</td><td>일정 시간 무동작 시 자동으로 전원 끔. <strong>0이면 자동 종료 안 함</strong></td></tr>
     <tr><td><strong>USB</strong></td><td>1</td><td>—</td><td>PC 와 연결해 파일을 옮깁니다 — <strong>[연결]</strong>을 1.5초 길게 누르세요 (<a href="#s6_8">6.8</a>)</td></tr>
     <tr><td><strong>부팅 시 모드 선택</strong></td><td>4</td><td>ON / OFF</td><td>끄면 전원을 켤 때 기본 모드로 바로 들어갑니다 (<a href="#s8_1">8.1</a>)</td></tr>
     <tr><td><strong>기본 모드</strong></td><td>4</td><td>이퀄 / 호흡</td><td>위 항목이 꺼져 있을 때 어느 모드로 들어갈지</td></tr>
-    <tr><td><strong>호흡 모드로 전환</strong></td><td>4</td><td>—</td><td>확인 후 저장하고 다시 시작합니다 (<a href="#sec8">8장</a>)</td></tr>
+    <tr><td><strong>호흡 모드로 전환</strong></td><td>1</td><td>—</td><td>확인 후 저장하고 다시 시작합니다 (<a href="#sec8">8장</a>)</td></tr>
     <tr><td><strong>툭 쳐서 시작</strong></td><td>4</td><td>ON / OFF</td><td>기기를 툭 쳐서 측정을 시작·정지합니다 (펌웨어 2.4~). <strong>기본은 꺼짐</strong></td></tr>
     <tr><td><strong>툭 침 감도</strong></td><td>4</td><td>1~10</td><td>얼마나 살살 쳐도 알아들을지. <strong>숫자가 클수록 예민합니다</strong></td></tr>
   </tbody>
@@ -1264,7 +1263,7 @@ EQ 인터벌이 함께 시작합니다. 이어서 <em>plus 1 ~ 5</em>가 안내�
 
 </main>
 
-<footer>Equalscope 사용자 매뉴얼 · 펌웨어 v2.4 기준 · © 2026 별바다다이브</footer>
+<footer>Equalscope 사용자 매뉴얼 · 펌웨어 v2.4a 기준 · © 2026 별바다다이브</footer>
 
 </div>
 </body>

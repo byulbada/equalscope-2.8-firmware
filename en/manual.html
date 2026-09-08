@@ -34,10 +34,14 @@
        언어        = Lang       / 자동 종료 = Auto Off
 
   ══ 화면 사진 ══
-  ⚠️ **지금은 한글 화면 사진을 그대로 쓰고 있다** (2026-09-08, 별님 승인).
-     영문 화면 캡처를 아직 안 찍었기 때문이다. 사진은 `../assets/` 하나를 한·영이
-     같이 본다 — 영문 캡처를 찍으면 `../assets/en/` 을 새로 만들고 이 파일의
-     `<img src>` 만 그쪽으로 돌린다. 한글판은 건드리지 않는다.
+  ★★ **영문 화면 캡처는 `../assets/en/` 에 있다** (별님이 한 벌 다 찍어 올림 2026-09-08).
+     ⛔ 화면 캡처를 `../assets/` 에서 가져오지 말 것 — 그쪽은 한글 화면이다.
+     ⇒ 새 영문 캡처를 받으면 **`assets/en/` 에 같은 이름으로 덮으면 끝**이다.
+       한글판은 `assets/` 를 보므로 서로 안 건드린다.
+  ※ 언어와 상관없는 것은 공용(`../assets/`)에 그대로 둔다 — 실물 사진 넷
+    (kit-orange · port-usb · slot-sd · connect-h · valve-orange)과 브랜드 심볼.
+  ⬜ **`screen-markers.png` 하나만 아직 한글 화면이다** (4.1 왼쪽 사진). 그것만
+     영문으로 다시 찍으면 영문판에 한글 화면이 하나도 안 남는다.
   ★ 어느 사진이 어느 화면인지는 한글판 머리말에 적어 두었다.
 
   ⛔ 새 펌웨어를 낼 때 **여기 머리말 버전 · 맨 아래 footer 버전** 둘 다 고칠 것.
@@ -319,7 +323,7 @@
 </ol>
 
 <h3 id="s2_4">2.4 Reading the main screen</h3>
-<figure class="fig shot"><img src="../assets/screen-frenzel.png" alt="Live measurement graph"><figcaption>Main screen while measuring — three pressure values, stopwatch and battery on top, live graph in the middle, five buttons along the bottom</figcaption></figure>
+<figure class="fig shot"><img src="../assets/en/screen-frenzel.png" alt="Live measurement graph"><figcaption>Main screen while measuring — three pressure values, stopwatch and battery on top, live graph in the middle, five buttons along the bottom</figcaption></figure>
 <p>While you measure, the main screen shows all of this at once.</p>
 <ul>
   <li><strong>Three pressure values</strong> — current / minimum (▼) / maximum (▲), in hPa</li>
@@ -368,7 +372,7 @@ It samples at 40&nbsp;Hz (40 times a second), so the pressure in your mouth and 
 <h3 id="s4_1">4.1 What is on the graph</h3>
 <div class="figrow pair">
   <figure><img src="../assets/screen-markers.png" alt="Single graph with peak and trough markers"><figcaption>(left) A single session — peak and trough markers plus the average lines</figcaption></figure>
-  <figure><img src="../assets/screen-measure.png" alt="Graph with a reference overlaid"><figcaption>(right) With a reference — your line, the reference line and the training band</figcaption></figure>
+  <figure><img src="../assets/en/screen-measure.png" alt="Graph with a reference overlaid"><figcaption>(right) With a reference — your line, the reference line and the training band</figcaption></figure>
 </div>
 <table class="pat3">
   <thead><tr><th>Element</th><th>Looks like</th><th>Meaning</th></tr></thead>
@@ -407,7 +411,7 @@ It samples at 40&nbsp;Hz (40 times a second), so the pressure in your mouth and 
 
 <!-- 5 -->
 <h2 id="sec5">5. Session analysis</h2>
-<figure class="fig shot"><img src="../assets/screen-analysis.png" alt="Analysis screen"><figcaption>Analysis screen — the numbers, the pattern verdict with its confidence, and an advice message</figcaption></figure>
+<figure class="fig shot"><img src="../assets/en/screen-analysis.png" alt="Analysis screen"><figcaption>Analysis screen — the numbers, the pattern verdict with its confidence, and an advice message</figcaption></figure>
 <p>When you stop a measurement it is saved automatically and <strong>the [Start] button becomes [Stats].</strong>
 Press it to see the numbers, the pattern verdict and a message of advice.</p>
 
@@ -453,12 +457,12 @@ Press it to see the numbers, the pattern verdict and a message of advice.</p>
 
 <h3 id="s5_2">5.2 The six patterns</h3>
 <div class="figrow shots patterns">
-  <figure><img src="../assets/tech-valsalva.png" alt="Valsalva graph"><figcaption>Valsalva</figcaption></figure>
-  <figure><img src="../assets/tech-valsalva-frenzel.png" alt="Valsalva plus Frenzel graph"><figcaption>Valsalva + Frenzel</figcaption></figure>
-  <figure><img src="../assets/tech-frenzel.png" alt="Frenzel graph"><figcaption>Frenzel</figcaption></figure>
-  <figure><img src="../assets/tech-mouthfill.png" alt="Mouthfill graph"><figcaption>Mouthfill</figcaption></figure>
-  <figure><img src="../assets/tech-mouthfill-frenzel.png" alt="Mouthfill Frenzel graph"><figcaption>Mouthfill Frenzel</figcaption></figure>
-  <figure><img src="../assets/tech-btv.png" alt="BTV (hands-free) graph"><figcaption>BTV (hands-free)</figcaption></figure>
+  <figure><img src="../assets/en/tech-valsalva.png" alt="Valsalva graph"><figcaption>Valsalva</figcaption></figure>
+  <figure><img src="../assets/en/tech-valsalva-frenzel.png" alt="Valsalva plus Frenzel graph"><figcaption>Valsalva + Frenzel</figcaption></figure>
+  <figure><img src="../assets/en/tech-frenzel.png" alt="Frenzel graph"><figcaption>Frenzel</figcaption></figure>
+  <figure><img src="../assets/en/tech-mouthfill.png" alt="Mouthfill graph"><figcaption>Mouthfill</figcaption></figure>
+  <figure><img src="../assets/en/tech-mouthfill-frenzel.png" alt="Mouthfill Frenzel graph"><figcaption>Mouthfill Frenzel</figcaption></figure>
+  <figure><img src="../assets/en/tech-btv.png" alt="BTV (hands-free) graph"><figcaption>BTV (hands-free)</figcaption></figure>
 </div>
 <p>Equalscope weighs up the shape of the curve and sorts it into one of six technique patterns.</p>
 <table class="pat3">
@@ -502,7 +506,7 @@ Press it to see the numbers, the pattern verdict and a message of advice.</p>
 <h3 id="s5_5">5.5 Technique per block (EQ Interval)</h3>
 <p>If you record with <strong>EQ Interval</strong> (<a href="#s7_1">7.1</a>) turned on, the device <strong>judges the technique in each interval block separately</strong>.
 So you can train the way a descent usually goes — <strong>"Frenzel while it is shallow, then mouthfill deeper down"</strong> — and each block is analysed on its own instead of the whole session being lumped together.</p>
-<figure class="fig shot"><img src="../assets/screen-segments.png" alt="Per-block technique analysis — a summary and the figures and advice for each block"><figcaption>A summary by block, then the figures and advice for each one (for example block 1 Frenzel, block 2 mouthfill)</figcaption></figure>
+<figure class="fig shot"><img src="../assets/en/screen-segments.png" alt="Per-block technique analysis — a summary and the figures and advice for each block"><figcaption>A summary by block, then the figures and advice for each one (for example block 1 Frenzel, block 2 mouthfill)</figcaption></figure>
 <ul>
   <li>The <strong>summary by block</strong> sits at the top of the analysis screen (for example "1: Frenzel / 2–3: mouthfill").</li>
   <li>Below it come <strong>the figures and advice for each block</strong> in order — the same content as the whole-session analysis (5.1–5.4), one block at a time.</li>
@@ -518,13 +522,17 @@ So you can train the way a descent usually goes — <strong>"Frenzel while it is
 They are not a medical diagnosis or a guarantee of safety. Train under the supervision of a qualified instructor.</blockquote>
 
 <h3 id="s5_7">5.7 Comparison (firmware 2.2 and later)</h3>
-<figure class="fig shot"><img src="../assets/screen-compare-btn.png" alt="Main screen with the Compare button"><figcaption>With a reference loaded, the first button becomes <strong>[Compare]</strong> instead of [Stats]</figcaption></figure>
-<p>Open another recording while a reference is loaded and <strong>the [Stats] button becomes [Compare].</strong>
+<!-- ⛔ 버튼 이름은 **[Vs Ref]** 다 (별님 2026-09-08). 장비 화면에 "Compare" 로 넣었더니
+     61px 버튼을 꽉 채워 넘쳤다 — i18n.cpp 의 STR_BTN_COMPARE 자리에 근거가 있다.
+     ※ 캡처(screen-compare-btn.png)는 아직 "Compare" 가 찍힌 판이다. 새 펌웨어로
+       다시 찍으면 이 사진만 갈아 끼우면 된다. -->
+<figure class="fig shot"><img src="../assets/en/screen-compare-btn.png" alt="Main screen with the Vs Ref button"><figcaption>With a reference loaded, the first button becomes <strong>[Vs Ref]</strong> instead of [Stats]</figcaption></figure>
+<p>Open another recording while a reference is loaded and <strong>the [Stats] button becomes [Vs Ref].</strong>
 Press it and you first get a table with the two sets of numbers side by side, then a few lines saying what has changed.
 The analysis of the current recording follows as usual.</p>
 <p><strong>How to use it</strong> — in the Reference tab (<a href="#s6_5">6.5</a>), <code>[Open]</code> the recording you want to compare against,
 then go back to [Files] and open the one you want to look at. A session you have just finished works too.</p>
-<figure class="fig shot"><img src="../assets/screen-compare.png" alt="Comparison screen"><figcaption>Comparison — the reference and the current recording side by side, with the differences spelled out below</figcaption></figure>
+<figure class="fig shot"><img src="../assets/en/screen-compare.png" alt="Comparison screen"><figcaption>Comparison — the reference and the current recording side by side, with the differences spelled out below</figcaption></figure>
 <table class="lbl2">
   <thead><tr><th>What is compared</th><th>Details</th></tr></thead>
   <tbody>
@@ -578,7 +586,7 @@ Walk away and leave the device running, and your recording is still there.</p>
 </table>
 
 <h3 id="s6_3">6.3 A tour of the file screen</h3>
-<figure class="fig shot"><img src="../assets/screen-files.png" alt="File screen"><figcaption>File screen — three tabs (Internal / SD Card / Reference) and a grid of files</figcaption></figure>
+<figure class="fig shot"><img src="../assets/en/screen-files.png" alt="File screen"><figcaption>File screen — three tabs (Internal / SD Card / Reference) and a grid of files</figcaption></figure>
 <p>Press <strong>[Files]</strong> on the main screen to open the list of saved measurements.</p>
 <ul>
   <li>Three <strong>tabs</strong> along the top: <strong>Internal / SD Card / Reference</strong></li>
@@ -601,7 +609,7 @@ Walk away and leave the device running, and your recording is still there.</p>
 </table>
 
 <h3 id="s6_5">6.5 The Reference tab and training against a reference graph</h3>
-<figure class="fig shot"><img src="../assets/screen-measure.png" alt="Training against a reference"><figcaption>A reference graph in the background with your live line drawn over it</figcaption></figure>
+<figure class="fig shot"><img src="../assets/en/screen-measure.png" alt="Training against a reference"><figcaption>A reference graph in the background with your live line drawn over it</figcaption></figure>
 <p>The <strong>reference graph</strong> is the heart of training with Equalscope.
 It <strong>lays a model pattern in the background and draws your live graph over the top</strong>, so you can follow it or compare against it.</p>
 <blockquote><strong>How people use it</strong>: an instructor measures a model equalization pattern and hands it out as a reference → the student loads it into the background and trains by following it.</blockquote>
@@ -640,7 +648,7 @@ It <strong>lays a model pattern in the background and draws your live graph over
 <blockquote><strong>In practice</strong>: capture a student's analysis screen and you can go over the pressure pattern together afterwards, or set two sessions beside each other.</blockquote>
 
 <h3 id="s6_8">6.8 Moving files to a PC (USB drive mode)</h3>
-<figure class="fig shot compact"><img src="../assets/usb-mode.png" alt="USB choice screen — File Transfer or Firmware Update"><figcaption>Long-press [USB] and you choose what to do first</figcaption></figure>
+<figure class="fig shot compact"><img src="../assets/en/usb-mode.png" alt="USB choice screen — File Transfer or Firmware Update"><figcaption>Long-press [USB] and you choose what to do first</figcaption></figure>
 <p>Connect the device to a PC with a USB cable and it appears <strong>as a removable drive</strong>, so you can copy files straight off it.</p>
 <ol>
   <li><strong>Long-press the [Connect] button for 1.5 seconds</strong> on the <strong>USB</strong> row in settings.
@@ -657,7 +665,7 @@ It <strong>lays a model pattern in the background and draws your live graph over
 </blockquote>
 
 <h3 id="s6_9">6.9 Renaming files</h3>
-<figure class="fig shot compact"><img src="../assets/screen-rename.png" alt="Rename keyboard screen"><figcaption>Long-press a file and the keyboard opens</figcaption></figure>
+<figure class="fig shot compact"><img src="../assets/en/screen-rename.png" alt="Rename keyboard screen"><figcaption>Long-press a file and the keyboard opens</figcaption></figure>
 <p><strong>Long-press a file for about a second</strong> in the list to rename it.
 It works in all three places — <strong>Internal, SD Card and Reference</strong>.
 The Reference tab also has an <strong>[Edit]</strong> button.</p>
@@ -669,7 +677,7 @@ Select a file and the name of that file takes its place.</blockquote>
   <li><strong>The list is sorted by name.</strong> Change the front of a name and the order changes with it — put initials first to group by person, or keep the number first to keep them in order of recording.</li>
   <li><strong>The on-device keyboard is letters and numbers only.</strong> If you need other characters, rename the file on a PC and put it back on the card.</li>
   <li>If the name is already taken, it <strong>tells you and leaves the name alone</strong> — nothing gets overwritten.</li>
-  <li>Breath training records are renamed with the <strong>[Edit]</strong> button (long-press works too), but there <strong>only the middle name part</strong> changes (<a href="#s8_8">8.8</a>).</li>
+  <li>Breath training records are renamed with the <strong>[Edit]</strong> button (long-press works too), but there <strong>only the middle name part</strong> changes (<a href="#s8_7">8.7</a>).</li>
 </ul>
 
 <!-- 7 -->
@@ -680,11 +688,14 @@ Select a file and the name of that file takes its place.</blockquote>
 <p>Set up <strong>(interval × count)</strong> for each block and, from the moment you start measuring,
 you get <strong>a beep and a visual cue</strong> in that order. It is a tool for training your equalization rhythm against a descent plan.</p>
 <div class="figrow pair compact">
-  <figure><img src="../assets/screen-settings2.png" alt="Settings page 2 — EQ Interval toggle and the Edit Intervals button"><figcaption>Settings page 2 — the EQ Interval toggle and [Edit Intervals]</figcaption></figure>
-  <figure><img src="../assets/screen-interval-edit.png" alt="Interval editor — four blocks of interval × count"><figcaption>Interval editor — interval × count per block, with the totals on top</figcaption></figure>
+  <!-- ⛔ **여기는 설정 1페이지다** (별님 2026-09-08) — 한글 정본과 같은 이유.
+       FW 2.3 에 EQ 인터벌이 2페이지에서 1페이지로 갔는데 이 사진과 설명만 남아 있었다.
+       9.2 표는 진작 "1" 이라 한 문서 안에서 서로 어긋났다. 설정을 재배치할 때 같이 볼 것. -->
+  <figure><img src="../assets/en/screen-settings.png" alt="Settings page 1 — EQ Interval toggle and the Edit Intervals button"><figcaption>Settings page 1 — the EQ Interval toggle and [Edit Intervals]</figcaption></figure>
+  <figure><img src="../assets/en/screen-interval-edit.png" alt="Interval editor — four blocks of interval × count"><figcaption>Interval editor — interval × count per block, with the totals on top</figcaption></figure>
 </div>
 <ul>
-  <li><strong>Where it lives</strong>: settings page 2 — the <strong>EQ Interval</strong> toggle and the <strong>[Edit Intervals]</strong> button (<a href="#s9_2">9.2</a>)</li>
+  <li><strong>Where it lives</strong>: settings page 1 — the <strong>EQ Interval</strong> toggle and the <strong>[Edit Intervals]</strong> button (<a href="#s9_2">9.2</a>)</li>
   <li><strong>The editor</strong>: up to <strong>four blocks</strong>, each set as <strong>interval (seconds) × count</strong>.
     <ul><li><strong>Interval 0 = block off</strong> (that block is skipped)</li>
         <li><strong>Below one second it steps in 0.1&nbsp;s</strong> (0.1 → 0.9 → 1 → 2 → …), for training a fast repeated rhythm.</li>
@@ -695,7 +706,7 @@ you get <strong>a beep and a visual cue</strong> in that order. It is a tool for
   <li><strong>Alarm markers on the graph</strong>: each alarm leaves a <strong>vertical line</strong> on the graph (the first alarm of a new block is drawn longer). They move with the zoom and scroll, so you can check <strong>"the alarm versus what I actually did"</strong> and work on your rhythm.</li>
   <li><strong>Kept in the record</strong>: the alarm positions are stored in the measurement CSV, so the markers are still there when you open the file again later.</li>
 </ul>
-<figure class="fig shot compact"><img src="../assets/screen-interval-chart.png" alt="Measurement screen with EQ Interval alarm markers"><figcaption>The live graph — alarm times stay as vertical markers, so plan and reality sit side by side</figcaption></figure>
+<figure class="fig shot compact"><img src="../assets/en/screen-interval-chart.png" alt="Measurement screen with EQ Interval alarm markers"><figcaption>The live graph — alarm times stay as vertical markers, so plan and reality sit side by side</figcaption></figure>
 
 <h3 id="s7_2">7.2 Stopwatch</h3>
 <p>While you measure, the elapsed time is shown live as <strong>hh:mm:ss</strong> in the top left of the main screen.
@@ -712,8 +723,8 @@ Breath-hold training in water must be done with a buddy or an instructor, and th
 
 <h3 id="s8_1">8.1 Switching modes</h3>
 <div class="figrow pair compact">
-  <figure><img src="../assets/screen-mode-select.png" alt="Mode selection at power-on — Equalizing or Breath Training"><figcaption>Choose a mode when you switch on (tilt the device and the logo slides)</figcaption></figure>
-  <figure><img src="../assets/screen-co2-settings.png" alt="Breath mode settings — Ask mode on boot, Default mode, Switch to EQ"><figcaption>Breath mode settings — this is where you go back to equalizing</figcaption></figure>
+  <figure><img src="../assets/en/screen-mode-select.png" alt="Mode selection at power-on — Equalizing or Breath Training"><figcaption>Choose a mode when you switch on (tilt the device and the logo slides)</figcaption></figure>
+  <figure><img src="../assets/en/screen-co2-settings.png" alt="Breath mode settings — Ask mode on boot, Default mode, Switch to EQ"><figcaption>Breath mode settings — this is where you go back to equalizing</figcaption></figure>
 </div>
 <ul>
   <li><strong>When you switch on</strong>, a screen appears asking which of the two modes you want.</li>
@@ -722,21 +733,8 @@ Breath-hold training in water must be done with a buddy or an instructor, and th
       After you confirm, it <strong>saves and restarts</strong> (it will not switch during a measurement).</li>
 </ul>
 
-<h3 id="s8_2">8.2 Before you start — the safety notice</h3>
-<figure class="fig shot compact"><img src="../assets/screen-co2-safety.png" alt="Full-screen safety notice shown before the first session"><figcaption>Shown once, when you start your first session</figcaption></figure>
-<p>The first time you start breath training, this notice appears <strong>once, full screen</strong>.
-Press <strong>[I understand]</strong> and it will not appear again.</p>
-<ul>
-  <li><strong>Dry training only.</strong> Do not use it in or beside water.</li>
-  <li><strong>Do not hyperventilate.</strong> Hyperventilating before a hold greatly increases the risk of blackout.</li>
-  <li><strong>Stop at once if you feel dizzy or unwell.</strong> Enduring it is not the training.</li>
-  <li><strong>In water, always with a buddy or an instructor.</strong></li>
-</ul>
-<blockquote class="warn">⚠️ <strong>Never</strong> do this alone, while driving, or near a bath or a pool.
-Breath-hold training can make you lose consciousness without warning.</blockquote>
-
-<h3 id="s8_3">8.3 Reading the home screen</h3>
-<figure class="fig shot compact"><img src="../assets/screen-co2-home.png" alt="Breath mode home screen — table name, round preview, battery"><figcaption>A preview of the selected table, round by round</figcaption></figure>
+<h3 id="s8_2">8.2 Reading the home screen</h3>
+<figure class="fig shot compact"><img src="../assets/en/screen-co2-home.png" alt="Breath mode home screen — table name, round preview, battery"><figcaption>A preview of the selected table, round by round</figcaption></figure>
 <ul>
   <li><strong>Top left</strong> — the name of the table you have chosen</li>
   <li><strong>Top centre</strong> — <code>8R / 21:00</code> means <strong>8 rounds, 21 minutes in total</strong></li>
@@ -744,8 +742,8 @@ Breath-hold training can make you lose consciousness without warning.</blockquot
   <li><strong>Buttons along the bottom</strong> — <code>[Start] [Files] [Tables] [Setup] [Power]</code></li>
 </ul>
 
-<h3 id="s8_4">8.4 Choosing a table</h3>
-<figure class="fig shot compact"><img src="../assets/screen-co2-tables.png" alt="Table list — the four presets and your own tables"><figcaption>[Tables] → select one and press [Open]</figcaption></figure>
+<h3 id="s8_3">8.3 Choosing a table</h3>
+<figure class="fig shot compact"><img src="../assets/en/screen-co2-tables.png" alt="Table list — the four presets and your own tables"><figcaption>[Tables] → select one and press [Open]</figcaption></figure>
 <p>Training follows a <strong>table</strong>: a plan with a <strong>breathe time</strong> and a <strong>hold time</strong> for every round.
 What you increase and what you keep fixed decides what the session trains.</p>
 <table class="pat3">
@@ -772,10 +770,10 @@ What you increase and what you keep fixed decides what the session trains.</p>
   <li><strong>Name your tables in plain letters and numbers.</strong> The table name goes straight into the record's file name, and the on-device keyboard is letters and numbers only.</li>
 </ul>
 
-<h3 id="s8_5">8.5 Building your own table</h3>
+<h3 id="s8_4">8.4 Building your own table</h3>
 <div class="figrow pair compact">
-  <figure><img src="../assets/screen-co2-edit.png" alt="Table editor — breathe and hold times per round"><figcaption>Fine-tune the rounds one at a time</figcaption></figure>
-  <figure><img src="../assets/screen-co2-auto.png" alt="Auto-fill screen — rounds, start values, step, PB ratio"><figcaption>[Auto] fills the whole thing in one go</figcaption></figure>
+  <figure><img src="../assets/en/screen-co2-edit.png" alt="Table editor — breathe and hold times per round"><figcaption>Fine-tune the rounds one at a time</figcaption></figure>
+  <figure><img src="../assets/en/screen-co2-auto.png" alt="Auto-fill screen — rounds, start values, step, PB ratio"><figcaption>[Auto] fills the whole thing in one go</figcaption></figure>
 </div>
 <p>Press <strong>[Add]</strong> in the table list to open the editor. You can keep <strong>up to 50 tables</strong>,
 and one table can have <strong>up to 30 rounds</strong>.</p>
@@ -789,16 +787,16 @@ and one table can have <strong>up to 30 rounds</strong>.</p>
       <li><strong>Breathe start · step</strong> — the breathe time for the first round, and how much to add each round (negative to shorten)</li>
       <li><strong>Hold start · step</strong> — the same for the hold</li>
       <li><strong>PB ratio %</strong> — what percentage of your <strong>static personal best</strong> the hold should start at.
-          Change it and the <strong>Hold start</strong> just below is recalculated (enter your PB in <a href="#s8_9">8.9</a>)</li>
+          Change it and the <strong>Hold start</strong> just below is recalculated (enter your PB in <a href="#s8_8">8.8</a>)</li>
     </ul>
     The bottom line previews <strong>the values of the last round and the total time</strong>, so you can check before pressing <strong>[Fill]</strong> whether the table is too long or too punishing.</li>
 </ul>
 <blockquote class="warn">⚠️ Build the table <strong>for yourself</strong>. If someone else's table, or a preset, is hard work, then cutting rounds or shortening times is the right answer. Finishing a table is not the goal.</blockquote>
 
-<h3 id="s8_6">8.6 Training</h3>
+<h3 id="s8_5">8.5 Training</h3>
 <div class="figrow pair compact">
-  <figure><img src="../assets/screen-co2-run-breathe.png" alt="Running — breathe phase (blue)"><figcaption>Breathe phase — blue</figcaption></figure>
-  <figure><img src="../assets/screen-co2-run-hold.png" alt="Running — hold phase (orange)"><figcaption>Hold phase — orange</figcaption></figure>
+  <figure><img src="../assets/en/screen-co2-run-breathe.png" alt="Running — breathe phase (blue)"><figcaption>Breathe phase — blue</figcaption></figure>
+  <figure><img src="../assets/en/screen-co2-run-hold.png" alt="Running — hold phase (orange)"><figcaption>Hold phase — orange</figcaption></figure>
 </div>
 <ul>
   <li><strong>Told apart by colour</strong> — <strong>blue is breathe</strong>, <strong>orange is hold</strong>.
@@ -810,7 +808,7 @@ and one table can have <strong>up to 30 rounds</strong>.</p>
 </ul>
 <p>During a hold, a <strong>belly movement graph</strong> is drawn along the bottom of the screen.
 Rest the device on your belly and your <strong>contractions</strong> show up here —
-<a href="#s8_7">8.7</a> covers this separately.</p>
+<a href="#s8_6">8.6</a> covers this separately.</p>
 
 <h4>Voice guidance</h4>
 <p><strong>Voice guidance</strong> runs alongside. You do not have to watch the screen, so you can train with your eyes closed.</p>
@@ -825,9 +823,9 @@ Rest the device on your belly and your <strong>contractions</strong> show up her
 Sound is your only information when you train with your eyes closed, but there are also stretches where
 you would rather have quiet. The five items — <strong>Every min · 30 sec · 10 sec · Countdown · Official Top +1~5</strong> —
 are switched separately. <strong>You can also pick a female or male voice.</strong>
-See <a href="#s8_9">8.9</a> for the detail.</blockquote>
+See <a href="#s8_8">8.8</a> for the detail.</blockquote>
 
-<h3 id="s8_7">8.7 Measuring contractions (firmware 2.4 and later)</h3>
+<h3 id="s8_6">8.6 Measuring contractions (firmware 2.4 and later)</h3>
 <p>Hold your breath long enough and your belly starts to twitch by itself — the body's signal to breathe.
 These are <strong>contractions</strong>. When the first one arrives, how many there were, and how the gaps
 close up are <strong>an indicator of where you are.</strong></p>
@@ -841,7 +839,7 @@ close up are <strong>an indicator of where you are.</strong></p>
 </ul>
 
 <h4>What you see while training</h4>
-<figure class="fig shot compact"><img src="../assets/screen-co2-run-strip.png" alt="Belly movement graph along the bottom of the hold screen"><figcaption>During a hold, the movement graph is drawn along the bottom</figcaption></figure>
+<figure class="fig shot compact"><img src="../assets/en/screen-co2-run-strip.png" alt="Belly movement graph along the bottom of the hold screen"><figcaption>During a hold, the movement graph is drawn along the bottom</figcaption></figure>
 <ul>
   <li>The graph at the bottom draws your <strong>belly movement</strong> live. A contraction shows up as a clear spike.</li>
   <li>The <strong>width of the graph is scaled to the hold time of that round</strong>.
@@ -859,8 +857,8 @@ close up are <strong>an indicator of where you are.</strong></p>
 
 <h4>Reviewing the graph</h4>
 <div class="figrow pair compact">
-  <figure><img src="../assets/screen-co2-graph.png" alt="Contraction graph — filter off"><figcaption>Filter off — exactly as measured</figcaption></figure>
-  <figure><img src="../assets/screen-co2-graph-filter.png" alt="Contraction graph — filter on"><figcaption>Filter on — with the small ripples taken out</figcaption></figure>
+  <figure><img src="../assets/en/screen-co2-graph.png" alt="Contraction graph — filter off"><figcaption>Filter off — exactly as measured</figcaption></figure>
+  <figure><img src="../assets/en/screen-co2-graph-filter.png" alt="Contraction graph — filter on"><figcaption>Filter on — with the small ripples taken out</figcaption></figure>
 </div>
 <ul>
   <li>Open a record and press <strong>[Graph]</strong> to see that round's trace again.
@@ -871,14 +869,14 @@ close up are <strong>an indicator of where you are.</strong></p>
   <li>Turn on the <strong>Gap</strong> switch at the bottom right and the list shows <strong>the time since the previous
       contraction, from the second item on</strong> (for example <code>1:18(0.23) / +3.8(0.19)</code>).
       Turn it off and you are back to clock times.</li>
-  <li>Bellies move by different amounts, so the vertical scale <strong>can be changed in settings</strong> (<a href="#s8_9">8.9</a>).
+  <li>Bellies move by different amounts, so the vertical scale <strong>can be changed in settings</strong> (<a href="#s8_8">8.8</a>).
       If the trace looks flat, lower the scale; if the peaks hit the ceiling, raise it.</li>
 </ul>
 
-<h3 id="s8_8">8.8 Training records</h3>
+<h3 id="s8_7">8.7 Training records</h3>
 <div class="figrow pair compact">
-  <figure><img src="../assets/screen-co2-done.png" alt="Session complete — rounds, planned and actual time, where it was saved"><figcaption>A summary of the session and where it was saved</figcaption></figure>
-  <figure><img src="../assets/screen-co2-files.png" alt="Record list — Internal memory and SD card tabs"><figcaption>[Files] — your past sessions</figcaption></figure>
+  <figure><img src="../assets/en/screen-co2-done.png" alt="Session complete — rounds, planned and actual time, where it was saved"><figcaption>A summary of the session and where it was saved</figcaption></figure>
+  <figure><img src="../assets/en/screen-co2-files.png" alt="Record list — Internal memory and SD card tabs"><figcaption>[Files] — your past sessions</figcaption></figure>
 </div>
 <ul>
   <li><strong>The completion screen</strong> — how many rounds you did, the <strong>planned time and the actual time</strong>,
@@ -895,21 +893,21 @@ close up are <strong>an indicator of where you are.</strong></p>
       Writing something like <code>0728 HW</code> makes them easy to tell apart later.</li>
   <li><strong>[Copy]</strong> moves records between the internal memory and the SD card, and <strong>[Del]</strong> removes them.</li>
 </ul>
-<figure class="fig shot compact"><img src="../assets/screen-co2-detail.png" alt="Record detail — breathe, hold and finish time per round"><figcaption>Open a record and what actually happened is there, round by round</figcaption></figure>
+<figure class="fig shot compact"><img src="../assets/en/screen-co2-detail.png" alt="Record detail — breathe, hold and finish time per round"><figcaption>Open a record and what actually happened is there, round by round</figcaption></figure>
 <ul>
   <li>The top summarises <strong>the total rounds, the actual time, and whether you finished or stopped</strong>.</li>
   <li>The table below is <strong>breathe / hold / finish time</strong> per round. The finish time counts from the start of the session.</li>
   <li>Under <strong>rounds that had contractions</strong> is one more line with <strong>how many, when the first came, and the average gap</strong>
-      (<a href="#s8_7">8.7</a>). Press <strong>[Graph]</strong> to see the trace from that round.</li>
+      (<a href="#s8_6">8.6</a>). Press <strong>[Graph]</strong> to see the trace from that round.</li>
   <li>Records are CSV files, so you can move them to a PC and open them in Excel or Google Sheets (<a href="#s6_8">6.8</a>).</li>
 </ul>
 
-<h3 id="s8_9">8.9 Breath mode settings</h3>
+<h3 id="s8_8">8.8 Breath mode settings</h3>
 <p>Breath mode settings run to <strong>three pages</strong>. The <strong>left and right arrows</strong> turn them.</p>
 <div class="figrow pair">
-  <figure><img src="../assets/screen-co2-settings.png" alt="Breath mode settings page 1"><figcaption>Page 1 — mode switch · training values · sound · USB</figcaption></figure>
-  <figure><img src="../assets/screen-co2-settings2.png" alt="Breath mode settings page 2 — voice guidance"><figcaption>Page 2 — voice guidance</figcaption></figure>
-  <figure><img src="../assets/screen-co2-settings3.png" alt="Breath mode settings page 3 — mode"><figcaption>Page 3 — mode</figcaption></figure>
+  <figure><img src="../assets/en/screen-co2-settings.png" alt="Breath mode settings page 1"><figcaption>Page 1 — mode switch · training values · sound · USB</figcaption></figure>
+  <figure><img src="../assets/en/screen-co2-settings2.png" alt="Breath mode settings page 2 — voice guidance"><figcaption>Page 2 — voice guidance</figcaption></figure>
+  <figure><img src="../assets/en/screen-co2-settings3.png" alt="Breath mode settings page 3 — mode"><figcaption>Page 3 — mode</figcaption></figure>
 </div>
 
 <!-- ⛔⛔ **한글판 8.9 의 규칙이 여기에도 그대로 걸린다**:
@@ -928,7 +926,7 @@ close up are <strong>an indicator of where you are.</strong></p>
   <tbody>
     <tr><td><strong>Switch to EQ</strong></td><td>—</td><td>Confirms, saves and restarts (firmware 2.4a and later)</td></tr>
     <tr><td><strong>Static PB</strong></td><td>min · sec</td><td>Your <strong>static personal best</strong>. Used only as the basis for <strong>PB ratio</strong> in auto-fill (minimum 30 seconds)</td></tr>
-    <tr><td><strong>Graph scale (g)</strong></td><td>0.1 – 1.0</td><td><strong>How many g the top of the vertical axis is</strong> on the contraction graph (<a href="#s8_7">8.7</a>). Bellies move by different amounts, so it is adjustable (firmware 2.4 and later)</td></tr>
+    <tr><td><strong>Graph scale (g)</strong></td><td>0.1 – 1.0</td><td><strong>How many g the top of the vertical axis is</strong> on the contraction graph (<a href="#s8_6">8.6</a>). Bellies move by different amounts, so it is adjustable (firmware 2.4 and later)</td></tr>
     <tr><td><strong>Volume (%)</strong></td><td>0–100 %</td><td>How loud the voice guidance and alarms are</td></tr>
     <tr><td><strong>USB</strong></td><td>—</td><td>Connect to a PC to move records — long-press <strong>[Connect]</strong> for 1.5 seconds (<a href="#s6_8">6.8</a>)</td></tr>
   </tbody>
@@ -971,10 +969,10 @@ They are listed in the order you actually hear them.</p>
 
 <h3>The settings pages at a glance</h3>
 <div class="figrow pair">
-  <figure><img src="../assets/screen-settings.png" alt="Settings page 1"><figcaption>Page 1</figcaption></figure>
-  <figure><img src="../assets/screen-settings2.png" alt="Settings page 2"><figcaption>Page 2</figcaption></figure>
-  <figure><img src="../assets/screen-settings3.png" alt="Settings page 3"><figcaption>Page 3</figcaption></figure>
-  <figure><img src="../assets/screen-settings4.png" alt="Settings page 4"><figcaption>Page 4</figcaption></figure>
+  <figure><img src="../assets/en/screen-settings.png" alt="Settings page 1"><figcaption>Page 1</figcaption></figure>
+  <figure><img src="../assets/en/screen-settings2.png" alt="Settings page 2"><figcaption>Page 2</figcaption></figure>
+  <figure><img src="../assets/en/screen-settings3.png" alt="Settings page 3"><figcaption>Page 3</figcaption></figure>
+  <figure><img src="../assets/en/screen-settings4.png" alt="Settings page 4"><figcaption>Page 4</figcaption></figure>
 </div>
 <table>
   <thead><tr><th>Page</th><th>Theme</th><th>Items</th></tr></thead>
@@ -989,13 +987,13 @@ They are listed in the order you actually hear them.</p>
 
 <h3 id="s9_1">9.1 Display</h3>
 <div class="figrow themes">
-  <figure><img src="../assets/theme-daylight.png" alt="Daylight theme"><figcaption>Daylight</figcaption></figure>
-  <figure><img src="../assets/theme-coral.png" alt="Coral theme"><figcaption>Coral</figcaption></figure>
-  <figure><img src="../assets/theme-maple.png" alt="Maple theme"><figcaption>Maple</figcaption></figure>
-  <figure><img src="../assets/theme-lime.png" alt="Lime theme"><figcaption>Lime</figcaption></figure>
-  <figure><img src="../assets/theme-sky.png" alt="Sky theme"><figcaption>Sky</figcaption></figure>
-  <figure><img src="../assets/theme-neon.png" alt="Neon theme"><figcaption>Neon</figcaption></figure>
-  <figure><img src="../assets/theme-lavender.png" alt="Lavender theme"><figcaption>Lavender</figcaption></figure>
+  <figure><img src="../assets/en/theme-daylight.png" alt="Daylight theme"><figcaption>Daylight</figcaption></figure>
+  <figure><img src="../assets/en/theme-coral.png" alt="Coral theme"><figcaption>Coral</figcaption></figure>
+  <figure><img src="../assets/en/theme-maple.png" alt="Maple theme"><figcaption>Maple</figcaption></figure>
+  <figure><img src="../assets/en/theme-lime.png" alt="Lime theme"><figcaption>Lime</figcaption></figure>
+  <figure><img src="../assets/en/theme-sky.png" alt="Sky theme"><figcaption>Sky</figcaption></figure>
+  <figure><img src="../assets/en/theme-neon.png" alt="Neon theme"><figcaption>Neon</figcaption></figure>
+  <figure><img src="../assets/en/theme-lavender.png" alt="Lavender theme"><figcaption>Lavender</figcaption></figure>
 </div>
 <table class="setbl">
   <thead><tr><th>Item</th><th>Page</th><th>Range / choice</th><th>What it does</th></tr></thead>
@@ -1029,7 +1027,7 @@ EQ Interval all begin <strong>at the official top</strong>. Then <em>plus 1 ~ 5<
   <li>It matches how a real competition runs, so it is used <strong>when a competition is coming up</strong>, to get the feel of the start.</li>
   <li>Nothing is measured during the countdown, so <strong>the preparation time does not end up in the graph.</strong></li>
   <li><strong>Touch the screen during the countdown to cancel.</strong></li>
-  <li>It uses the same English guidance as breath training mode (<a href="#s8_6">8.6</a>).
+  <li>It uses the same English guidance as breath training mode (<a href="#s8_5">8.5</a>).
       <strong>The female / male choice follows the same setting too.</strong></li>
 </ul>
 
@@ -1092,7 +1090,7 @@ Give the device a light <strong>tap</strong> where it sits on the table and the 
 </ul>
 
 <h4>Method 1 — USB cable (no SD card)</h4>
-<figure class="fig shot compact"><img src="../assets/usb-mode.png" alt="USB choice screen — File Transfer or Firmware Update"><figcaption>Long-press [USB], then choose [Firmware Update]</figcaption></figure>
+<figure class="fig shot compact"><img src="../assets/en/usb-mode.png" alt="USB choice screen — File Transfer or Firmware Update"><figcaption>Long-press [USB], then choose [Firmware Update]</figcaption></figure>
 <ol>
   <li><strong>Connect the device to a PC with a USB cable.</strong></li>
   <li>Long-press the <strong>[Connect]</strong> button on the <strong>Settings → USB</strong> row for <strong>1.5 seconds</strong>,
@@ -1180,7 +1178,7 @@ Give the device a light <strong>tap</strong> where it sits on the table and the 
 <!-- 12 -->
 <h2 id="sec12">12. Safety</h2>
 <ul>
-  <li><strong>Do breath training (breath-holds) out of the water only.</strong> You can lose consciousness without warning. Never do it alone, while driving, or beside water, and in water always train <strong>with a buddy or an instructor</strong> (<a href="#s8_2">8.2</a>).</li>
+  <li><strong>Do breath training (breath-holds) out of the water only.</strong> You can lose consciousness without warning. Never do it alone, while driving, or beside water, and in water always train <strong>with a buddy or an instructor</strong>.</li>
   <li><strong>Do not hyperventilate before a hold.</strong> It greatly increases the risk of blackout.</li>
   <li><strong>This is not a medical device.</strong> The measurements and analysis are <strong>a training aid and a reference</strong>, not grounds for a diagnosis or a guarantee of safety.</li>
   <li><strong>Do not force the pressure.</strong> Over-pressurizing can injure you. Ease off when you see the over-pressure warning (<a href="#s5_4">5.4</a>).</li>

@@ -37,8 +37,9 @@
     (Git Bash 에서는 gs 앞에 MSYS_NO_PATHCONV=1 을 붙일 것 — 경로가 변환돼 파일을 못 찾는다.
      끝나면 PDF 를 열어 **양면 모두 마지막 박스까지 보이는지** 확인.)
   ※ 크기 변경 시 :root 의 --pw / --ph 와 @page size 를 함께 수정.
-  QR/심볼은 ../assets/ 공유. ★ **QR 은 영문 전용이다** (`qr-manual-en.png` →
-    equalscope.kr/en/manual.html). 한글 QR 을 여기 쓰지 말 것.
+  ★ **영문 전용 파일은 `../assets/en/` 에 둔다** (별님 2026-09-08). QR 이 그것이다
+    (`assets/en/qr-manual.png` → equalscope.kr/en/manual.html). ⛔ 한글 QR 을 여기 쓰지 말 것.
+    ※ 브랜드 심볼(svg)은 언어와 상관없는 것이라 `../assets/` 공유 그대로 둔다.
 -->
 <style>
   /* 영문 워드마크 폰트 — 로컬 임베드 (CDN 의존 제거: 웹·인쇄 PDF 항상 Montserrat) */
@@ -209,7 +210,7 @@
 
   <div class="qrline">
     <!-- ⛔ **영문 전용 QR** — equalscope.kr/en/manual.html. 한글 qr-manual.png 이 아니다. -->
-    <div class="qr"><img src="../assets/qr-manual-en.png" alt="User manual QR"></div>
+    <div class="qr"><img src="../assets/en/qr-manual.png" alt="User manual QR"></div>
     <div class="t">
       <b>User Manual</b>
       <!-- ⛔ 한 줄에 끝낼 것 — QR 상자가 18mm 로 커지며 이 칸이 3mm 좁아졌다.

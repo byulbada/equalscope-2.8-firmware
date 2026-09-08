@@ -40,8 +40,12 @@
        한글판은 `assets/` 를 보므로 서로 안 건드린다.
   ※ 언어와 상관없는 것은 공용(`../assets/`)에 그대로 둔다 — 실물 사진 넷
     (kit-orange · port-usb · slot-sd · connect-h · valve-orange)과 브랜드 심볼.
-  ⬜ **`screen-markers.png` 하나만 아직 한글 화면이다** (4.1 왼쪽 사진). 그것만
-     영문으로 다시 찍으면 영문판에 한글 화면이 하나도 안 남는다.
+  ✅ **화면 캡처는 전부 영문이다** (2026-09-08, 마지막 한 장 screen-markers 까지 받았다).
+  ⚠️ **파일 이름에 버전이 붙은 것 하나** — `screen-compare-btn-2.4b.png`.
+     그 버튼이 FW 2.4b 에서 `Compare` → `Vs Ref` 로 바뀌어, **아직 안 나간 판의 화면**
+     이라는 뜻으로 별님이 이름에 버전을 달아 두었다.
+     ⇒ 2.4b 를 내면 그때 **이름에서 `-2.4b` 를 떼고** 이 파일의 `<img src>` 도 함께
+       고칠 것. 그 전까지는 이름이 "이건 아직 앞선 판이다" 를 말해 준다.
   ★ 어느 사진이 어느 화면인지는 한글판 머리말에 적어 두었다.
 
   ⛔ 새 펌웨어를 낼 때 **여기 머리말 버전 · 맨 아래 footer 버전** 둘 다 고칠 것.
@@ -371,7 +375,7 @@ It samples at 40&nbsp;Hz (40 times a second), so the pressure in your mouth and 
 
 <h3 id="s4_1">4.1 What is on the graph</h3>
 <div class="figrow pair">
-  <figure><img src="../assets/screen-markers.png" alt="Single graph with peak and trough markers"><figcaption>(left) A single session — peak and trough markers plus the average lines</figcaption></figure>
+  <figure><img src="../assets/en/screen-markers.png" alt="Single graph with peak and trough markers"><figcaption>(left) A single session — peak and trough markers plus the average lines</figcaption></figure>
   <figure><img src="../assets/en/screen-measure.png" alt="Graph with a reference overlaid"><figcaption>(right) With a reference — your line, the reference line and the training band</figcaption></figure>
 </div>
 <table class="pat3">
@@ -524,9 +528,9 @@ They are not a medical diagnosis or a guarantee of safety. Train under the super
 <h3 id="s5_7">5.7 Comparison (firmware 2.2 and later)</h3>
 <!-- ⛔ 버튼 이름은 **[Vs Ref]** 다 (별님 2026-09-08). 장비 화면에 "Compare" 로 넣었더니
      61px 버튼을 꽉 채워 넘쳤다 — i18n.cpp 의 STR_BTN_COMPARE 자리에 근거가 있다.
-     ※ 캡처(screen-compare-btn.png)는 아직 "Compare" 가 찍힌 판이다. 새 펌웨어로
-       다시 찍으면 이 사진만 갈아 끼우면 된다. -->
-<figure class="fig shot"><img src="../assets/en/screen-compare-btn.png" alt="Main screen with the Vs Ref button"><figcaption>With a reference loaded, the first button becomes <strong>[Vs Ref]</strong> instead of [Stats]</figcaption></figure>
+     ※ 캡처 이름에 `-2.4b` 가 붙어 있다 — **아직 안 나간 판의 화면**이라는 표시다
+       (별님). 2.4b 를 내면 이름에서 떼고 여기 src 도 같이 고칠 것. -->
+<figure class="fig shot"><img src="../assets/en/screen-compare-btn-2.4b.png" alt="Main screen with the Vs Ref button"><figcaption>With a reference loaded, the first button becomes <strong>[Vs Ref]</strong> instead of [Stats]</figcaption></figure>
 <p>Open another recording while a reference is loaded and <strong>the [Stats] button becomes [Vs Ref].</strong>
 Press it and you first get a table with the two sets of numbers side by side, then a few lines saying what has changed.
 The analysis of the current recording follows as usual.</p>

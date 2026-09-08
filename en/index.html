@@ -449,7 +449,9 @@
     <p class="sub"><span style="color:#eef5fb;font-weight:700;">Reads your pressure pattern, tells you what to fix, and records contractions on its own.<br>CO₂·O₂ table training with voice guidance, all from one&nbsp;device.</span></p>
     <div class="btn-row">
       <a class="btn btn-primary" href="#order">Get in touch</a>
-      <a class="btn btn-ghost" href="#features">See the features</a>
+      <!-- ⛔ [See the features] 버튼은 뺐다 — 한글판과 같은 이유(별님 2026-09-09).
+           눌리면 #features 로 건너뛰는데 그 사이의 **Two modes · Pattern analysis ·
+           Contraction** 을 통째로 지나친다. 첫 화면의 길은 주문 버튼 하나로 둔다. -->
     </div>
     <p class="hero-note">Dry-land training aid. Not waterproof. Not a medical device.</p>
     <div class="hero-img"><img src="../assets/hero-both.jpg" alt="Equalscope orange and blue sets with live pressure graph, tube, pressure valve and Equalvent"></div>
@@ -467,7 +469,7 @@
   <!-- 두 모드 — 한글판 TWO MODES 대응 (FW 2.0 재포지셔닝의 핵심 섹션) -->
   <section>
     <div class="sec-tag">Two modes</div>
-    <h2 class="sec">Two kinds of training, one device</h2>
+    <h2 class="sec">Two kinds of training, all on one device</h2>
     <p class="sec-lead">You pick the mode when you turn it on — watch your equalizing, or run a breathing table.<br>
        Both go from measuring to recording and analysis inside the device.</p>
     <div class="cards3 cards-shot" style="grid-template-columns:repeat(2,1fr);max-width:760px;margin:0 auto;">
@@ -486,25 +488,16 @@
            kept as a record.</p>
       </div>
     </div>
+    <!-- ★★ **옛 「Why Equalscope」 섹션을 여기로 합쳤다** — 한글판과 같다(별님 2026-09-09).
+         그 섹션의 카드 셋(단독 동작 · 40Hz · 자동 분석)이 하는 말을 **바로 위 두 칸이
+         이미 다 하고 있었다.** 겹치던 둘은 버리고, 남는 하나(단독 동작)는 아래 문장에
+         녹였다 — 그것도 "Nothing extra to pack" 과 겹쳤기 때문이다.
+         ★ 「챙길 것이 없다」(들고 다니는 이야기)와 「켜면 바로」(쓸 때 이야기)는 다른
+           말이라 둘 다 남긴다. ⛔ 카드 위에 요약 블록을 다시 얹지 말 것. -->
     <p class="flow-note" style="margin-top:22px;">Nothing extra to pack — no separate tool, no phone for an app.
-       <b>One device in the bag.</b><br>Breathing training arrived as a firmware update, and the promise it came
+       <b>One device in the bag.</b> No app to launch and nothing to pair, so <b>you turn it on and measure.</b><br>
+       Breathing training arrived as a firmware update, and the promise it came
        from — <b>a device that grows with freedivers</b> — has not changed.</p>
-  </section>
-
-  <section class="alt">
-    <div class="sec-tag">Why Equalscope</div>
-    <h2 class="sec">Everything happens on the device</h2>
-    <p class="sec-lead">No app to launch, no pairing, no phone screen going to sleep in the middle of a class.
-       Turn it on and measure.</p>
-    <div class="cards3">
-      <div class="card"><div class="num">1</div><h3>Works on its own</h3>
-        <p>No smartphone, no PC, no Bluetooth pairing. The device measures, draws, stores and analyses by itself.</p></div>
-      <div class="card"><div class="num">2</div><h3>40 samples per second</h3>
-        <p>A smooth, continuous curve with no lag — fast repeated equalizations are captured as they happen.</p></div>
-      <div class="card"><div class="num">3</div><h3>Automatic analysis</h3>
-        <p>After each session it summarises count, rhythm, rise and fall speed, and estimates which
-           equalization technique the pressure pattern looks like.</p></div>
-    </div>
   </section>
 
 
@@ -513,7 +506,7 @@
          고쳐진 사람은 쓸 이유가 사라진다. 초·중·상을 사다리로 보이게 두는 것
          자체가 이 섹션의 논리다. 근거는 한글판 index.html 주석.
        ⛔ 강사 안심 문단은 넣지 않는다 — 한글판에서 써 봤다가 뺐다(꾸짖는 느낌). -->
-  <section>
+  <section class="alt">
     <div class="sec-tag">Your journey</div>
     <h2 class="sec">What you use changes as you improve</h2>
     <p class="sec-lead">Getting your equalization to work is not the finish line — <b>it is where it starts</b>.<br>Each stage needs something different, so the features you reach for change too.</p>
@@ -543,7 +536,7 @@
       Training continues even in the stretches when you cannot get to the water.</p>
   </section>
 
-  <section class="alt">
+  <section>
     <div class="sec-tag">Pattern analysis</div>
     <h2 class="sec">It recognises how you equalize</h2>
     <p class="sec-lead">From the shape of the pressure curve, Equalscope estimates which of six equalization
@@ -565,6 +558,20 @@
       <div class="tech"><img loading="lazy" src="../assets/en/tech-btv.png" alt="BTV pressure curve">
         <div class="t"><b>BTV (hands-free)</b>Opening the tubes without pushing — very low pressure oscillation</div></div>
     </div>
+
+    <!-- ★★ 패턴 여섯 장 뒤에 **「그래서 뭐라고 알려 주나」**를 붙인다 — 한글판과 같다.
+         여섯 장은 무엇을 가려내는지만 보여 준다. 사용자가 받는 것은 그다음이다.
+         ⛔ 화면을 더 늘리지 말 것 — 셋이면 「무엇을 봤나·구간별로·지난번과」가 다 든다.
+         ⛔ 폭을 좁히지 말 것 — `.tech-grid` 와 같은 값이어야 위 여섯 장과 크기가 맞는다. -->
+    <p class="sec-lead" style="margin-top:34px;">Whether you are really on Frenzel, whether the pressure stays even, whether negative pressure creeps in.<br><b>When the session ends you get the pressure pattern and what to look at.</b></p>
+    <div class="shots" style="max-width:none;gap:14px;">
+      <figure><img loading="lazy" src="../assets/en/screen-analysis.png" alt="Analysis screen with the summary, the technique estimate and advice">
+        <figcaption><b>Analysis</b>From count, rhythm and speed through to what to look at.</figcaption></figure>
+      <figure><img loading="lazy" src="../assets/en/screen-segments.png" alt="Per-block analysis screen — each interval block judged on its own">
+        <figcaption><b>Per-block analysis</b>Switch technique mid-session and each block is judged on its own.</figcaption></figure>
+      <figure><img loading="lazy" src="../assets/en/screen-compare.png" alt="Comparison screen — a reference session next to the current one">
+        <figcaption><b>Comparison</b>Set it against an earlier session and see what changed.</figcaption></figure>
+    </div>
   </section>
 
 
@@ -583,7 +590,7 @@
           ⛔ "every contraction" 금지 · ⛔ 판정은 실시간이 아니라 **라운드가 끝난 뒤** ·
           ⛔ "strength" → **movement size**(장비가 재는 것은 배 흔들림의 크기다) ·
           ⛔ "a measure of CO₂ tolerance" 로 단정하지 말 것. -->
-  <section id="contraction">
+  <section class="alt" id="contraction">
     <div class="sec-tag">Contraction</div>
     <h2 class="sec">Contractions, recorded on their own</h2>
     <p class="sec-lead">Hold your breath long enough and your belly starts to twitch on its own.
@@ -617,6 +624,28 @@
          (근거는 한글판 같은 자리 주석). 본문과 같은 `flow-note` 로 쓴다. -->
     <p class="flow-note" style="margin-top:16px;">Note: contractions are detected from belly movement.
       Small movements may go undetected, and the result can change with where the device sits or with other body movement.</p>
+  </section>
+
+
+  <!-- 사용법 — 한글판 HOW TO USE 대응 (별님 2026-08-22).
+       ※ 영상은 한글판 것을 그대로 쓴다 — 음성이 없고 "켜고 · 연결하고 · 측정하고 ·
+         분석된다" 를 보여줄 뿐이라 언어를 안 탄다(별님 확인).
+       ⬜ 영문 화면으로 다시 녹화할 예정이다. 그때 src 만 바꾸면 된다. -->
+  <section>
+    <div class="sec-tag">How to use</div>
+    <h2 class="sec">Unpack, connect, measure</h2>
+    <p class="sec-lead">Three steps from the box to an analysis — the video shows the whole thing.</p>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h4>Connect</h4><p>Click the tube into the device, then attach the Equalvent to the other end.</p></div>
+      <div class="step"><div class="n">2</div><h4>Measure</h4><p>Press start and equalize. Your pressure is drawn as a live graph.</p></div>
+      <div class="step"><div class="n">3</div><h4>Review</h4><p>The session saves itself. The analysis screen gives you the statistics and a short piece of advice.</p></div>
+    </div>
+    <div class="video-box" style="margin-top:36px;">
+      <video controls preload="metadata" poster="../assets/hero-orange.jpg">
+        <source src="../assets/demo.mp4" type="video/mp4">
+        Your browser cannot play this video.
+      </video>
+    </div>
   </section>
 
 
@@ -703,7 +732,6 @@
 
   <!-- 구성품 — 제품 사진은 글자가 없어 한글판 것을 그대로 쓴다 (assets/ 공용) -->
 
-
   <section class="alt">
     <div class="sec-tag">In the box</div>
     <h2 class="sec">What you get</h2>
@@ -723,29 +751,7 @@
     </div>
   </section>
 
-
-  <!-- 사용법 — 한글판 HOW TO USE 대응 (별님 2026-08-22).
-       ※ 영상은 한글판 것을 그대로 쓴다 — 음성이 없고 "켜고 · 연결하고 · 측정하고 ·
-         분석된다" 를 보여줄 뿐이라 언어를 안 탄다(별님 확인).
-       ⬜ 영문 화면으로 다시 녹화할 예정이다. 그때 src 만 바꾸면 된다. -->
   <section>
-    <div class="sec-tag">How to use</div>
-    <h2 class="sec">Unpack, connect, measure</h2>
-    <p class="sec-lead">Three steps from the box to an analysis — the video shows the whole thing.</p>
-    <div class="steps">
-      <div class="step"><div class="n">1</div><h4>Connect</h4><p>Click the tube into the device, then attach the Equalvent to the other end.</p></div>
-      <div class="step"><div class="n">2</div><h4>Measure</h4><p>Press start and equalize. Your pressure is drawn as a live graph.</p></div>
-      <div class="step"><div class="n">3</div><h4>Review</h4><p>The session saves itself. The analysis screen gives you the statistics and a short piece of advice.</p></div>
-    </div>
-    <div class="video-box" style="margin-top:36px;">
-      <video controls preload="metadata" poster="../assets/hero-orange.jpg">
-        <source src="../assets/demo.mp4" type="video/mp4">
-        Your browser cannot play this video.
-      </video>
-    </div>
-  </section>
-
-  <section class="alt">
     <div class="sec-tag">Spec</div>
     <h2 class="sec">Specifications</h2>
     <table class="spec">
@@ -779,32 +785,6 @@
       A car interior can reach 60–70°C in summer. Long exposure to heat can make the battery swell or catch fire, and the case can deform.</p>
   </section>
 
-  <section>
-    <div class="sec-tag">Download</div>
-    <h2 class="sec">Firmware &amp; manual</h2>
-    <p class="sec-lead">Drag the firmware onto the device over <b>USB</b>, or copy it to an <b>SD card</b> and power on — it updates itself.</p>
-    <div class="dl-grid">
-      <a class="dl" href="download/"><b>Latest firmware</b><span>download page · .uf2 (USB) / .bin (SD)</span></a>
-      <!-- ⛔ 여기 두 줄은 2026-09-08 까지 한글판(`../manual.html`)을 가리키며
-           "currently Korean only" 였다. 영문판이 생겼으니 **영문으로 건다.**
-           ※ 화면 사진은 아직 한글 캡처다 — 영문 캡처를 찍으면 매뉴얼 쪽만 바뀐다. -->
-      <a class="dl" href="manual.html"><b>Full manual</b><span>every screen, setting and update path</span></a>
-      <a class="dl" href="quickstart.html"><b>Quick start</b><span>the printable card that ships in the bag</span></a>
-    </div>
-  </section>
-
-  <!-- 베타 반응 — 한글판 BETA RESPONSE 대응 (별님 2026-08-22) -->
-  <section class="navy-sec">
-    <div class="sec-tag">Beta response</div>
-    <h2 class="sec">Seeing one in person changes the reaction</h2>
-    <p class="sec-lead">Beta testing and the pre-order batch were used to verify that it holds up.</p>
-    <div class="who">
-      <div class="w"><h4>Reliability</h4><p>No functional defect has been reported since beta testing and the pre-order shipments. Firmware updates keep refining it after release.</p></div>
-      <div class="w"><h4>First impression</h4><p>More than one person decided to buy on the spot, the first time they saw the device running — the screen and the build quality get the strongest reactions.</p></div>
-      <div class="w"><h4>What we hear most</h4><p>"Things no other device does" — the automatic analysis, the reference comparison, and the design come up most often.</p></div>
-    </div>
-  </section>
-
   <section class="alt" id="order">
     <div class="sec-tag">Order</div>
     <h2 class="sec">Ordering from outside Korea</h2>
@@ -832,6 +812,20 @@
     <p class="sec-lead" style="margin-top:26px;font-size:14.5px;">
       Please note: the device carries Korean radio certification (KC). It is sold as a personal
       training aid; any import duties or local requirements in your country are the buyer's responsibility.</p>
+  </section>
+
+  <section>
+    <div class="sec-tag">Download</div>
+    <h2 class="sec">Firmware &amp; manual</h2>
+    <p class="sec-lead">Drag the firmware onto the device over <b>USB</b>, or copy it to an <b>SD card</b> and power on — it updates itself.</p>
+    <div class="dl-grid">
+      <a class="dl" href="download/"><b>Latest firmware</b><span>download page · .uf2 (USB) / .bin (SD)</span></a>
+      <!-- ⛔ 여기 두 줄은 2026-09-08 까지 한글판(`../manual.html`)을 가리키며
+           "currently Korean only" 였다. 영문판이 생겼으니 **영문으로 건다.**
+           ※ 화면 사진은 아직 한글 캡처다 — 영문 캡처를 찍으면 매뉴얼 쪽만 바뀐다. -->
+      <a class="dl" href="manual.html"><b>Full manual</b><span>every screen, setting and update path</span></a>
+      <a class="dl" href="quickstart.html"><b>Quick start</b><span>the printable card that ships in the bag</span></a>
+    </div>
   </section>
 
   <footer>

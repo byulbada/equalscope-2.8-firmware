@@ -369,11 +369,11 @@
     .gift{flex-direction:column;} .gift img{width:100%;}
     .feat.valve{padding-right:92px;}
   }
-  /* 아주 좁은 화면 — 상단 "주문" 은 접는다. 히어로에 큰 [지금 주문하기] 가 있어
-     기능이 사라지지 않는다 (2026-07-28: 항목이 많아 글자가 세로로 접혔다). */
+  /* 아주 좁은 화면 — 상단 바 여백만 더 줄인다.
+     ※ 여기 있던 `.nav-order{display:none}` 은 없앴다 (2026-09-08) — 상단 「주문」
+       링크 자체를 빼서 숨길 것이 없다. */
   @media(max-width:430px){
     .topbar{padding:9px 12px;}
-    .topbar .nav-order{display:none;}
   }
 </style>
 </head>
@@ -384,7 +384,9 @@
   <div class="topbar">
     <a class="brand" href="/"><img class="mark" src="assets/brand/byulbada-dive_symbol.svg" alt="">Equalscope</a>
     <nav class="nav-links">
-      <a class="nav-order" href="#order">주문</a>
+      <!-- ⛔ 상단 「주문」 링크는 뺐다 (별님 2026-09-08). 히어로의 큰 [주문 안내 보기]
+           버튼이 같은 자리(#order)로 가므로 길이 사라진 것은 아니다.
+           ※ 예전엔 430px 이하에서만 숨겼는데(.nav-order), 이제 아예 두지 않는다. -->
       <a href="manual.html">매뉴얼</a>
       <a class="nav-cta" href="download/">펌웨어 ↓</a>
       <span class="lang"><span>KO</span><a href="/en/" hreflang="en" onclick="try{localStorage.setItem('eqs_lang','en')}catch(e){}">EN</a></span>

@@ -370,11 +370,11 @@
     .gift{flex-direction:column;} .gift img{width:100%;}
     .feat.valve{padding-right:92px;}
   }
-  /* 아주 좁은 화면 — 상단 "주문" 은 접는다. 히어로에 큰 [지금 주문하기] 가 있어
-     기능이 사라지지 않는다 (2026-07-28: 항목이 많아 글자가 세로로 접혔다). */
+  /* 아주 좁은 화면 — 상단 바 여백만 더 줄인다. 한글판과 같은 값이다.
+     ※ 여기 있던 `.nav-order{display:none}` 은 없앴다 (2026-09-08) — 상단 「Order」
+       링크 자체를 빼서 숨길 것이 없다. */
   @media(max-width:430px){
     .topbar{padding:9px 12px;}
-    .topbar .nav-order{display:none;}
   }
 
   /* ── 영문 전용 — 한글판에 없는 것만. 주문 방식이 달라 생긴 셋이다
@@ -392,14 +392,15 @@
   <div class="topbar">
     <a class="brand" href="/en/"><img class="mark" src="../assets/brand/byulbada-dive_symbol.svg" alt="">Equalscope</a>
     <nav class="nav-links">
-      <a class="nav-order" href="#order">Order</a>
+      <!-- ⛔ 상단 「Order」 링크는 뺐다 (별님 2026-09-08) — 한글판과 같다.
+           히어로의 [Get in touch] 버튼이 같은 자리(#order)로 간다. -->
       <!-- ⛔ 매뉴얼 링크를 빼지 말 것 (별님 2026-09-08) — 한글 랜딩에는 처음부터
            있었는데 영문에만 없었다. 차례도 한글과 같게 둔다(주문 → 매뉴얼 → 펌웨어).
            ※ 아래 「Firmware & manual」 칸에도 링크가 있지만 그건 페이지를 끝까지
              내려야 보인다. 상단 바는 **어디서든 닿는 길**이라 몫이 다르다. -->
       <a href="manual.html">Manual</a>
       <a class="nav-cta" href="download/">Firmware ↓</a>
-      <span class="lang"><a href="/" hreflang="ko" onclick="try{localStorage.setItem('eqs_lang','ko')}catch(e){}">한국어</a><span>EN</span></span>
+      <span class="lang"><a href="/" hreflang="ko" onclick="try{localStorage.setItem('eqs_lang','ko')}catch(e){}">KO</a><span>EN</span></span>
     </nav>
   </div>
 

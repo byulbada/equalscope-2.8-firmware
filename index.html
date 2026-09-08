@@ -379,6 +379,15 @@
        링크 자체를 빼서 숨길 것이 없다. */
   @media(max-width:430px){
     .topbar{padding:9px 12px;}
+    /* ★★ **좁은 화면에서 브랜드 글자를 한 치수 줄인다** (2026-09-09).
+       ⛔ 되돌리지 말 것 — 안 줄이면 **「Equalscope」와 첫 메뉴가 맞닿는다.** 상단 바는
+         브랜드와 메뉴 사이를 space-between 으로 벌리는데, 내용이 폭을 꽉 채우면 그
+         간격이 0 이 된다. 390px 에서 실제로 「EqualscopeManual」처럼 붙어 보였다.
+       ★ 영문이 먼저 걸린다 — 낱말이 길어서다(Manual·Firmware). 한글도 여유가
+         3px 밖에 없어 같은 값을 준다. ⛔ 한쪽만 고치지 말 것. */
+    .topbar .brand{font-size:17px;gap:6px;}
+    .topbar .brand .mark{height:20px;}
+    .topbar .nav-links{gap:8px;}
   }
 </style>
 </head>

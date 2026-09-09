@@ -187,6 +187,11 @@
   .shots figcaption{margin-top:8px;font-size:13.8px;color:var(--muted);text-align:center;line-height:1.5;}
   .shots figcaption b{display:block;color:var(--navy);font-size:15px;margin-bottom:2px;}
 
+  .shots.trio{max-width:none;gap:14px;}
+  @media(max-width:560px){
+    .shots.trio{grid-template-columns:1fr;max-width:360px;gap:18px;}
+  }
+
   .tech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
   .tech{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;}
   .tech img{width:100%;background:#0a0f14;}
@@ -421,7 +426,7 @@
     </div>
 
     <p class="sec-lead" style="margin-top:34px;">Whether you are really on Frenzel, whether the pressure stays even, whether negative pressure creeps in.<br><b>When the session ends you get the pressure pattern and what to look at.</b></p>
-    <div class="shots" style="max-width:none;gap:14px;">
+    <div class="shots trio">
       <figure><img loading="lazy" src="../assets/en/screen-analysis.png" alt="Analysis screen with the summary, the technique estimate and advice">
         <figcaption><b>Analysis</b>From count, rhythm and speed through to what to look at.</figcaption></figure>
       <figure><img loading="lazy" src="../assets/en/screen-segments.png" alt="Per-block analysis screen — each interval block judged on its own">
@@ -457,7 +462,7 @@
     <p class="flow-note" style="margin-top:22px;">
       <b>The same idea that put your mouth pressure on a screen now keeps your contractions.</b><br>
       A hold used to leave a time. Now it leaves the movement that went with it.<br>
-      Not found on existing training devices, and it <b>arrives as a firmware update</b> — devices already in use get it too.</p>
+      Not found on existing training devices, and it <b>arrived as a firmware update</b> — devices already in use get it by updating.</p>
 
     <p class="flow-note" style="margin-top:16px;">Note: contractions are detected from belly movement.
       Small movements may go undetected, and the result can change with where the device sits or with other body movement.</p>

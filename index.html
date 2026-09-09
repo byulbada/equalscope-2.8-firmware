@@ -185,6 +185,11 @@
   .shots figcaption{margin-top:8px;font-size:13.8px;color:var(--muted);text-align:center;line-height:1.5;}
   .shots figcaption b{display:block;color:var(--navy);font-size:15px;margin-bottom:2px;}
 
+  .shots.trio{max-width:none;gap:14px;}
+  @media(max-width:560px){
+    .shots.trio{grid-template-columns:1fr;max-width:360px;gap:18px;}
+  }
+
   .tech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
   .tech{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;}
   .tech img{width:100%;background:#0a0f14;}
@@ -402,7 +407,7 @@
 
     <p class="sec-lead" style="margin-top:34px;">프렌젤로 하고 있는지, 압력이 일정한지, 음압이 생기는지.<br><b>훈련을 마치면 압력 패턴과 함께 점검할 부분을 알려 줍니다.</b></p>
 
-    <div class="shots" style="max-width:none;gap:14px;">
+    <div class="shots trio">
       <figure><img loading="lazy" src="assets/screen-analysis.png" alt="분석 화면 — 통계 요약과 기법 추정, 점검할 부분">
         <figcaption><b>분석</b>횟수·주기·속도부터 점검할 부분까지 알려 줍니다.</figcaption></figure>
       <figure><img loading="lazy" src="assets/screen-segments.png" alt="구간별 기법 분석 화면 — 인터벌 구간마다 따로 판정">
@@ -437,7 +442,7 @@
     <p class="flow-note" style="margin-top:22px;">
       <b>보이지 않던 압력을 눈으로 보게 했듯이, 이제 컨트랙션도 기록으로 남깁니다.</b><br>
       시간만 남던 훈련에, 그 시간 동안의 몸 움직임까지 함께 남습니다.<br>
-      기존 훈련 장비에는 없던 기능이며, <b>펌웨어 업데이트로 더해집니다</b> — 이미 쓰고 계신 분도 그대로 쓸 수 있습니다.</p>
+      기존 훈련 장비에는 없던 기능이며, <b>펌웨어 업데이트로 추가된 기능</b>입니다 — 기존 사용자도 업데이트하면 사용할 수 있습니다.</p>
 
     <p class="flow-note" style="margin-top:16px;">※ 복부 움직임을 바탕으로 컨트랙션을 감지합니다.
       작은 움직임은 감지되지 않을 수 있으며, 기기 위치나 다른 몸 움직임에 따라 결과가 달라질 수 있습니다.</p>
@@ -573,7 +578,8 @@
       <span class="badge">판매 재개 준비 중</span>
       <div class="now">239,000<small>원</small></div>
       <div class="note">재개 뒤 가격입니다. 재개 일정과 주문 방법은 <b>별바다랩 카페 공지</b>에서 확인할 수 있습니다.</div>
-      <a class="btn btn-primary" href="https://cafe.naver.com/byulbadalab" target="_blank" rel="noopener">카페 공지 보기</a>
+
+      <a class="btn btn-primary" href="https://cafe.naver.com/byulbadalab" target="_blank" rel="noopener">별바다랩 카페 방문</a>
     </div>
 
     <p class="flow-note" style="margin-top:22px;">재개할 때 <b>이렇게 바뀝니다</b> — <b>생활 방수 가방</b>과 <b>파우치</b> · 고급 USB 케이블.</p>

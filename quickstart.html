@@ -6,36 +6,17 @@
 <title>Equalscope 빠른 시작 가이드</title>
 <meta name="description" content="Equalscope 빠른 시작 가이드 — 앞면 이퀄라이징, 뒷면 호흡 훈련(CO2·O2). 가방에 넣는 양면 카드.">
 <link rel="canonical" href="https://equalscope.kr/quickstart.html">
-<!-- ★ 영문판 짝 = `en/quickstart.html` (2026-09-08). 판형·레이아웃 규칙이 바뀌면
-     이 한글 정본을 먼저 고치고 영문으로 옮긴다. 영문판은 **QR 이 다르다**
-     (assets/en/qr-manual.png → equalscope.kr/en/manual.html). -->
+
 <link rel="alternate" hreflang="ko" href="https://equalscope.kr/quickstart.html">
 <link rel="alternate" hreflang="en" href="https://equalscope.kr/en/quickstart.html">
 <link rel="alternate" hreflang="x-default" href="https://equalscope.kr/quickstart.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<!-- 브랜드 한글 폰트 Pretendard (동적 서브셋) -->
+
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css">
-<!-- 영문 워드마크 폰트 Montserrat SemiBold(600)/Bold(700) — 로컬 임베드(CDN 의존 제거, 인쇄 PDF 확실) -->
-<!--
-  빠른 시작 — 양면 카드 (85×120mm, 2쪽: **앞면=이퀄라이징, 뒷면=호흡 훈련**).
-  카드형 레이아웃. 사진 없이 텍스트·QR만.
-  ★ 지면이 앞뒤 모두 거의 꽉 차 있다 (.page 는 overflow:hidden — 넘치면 **조용히
-    잘린다**. 예전에 푸터가 잘린 적이 있다). 문구를 한 줄이라도 늘렸으면 반드시
-    인쇄 미리보기(또는 아래 PDF 재생성)로 푸터까지 보이는지 확인할 것.
-  인쇄: 브라우저 Ctrl+P → 배경 그래픽 켜기 → 실제 크기(100%) →
-        앞·뒷면 각각 한 면에 찍힘 → 잘라 등맞춤(양면)으로 사용.
-  ★ 인쇄소용 `quickstart_print.pdf` 재생성 (텍스트를 도형으로 굳혀 폰트 사고를 막는다):
-      chrome --headless --no-pdf-header-footer --print-to-pdf=tmp.pdf file:///…/quickstart.html
-      gswin64c -dNoOutputFonts -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -o quickstart_print.pdf tmp.pdf
-    (Git Bash 에서는 gs 앞에 MSYS_NO_PATHCONV=1 을 붙일 것 — 경로가 변환돼 파일을 못 찾는다.
-     끝나면 PDF 를 열어 **양면 모두 푸터까지 보이는지** 확인.)
-  ※ 70×100 디자인을 1.2배 비례 확대한 판형(글자도 1.2배). 크기 변경 시
-     :root 의 --pw / --ph 와 @page size 를 함께 수정.
-  QR/심볼은 assets/ 공유 (index.html 와 동일).
--->
+
 <style>
-  /* 영문 워드마크 폰트 — 로컬 임베드 (CDN 의존 제거: 웹·인쇄 PDF 항상 Montserrat) */
+
   @font-face{font-family:'Montserrat';font-style:normal;font-weight:600;font-display:swap;
              src:url('assets/fonts/montserrat-latin-600.woff2') format('woff2');}
   @font-face{font-family:'Montserrat';font-style:normal;font-weight:700;font-display:swap;
@@ -48,9 +29,7 @@
   *{box-sizing:border-box;margin:0;padding:0;}
   body{background:#e9edf1;color:var(--ink);
        font-family:"Pretendard","Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;line-height:1.45;
-       /* ★ 한글은 낱말 중간에서 끊으면 안 된다 (별님 2026-07-28, 랜딩에도 같은 규칙).
-          이 카드에는 빠져 있어서 "전/원 버튼", "마세/요" 처럼 잘렸다 — 좁은 지면일수록
-          더 눈에 띈다. keep-all 이면 띄어쓰기 자리에서만 줄이 바뀐다. */
+
        word-break:keep-all;}
   img{max-width:100%;display:block;}
 
@@ -62,7 +41,6 @@
     display:flex; flex-direction:column;
   }
 
-  /* ── 로고 락업 (심볼 + 워드마크) ── */
   .brand{display:flex;align-items:center;gap:2.4mm;}
   .brand .sym{height:8.4mm;width:auto;flex:none;}
   .brand .wm{font-family:"Montserrat","Pretendard",sans-serif;font-weight:600;
@@ -73,17 +51,11 @@
 
   .rule{height:1px;background:var(--line);margin:1.6mm 0;}
 
-  /* ── 헤더(타이틀) ── */
   .htitle{font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.5px;line-height:1;}
   .htitle small{font-family:"Montserrat","Pretendard",sans-serif;font-size:12px;font-weight:600;
                 color:var(--blue);letter-spacing:0;margin-left:1.6mm;}
   .hsub{font-size:11px;color:var(--muted);margin-top:1.2mm;line-height:1.35;}
 
-  /* ── 단계 카드(앞면) ── */
-  /* ★ 남는 공간은 **단계 카드들이 고르게 나눠 갖는다** (푸터를 뺀 뒤 QR 박스 위에
-     한 덩어리로 몰려 구멍처럼 보였다). flex:1 로 늘어나고 space-between 으로 벌어지니
-     앞면(5장)·뒷면(4장)이 각자 알아서 균형을 잡는다 — 면마다 여백을 손으로 맞출
-     필요가 없다. gap 은 최소 간격 역할만 한다. */
   .steps{display:flex;flex-direction:column;gap:1.2mm;margin-top:2mm;
          flex:1 1 auto;justify-content:space-between;}
   .step{display:flex;align-items:flex-start;gap:2.6mm;
@@ -92,50 +64,27 @@
   .step .num{flex:none;width:6.5mm;height:6.5mm;border-radius:50%;background:var(--blue);
              color:#fff;font-weight:700;font-size:12px;
              display:flex;align-items:center;justify-content:center;line-height:1;}
-  /* ★ 제목과 설명을 **한 줄로 이어** 쓴다 (별님 2026-08-02). 제목 아래에 설명을 두면
-     카드 하나가 두 줄 높이를 먹어서 단계를 늘릴 수가 없었다. 오른쪽에 붙이면 짧은
-     설명은 한 줄, 긴 설명은 두 줄로 접히며 카드가 낮아진다.
-     ※ 설명이 세 줄로 접히면 지면이 넘친다 — 한 줄에 22자 남짓이 들어간다. */
+
   .step .tx{font-size:10px;color:#52606e;line-height:1.35;}
   .step .tx b{font-size:11.5px;font-weight:800;color:var(--navy);margin-right:1.3mm;}
   .step .tx em{font-style:normal;font-weight:800;color:var(--orange-d);}
-  /* 강조 단계(영점 보정) */
+
   .step.hl{border-color:#ffd2ad;background:#fff8f2;}
   .step.hl .num{background:var(--orange);}
 
-  /* ── 주의 박스 ── */
   .notice{border:1px solid #ffcfa6;background:#fff8f2;border-radius:3.1mm;
           padding:2.1mm 2.9mm;margin-top:3mm;}
-  /* ↑ 위 단계 카드와의 간격 — 카드 사이 간격보다 좁으면 안전 박스가 마지막 카드에
-     붙어 보인다. 뒷면은 단계 / 안전 / 설명서 세 덩어리로 읽혀야 한다. */
-  /* ★ 제목 앞에 경고 아이콘 (2026-08-21, 별님). **두 단계로 나눈다** —
-       안전   = 테두리 삼각형(주황). 혼자 물에서 할 일은 드물지만 사람 일은 모른다.
-       취급 주의 = **꽉 찬 삼각형(빨강)**. 이쪽은 **실제로 일어난 일**이라 더 세게.
-     ⛔ 이모지(⚠️)를 쓰지 말 것 — 인쇄용 PDF 로 구울 때 색 비트맵이라 결과가
-        흔들린다. 인라인 SVG 는 벡터라 아웃라인 처리(-dNoOutputFonts)와도 안 부딪힌다. */
+
   .notice b{display:flex;align-items:center;gap:1.3mm;
             color:var(--orange-d);font-size:11px;font-weight:800;margin-bottom:.7mm;}
   .notice b svg{width:3.8mm;height:3.8mm;flex:none;}
   .notice p{font-size:10px;color:#9a5a2a;line-height:1.4;}
   .notice em{font-style:normal;font-weight:800;color:var(--orange-d);}
 
-  /* ── QR 라인 ──
-     ★ 이 카드에서 **가장 중요한 요소**다 (별님 2026-08-02). 카드가 할 수 있는 일은
-       한정돼 있고, 사용설명서로 넘어가게 만드는 것이 이 카드의 본래 역할이다.
-       그래서 ① 양면에 모두 둔다(어느 면이 위로 있어도 눈에 든다)
-             ② 주황 바탕으로 지면에서 가장 눈에 띄게 한다. */
   .qrline{display:flex;align-items:center;gap:3mm;margin-top:auto;
           background:#fff5ec;border:1px solid #ffcfa6;border-radius:3.1mm;
           padding:2mm 2.6mm;}
-  /* ★★ **QR 상자 18mm / 안쪽 여백 0.6mm** (별님 2026-09-08). 예전엔 15mm / 1mm 였다.
-     ⛔ 크기를 되돌리지 말 것 — **모듈 크기가 걸려 있다.**
-       QR 이미지에 규격 여백(quiet zone 4모듈)을 넣으면 한 변이 29 → 37모듈이 된다.
-       상자를 15mm 로 둔 채 여백만 넣으면 같은 13mm 를 37칸이 나눠 가져
-       모듈이 0.448 → 0.351mm 로 **22% 작아진다** — 실제로 카드를 300dpi 로 굽고
-       축소해 읽어 보니 **옛것은 읽히는 거리에서 새것이 실패**했다.
-       ⇒ 상자를 18mm 로 키워 0.454mm 를 되찾았다. 여백도 지키고 모듈도 안 줄었다.
-     ※ 여백을 **이미지 안에** 넣은 이유 — CSS padding 에 기대면 이 값을 누가 줄일 때
-       조용히 규격을 벗어난다. 이미지가 스스로 들고 있으면 그런 일이 없다. */
+
   .qrline .qr{width:18mm;height:18mm;flex:none;border:1px solid #ffcfa6;
               border-radius:2.4mm;padding:.6mm;background:#fff;}
   .qrline .qr img{width:100%;height:100%;}
@@ -144,31 +93,17 @@
   .qrline .t .u{font-family:"Montserrat","Pretendard",sans-serif;color:var(--navy);
                 font-weight:600;font-size:10.5px;margin-top:1mm;}
 
-  /* ★ QR 박스 위쪽 최소 간격 — .qrline 의 margin-top:auto 는 남는 공간이 없으면
-     0 이 되어 **바로 위 박스와 테두리가 맞닿는다**(별님 2026-08-02, 양면 모두 지적).
-     그래서 QR 바로 위에 오는 요소에 고정 간격을 준다:
-       앞면 = 단계 카드 묶음(.steps) / 뒷면 = 안전 박스(.notice)
-     ※ 문구가 길어져 지면이 빡빡해져도 이 간격은 유지된다. */
   .front .steps{margin-bottom:3mm;}
   .back  .notice{margin-bottom:3mm;}
-  /* ★ 뒷면 맨 아래 = **취급 주의** (별님 2026-08-21). QR 이 있던 자리를 넘겨받았다.
-     ⛔ 뒷면 QR 을 되살리려거든 이 박스를 어디에 둘지 먼저 정할 것 — 두 개를 다
-        넣으면 지면이 넘친다. 설명서로 가는 길은 **앞면 QR 이 그대로 맡는다.**
-     ※ 왜 넣었나 — 여름철 차 안에 오래 둔 제품에서 케이스 변형이 실제로 났다
-       (2026-08-21). 배터리 쪽이 더 위험해서 그것을 먼저 적는다. */
+
   .back .notice.care{margin-top:auto;margin-bottom:0;
                      border-color:#efa595;background:#fff1ed;}
   .notice.care b{color:#c0392b;}
   .notice.care p{color:#8f4436;}
   .notice.care em{color:#c0392b;}
 
-  /* ※ 하단 "© 2026 별바다다이브" 푸터는 **뺐다** (별님 2026-08-02).
-     상호는 앞면 로고 락업과 양면 QR 박스의 주소(equalscope.kr)로 이미 드러나는데,
-     구분선까지 달고 자리만 차지해 QR 박스에 닿을 지경이었다. 좁은 카드에서는
-     한 번 더 적는 것보다 여백이 낫다. */
-
   @media print{
-    /* 인쇄·PDF 시 배경색(번호 배지·강조·QR) 강제 출력 — 안 켜면 색이 빠짐 */
+
     body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
     .page{margin:0;box-shadow:none;page-break-after:always;}
     .step,.notice{box-shadow:none;}
@@ -178,13 +113,6 @@
 </head>
 <body>
 
-<!-- ───────── 앞면 : 이퀄라이징 ─────────
-  ★ 면을 **모드로 나눈다** (별님 2026-08-02). 예전엔 앞면 5단계 + 뒷면 사용 팁이었는데,
-    호흡 훈련이 들어오면서 카드가 장비의 절반만 설명하고 있었다. 팁(그래프 조작·참조
-    비교·분리 방법)은 **사용설명서로 넘긴다** — 카드에 다 담으려면 어느 쪽도 제대로
-    못 담는다.
-  ※ QR 은 예전에 양면에 있었는데, 2026-08-21 에 **뒷면 것을 취급 주의로 바꿨다**
-    (별님). 설명서로 가는 길은 이 앞면 QR 하나가 맡는다. -->
 <section class="page front">
   <div class="brand">
     <img class="sym" src="assets/brand/byulbada-dive_symbol.svg" alt="">
@@ -228,10 +156,6 @@
   </div>
 </section>
 
-<!-- ───────── 뒷면 : 호흡 훈련 ─────────
-  ★ 범주 이름은 **호흡 훈련** — "숨참기" 를 범주로 쓰지 말 것(프리다이버는 스태틱으로
-    읽는다). 표 안의 구간 이름으로 쓰는 "숨참기" 는 장비 표기와 같아 그대로 쓴다.
-  ★ 안전 문구는 이 면에서 빼지 말 것. 예고 없는 의식 소실이 실제 위험이다. -->
 <section class="page back">
   <div class="htitle">호흡 훈련<small>CO₂ · O₂</small></div>
   <div class="hsub">훈련 테이블에 맞춰 음성으로 호흡과 숨참기가 안내됩니다.</div>
@@ -247,9 +171,7 @@
     </div>
     <div class="step">
       <div class="num">3</div>
-      <!-- ⛔ 여기는 **[파일]** 이다 (별님 2026-09-08). 「[기록]」으로 적혀 있었는데
-           장비 화면의 버튼 이름은 「파일」이다(i18n.cpp STR_CO2_FILES).
-           설명 낱말을 버튼 이름 자리에 쓰면 사용자가 화면에서 그것을 못 찾는다. -->
+
       <div class="tx"><b>기록 보기</b><em>[파일]</em>에서 라운드별로 확인합니다.</div>
     </div>
     <div class="step">

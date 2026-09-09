@@ -6,41 +6,17 @@
 <title>Equalscope 사용자 매뉴얼</title>
 <meta name="description" content="Equalscope 프리다이빙 이퀄라이징 훈련 장비 사용자 매뉴얼. 측정·분석·기록 사용법, 호흡 훈련, 설정, 펌웨어 업데이트 안내.">
 <link rel="canonical" href="https://equalscope.kr/manual.html">
-<!-- ★ 영문판 짝 = `en/manual.html` (2026-09-08). 절 번호·앵커 id 가 같으니 한쪽을
-     고치면 다른 쪽도 같이 볼 것. 정본은 이 한글 파일이다. -->
+
 <link rel="alternate" hreflang="ko" href="https://equalscope.kr/manual.html">
 <link rel="alternate" hreflang="en" href="https://equalscope.kr/en/manual.html">
 <link rel="alternate" hreflang="x-default" href="https://equalscope.kr/manual.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<!-- 브랜드 한글 폰트 Pretendard (동적 서브셋 — 필요한 글자만 로드) -->
+
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css">
-<!-- 영문 워드마크 폰트 Montserrat — 로컬 임베드(@font-face, CDN 의존 제거). 정의는 아래 <style> -->
-<!--
-  사용자 매뉴얼 — 화면으로 읽거나, 브라우저에서 Ctrl+P → PDF 저장으로 PDF 로도 사용.
 
-  ★★ 이 파일이 **정본**입니다 (2026-09-04 바로잡음).
-     예전 머리말에 "원본은 docs/USER_MANUAL.md" 라고 적혀 있었지만, 그 파일은
-     **펌웨어 v1.1 에서 멈춘 아카이브**(eqtool_2.8_espidf/docs/archive/USER_MANUAL.md)
-     이고 그 뒤의 모든 내용은 이 HTML 에만 있습니다. 그쪽을 고치지 마세요.
-  ⛔ 새 펌웨어를 낼 때 **여기 머리말 버전 · 맨 아래 footer 버전** 둘 다 고칠 것.
-
-  ══ 화면 사진 (2026-09-05, FW 2.4 로 전부 갱신 완료) ══
-  ★ 화면이 바뀌는 판을 낼 때는 **글보다 사진이 잘 밀린다.** 아래가 어느 화면인지
-    적어 두었으니, 그 화면을 손댔으면 사진도 같이 다시 찍을 것.
-    screen-settings*.png (4장)    이퀄 설정 1~4페이지
-    screen-co2-settings*.png (3장) 호흡 설정 1~3페이지
-    screen-co2-home / -edit / -tables      홈 · 테이블 편집 · 테이블 목록
-    screen-co2-run-breathe / -run-hold / -run-strip   훈련 중 (호흡 · 숨참기 · 흔들림 그래프)
-    screen-co2-done / -files / -detail     완료 · 기록 목록 · 기록 상세
-    screen-co2-graph / -graph-filter       컨트랙션 그래프 (필터 OFF / ON)
-    screen-files / screen-rename           이퀄 파일 목록 · 이름 변경 키보드
-    screen-mode-select                     부팅 모드 선택
-  ※ 기기 스크린샷은 320x240 PNG 다. 파일 시각이 01-01 로 찍히는 것은 정상 —
-    이 장비에는 시계가 없다.
--->
 <style>
-  /* 영문 워드마크 폰트 Montserrat — 로컬 임베드 (CDN 의존 제거) */
+
   @font-face{font-family:'Montserrat';font-style:normal;font-weight:600;font-display:swap;
              src:url('assets/fonts/montserrat-latin-600.woff2') format('woff2');}
   @font-face{font-family:'Montserrat';font-style:normal;font-weight:700;font-display:swap;
@@ -56,7 +32,6 @@
   .wrap{max-width:820px;margin:0 auto;background:#fff;
         box-shadow:0 1px 10px rgba(0,0,0,.12);}
 
-  /* 헤더 배너 */
   header{background:var(--navy);color:#fff;padding:30px 38px 24px;}
   header .brand{display:flex;align-items:center;gap:10px;font-family:"Montserrat","Pretendard",sans-serif;font-size:30px;font-weight:600;color:var(--orange);letter-spacing:-.5px;}
   header .brand .mark{height:35px;width:auto;margin:-4px 0;}
@@ -85,35 +60,25 @@
 
   table{width:100%;border-collapse:collapse;margin:10px 0 4px;font-size:14px;}
   th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top;}
-  /* 표 첫 열(항목/버튼/표시 라벨)은 줄바꿈 없이 한 줄로 — 좁은 라벨이 2줄로 쪼개지는 것 방지 */
+
   th:first-child,td:first-child{white-space:nowrap;}
   th{background:var(--navy);color:#fff;font-weight:600;}
   tbody tr:nth-child(even){background:var(--soft);}
   table.faq{table-layout:fixed;}
   table.faq th:first-child,table.faq td:first-child{width:32%;white-space:normal;word-break:break-all;overflow-wrap:anywhere;}
-  /* 5.2 패턴 표: 1열 좁히고 내용 긴 2·3열 넓게 (고정 레이아웃) */
+
   table.pat3{table-layout:fixed;}
   table.pat3 th:first-child,table.pat3 td:first-child{width:25%;white-space:normal;}
-  /* 5.4 경고 표: 좁은 화면(모바일)에서 2열('의미')이 **한 글자 폭**으로 짜부라져 표가
-     세로로 한없이 길어졌다(별님 2026-08-03). 웹에서는 정상이라 자동 레이아웃이 좁은
-     폭에서 1열 nowrap + 3열 장문에 눌린 탓 — 고정 레이아웃으로 열 폭을 못박는다.
-     1열도 nowrap 을 풀어 "음압 감지 (두 단계)" 가 두 줄로 접히게 둔다. */
+
   table.warn3{table-layout:fixed;}
   table.warn3 th:first-child,table.warn3 td:first-child{width:26%;white-space:normal;}
   table.warn3 th:nth-child(2),table.warn3 td:nth-child(2){width:30%;}
-  /* 9.설정 표(9.1~9.4): 4열 항목/페이지/범위/설명.
-     자동 레이아웃에서는 **항목 열이 설명 열과 비슷하게 넓어져** 설명이 좁아지고 표가
-     세로로 길어졌다(별님 2026-08-03, 9.3 만 설명이 넉넉했다). 폭을 못박아 설명에
-     제일 넓은 자리를 준다. 1열의 nowrap 도 풀어야 24% 가 지켜진다. */
-  /* ⛔⛔ `.setbl` 은 **4열(항목/페이지/범위/설명) 설정 표 전용**이다 (2026-08-21).
-     2열에 `white-space:nowrap` 이 걸려 있어서, 그 자리에 **문장**이 오는 표에 붙이면
-     글자가 칸을 넘어 옆 열과 겹쳐 보인다(별님 실기 — 8.3 의 표 둘이 그랬다).
-     3열 설정 표는 아래 `.setbl3` 을, 그냥 내용 표는 클래스를 안 붙이면 된다. */
+
   table.setbl{table-layout:fixed;}
   table.setbl th:first-child,table.setbl td:first-child{width:24%;white-space:normal;}
   table.setbl th:nth-child(2),table.setbl td:nth-child(2){width:16%;white-space:nowrap;}
   table.setbl th:nth-child(3),table.setbl td:nth-child(3){width:16%;}
-  /* 3열 설정 표(8.8 항목/범위/설명) — 페이지 열이 없으니 nowrap 도 없다 */
+
   table.setbl3{table-layout:fixed;}
   table.setbl3 th:first-child,table.setbl3 td:first-child{width:26%;white-space:normal;}
   table.setbl3 th:nth-child(2),table.setbl3 td:nth-child(2){width:22%;}
@@ -140,14 +105,11 @@
     header .meta{color:#555;border-top-color:var(--line);}
     footer{background:#fff;color:var(--ink);}
     main{padding:0;}
-    /* 장·목차·표를 새 페이지로 강제 분리하지 않음 — 빈 공간 없이 이어서 흐르게.
-       제목이 페이지 맨 끝에 혼자 남는 것(after:avoid)과, 표의 한 행이 페이지
-       경계에서 반쪽 나는 것(tr inside:avoid)만 방지. */
+
     h2,h3,h4{page-break-after:avoid;}
     tr{page-break-inside:avoid;}
     a{color:var(--ink);text-decoration:none;}
-    /* 인쇄 시 표 헤더: 배경 그래픽 ON/OFF 모두 가독되도록 연회색 배경+어두운 볼드+navy 밑줄.
-       (배경색은 OFF면 안 찍히지만, 글자/테두리는 항상 찍혀 헤더가 또렷) */
+
     th{background:#eef2f6;color:var(--ink);font-weight:800;border-bottom:2px solid var(--navy);}
     @page{size:A4;margin:10mm 14mm 14mm;}
   }
@@ -164,19 +126,10 @@
   .figrow.patterns figure{flex:0 1 30%;max-width:31%;}
   .figrow.themes figure{flex:0 1 22%;max-width:23%;}
   .figrow.themes img{width:100%;border:1px solid var(--line);border-radius:5px;}
-  /* .pair.wide — 한 줄에 꽉 채우는 변형. 설정 페이지가 3장일 때 썼는데 FW 2.0 에서
-     4장이 되며 너무 작아져 기본 .pair(2장씩 줄바꿈)로 되돌렸다. 규칙은 남겨 둔다. */
+
   .figrow.pair.wide figure{flex:1 1 0;max-width:none;}
   .figrow figcaption{font-size:12px;color:var(--muted);margin-top:4px;}
-  /* ══ 좁은 화면(휴대폰) ══════════════════════════════════════════════════
-     ★ 왜 필요한가 (별님 2026-08-21) — 이 문서에는 **인쇄 규칙만** 있고 화면 폭에
-       따른 규칙이 없었다. 그래서 휴대폰에서 9장 설정 표가 두 가지로 망가졌다:
-         ① 좌우 여백이 38px 씩이라 본문이 314px 밖에 안 남아 **표가 화면 밖으로 잘렸다**
-         ② `.setbl` 의 고정 폭(24/16/16%)은 820px 기준이라 좁은 화면에서 범위 열이
-            50px 남짓이 된다 — "밝은 · 연지 · 단풍 …" 이 **여섯 줄**로 접혔다
-     ⛔ 고정 폭을 좁은 화면까지 끌고 가지 말 것. 넓은 화면에서 설명 열을 넉넉히
-        주려고 못박은 값이라, 좁아지면 오히려 반대로 작동한다.
-     ※ 인쇄(PDF)는 아래 @media print 가 따로 맡는다 — 여기 값에 안 휘둘린다. */
+
   @media (max-width:640px){
     header{padding:20px 16px 16px;}
     header .brand{font-size:24px;}
@@ -184,42 +137,25 @@
     footer{padding:14px 16px;}
     table{font-size:13px;}
     th,td{padding:6px 7px;}
-    /* 설정 표 — 폭을 풀고 **내용에 맞춰** 나눈다. 페이지 열은 숫자 한 자라 최소로. */
+
     table.setbl,table.setbl3{table-layout:auto;}
     table.setbl th,table.setbl td,
     table.setbl3 th,table.setbl3 td{width:auto;}
     table.setbl th:nth-child(2),table.setbl td:nth-child(2){width:1%;white-space:nowrap;}
     table.setbl th:nth-child(3),table.setbl td:nth-child(3){width:auto;}
-    /* 다른 고정 폭 표도 같은 이유로 푼다 */
+
     table.warn3,table.pat3,table.faq{table-layout:auto;}
     table.warn3 th,table.warn3 td,table.pat3 th,table.pat3 td,
     table.faq th,table.faq td{width:auto;}
     .toc ol{columns:1;}
-    /* 그래도 넘치는 표가 생기면 **잘리지 말고 옆으로 밀리게** — 마지막 안전망 */
+
     main{overflow-x:auto;}
   }
 
   @media print{ figure.fig,.figrow{page-break-inside:avoid;}
-    /* ⛔⛔ **`figure.fig.shot img` 를 따로 적어 줘야 한다** (별님 2026-09-06).
-       `figure.fig img{max-width:300px}` 만 두면 화면용 규칙
-       `figure.fig.shot img{max-width:340px}` 이 **클래스가 하나 더 많아 이긴다.**
-       그래서 인쇄물에서 1~2.2 의 실물 사진은 300, 2.4 부터의 화면 캡처는 340 으로
-       **말없이 갈려 있었다** — 별님이 뽑아 보고 잡았다("1장의 사진 크기로 맞추자").
-       ⇒ 아래처럼 `.shot` 을 셀렉터에 같이 적어 같은 값으로 못 박는다.
-       ★ 규칙을 더할 때 **화면 쪽에 그 자리보다 구체적인 셀렉터가 있는지** 볼 것.
-         인쇄 블록이 나중에 나온다고 이기는 것이 아니다. */
+
     figure.fig img,figure.fig.shot img,.figrow.shots img{max-width:300px;}
-    /* ⛔ **같은 종류 사진은 인쇄에서도 같은 크기다** (별님 2026-08-30).
-       예전엔 `.compact` 로 6.8 이후만 더 줄였다(PDF 빈 공간을 아끼려던 것). 그런데
-       화면에선 다 같은 크기고 **인쇄에서만** 단일 사진 300 vs 240, 2장 묶음 320 vs 220
-       으로 갈려서, 뽑아 보면 6.8 부터 사진이 작아진 것처럼 보였다.
-       ⇒ `.compact` 크기 규칙을 걷어냈다. HTML 의 클래스는 그대로 두되(자리 표시로
-         쓸 수 있다) **인쇄 크기는 차별하지 않는다.**
-       ★ 2장 묶음도 **단일 사진과 같은 300px** 이다 (별님 2026-08-30). 예전엔 인쇄
-         규칙이 아예 없어 화면 값(320px)이 그대로 쓰였다 — 단일 300 과 어긋났다.
-       ※ 테마 7장(.figrow.themes)과 패턴 3장(.figrow.patterns)은 원래 비율로 나란히
-         놓는 묶음이라 여기 규칙에 안 걸린다 — **작게 그대로 둔다**(별님).
-       ※ 그만큼 PDF 쪽수가 늘 수 있다. 줄여야 하면 **절마다가 아니라 전체**를 줄일 것. */
+
     .figrow.pair figure{max-width:300px;} .figrow.pair img{max-width:300px;} }
 </style>
 </head>
@@ -229,8 +165,7 @@
 <header>
   <div class="brand"><img class="mark" src="assets/brand/byulbada-dive_symbol.svg" alt="">Equalscope</div>
   <h1>사용자 매뉴얼 — 상세 사용설명서</h1>
-  <!-- ★ 릴리스 때 버전·날짜를 여기와 **맨 아래 footer 두 곳** 다 고칠 것.
-       (한 곳만 고쳐 footer 가 v1.1d 로 뒤처져 있던 사고가 있었다 — 2026-07-21) -->
+
   <div class="meta">
     프리다이빙 이퀄라이징 훈련 장비<br>
     펌웨어 v2.4a 기준 · 최종 갱신 2026-09-08 · 빠른 시작은 별도 인쇄물 <a href="quickstart.html">quickstart</a> 참고<br>
@@ -258,7 +193,6 @@
   </ol>
 </nav>
 
-<!-- 1 -->
 <h2 id="sec1">1. 시작하기 전에</h2>
 
 <h3 id="s1_1">1.1 구성품과 각 부분 명칭</h3>
@@ -302,12 +236,7 @@
 </ul>
 
 <h3 id="s1_4">1.4 주요 사양</h3>
-<!-- ⛔⛔ **랜딩(index.html)의 「기본 사양」 표와 같은 내용·같은 차례**로 유지할 것
-     (별님 2026-09-06). 한동안 이쪽에만 다섯 줄이 빠져 있었고(모션 센서·훈련 모드·
-     인증·사용 환경·구성품), 가방 치수는 **옛 천 가방 것**이 남아 있었다.
-     ⇒ 한쪽을 고치면 다른 쪽도 같이 본다. 차례까지 맞춰 두면 눈으로 훑어 비교된다.
-     ※ 랜딩에만 있는 군더더기는 안 옮긴다 — SD 카드 호환(32/64GB)은 1.3 이,
-       구성품 상세는 1.1 이 이미 더 자세히 다룬다. 여기는 한 줄 요약이다. -->
+
 <table>
   <thead><tr><th>항목</th><th>내용</th></tr></thead>
   <tbody>
@@ -329,7 +258,6 @@
   </tbody>
 </table>
 
-<!-- 2 -->
 <h2 id="sec2">2. 기본 측정</h2>
 
 <h3 id="s2_1">2.1 연결과 착용</h3>
@@ -370,7 +298,6 @@
   <li><strong>실시간 그래프</strong> — 중앙. 지금까지의 <strong>최고점=주황선 · 최저점=빨강선</strong>으로 추적합니다 (자세한 읽는 법은 <a href="#sec4">4장</a>)</li>
 </ul>
 
-<!-- 3 -->
 <h2 id="sec3">3. 화면 조작</h2>
 
 <h3 id="s3_1">3.1 버튼 5개</h3>
@@ -402,7 +329,6 @@
 <blockquote>기기를 <strong>손에 들고</strong> 있으면 반응하지 않습니다. 조용히 놓여 있던 기기를 친 것만 칩니다.
 잘 안 되거나 너무 예민하면 <strong>툭 침 감도</strong>로 맞춥니다 (<a href="#s9_4">9.4</a>).</blockquote>
 
-<!-- 4 -->
 <h2 id="sec4">4. 그래프 읽기</h2>
 <p>메인 화면 중앙의 실시간 그래프는 <strong>가로축 = 시간, 세로축 = 압력(hPa)</strong> 입니다.
 40Hz(초당 40회) 고속 샘플링으로 입·귀 안의 압력 변화를 거의 실시간으로 그립니다.</p>
@@ -447,7 +373,6 @@
 </ul>
 <blockquote>줌 배율은 화면 우하단에 표시됩니다(x1, 1/2 등). 기본 배율은 설정에서 바꿀 수 있습니다(<a href="#s9_3">9.3</a>).</blockquote>
 
-<!-- 5 -->
 <h2 id="sec5">5. 측정 결과 분석</h2>
 <figure class="fig shot"><img src="assets/screen-analysis.png" alt="분석 화면"><figcaption>분석 화면 — 통계값 + 패턴 판정(신뢰도) + 조언 메시지</figcaption></figure>
 <p>측정을 정지하면 결과가 자동 저장되고, <strong>[시작] 버튼이 [분석]으로 바뀝니다.</strong>
@@ -584,7 +509,6 @@
 </ul>
 <blockquote>비교할 수 없는 경우에도 <strong>지금 기록의 분석은 평소처럼 그대로 나옵니다.</strong></blockquote>
 
-<!-- 6 -->
 <h2 id="sec6">6. 파일 관리</h2>
 
 <h3 id="s6_1">6.1 자동 저장과 파일 형식</h3>
@@ -717,7 +641,6 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
       <strong>가운데 이름 부분만</strong> 바뀝니다 (<a href="#s8_7">8.7</a>).</li>
 </ul>
 
-<!-- 7 -->
 <h2 id="sec7">7. 리듬 훈련</h2>
 <p>이퀄라이징은 <strong>일정한 간격으로 반복</strong>할 때 안정적인 리듬이 잡힙니다. Equalscope는 이를 돕는 두 가지 도구를 제공합니다.</p>
 
@@ -725,10 +648,7 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
 <p>구간별로 <strong>(간격 × 횟수)</strong>를 정해 두면, 측정을 시작하는 순간부터 그 순서대로
 <strong>비프음 + 화면 시각 신호</strong>가 울립니다. 하강 시나리오에 맞춰 이퀄 리듬을 훈련하는 도구입니다.</p>
 <div class="figrow pair compact">
-  <!-- ⛔ **여기는 설정 1페이지다** (별님 2026-09-08). FW 2.3 에 EQ 인터벌이 2페이지에서
-       1페이지로 옮겨졌는데(set_internal.h 페이지 매핑) 이 사진과 설명만 2페이지에
-       남아 있었다. 9.2 표는 진작 "1" 로 맞아 있어서 **한 문서 안에서 서로 어긋났다.**
-       ⇒ 설정 화면을 재배치할 때 **여기도 같이 볼 것** — 9장 표만 고치면 이 사진이 샌다. -->
+
   <figure><img src="assets/screen-settings.png" alt="설정 페이지 1 — EQ 인터벌 토글과 인터벌 편집 버튼"><figcaption>설정 페이지 1 — EQ 인터벌 토글 + [인터벌 편집]</figcaption></figure>
   <figure><img src="assets/screen-interval-edit.png" alt="인터벌 편집 화면 — 4구간 (간격 × 횟수)"><figcaption>인터벌 편집 — 구간별 (간격 × 횟수), 상단에 합계 표시</figcaption></figure>
 </div>
@@ -750,7 +670,6 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
 <p>측정 중 경과 시간을 <strong>hh:mm:ss</strong>로 메인 화면 좌측 상단에 실시간 표시합니다.
 트레이닝 진행 시간을 한눈에 확인할 수 있고, EQ 인터벌과 함께 인터벌 훈련의 시간 관리에 쓰입니다.</p>
 
-<!-- 8 -->
 <h2 id="sec8">8. 호흡 훈련 (CO2 / O2)</h2>
 <p>Equalscope에는 이퀄라이징 측정과 <strong>별개의 모드</strong>가 하나 더 있습니다.
 <strong>호흡 훈련 모드</strong>는 숨참기와 회복 호흡을 테이블대로 반복하며
@@ -899,9 +818,7 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
 </ul>
 
 <h4>그래프 다시 보기</h4>
-<!-- ✅ **2.4a 반영 완료** (2026-09-07) — 캡처 둘·「간격」 설명·'컨트랙션' 표기를
-       **한꺼번에** 했다. ⛔ 다음에도 셋을 나눠 하지 말 것 — 캡처만 바꾸면 글과 그림의
-       낱말이 어긋난다. 두 캡처는 같은 판(#59)이라 짝으로 읽힌다. -->
+
 <div class="figrow pair compact">
   <figure><img src="assets/screen-co2-graph.png" alt="컨트랙션 그래프 — 필터 OFF"><figcaption>필터 OFF — 잰 그대로</figcaption></figure>
   <figure><img src="assets/screen-co2-graph-filter.png" alt="컨트랙션 그래프 — 필터 ON"><figcaption>필터 ON — 잔진동을 걷어낸 모습</figcaption></figure>
@@ -956,40 +873,6 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
   <figure><img src="assets/screen-co2-settings3.png" alt="호흡 모드 설정 3페이지 — 모드"><figcaption>페이지 3 — 모드</figcaption></figure>
 </div>
 
-<!-- ⛔⛔ **매뉴얼에 안 쓰는 것 셋** (별님 2026-09-05 — 이 세 가지로 한 번에 정리됐다):
-       ① **과거와 비교하는 내용** — "예전에는", "자리를 다시 모았습니다", "~던 것을 고쳤습니다".
-          매뉴얼은 **지금 이 장비가 어떻게 생겼는지**를 적는다. 반년 뒤 처음 사는 사람에게
-          옮겨진 적도, 고쳐진 적도 없다. 그 이야기는 릴리스 노트와 다운로드 페이지 몫이다.
-       ② **없는 것을 부연하는 내용** — "합계는 두지 않았습니다", "심장 박동은 세지 않습니다".
-          별님: *"없는 것을 굳이 이유를 들어 매뉴얼에 포함시킬 필요는 없다. 있는 것만
-          제대로 설명하자."*
-       ③ **개발 의도** — "틀린 숫자는 안 보여 주는 것만 못하다", "기본이 꺼짐인 이유는".
-          별님: *"설정을 왜 그렇게 했는지 의도는 우리만 알면 되는 것이고, 사용자는
-          현재 상태에 대한 정보만 알면 됨."* 그 이야기의 자리는 **코드 주석**이다.
-     ★ 다만 **버전 표기 `(펌웨어 2.4~)` 는 남긴다** (별님 2026-09-05): *"비교, 이유를
-       남기지 않고 기능 추가를 알려주는 것이라 괜찮은 것 같다."* 옛 펌웨어를 쓰는
-       사람이 "내 장비엔 왜 이게 없지" 할 때 답이 된다 — ①이 금지하는 것은 **비교와
-       이유**이지 "언제부터 있다" 가 아니다.
-       같은 이유로 10.1·1.3 의 구버전 안내("v2.0 이하에는 이 기능이 없습니다" 등)도
-       남긴다 — 그건 **읽고 할 일이 달라지는** 정보다(그 버전은 SD 로 한 번 올려야 한다).
-     ⇒ 아래 주석은 그중 ①의 사례로 남긴다. -->
-<!-- ⛔ **"펌웨어 X.X 에서 자리를 다시 모았습니다" 류의 안내를 매뉴얼에 넣지 말 것**
-     (별님 2026-09-05: *"그 공지는 커뮤니티 공지에만 필요할듯."*). 맞는 구분이다 —
-     매뉴얼은 **지금 이 장비가 어떻게 생겼는지**를 적는 문서이고, "옮겨졌다" 는 그
-     시점의 사람에게만 뜻이 있다. 반년 뒤 처음 사는 사람에게는 옮겨진 적이 없다.
-     ⇒ "무엇이 어디로 갔다" 는 **릴리스 노트와 다운로드 페이지**가 맡는다(거기엔
-       "없어진 항목은 없다" 까지 적혀 있다). 여기는 결과만 적는다.
-     ※ 2.3(이퀄)·2.4(호흡) 두 자리에 있던 것을 같은 이유로 함께 뺐다.
-
-     ⛔⛔ **"왜 이 차례로 놓았나" 도 쓰지 말 것** (별님 2026-09-05, 위와 같은 판단으로
-        한 번 더): *"매뉴얼엔 불필요한 설명인듯."* — 뺀 문장은 "볼륨과 안내 목소리가
-        아래에 있는 것은 다음 장이 음성 안내이기 때문입니다" 였다.
-        읽는 사람은 **무엇이 어디 있는지**를 찾으러 온다. 배치의 속내는 만든 쪽 사정이고,
-        알아도 할 일이 하나도 안 달라진다. 그 이야기의 자리는 **코드 주석**이다
-        (ui_co2_settings.cpp 의 build_page1 머리말).
-     ★ 다만 **읽는 사람이 판단에 쓰는 이유는 남긴다** — 예를 들어 9.4 의 "툭 침 기본이
-       꺼짐인 이유" 는 켤지 말지를 정하는 데 쓰이므로 설명이 아니라 정보다.
-       가르는 기준: 그 문장을 읽고 **사용자가 할 일이 달라지는가**. -->
 <h4>페이지 1 — 모드 전환 · 훈련 값 · 소리 · USB</h4>
 <table class="setbl3">
   <thead><tr><th>항목</th><th>범위 / 선택</th><th>설명</th></tr></thead>
@@ -1002,17 +885,6 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
   </tbody>
 </table>
 
-<!-- ⛔⛔ **설정 항목의 이름과 값은 장비 화면에 적힌 낱말 그대로** (별님 2026-09-07).
-       뜻이 통하게 풀어 쓰면 사용자가 화면에서 그 낱말을 못 찾는다.
-       이 판에서 물린 것 셋 — 「시간 안내」의 값을 "남은 시간 / 지나간 시간" 으로
-       (화면은 **잔여 / 경과**), 「30초」를 "30초 전" 으로, 「카운트다운」을
-       "카운트다운 5~1" 로 풀어 썼다.
-       ★ 같은 지적을 릴리스 노트(2.4a)와 다운로드 페이지에서 먼저 받았다.
-         ⇒ 한 곳에서 물리면 **매뉴얼도 같이 볼 것.**
-       ⇒ 정본은 `main/ui/common/i18n.cpp` 의 한국어 표(STR_CO2_*). 지어내지 말 것.
-     ⛔ **표의 행 차례 = 화면의 행 차례**다. 페이지 1 은 화면이
-        모드 전환 → 스태틱 PB → 그래프 눈금 → 볼륨 → USB 순인데 표만 USB 가 위였다
-        (`ui_co2_settings.cpp` build_page1 이 정본). -->
 <h4>페이지 2 — 음성 안내 (펌웨어 2.3~)</h4>
 <p>훈련 중 나오는 안내를 <strong>항목마다 켜고 끕니다.</strong> 필요한 것만 남기면 됩니다.
 차례는 실제로 들리는 순서대로입니다.</p>
@@ -1043,8 +915,6 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
 <strong>부팅 시 모드 선택 · 기본 모드 · 모드 전환</strong> 세 가지만 양쪽에 똑같이 들어 있습니다.
 <strong>안내 목소리</strong>는 두 모드가 <strong>같은 값을 씁니다</strong> — 어느 쪽에서 바꿔도 함께 바뀝니다.</p>
 
-
-<!-- 8 -->
 <h2 id="sec9">9. 설정</h2>
 <p>메인 화면에서 <strong>[설정]</strong>을 누르면 열립니다. 설정은 <strong>4개 페이지</strong>로 구성되며, <strong>좌우 화살표</strong>로 페이지를 이동합니다.</p>
 
@@ -1157,7 +1027,6 @@ EQ 인터벌이 함께 시작합니다. 이어서 <em>plus 1 ~ 5</em>가 안내�
 <blockquote><strong>초기화는 "설정"만 되돌립니다.</strong> 저장된 측정 파일·스크린샷과 파일 번호(다음 측정에 매겨질 번호)는 <strong>그대로 유지</strong>됩니다. 측정 기록이 지워지지 않으니 안심하고 사용하세요.</blockquote>
 <blockquote>변경 후 <strong>[저장]을 눌러야 유지</strong>됩니다. 저장하지 않고 닫으면 일부 변경이 반영되지 않을 수 있습니다.</blockquote>
 
-<!-- 9 -->
 <h2 id="sec10">10. 관리와 업데이트</h2>
 
 <h3 id="s10_1">10.1 펌웨어 업데이트</h3>
@@ -1240,7 +1109,6 @@ EQ 인터벌이 함께 시작합니다. 이어서 <em>plus 1 ~ 5</em>가 안내�
   <li><strong>배터리</strong>: 장기간 사용하지 않을 때는 <strong>충전해 두고 보관</strong>하는 것을 권장합니다.</li>
 </ul>
 
-<!-- 10 -->
 <h2 id="sec11">11. 문제 해결 (FAQ)</h2>
 <table class="faq">
   <thead><tr><th>증상</th><th>확인 사항</th></tr></thead>
@@ -1257,7 +1125,6 @@ EQ 인터벌이 함께 시작합니다. 이어서 <em>plus 1 ~ 5</em>가 안내�
   </tbody>
 </table>
 
-<!-- 11 -->
 <h2 id="sec12">12. 안전·주의</h2>
 <ul>
   <li><strong>호흡 훈련(숨참기)은 물 밖에서만 하세요.</strong> 예고 없이 의식을 잃을 수 있습니다. 혼자 있을 때·운전 중·물가에서는 절대 하지 마시고, 물에서는 반드시 <strong>버디 또는 강사</strong>와 함께하세요.</li>

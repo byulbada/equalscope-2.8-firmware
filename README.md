@@ -28,3 +28,10 @@
 ## 문의
 
 별바다랩 · godnanai@naver.com
+
+---
+
+## 이 저장소의 HTML 은 **생성물**입니다
+
+`index.html` · `manual.html` · `quickstart.html` 과 `en/` · `download/` 아래 HTML 은
+비공개 저장소의 정본에서 만들어져 옵니다. **여기서 직접 고치면 다음 배포에서 덮입니다.**

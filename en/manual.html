@@ -10,48 +10,12 @@
 <link rel="alternate" hreflang="en" href="https://equalscope.kr/en/manual.html">
 <link rel="alternate" hreflang="x-default" href="https://equalscope.kr/manual.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<!-- 본문 폰트 Pretendard — 영문 랜딩(en/index.html)과 같은 것을 쓴다.
-     동적 서브셋이라 이 페이지에선 라틴 글자만 내려받는다. -->
+
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css">
-<!--
-  Equalscope User Manual (English) — 한글 정본 `../manual.html` 의 번역판.
 
-  ★★ **정본은 한글 `manual.html` 이다.** 내용이 바뀌면 **한글을 먼저 고치고 여기로
-     옮긴다.** 이쪽에서 먼저 고치면 두 판이 조용히 갈린다.
-     ⛔ 절 번호·앵커 id(#sec1, #s8_7 …)는 **한글판과 똑같이** 유지할 것 — 두 판을
-        나란히 놓고 대조하는 유일한 수단이고, 밖에서 걸린 링크도 이것을 쓴다.
-
-  ⛔⛔ **장비 화면에 나오는 낱말은 영문 펌웨어의 그것 그대로** 쓴다.
-     정본 = `eqtool_2.8_espidf/main/ui/common/i18n.cpp` 의 `s_str_en[]`.
-     한글 문구를 영어로 새로 옮기지 말 것 — 장비 화면에 없는 낱말이 되면 사용자가
-     화면에서 그것을 못 찾는다. 이 규칙 때문에 아래처럼 갈리는 자리가 있다:
-       설정 버튼   = [Set]      (Settings 아님)
-       분석 버튼   = [Stats]    (Analysis 아님)
-       재시작      = [Reboot]   / 초기화 = [Reset] (메인의 [Reset]과 낱말이 겹친다)
-       참조 해제   = [Unset]    / 참조 등록 = [Ref]
-       시간 안내   = Time cue (min,30s), 값은 Left / Elapsed
-       언어        = Lang       / 자동 종료 = Auto Off
-
-  ══ 화면 사진 ══
-  ★★ **영문 화면 캡처는 `../assets/en/` 에 있다** (별님이 한 벌 다 찍어 올림 2026-09-08).
-     ⛔ 화면 캡처를 `../assets/` 에서 가져오지 말 것 — 그쪽은 한글 화면이다.
-     ⇒ 새 영문 캡처를 받으면 **`assets/en/` 에 같은 이름으로 덮으면 끝**이다.
-       한글판은 `assets/` 를 보므로 서로 안 건드린다.
-  ※ 언어와 상관없는 것은 공용(`../assets/`)에 그대로 둔다 — 실물 사진 넷
-    (kit-orange · port-usb · slot-sd · connect-h · valve-orange)과 브랜드 심볼.
-  ✅ **화면 캡처는 전부 영문이다** (2026-09-08, 마지막 한 장 screen-markers 까지 받았다).
-  ⚠️ **파일 이름에 버전이 붙은 것 하나** — `screen-compare-btn-2.4b.png`.
-     그 버튼이 FW 2.4b 에서 `Compare` → `Vs Ref` 로 바뀌어, **아직 안 나간 판의 화면**
-     이라는 뜻으로 별님이 이름에 버전을 달아 두었다.
-     ⇒ 2.4b 를 내면 그때 **이름에서 `-2.4b` 를 떼고** 이 파일의 `<img src>` 도 함께
-       고칠 것. 그 전까지는 이름이 "이건 아직 앞선 판이다" 를 말해 준다.
-  ★ 어느 사진이 어느 화면인지는 한글판 머리말에 적어 두었다.
-
-  ⛔ 새 펌웨어를 낼 때 **여기 머리말 버전 · 맨 아래 footer 버전** 둘 다 고칠 것.
--->
 <style>
-  /* 영문 워드마크 폰트 Montserrat — 로컬 임베드 (CDN 의존 제거) */
+
   @font-face{font-family:'Montserrat';font-style:normal;font-weight:600;font-display:swap;
              src:url('../assets/fonts/montserrat-latin-600.woff2') format('woff2');}
   @font-face{font-family:'Montserrat';font-style:normal;font-weight:700;font-display:swap;
@@ -67,7 +31,6 @@
   .wrap{max-width:820px;margin:0 auto;background:#fff;
         box-shadow:0 1px 10px rgba(0,0,0,.12);}
 
-  /* 헤더 배너 */
   header{background:var(--navy);color:#fff;padding:30px 38px 24px;}
   header .brand{display:flex;align-items:center;gap:10px;font-family:"Montserrat","Pretendard",sans-serif;font-size:30px;font-weight:600;color:var(--orange);letter-spacing:-.5px;}
   header .brand .mark{height:35px;width:auto;margin:-4px 0;}
@@ -96,12 +59,11 @@
 
   table{width:100%;border-collapse:collapse;margin:10px 0 4px;font-size:14px;}
   th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top;}
-  /* 표 첫 열(항목/버튼/표시 라벨)은 줄바꿈 없이 한 줄로 */
+
   th:first-child,td:first-child{white-space:nowrap;}
   th{background:var(--navy);color:#fff;font-weight:600;}
   tbody tr:nth-child(even){background:var(--soft);}
-  /* ⛔ 영문은 낱말이 길어 첫 열 nowrap 이 표를 밖으로 밀어낸다 — 문장이 들어가는
-     표(FAQ·패턴·경고·설정)는 한글판과 같은 클래스로 폭을 못박고 nowrap 을 푼다. */
+
   table.faq{table-layout:fixed;}
   table.faq th:first-child,table.faq td:first-child{width:32%;white-space:normal;overflow-wrap:anywhere;}
   table.pat3{table-layout:fixed;}
@@ -109,17 +71,16 @@
   table.warn3{table-layout:fixed;}
   table.warn3 th:first-child,table.warn3 td:first-child{width:26%;white-space:normal;}
   table.warn3 th:nth-child(2),table.warn3 td:nth-child(2){width:30%;}
-  /* ⛔⛔ `.setbl` 은 **4열(항목/페이지/범위/설명) 설정 표 전용**이다. 2열에 nowrap 이
-     걸려 있어 그 자리에 문장이 오는 표에 붙이면 글자가 옆 열과 겹친다. */
+
   table.setbl{table-layout:fixed;}
   table.setbl th:first-child,table.setbl td:first-child{width:24%;white-space:normal;}
   table.setbl th:nth-child(2),table.setbl td:nth-child(2){width:16%;white-space:nowrap;}
   table.setbl th:nth-child(3),table.setbl td:nth-child(3){width:16%;}
-  /* 3열 설정 표(항목/범위/설명) — 페이지 열이 없으니 nowrap 도 없다 */
+
   table.setbl3{table-layout:fixed;}
   table.setbl3 th:first-child,table.setbl3 td:first-child{width:26%;white-space:normal;}
   table.setbl3 th:nth-child(2),table.setbl3 td:nth-child(2){width:22%;}
-  /* 3열 내용 표(구성품·사양·패턴 등) — 첫 열의 영문 라벨이 길어 nowrap 을 푼다 */
+
   table.lbl2 th:first-child,table.lbl2 td:first-child{white-space:normal;width:26%;}
 
   blockquote{margin:12px 0;padding:10px 14px;border-radius:6px;
@@ -165,9 +126,7 @@
   .figrow.themes img{width:100%;border:1px solid var(--line);border-radius:5px;}
   .figrow.pair.wide figure{flex:1 1 0;max-width:none;}
   .figrow figcaption{font-size:12px;color:var(--muted);margin-top:4px;}
-  /* ══ 좁은 화면(휴대폰) — 한글판과 같은 규칙 ══
-     ⛔ 고정 폭을 좁은 화면까지 끌고 가지 말 것. 넓은 화면에서 설명 열을 넉넉히
-        주려고 못박은 값이라, 좁아지면 오히려 반대로 작동한다. */
+
   @media (max-width:640px){
     header{padding:20px 16px 16px;}
     header .brand{font-size:24px;}
@@ -185,13 +144,12 @@
     table.faq th,table.faq td{width:auto;}
     table.lbl2 th:first-child,table.lbl2 td:first-child{width:auto;}
     .toc ol{columns:1;}
-    /* 그래도 넘치는 표가 생기면 잘리지 말고 옆으로 밀리게 — 마지막 안전망 */
+
     main{overflow-x:auto;}
   }
 
   @media print{ figure.fig,.figrow{page-break-inside:avoid;}
-    /* ⛔ `figure.fig.shot img` 를 따로 적어 줘야 한다 — 화면용 규칙이 클래스가 하나
-       더 많아 이기기 때문이다. 같은 종류 사진은 인쇄에서도 같은 크기다. */
+
     figure.fig img,figure.fig.shot img,.figrow.shots img{max-width:300px;}
     .figrow.pair figure{max-width:300px;} .figrow.pair img{max-width:300px;} }
 </style>
@@ -202,7 +160,7 @@
 <header>
   <div class="brand"><img class="mark" src="../assets/brand/byulbada-dive_symbol.svg" alt="">Equalscope</div>
   <h1>User Manual — full reference</h1>
-  <!-- ★ 릴리스 때 버전·날짜를 여기와 **맨 아래 footer 두 곳** 다 고칠 것. -->
+
   <div class="meta">
     Freediving equalization training device<br>
     For firmware v2.4a · Updated 2026-09-08 · For the short version see the printable <a href="quickstart.html">quick start</a><br>
@@ -230,7 +188,6 @@
   </ol>
 </nav>
 
-<!-- 1 -->
 <h2 id="sec1">1. Before you start</h2>
 
 <h3 id="s1_1">1.1 What is in the box</h3>
@@ -272,8 +229,7 @@
 </ul>
 
 <h3 id="s1_4">1.4 Specifications</h3>
-<!-- ⛔⛔ **랜딩(en/index.html)의 사양 표와 같은 내용·같은 차례**로 유지할 것.
-     한쪽을 고치면 다른 쪽도 같이 본다. 한글판 1.4 와도 같은 차례다. -->
+
 <table class="lbl2">
   <thead><tr><th>Item</th><th>Detail</th></tr></thead>
   <tbody>
@@ -295,7 +251,6 @@
   </tbody>
 </table>
 
-<!-- 2 -->
 <h2 id="sec2">2. Basic measurement</h2>
 
 <h3 id="s2_1">2.1 Connecting and wearing</h3>
@@ -336,7 +291,6 @@
   <li><strong>Live graph</strong> — in the middle. It tracks the run so far with an <strong>orange line for the highest point and a red line for the lowest</strong> (chapter <a href="#sec4">4</a> covers this in detail)</li>
 </ul>
 
-<!-- 3 -->
 <h2 id="sec3">3. Screen controls</h2>
 
 <h3 id="s3_1">3.1 The five buttons</h3>
@@ -368,7 +322,6 @@ tap it once more to stop. You do not have to hit a button accurately.</p>
 <blockquote>It does not respond while you are <strong>holding it in your hand</strong>. Only a tap on a device that was sitting still counts.
 If it misses your taps or reacts too easily, adjust <strong>Tap sensitivity</strong> (<a href="#s9_4">9.4</a>).</blockquote>
 
-<!-- 4 -->
 <h2 id="sec4">4. Reading the graph</h2>
 <p>On the live graph in the middle of the main screen, <strong>the horizontal axis is time and the vertical axis is pressure (hPa)</strong>.
 It samples at 40&nbsp;Hz (40 times a second), so the pressure in your mouth and ears is drawn almost in real time.</p>
@@ -413,7 +366,6 @@ It samples at 40&nbsp;Hz (40 times a second), so the pressure in your mouth and 
 </ul>
 <blockquote>The zoom level is shown at the bottom right (x1, 1/2 and so on). You can change the starting zoom in settings (<a href="#s9_3">9.3</a>).</blockquote>
 
-<!-- 5 -->
 <h2 id="sec5">5. Session analysis</h2>
 <figure class="fig shot"><img src="../assets/en/screen-analysis.png" alt="Analysis screen"><figcaption>Analysis screen — the numbers, the pattern verdict with its confidence, and an advice message</figcaption></figure>
 <p>When you stop a measurement it is saved automatically and <strong>the [Start] button becomes [Stats].</strong>
@@ -526,10 +478,7 @@ So you can train the way a descent usually goes — <strong>"Frenzel while it is
 They are not a medical diagnosis or a guarantee of safety. Train under the supervision of a qualified instructor.</blockquote>
 
 <h3 id="s5_7">5.7 Comparison (firmware 2.2 and later)</h3>
-<!-- ⛔ 버튼 이름은 **[Vs Ref]** 다 (별님 2026-09-08). 장비 화면에 "Compare" 로 넣었더니
-     61px 버튼을 꽉 채워 넘쳤다 — i18n.cpp 의 STR_BTN_COMPARE 자리에 근거가 있다.
-     ※ 캡처 이름에 `-2.4b` 가 붙어 있다 — **아직 안 나간 판의 화면**이라는 표시다
-       (별님). 2.4b 를 내면 이름에서 떼고 여기 src 도 같이 고칠 것. -->
+
 <figure class="fig shot"><img src="../assets/en/screen-compare-btn-2.4b.png" alt="Main screen with the Vs Ref button"><figcaption>With a reference loaded, the first button becomes <strong>[Vs Ref]</strong> instead of [Stats]</figcaption></figure>
 <p>Open another recording while a reference is loaded and <strong>the [Stats] button becomes [Vs Ref].</strong>
 Press it and you first get a table with the two sets of numbers side by side, then a few lines saying what has changed.
@@ -554,7 +503,6 @@ then go back to [Files] and open the one you want to look at. A session you have
 </ul>
 <blockquote>Even when it cannot compare, <strong>the analysis of the current recording appears as usual.</strong></blockquote>
 
-<!-- 6 -->
 <h2 id="sec6">6. Managing files</h2>
 
 <h3 id="s6_1">6.1 Automatic saving and the file format</h3>
@@ -684,7 +632,6 @@ Select a file and the name of that file takes its place.</blockquote>
   <li>Breath training records are renamed with the <strong>[Edit]</strong> button (long-press works too), but there <strong>only the middle name part</strong> changes (<a href="#s8_7">8.7</a>).</li>
 </ul>
 
-<!-- 7 -->
 <h2 id="sec7">7. Rhythm training</h2>
 <p>Equalization settles into a steady rhythm when you <strong>repeat it at regular intervals</strong>. Equalscope gives you two tools for that.</p>
 
@@ -692,9 +639,7 @@ Select a file and the name of that file takes its place.</blockquote>
 <p>Set up <strong>(interval × count)</strong> for each block and, from the moment you start measuring,
 you get <strong>a beep and a visual cue</strong> in that order. It is a tool for training your equalization rhythm against a descent plan.</p>
 <div class="figrow pair compact">
-  <!-- ⛔ **여기는 설정 1페이지다** (별님 2026-09-08) — 한글 정본과 같은 이유.
-       FW 2.3 에 EQ 인터벌이 2페이지에서 1페이지로 갔는데 이 사진과 설명만 남아 있었다.
-       9.2 표는 진작 "1" 이라 한 문서 안에서 서로 어긋났다. 설정을 재배치할 때 같이 볼 것. -->
+
   <figure><img src="../assets/en/screen-settings.png" alt="Settings page 1 — EQ Interval toggle and the Edit Intervals button"><figcaption>Settings page 1 — the EQ Interval toggle and [Edit Intervals]</figcaption></figure>
   <figure><img src="../assets/en/screen-interval-edit.png" alt="Interval editor — four blocks of interval × count"><figcaption>Interval editor — interval × count per block, with the totals on top</figcaption></figure>
 </div>
@@ -716,7 +661,6 @@ you get <strong>a beep and a visual cue</strong> in that order. It is a tool for
 <p>While you measure, the elapsed time is shown live as <strong>hh:mm:ss</strong> in the top left of the main screen.
 It gives you the training time at a glance, and works with EQ Interval for keeping track of interval sessions.</p>
 
-<!-- 8 -->
 <h2 id="sec8">8. Breath training (CO2 / O2)</h2>
 <p>Equalscope has a second mode, <strong>separate from equalization measurement.</strong>
 <strong>Breath training mode</strong> takes you through breath-holds and recovery breathing to a table,
@@ -914,16 +858,6 @@ close up are <strong>an indicator of where you are.</strong></p>
   <figure><img src="../assets/en/screen-co2-settings3.png" alt="Breath mode settings page 3 — mode"><figcaption>Page 3 — mode</figcaption></figure>
 </div>
 
-<!-- ⛔⛔ **한글판 8.9 의 규칙이 여기에도 그대로 걸린다**:
-       ① 과거와 비교하는 내용을 쓰지 않는다("예전에는", "자리를 다시 모았습니다").
-          매뉴얼은 **지금 이 장비가 어떻게 생겼는지**를 적는다.
-       ② 없는 것을 부연하지 않는다("합계는 두지 않았습니다").
-       ③ 개발 의도를 쓰지 않는다 — 그 자리는 코드 주석이다.
-       ★ 다만 버전 표기 `(firmware 2.4a and later)` 는 남긴다 — 읽고 할 일이 달라진다.
-     ⛔⛔ **설정 항목의 이름과 값은 장비 영문 화면 그대로.** 뜻이 통하게 풀어 쓰면
-       사용자가 화면에서 그 낱말을 못 찾는다. 정본은 i18n.cpp 의 `s_str_en[]`.
-       (한글판에서 「시간 안내」 값을 풀어 썼다가 물린 자리다 — 화면은 Left / Elapsed.)
-     ⛔ **표의 행 차례 = 화면의 행 차례**다 (`ui_co2_settings.cpp` build_page1 이 정본). -->
 <h4>Page 1 — mode switch · training values · sound · USB</h4>
 <table class="setbl3">
   <thead><tr><th>Item</th><th>Range / choice</th><th>What it does</th></tr></thead>
@@ -966,8 +900,6 @@ They are listed in the order you actually hear them.</p>
 <strong>Ask mode on boot, Default mode and the mode switch</strong> appear identically on both sides.
 <strong>Voice</strong> is <strong>a single shared value</strong> — change it in either mode and it changes in both.</p>
 
-
-<!-- 9 -->
 <h2 id="sec9">9. Settings</h2>
 <p>Press <strong>[Set]</strong> on the main screen to open them. Settings run to <strong>four pages</strong>; the <strong>left and right arrows</strong> turn them.</p>
 
@@ -1080,7 +1012,6 @@ Give the device a light <strong>tap</strong> where it sits on the table and the 
 <blockquote><strong>Reset only resets the settings.</strong> Your saved measurements, screenshots and the file counter (the number the next measurement will get) are <strong>left alone</strong>. Nothing you recorded is deleted.</blockquote>
 <blockquote>Changes are kept only if you press <strong>[Save]</strong>. Close without saving and some of them will not stick.</blockquote>
 
-<!-- 10 -->
 <h2 id="sec10">10. Care and updates</h2>
 
 <h3 id="s10_1">10.1 Firmware updates</h3>
@@ -1162,7 +1093,6 @@ Give the device a light <strong>tap</strong> where it sits on the table and the 
   <li><strong>Battery</strong>: if you are not going to use the device for a long time, <strong>store it charged</strong>.</li>
 </ul>
 
-<!-- 11 -->
 <h2 id="sec11">11. Troubleshooting (FAQ)</h2>
 <table class="faq">
   <thead><tr><th>Symptom</th><th>What to check</th></tr></thead>
@@ -1179,7 +1109,6 @@ Give the device a light <strong>tap</strong> where it sits on the table and the 
   </tbody>
 </table>
 
-<!-- 12 -->
 <h2 id="sec12">12. Safety</h2>
 <ul>
   <li><strong>Do breath training (breath-holds) out of the water only.</strong> You can lose consciousness without warning. Never do it alone, while driving, or beside water, and in water always train <strong>with a buddy or an instructor</strong>.</li>

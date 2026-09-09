@@ -11,12 +11,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css">
-<!--
-  영문 다운로드 페이지 (equalscope.kr/en/download/).
-  한글판(/download/)과 **같은 표·같은 스타일**을 쓴다 — 버전 행이 늘 때 두 파일을
-  나란히 고치면 된다. 변경 내용은 짧게 옮겼다(한글판이 원문, 여기는 요약).
-  ★ 새 버전을 낼 때 이 파일도 같이 고칠 것. 안 고치면 영문 사용자는 옛 버전만 본다.
--->
+
 <style>
   @font-face{font-family:'Montserrat';font-style:normal;font-weight:600;font-display:swap;
              src:url('/assets/fonts/montserrat-latin-600.woff2') format('woff2');}
@@ -34,17 +29,11 @@
   .intro{font-size:14.5px;color:#aebfcf;line-height:1.65;text-align:center;max-width:600px;margin:0 auto 30px;}
   .intro a{color:var(--orange);text-decoration:none;}
 
-  /* ※ 한글판(/download/)에 있는 'Before you update'(64GB 카드 포맷 순서) 안내는
-     **영문판에는 두지 않는다** (별님 2026-07-31). 해외로는 아직 배포된 장비가 없고,
-     앞으로 나가는 것은 전부 v2.0 이상이라 그 순서 문제를 겪을 사용자가 없다.
-     ★ 해외에 v1.1g 이하 장비가 나가는 일이 생기면 한글판에서 그대로 가져올 것. */
-
   .history h2{font-size:17px;color:#dfe7ef;font-weight:700;margin-bottom:14px;}
   table{width:100%;border-collapse:collapse;font-size:14.5px;}
   thead th{color:#8aa0b8;font-weight:700;font-size:12.5px;text-align:left;padding:0 10px 10px;border-bottom:1px solid rgba(255,255,255,.18);}
   tbody td{padding:14px 10px;border-bottom:1px solid rgba(255,255,255,.12);color:#c4d3e2;vertical-align:top;line-height:1.55;}
-  /* Changes are listed one item per line (별님 2026-07-30) — joining them with `·`
-     makes a multi-item release read as one block of text. Keep in sync with /download/. */
+
   tbody td ul{margin:0;padding-left:17px;}
   tbody td li{margin:4px 0;}
   tbody td li:first-child{margin-top:0;}
@@ -59,18 +48,12 @@
   .dlbtn:hover{background:var(--orange-d);}
   .dlbtn small{font-weight:600;font-size:11px;opacity:.85;}
   .fname{margin-top:7px;font-size:11.5px;color:#8aa0b8;font-family:ui-monospace,Menlo,Consolas,monospace;}
-  /* Wrapper that stacks the two buttons (.uf2 / .bin) — releases with USB update ship two
-     files per row. Rows up to v2.0 have only the .bin, so they do not use it. */
+
   td.dl .dls{display:flex;flex-direction:column;gap:9px;align-items:flex-end;}
   @media(max-width:600px){ td.dl .dls{align-items:flex-start;} }
-  /* Rollback boundary (v2.0c) — below this line, rolling back erases internal recordings.
-     Keep the class on the v2.0c row when newer versions are added: it marks the boundary,
-     not the latest release. Same block exists on the Korean page. */
+
   tbody tr.fs-break td{border-bottom:2px solid var(--orange);}
 
-  /* Two ways to update (2026-08-01, USB cable update added). The release ships two files
-     (.bin / .uf2) — spell out which goes where or that becomes most of the support mail.
-     The Korean page carries the same block; keep them in step. */
   .ways{display:flex;gap:14px;max-width:600px;margin:0 auto 30px;flex-wrap:wrap;}
   .way{flex:1 1 258px;padding:16px 18px;border-radius:12px;background:rgba(255,255,255,.06);
        border:1px solid rgba(255,255,255,.18);font-size:13.5px;line-height:1.65;color:#c4d3e2;}
@@ -126,9 +109,7 @@
           <li>Drop the <code>.uf2</code> file onto the <b>EQ UPDATE</b> drive that appears.</li>
           <li>The device asks to restart — tap <b>[Restart]</b>.</li>
         </ol>
-        <!-- ⛔ 영문 사진은 **/assets/en/** 에서 가져온다 (별님 2026-09-08). 예전에는
-             한글 폴더에 `usb-mode-en.png` 로 섞여 있었다 — 영문 캡처가 한 벌 다 올라오면서
-             그 파일은 없앴다. 새 영문 캡처를 받으면 이 폴더에만 넣으면 된다. -->
+
         <img src="/assets/en/usb-mode.png" alt="The USB screen on the device — File Transfer or Firmware Update">
         <span class="note">No SD card needed. <b>v2.0 and earlier do not have this</b>, so those
           versions need one SD card update first.</span>
@@ -145,14 +126,11 @@
       </div>
     </div>
 
-
     <div class="history">
       <h2>Firmware versions</h2>
       <table>
         <thead><tr><th>Version</th><th>Date</th><th>Changes</th><th>Download</th></tr></thead>
-        <!-- ★ New version rows carry **two files** (.uf2 for USB, .bin for SD). Wrap both in
-             <div class="dls"> to stack them, .uf2 first — the no-SD path is the default advice.
-             Keep the Korean page in step. -->
+
         <tbody>
           <tr>
             <td class="ver">v2.4a <span class="latest">latest</span></td>
@@ -425,11 +403,6 @@
       </table>
     </div>
 
-    <!-- ⛔ 매뉴얼 링크는 **영문판**으로 (별님 2026-09-09). `/manual.html` 로 한글
-         매뉴얼을 가리키며 「Manual (Korean)」이라고 적어 두었었다 — 영문 매뉴얼이
-         없던 시절의 흔적이다(2026-09-08 에 `en/manual.html` 이 생겼다).
-         ★ 차례도 한글 다운로드 페이지와 맞췄다(매뉴얼 · 퀵스타트 · 제품 소개).
-           ⛔ 한쪽만 고치지 말 것 — 두 페이지는 늘 짝으로 움직인다. -->
     <div class="links">
       <a href="/en/manual.html">Manual</a>
       <a href="/en/quickstart.html">Quick start</a>

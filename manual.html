@@ -827,6 +827,9 @@ SD 카드에 문제가 있으면 <strong>내부 메모리에 대신 저장</stro
   <li>기록을 열고 <strong>[그래프]</strong>를 누르면 그 라운드의 파형을 다시 봅니다.
       아래 <strong>◀ ▶</strong>로 라운드를 넘깁니다.</li>
   <li>위쪽의 <strong>주황색 표시</strong>가 컨트랙션으로 센 자리입니다. 그래프 아래에는 시각과 세기가 차례로 적힙니다.</li>
+  <li>그래프 아래 시간 눈금의 <strong>삼각형</strong>이 <strong>첫 컨트랙션 자리</strong>입니다 (펌웨어 2.4b~).</li>
+  <li>두 손가락으로 <strong>확대</strong>하고 좌우로 밀어 <strong>옮길 수 있습니다</strong> (펌웨어 2.4b~).
+      라운드를 넘겨도 보던 자리가 그대로 남아, 여러 판의 같은 구간을 이어서 볼 수 있습니다.</li>
   <li>오른쪽 위 <strong>필터</strong> 스위치를 켜면 <strong>잔진동을 걷어낸 그래프</strong>로 바뀝니다.
       어느 봉우리가 컨트랙션으로 세어졌는지 눈으로 확인할 때 씁니다.</li>
   <li>오른쪽 아래 <strong>간격</strong> 스위치를 켜면 목록의 <strong>둘째 항목부터
@@ -986,7 +989,7 @@ EQ 인터벌이 함께 시작합니다. 이어서 <em>plus 1 ~ 5</em>가 안내�
 <table class="setbl">
   <thead><tr><th>항목</th><th>페이지</th><th>범위</th><th>설명</th></tr></thead>
   <tbody>
-    <tr><td><strong>Y 최고</strong></td><td>3</td><td>10~200 hPa (5 단위)</td><td>그래프 세로축 위쪽 한계</td></tr>
+    <tr><td><strong>Y 최고</strong></td><td>3</td><td>10~200 hPa (5 단위)</td><td>그래프 세로축 위쪽 한계. 압력이 이 값을 넘으면 <strong>그래프가 잘리지 않도록 축이 자동으로 늘어납니다</strong> — 설정값은 그대로이고 다음 측정에서 원래 축으로 돌아옵니다 (펌웨어 2.4b~, 신형 센서 장비만 해당)</td></tr>
     <tr><td><strong>Y 최소</strong></td><td>3</td><td>-50~190 hPa</td><td>그래프 세로축 아래쪽 한계. <strong>-5 ~ 5 사이는 1 단위</strong>, 그 밖은 5 단위 — <strong>-1, -2</strong> 처럼 0 바로 아래에 눈금을 둘 수 있어 <strong>작은 음압이 바닥에 깔리지 않고 보입니다</strong></td></tr>
     <tr><td><strong>기본 줌</strong></td><td>3</td><td>—</td><td>측정 시작 시 적용되는 기본 시간축 배율</td></tr>
   </tbody>

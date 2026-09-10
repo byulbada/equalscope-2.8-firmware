@@ -479,7 +479,7 @@ They are not a medical diagnosis or a guarantee of safety. Train under the super
 
 <h3 id="s5_7">5.7 Comparison (firmware 2.2 and later)</h3>
 
-<figure class="fig shot"><img src="../assets/en/screen-compare-btn-2.4b.png" alt="Main screen with the Vs Ref button"><figcaption>With a reference loaded, the first button becomes <strong>[Vs Ref]</strong> instead of [Stats]</figcaption></figure>
+<figure class="fig shot"><img src="../assets/en/screen-compare-btn.png" alt="Main screen with the Vs Ref button"><figcaption>With a reference loaded, the first button becomes <strong>[Vs Ref]</strong> instead of [Stats]</figcaption></figure>
 <p>Open another recording while a reference is loaded and <strong>the [Stats] button becomes [Vs Ref].</strong>
 Press it and you first get a table with the two sets of numbers side by side, then a few lines saying what has changed.
 The analysis of the current recording follows as usual.</p>
@@ -812,6 +812,9 @@ close up are <strong>an indicator of where you are.</strong></p>
   <li>Open a record and press <strong>[Graph]</strong> to see that round's trace again.
       <strong>◀ ▶</strong> below moves between rounds.</li>
   <li>The <strong>orange marks</strong> along the top are where a contraction was counted. Below the graph each one is listed with its time and strength.</li>
+  <li>The <strong>triangle</strong> on the time scale below the graph marks the <strong>first contraction</strong> (firmware 2.4b and later).</li>
+  <li>Pinch to <strong>zoom</strong> and drag sideways to <strong>pan</strong> (firmware 2.4b and later).
+      Your position is kept when you move between rounds, so you can compare the same stretch across rounds.</li>
   <li>Turn on the <strong>Filter</strong> switch at the top right for <strong>the graph with the small ripples taken out</strong>.
       Use it to see with your own eyes which peaks were counted.</li>
   <li>Turn on the <strong>Gap</strong> switch at the bottom right and the list shows <strong>the time since the previous
@@ -971,7 +974,7 @@ EQ Interval all begin <strong>at the official top</strong>. Then <em>plus 1 ~ 5<
 <table class="setbl">
   <thead><tr><th>Item</th><th>Page</th><th>Range</th><th>What it does</th></tr></thead>
   <tbody>
-    <tr><td><strong>Y Max (hPa)</strong></td><td>3</td><td>10–200 hPa (steps of 5)</td><td>Upper limit of the graph's vertical axis</td></tr>
+    <tr><td><strong>Y Max (hPa)</strong></td><td>3</td><td>10–200 hPa (steps of 5)</td><td>Upper limit of the graph's vertical axis. If the pressure goes past it, <strong>the axis grows automatically so the graph is not cut off</strong> — the setting itself does not change, and the next measurement starts back at the value you set (firmware 2.4b and later, new sensor units only)</td></tr>
     <tr><td><strong>Y Min (hPa)</strong></td><td>3</td><td>-50–190 hPa</td><td>Lower limit of the vertical axis. <strong>Between -5 and 5 it steps by 1</strong>, outside that by 5 — so you can put a gridline at <strong>-1 or -2</strong>, just below zero, and <strong>small negative pressures show up instead of sitting on the floor</strong></td></tr>
     <tr><td><strong>Default Zoom</strong></td><td>3</td><td>—</td><td>The time-axis zoom a measurement starts at</td></tr>
   </tbody>

@@ -114,6 +114,8 @@
 
   .hero .eyebrow{display:inline-block;font-size:24px;font-weight:800;letter-spacing:-.4px;
                  line-height:1.35;color:var(--orange);text-wrap:balance;}
+
+  .hero .eyebrow .brk{display:none;}
   .hero h1{font-size:40px;line-height:1.25;font-weight:800;margin:0 0 16px;letter-spacing:-1px;}
 
   .hero h1 .brk{display:none;}
@@ -272,7 +274,9 @@
 
   @media(max-width:820px){
 
-    .hero .eyebrows .eyebrow{font-size:clamp(15px,4.4vw,24px);text-align:center;}
+    .hero .eyebrows .eyebrow{font-size:clamp(12px,4.2vw,24px);text-align:center;}
+
+    .hero .eyebrow .brk{display:inline;}
   }
 
   @media(max-width:820px){
@@ -333,7 +337,7 @@
 
   <div class="hero">
 
-    <div class="eyebrows"><span class="eyebrow">World's first! Automatic equalization analysis and contraction logging in one device</span></div>
+    <div class="eyebrows"><span class="eyebrow">World's first!<br class="brk"> Automatic equalization analysis and<br class="brk"> contraction logging in one device</span></div>
 
     <h1><span class="pt">Equalizing</span> by feel,<br class="brk"> now <span class="pt">seen and analysed.</span><br><span class="pt">Contractions</span> by hand,<br class="brk"> now <span class="pt">graphed and logged.</span></h1>
 

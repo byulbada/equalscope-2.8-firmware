@@ -104,6 +104,17 @@ byulbada-lab_<짜임>[_ko][_notag][_색].svg
 
 사업자명 로고. **강습·사업자 서류에만** 쓴다. 지우지 않고 남겨 둔다.
 
+| 갈래 | 아래 영문 줄 | 비고 |
+|---|---|---|
+| `byulbada-dive_logo_stacked.svg` · `..._horizontal.svg` · `..._horizontal_dark.svg` | **BYULBADA DIVE** | 2026-06 판. **그대로 둔다** |
+| `byulbada-dive_logo_stacked_explore*.svg` · `..._horizontal_explore*.svg` | **EXPLORE FURTHER** | 2026-09-19 추가 |
+
+★ **새 `_explore` 판은 별바다랩 로고와 같은 규칙**으로 그린다(심볼 대비 크기·자간·
+태그라인 폭 맞춤). 그래서 두 이름이 한 식구로 보인다.
+꼬리표(`_dark` · `_mono-*`)는 별바다랩 쪽과 같은 뜻이다.
+⛔ **옛 판을 지우거나 덮지 말 것** (별님 2026-09-19: *"기본 별바다다이브 로고 파일은
+그대로 둔 채… 새 로고만 추가하자."*).
+
 ## 다시 굽기
 
 로고 SVG 는 **손으로 고치지 않는다.** 비공개 repo 의 생성기를 고치고 다시 굽는다.
